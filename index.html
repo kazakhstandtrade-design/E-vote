@@ -22,6 +22,7 @@
 
 
         :root {
+
             --black: #17181c;
             --gray: #70747d;
             --light: #f6f6f4;
@@ -31,6 +32,7 @@
             --red-dark: #ad222d;
 
             --white: #ffffff;
+
         }
 
 
@@ -54,6 +56,7 @@
             background: var(--white);
 
             min-height: 100vh;
+
         }
 
 
@@ -79,6 +82,7 @@
 
             backdrop-filter:
                 blur(10px);
+
         }
 
 
@@ -97,6 +101,7 @@
             align-items: center;
 
             justify-content: space-between;
+
         }
 
 
@@ -117,6 +122,7 @@
             font-weight: 800;
 
             letter-spacing: -.4px;
+
         }
 
 
@@ -139,6 +145,7 @@
             justify-content: center;
 
             font-weight: 800;
+
         }
 
 
@@ -149,6 +156,7 @@
             align-items: center;
 
             gap: 25px;
+
         }
 
 
@@ -161,18 +169,20 @@
             font-size: 12px;
 
             transition: .2s;
+
         }
 
 
         .nav a:hover {
+
             color: var(--black);
+
         }
 
 
         .login-nav {
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             background: white;
 
@@ -189,11 +199,14 @@
             cursor: pointer;
 
             transition: .2s;
+
         }
 
 
         .login-nav:hover {
+
             border-color: var(--black);
+
         }
 
 
@@ -208,14 +221,15 @@
 
             margin: auto;
 
-            padding:
-                105px 24px 95px;
+            padding: 105px 24px 95px;
+
         }
 
 
         .hero-content {
 
             max-width: 850px;
+
         }
 
 
@@ -230,6 +244,7 @@
             letter-spacing: 1.5px;
 
             text-transform: uppercase;
+
         }
 
 
@@ -237,19 +252,21 @@
 
             margin-top: 18px;
 
-            font-size:
-                clamp(52px, 8vw, 88px);
+            font-size: clamp(52px, 8vw, 88px);
 
             line-height: .98;
 
             letter-spacing: -5px;
 
             font-weight: 800;
+
         }
 
 
         .hero h1 span {
+
             color: var(--red);
+
         }
 
 
@@ -264,26 +281,27 @@
             font-size: 15px;
 
             line-height: 1.75;
+
         }
 
 
-        /* =========================================
-           BUTTONS — ONLY BUTTONS CENTERED
-        ========================================= */
+        /* КНОПКИ ЦЕНТРИРУЕМ,
+           ТЕКСТ И ЗАГОЛОВОК ОСТАЮТСЯ СЛЕВА */
 
         .hero-buttons {
 
-            width: 100%;
-
             display: flex;
 
-            justify-content: center;
-
             align-items: center;
+
+            justify-content: center;
 
             gap: 10px;
 
             margin-top: 30px;
+
+            width: 100%;
+
         }
 
 
@@ -306,6 +324,7 @@
             cursor: pointer;
 
             transition: .2s;
+
         }
 
 
@@ -314,13 +333,13 @@
             background: var(--red-dark);
 
             transform: translateY(-1px);
+
         }
 
 
         .secondary-button {
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             background: white;
 
@@ -337,218 +356,14 @@
             cursor: pointer;
 
             transition: .2s;
+
         }
 
 
         .secondary-button:hover {
+
             border-color: #c9c9c6;
-        }
 
-
-
-        /* =========================================
-           LIVE RESULTS
-        ========================================= */
-
-        .results {
-
-            background: var(--light);
-
-            border-top:
-                1px solid var(--border);
-
-            border-bottom:
-                1px solid var(--border);
-
-            padding:
-                70px 24px;
-        }
-
-
-        .results-container {
-
-            max-width: 1180px;
-
-            margin: auto;
-        }
-
-
-        .results-header {
-
-            display: flex;
-
-            align-items: flex-end;
-
-            justify-content: space-between;
-
-            gap: 30px;
-        }
-
-
-        .results-status {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            color: var(--gray);
-
-            font-size: 10px;
-
-            white-space: nowrap;
-        }
-
-
-        .live-dot {
-
-            width: 7px;
-
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: var(--red);
-
-            animation:
-                pulse 1.7s infinite;
-        }
-
-
-        @keyframes pulse {
-
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: .35;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-
-        .results-grid {
-
-            margin-top: 30px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 15px;
-        }
-
-
-        .result-card {
-
-            background: white;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 13px;
-
-            padding: 24px;
-        }
-
-
-        .result-top {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-        }
-
-
-        .result-number {
-
-            color: var(--red);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-        }
-
-
-        .result-percent {
-
-            font-size: 22px;
-
-            font-weight: 800;
-
-            letter-spacing: -1px;
-        }
-
-
-        .result-name {
-
-            margin-top: 15px;
-
-            font-size: 16px;
-
-            font-weight: 700;
-        }
-
-
-        .result-votes {
-
-            margin-top: 5px;
-
-            color: var(--gray);
-
-            font-size: 11px;
-        }
-
-
-        .result-bar {
-
-            width: 100%;
-
-            height: 5px;
-
-            background:
-                #eeeeec;
-
-            border-radius: 20px;
-
-            overflow: hidden;
-
-            margin-top: 20px;
-        }
-
-
-        .result-progress {
-
-            height: 100%;
-
-            background: var(--red);
-
-            border-radius: 20px;
-
-            transition:
-                width .5s ease;
-        }
-
-
-        .results-total {
-
-            margin-top: 20px;
-
-            color: var(--gray);
-
-            font-size: 10px;
-
-            text-align: right;
         }
 
 
@@ -560,6 +375,7 @@
         .candidates {
 
             padding: 80px 24px;
+
         }
 
 
@@ -568,6 +384,7 @@
             max-width: 1180px;
 
             margin: auto;
+
         }
 
 
@@ -580,6 +397,48 @@
             justify-content: space-between;
 
             gap: 30px;
+
+        }
+
+
+        .section-label {
+
+            color: var(--red);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .section-title {
+
+            margin-top: 9px;
+
+            font-size: 32px;
+
+            line-height: 1.15;
+
+            letter-spacing: -1.2px;
+
+        }
+
+
+        .section-description {
+
+            margin-top: 10px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
         }
 
 
@@ -593,10 +452,10 @@
 
             font-weight: 700;
 
-            border-bottom:
-                1px solid var(--black);
+            border-bottom: 1px solid var(--black);
 
             padding-bottom: 3px;
+
         }
 
 
@@ -606,23 +465,23 @@
 
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 15px;
+
         }
 
 
         .candidate-card {
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 13px;
 
             padding: 22px;
 
             background: white;
+
         }
 
 
@@ -635,6 +494,7 @@
             font-weight: 800;
 
             letter-spacing: 1px;
+
         }
 
 
@@ -643,6 +503,7 @@
             margin-top: 15px;
 
             font-size: 18px;
+
         }
 
 
@@ -653,6 +514,7 @@
             color: var(--gray);
 
             font-size: 11px;
+
         }
 
 
@@ -665,6 +527,7 @@
             font-size: 12px;
 
             line-height: 1.65;
+
         }
 
 
@@ -676,8 +539,7 @@
 
             margin-top: 19px;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             background: white;
 
@@ -690,6 +552,7 @@
             cursor: pointer;
 
             transition: .2s;
+
         }
 
 
@@ -698,6 +561,7 @@
             background: var(--light);
 
             border-color: #ccccca;
+
         }
 
 
@@ -711,6 +575,7 @@
             background: var(--light);
 
             padding: 80px 24px;
+
         }
 
 
@@ -719,6 +584,7 @@
             max-width: 1180px;
 
             margin: auto;
+
         }
 
 
@@ -728,10 +594,10 @@
 
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 15px;
+
         }
 
 
@@ -739,12 +605,12 @@
 
             background: white;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 13px;
 
             padding: 24px;
+
         }
 
 
@@ -755,6 +621,7 @@
             font-size: 11px;
 
             font-weight: 800;
+
         }
 
 
@@ -763,6 +630,7 @@
             margin-top: 22px;
 
             font-size: 17px;
+
         }
 
 
@@ -775,6 +643,7 @@
             font-size: 12px;
 
             line-height: 1.7;
+
         }
 
 
@@ -786,6 +655,7 @@
         .security {
 
             padding: 80px 24px;
+
         }
 
 
@@ -794,6 +664,7 @@
             max-width: 1180px;
 
             margin: auto;
+
         }
 
 
@@ -803,10 +674,10 @@
 
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 15px;
+
         }
 
 
@@ -814,16 +685,17 @@
 
             padding: 24px;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 13px;
+
         }
 
 
         .security-item h3 {
 
             font-size: 16px;
+
         }
 
 
@@ -836,49 +708,7 @@
             font-size: 12px;
 
             line-height: 1.7;
-        }
 
-
-
-        /* =========================================
-           SECTION ELEMENTS
-        ========================================= */
-
-        .section-label {
-
-            color: var(--red);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.3px;
-
-            text-transform: uppercase;
-        }
-
-
-        .section-title {
-
-            margin-top: 9px;
-
-            font-size: 32px;
-
-            line-height: 1.15;
-
-            letter-spacing: -1.2px;
-        }
-
-
-        .section-description {
-
-            margin-top: 10px;
-
-            color: var(--gray);
-
-            font-size: 13px;
-
-            line-height: 1.7;
         }
 
 
@@ -889,10 +719,10 @@
 
         footer {
 
-            border-top:
-                1px solid var(--border);
+            border-top: 1px solid var(--border);
 
             padding: 30px 24px;
+
         }
 
 
@@ -909,6 +739,7 @@
             align-items: center;
 
             gap: 20px;
+
         }
 
 
@@ -917,6 +748,7 @@
             font-size: 13px;
 
             font-weight: 800;
+
         }
 
 
@@ -925,20 +757,21 @@
             color: var(--gray);
 
             font-size: 10px;
+
         }
 
 
 
         /* =========================================
-           STORAGE
+           CLEAR STORAGE
         ========================================= */
 
         .storage-clear {
 
             text-align: center;
 
-            padding:
-                15px 24px 30px;
+            padding: 15px 24px 30px;
+
         }
 
 
@@ -953,11 +786,14 @@
             font-size: 10px;
 
             cursor: pointer;
+
         }
 
 
         .storage-clear-button:hover {
+
             color: var(--red);
+
         }
 
 
@@ -980,18 +816,19 @@
 
             padding: 20px;
 
-            background:
-                rgba(0,0,0,.55);
+            background: rgba(0,0,0,.55);
 
-            backdrop-filter:
-                blur(5px);
+            backdrop-filter: blur(5px);
 
             z-index: 100;
+
         }
 
 
         .modal.active {
+
             display: flex;
+
         }
 
 
@@ -1008,8 +845,8 @@
             padding: 30px;
 
             box-shadow:
-                0 25px 70px
-                rgba(0,0,0,.18);
+                0 25px 70px rgba(0,0,0,.18);
+
         }
 
 
@@ -1020,11 +857,14 @@
             align-items: center;
 
             justify-content: space-between;
+
         }
 
 
         .modal-header h2 {
+
             font-size: 22px;
+
         }
 
 
@@ -1045,6 +885,7 @@
             font-size: 20px;
 
             cursor: pointer;
+
         }
 
 
@@ -1057,11 +898,14 @@
             font-size: 12px;
 
             line-height: 1.5;
+
         }
 
 
         .form-group {
+
             margin-top: 18px;
+
         }
 
 
@@ -1074,6 +918,7 @@
             font-size: 11px;
 
             font-weight: 700;
+
         }
 
 
@@ -1085,19 +930,21 @@
 
             padding: 0 12px;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 8px;
 
             outline: none;
 
             font-size: 13px;
+
         }
 
 
         .form-group input:focus {
+
             border-color: var(--red);
+
         }
 
 
@@ -1122,11 +969,14 @@
             font-weight: 700;
 
             cursor: pointer;
+
         }
 
 
         .form-button:hover {
+
             background: var(--red-dark);
+
         }
 
 
@@ -1139,6 +989,7 @@
             color: var(--gray);
 
             font-size: 11px;
+
         }
 
 
@@ -1153,6 +1004,7 @@
             font-weight: 700;
 
             cursor: pointer;
+
         }
 
 
@@ -1173,11 +1025,14 @@
             font-size: 11px;
 
             line-height: 1.5;
+
         }
 
 
         .form-error.active {
+
             display: block;
+
         }
 
 
@@ -1190,35 +1045,45 @@
 
 
             .header-container {
+
                 padding: 0 17px;
+
             }
 
 
             .nav {
+
                 gap: 10px;
+
             }
 
 
             .nav a {
+
                 display: none;
+
             }
 
 
             .hero {
 
                 padding:
-                    75px 20px
-                    70px;
+                    75px 20px 70px;
+
             }
 
 
             .hero h1 {
+
                 letter-spacing: -3px;
+
             }
 
 
             .hero-description {
+
                 font-size: 14px;
+
             }
 
 
@@ -1233,40 +1098,34 @@
                 margin-left: auto;
 
                 margin-right: auto;
+
             }
 
 
-            .hero-buttons button {
+            .primary-button,
+            .secondary-button {
+
                 width: 100%;
+
             }
 
 
-            .results,
             .candidates,
             .how,
             .security {
 
                 padding:
                     60px 20px;
+
             }
 
 
-            .results-header {
-
-                align-items: flex-start;
-
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-
-            .results-grid,
             .candidate-grid,
             .steps,
             .security-grid {
 
                 grid-template-columns: 1fr;
+
             }
 
 
@@ -1275,11 +1134,14 @@
                 align-items: flex-start;
 
                 flex-direction: column;
+
             }
 
 
             .section-title {
+
                 font-size: 28px;
+
             }
 
 
@@ -1288,6 +1150,7 @@
                 flex-direction: column;
 
                 text-align: center;
+
             }
 
         }
@@ -1398,6 +1261,8 @@
         </p>
 
 
+        <!-- ТОЛЬКО ЭТИ КНОПКИ ЦЕНТРИРОВАНЫ -->
+
         <div class="hero-buttons">
 
 
@@ -1433,248 +1298,6 @@
 
 
 <!-- =========================================
-     LIVE RESULTS
-========================================= -->
-
-<section
-    class="results"
-    id="results">
-
-
-    <div class="results-container">
-
-
-        <div class="results-header">
-
-
-            <div>
-
-
-                <div class="section-label">
-
-                    Результаты
-
-                </div>
-
-
-                <h2 class="section-title">
-
-                    Результаты в реальном времени
-
-                </h2>
-
-
-                <p class="section-description">
-
-                    Текущие результаты голосования
-                    обновляются по мере поступления
-                    новых голосов.
-
-                </p>
-
-
-            </div>
-
-
-            <div class="results-status">
-
-                <span class="live-dot"></span>
-
-                Данные обновляются
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="results-grid">
-
-
-            <div class="result-card">
-
-
-                <div class="result-top">
-
-
-                    <div class="result-number">
-                        КАНДИДАТ 01
-                    </div>
-
-
-                    <div
-                        class="result-percent"
-                        id="percent1">
-
-                        42%
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="result-name">
-
-                    Айдар Сейітов
-
-                </div>
-
-
-                <div
-                    class="result-votes"
-                    id="votes1">
-
-                    420 голосов
-
-                </div>
-
-
-                <div class="result-bar">
-
-                    <div
-                        class="result-progress"
-                        id="progress1"
-                        style="width:42%;">
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="result-card">
-
-
-                <div class="result-top">
-
-
-                    <div class="result-number">
-                        КАНДИДАТ 02
-                    </div>
-
-
-                    <div
-                        class="result-percent"
-                        id="percent2">
-
-                        35%
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="result-name">
-
-                    Дана Омарова
-
-                </div>
-
-
-                <div
-                    class="result-votes"
-                    id="votes2">
-
-                    350 голосов
-
-                </div>
-
-
-                <div class="result-bar">
-
-                    <div
-                        class="result-progress"
-                        id="progress2"
-                        style="width:35%;">
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="result-card">
-
-
-                <div class="result-top">
-
-
-                    <div class="result-number">
-                        КАНДИДАТ 03
-                    </div>
-
-
-                    <div
-                        class="result-percent"
-                        id="percent3">
-
-                        23%
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="result-name">
-
-                    Ерлан Нурбек
-
-                </div>
-
-
-                <div
-                    class="result-votes"
-                    id="votes3">
-
-                    230 голосов
-
-                </div>
-
-
-                <div class="result-bar">
-
-                    <div
-                        class="result-progress"
-                        id="progress3"
-                        style="width:23%;">
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-        <div
-            class="results-total"
-            id="resultsTotal">
-
-            Всего голосов: 1 000
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
      CANDIDATES
 ========================================= -->
 
@@ -1693,12 +1316,16 @@
 
 
                 <div class="section-label">
+
                     Выбор
+
                 </div>
 
 
                 <h2 class="section-title">
+
                     Кандидаты
+
                 </h2>
 
 
@@ -1741,7 +1368,9 @@
 
 
                 <h3>
+
                     Айдар Сейітов
+
                 </h3>
 
 
@@ -1788,7 +1417,9 @@
 
 
                 <h3>
+
                     Дана Омарова
+
                 </h3>
 
 
@@ -1835,7 +1466,9 @@
 
 
                 <h3>
+
                     Ерлан Нурбек
+
                 </h3>
 
 
@@ -1892,7 +1525,9 @@
 
 
         <div class="section-label">
+
             Процесс
+
         </div>
 
 
@@ -1910,12 +1545,16 @@
 
 
                 <div class="step-number">
+
                     01
+
                 </div>
 
 
                 <h3>
+
                     Создание аккаунта
+
                 </h3>
 
 
@@ -1936,12 +1575,16 @@
 
 
                 <div class="step-number">
+
                     02
+
                 </div>
 
 
                 <h3>
+
                     Проверка личности
+
                 </h3>
 
 
@@ -1962,12 +1605,16 @@
 
 
                 <div class="step-number">
+
                     03
+
                 </div>
 
 
                 <h3>
+
                     Голосование
+
                 </h3>
 
 
@@ -2005,12 +1652,16 @@
 
 
         <div class="section-label">
+
             Защита
+
         </div>
 
 
         <h2 class="section-title">
+
             Основные принципы
+
         </h2>
 
 
@@ -2021,7 +1672,9 @@
 
 
                 <h3>
+
                     Конфиденциальность
+
                 </h3>
 
 
@@ -2043,7 +1696,9 @@
 
 
                 <h3>
+
                     Один избиратель — один голос
+
                 </h3>
 
 
@@ -2064,7 +1719,9 @@
 
 
                 <h3>
+
                     Контроль пользователя
+
                 </h3>
 
 
@@ -2100,7 +1757,9 @@
 
 
         <div class="footer-logo">
+
             VOTE
+
         </div>
 
 
@@ -2155,7 +1814,9 @@
 
 
             <h2 id="modalTitle">
+
                 Вход
+
             </h2>
 
 
@@ -2190,7 +1851,9 @@
 
 
                 <label for="loginEmail">
+
                     Email
+
                 </label>
 
 
@@ -2207,7 +1870,9 @@
 
 
                 <label for="loginPassword">
+
                     Пароль
+
                 </label>
 
 
@@ -2265,7 +1930,9 @@
 
 
                 <label for="registerEmail">
+
                     Email
+
                 </label>
 
 
@@ -2282,7 +1949,9 @@
 
 
                 <label for="registerPassword">
+
                     Пароль
+
                 </label>
 
 
@@ -2299,7 +1968,9 @@
 
 
                 <label for="registerPassword2">
+
                     Повторите пароль
+
                 </label>
 
 
@@ -2367,7 +2038,9 @@
 
 
             <h2 id="candidateTitle">
+
                 Кандидат
+
             </h2>
 
 
@@ -2586,9 +2259,7 @@ function register() {
             .getElementById("registerError");
 
 
-    error.classList.remove(
-        "active"
-    );
+    error.classList.remove("active");
 
 
     if (!email) {
@@ -2599,6 +2270,7 @@ function register() {
         );
 
         return;
+
     }
 
 
@@ -2610,6 +2282,7 @@ function register() {
         );
 
         return;
+
     }
 
 
@@ -2621,19 +2294,17 @@ function register() {
         );
 
         return;
+
     }
 
 
-    const users =
-        getUsers();
+    const users = getUsers();
 
 
     const existingUser =
         users.find(
-
             user =>
                 user.email === email
-
         );
 
 
@@ -2645,6 +2316,7 @@ function register() {
         );
 
         return;
+
     }
 
 
@@ -2670,6 +2342,10 @@ function register() {
 
     saveUsers(users);
 
+
+    /*
+     * Сбрасываем старое состояние
+     */
 
     localStorage.removeItem(
         "vote_verified"
@@ -2728,9 +2404,7 @@ function login() {
             .getElementById("loginError");
 
 
-    error.classList.remove(
-        "active"
-    );
+    error.classList.remove("active");
 
 
     if (
@@ -2744,6 +2418,7 @@ function login() {
         );
 
         return;
+
     }
 
 
@@ -2769,8 +2444,15 @@ function login() {
         );
 
         return;
+
     }
 
+
+    /*
+     * При новом входе
+     * подтверждение личности
+     * начинается заново.
+     */
 
     localStorage.removeItem(
         "vote_verified"
@@ -2861,177 +2543,6 @@ function closeCandidateModal() {
 
 
 /* =========================================
-   LIVE RESULTS
-========================================= */
-
-
-function loadResults() {
-
-    let results =
-        JSON.parse(
-            localStorage.getItem(
-                "vote_results"
-            ) || "null"
-        );
-
-
-    if (!results) {
-
-        results = {
-
-            candidate1: 420,
-
-            candidate2: 350,
-
-            candidate3: 230
-
-        };
-
-
-        localStorage.setItem(
-            "vote_results",
-            JSON.stringify(results)
-        );
-
-    }
-
-
-    updateResults(results);
-
-}
-
-
-function updateResults(results) {
-
-    const total =
-        results.candidate1 +
-        results.candidate2 +
-        results.candidate3;
-
-
-    if (total === 0) {
-
-        return;
-
-    }
-
-
-    const percent1 =
-        Math.round(
-            results.candidate1 /
-            total *
-            100
-        );
-
-
-    const percent2 =
-        Math.round(
-            results.candidate2 /
-            total *
-            100
-        );
-
-
-    const percent3 =
-        100 -
-        percent1 -
-        percent2;
-
-
-    document
-        .getElementById("percent1")
-        .textContent =
-            percent1 + "%";
-
-
-    document
-        .getElementById("percent2")
-        .textContent =
-            percent2 + "%";
-
-
-    document
-        .getElementById("percent3")
-        .textContent =
-            percent3 + "%";
-
-
-    document
-        .getElementById("votes1")
-        .textContent =
-            formatNumber(
-                results.candidate1
-            ) + " голосов";
-
-
-    document
-        .getElementById("votes2")
-        .textContent =
-            formatNumber(
-                results.candidate2
-            ) + " голосов";
-
-
-    document
-        .getElementById("votes3")
-        .textContent =
-            formatNumber(
-                results.candidate3
-            ) + " голосов";
-
-
-    document
-        .getElementById("progress1")
-        .style.width =
-            percent1 + "%";
-
-
-    document
-        .getElementById("progress2")
-        .style.width =
-            percent2 + "%";
-
-
-    document
-        .getElementById("progress3")
-        .style.width =
-            percent3 + "%";
-
-
-    document
-        .getElementById("resultsTotal")
-        .textContent =
-            "Всего голосов: " +
-            formatNumber(total);
-
-}
-
-
-function formatNumber(number) {
-
-    return number
-        .toString()
-        .replace(
-            /\B(?=(\d{3})+(?!\d))/g,
-            " "
-        );
-
-}
-
-
-/*
- * Проверяем результаты
- * каждые 3 секунды.
- */
-
-setInterval(
-    loadResults,
-    3000
-);
-
-
-
-/* =========================================
    CLEAR STORAGE
 ========================================= */
 
@@ -3045,11 +2556,9 @@ function clearAllStorage() {
 
             "Будут удалены зарегистрированные аккаунты, " +
 
-            "текущая сессия, результаты голосования, " +
+            "текущая сессия, подтверждение личности, " +
 
-            "подтверждение личности, токены и другие " +
-
-            "сохранённые данные."
+            "токены и другие сохранённые данные."
 
         );
 
@@ -3074,14 +2583,6 @@ function clearAllStorage() {
     window.location.reload();
 
 }
-
-
-
-/* =========================================
-   INITIALIZATION
-========================================= */
-
-loadResults();
 
 
 </script>
