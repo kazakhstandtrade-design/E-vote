@@ -11,7 +11,6 @@
 
     <title>VOTE — Qauipsiz sailau</title>
 
-
     <style>
 
         * {
@@ -20,29 +19,27 @@
             box-sizing: border-box;
         }
 
-
         :root {
-
             --black: #17181c;
             --gray: #70747d;
-            --light: #f6f6f4;
-            --border: #e7e7e4;
+            --light: #f5f7f8;
+            --border: #e4e7e9;
 
             --red: #c92d38;
             --red-dark: #ad222d;
 
+            --blue: #00afca;
+            --blue-dark: #007f94;
+            --gold: #f5c542;
+
             --white: #ffffff;
-
         }
-
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             font-family:
                 -apple-system,
                 BlinkMacSystemFont,
@@ -52,11 +49,8 @@
                 sans-serif;
 
             color: var(--black);
-
             background: var(--white);
-
             min-height: 100vh;
-
         }
 
 
@@ -65,7 +59,6 @@
         ========================================= */
 
         header {
-
             height: 72px;
 
             background:
@@ -75,117 +68,82 @@
                 1px solid var(--border);
 
             position: sticky;
-
             top: 0;
 
             z-index: 50;
 
             backdrop-filter:
                 blur(10px);
-
         }
 
-
         .header-container {
-
             max-width: 1180px;
-
             height: 100%;
 
             margin: auto;
-
             padding: 0 24px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
         }
 
-
         .logo {
-
             display: flex;
-
             align-items: center;
-
             gap: 10px;
 
             color: var(--black);
-
             text-decoration: none;
 
             font-size: 19px;
-
             font-weight: 800;
-
             letter-spacing: -.4px;
-
         }
 
-
         .logo-mark {
-
             width: 33px;
-
             height: 33px;
 
             border-radius: 9px;
 
-            background: var(--red);
+            background: var(--blue);
 
             color: white;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             font-weight: 800;
 
+            box-shadow:
+                0 4px 12px rgba(0,175,202,.18);
         }
-
 
         .nav {
-
             display: flex;
-
             align-items: center;
-
             gap: 25px;
-
         }
 
-
         .nav a {
-
             color: var(--gray);
-
             text-decoration: none;
 
             font-size: 12px;
 
             transition: .2s;
-
         }
-
 
         .nav a:hover {
-
             color: var(--black);
-
         }
 
-
         .login-nav {
-
             border: 1px solid var(--border);
 
             background: white;
-
             color: var(--black);
 
             padding: 9px 17px;
@@ -193,66 +151,164 @@
             border-radius: 8px;
 
             font-size: 12px;
-
             font-weight: 600;
 
             cursor: pointer;
 
             transition: .2s;
-
         }
-
 
         .login-nav:hover {
-
-            border-color: var(--black);
-
+            border-color: var(--blue);
+            color: var(--blue-dark);
         }
-
 
 
         /* =========================================
            HERO
+           ФЛАГ КАЗАХСТАНА + ЗАТЕМНЕНИЕ
         ========================================= */
 
         .hero {
+            position: relative;
 
             max-width: 1180px;
 
             margin: auto;
 
+            min-height: 570px;
+
             padding: 105px 24px 95px;
 
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            isolation: isolate;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,45,65,.88) 0%,
+                    rgba(0,91,112,.76) 42%,
+                    rgba(0,60,75,.67) 100%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #00afca 0%,
+                    #00afca 100%
+                );
+
+            border-radius: 0 0 22px 22px;
+        }
+
+
+        /*
+         * Стилизованный флаговый фон.
+         * Голубой фон + солнце + орнамент.
+         */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -2;
+
+            background:
+
+                radial-gradient(
+                    circle at 73% 45%,
+                    rgba(245,197,66,.92) 0 48px,
+                    rgba(245,197,66,.15) 49px 82px,
+                    transparent 83px
+                ),
+
+                radial-gradient(
+                    ellipse at 73% 45%,
+                    transparent 0 70px,
+                    rgba(255,255,255,.12) 71px 73px,
+                    transparent 74px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    #00afca,
+                    #00afca
+                );
+        }
+
+
+        /*
+         * Золотой орнамент справа.
+         */
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            right: -80px;
+            top: -30px;
+
+            width: 420px;
+            height: 650px;
+
+            z-index: -1;
+
+            opacity: .20;
+
+            background-image:
+
+                repeating-linear-gradient(
+                    45deg,
+                    transparent 0 18px,
+                    rgba(245,197,66,.9) 19px 21px,
+                    transparent 22px 38px
+                );
+
+            transform:
+                rotate(8deg);
+
+            mask-image:
+                linear-gradient(
+                    to left,
+                    black,
+                    transparent
+                );
         }
 
 
         .hero-content {
+            position: relative;
 
             max-width: 850px;
 
+            z-index: 2;
         }
 
 
         .hero-kazakh {
-
-            color: var(--red);
+            color: var(--gold);
 
             font-size: 11px;
-
             font-weight: 800;
 
             letter-spacing: 1.5px;
 
             text-transform: uppercase;
-
         }
 
 
         .hero h1 {
-
             margin-top: 18px;
 
-            font-size: clamp(52px, 8vw, 88px);
+            font-size:
+                clamp(52px, 8vw, 88px);
 
             line-height: .98;
 
@@ -260,40 +316,39 @@
 
             font-weight: 800;
 
+            color: white;
+
+            text-shadow:
+                0 4px 25px rgba(0,0,0,.16);
         }
 
 
         .hero h1 span {
-
-            color: var(--red);
-
+            color: var(--gold);
         }
 
 
         .hero-description {
-
             max-width: 680px;
 
             margin-top: 25px;
 
-            color: var(--gray);
+            color: rgba(255,255,255,.86);
 
             font-size: 15px;
 
             line-height: 1.75;
-
         }
 
 
-        /* КНОПКИ ЦЕНТРИРУЕМ,
-           ТЕКСТ И ЗАГОЛОВОК ОСТАЮТСЯ СЛЕВА */
+        /*
+         * КНОПКИ ОСТАЮТСЯ ПО ЦЕНТРУ
+         */
 
         .hero-buttons {
-
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             gap: 10px;
@@ -301,12 +356,10 @@
             margin-top: 30px;
 
             width: 100%;
-
         }
 
 
         .primary-button {
-
             border: none;
 
             background: var(--red);
@@ -318,54 +371,53 @@
             border-radius: 8px;
 
             font-size: 12px;
-
             font-weight: 700;
 
             cursor: pointer;
 
             transition: .2s;
-
         }
 
 
         .primary-button:hover {
-
             background: var(--red-dark);
 
-            transform: translateY(-1px);
-
+            transform:
+                translateY(-1px);
         }
 
 
         .secondary-button {
+            border: 1px solid rgba(255,255,255,.35);
 
-            border: 1px solid var(--border);
+            background:
+                rgba(255,255,255,.10);
 
-            background: white;
-
-            color: var(--black);
+            color: white;
 
             padding: 14px 22px;
 
             border-radius: 8px;
 
             font-size: 12px;
-
             font-weight: 600;
 
             cursor: pointer;
 
             transition: .2s;
 
+            backdrop-filter:
+                blur(8px);
         }
 
 
         .secondary-button:hover {
+            background:
+                rgba(255,255,255,.18);
 
-            border-color: #c9c9c6;
-
+            border-color:
+                rgba(255,255,255,.65);
         }
-
 
 
         /* =========================================
@@ -373,51 +425,35 @@
         ========================================= */
 
         .candidates {
-
             padding: 80px 24px;
-
         }
-
 
         .candidates-container {
-
             max-width: 1180px;
-
             margin: auto;
-
         }
 
-
         .candidates-header {
-
             display: flex;
 
             align-items: flex-end;
-
             justify-content: space-between;
 
             gap: 30px;
-
         }
 
-
         .section-label {
-
             color: var(--red);
 
             font-size: 10px;
-
             font-weight: 800;
 
             letter-spacing: 1.3px;
 
             text-transform: uppercase;
-
         }
 
-
         .section-title {
-
             margin-top: 9px;
 
             font-size: 32px;
@@ -425,12 +461,9 @@
             line-height: 1.15;
 
             letter-spacing: -1.2px;
-
         }
 
-
         .section-description {
-
             margin-top: 10px;
 
             color: var(--gray);
@@ -438,43 +471,36 @@
             font-size: 13px;
 
             line-height: 1.7;
-
         }
 
-
         .candidates-link {
-
             color: var(--black);
 
             text-decoration: none;
 
             font-size: 12px;
-
             font-weight: 700;
 
-            border-bottom: 1px solid var(--black);
+            border-bottom:
+                1px solid var(--black);
 
             padding-bottom: 3px;
-
         }
 
-
         .candidate-grid {
-
             margin-top: 30px;
 
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 15px;
-
         }
 
-
         .candidate-card {
-
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 13px;
 
@@ -482,11 +508,21 @@
 
             background: white;
 
+            transition: .25s;
         }
 
+        .candidate-card:hover {
+            transform:
+                translateY(-3px);
+
+            border-color:
+                rgba(0,175,202,.35);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,.05);
+        }
 
         .candidate-number {
-
             color: var(--red);
 
             font-size: 10px;
@@ -494,32 +530,23 @@
             font-weight: 800;
 
             letter-spacing: 1px;
-
         }
 
-
         .candidate-card h3 {
-
             margin-top: 15px;
 
             font-size: 18px;
-
         }
 
-
         .candidate-info {
-
             margin-top: 6px;
 
             color: var(--gray);
 
             font-size: 11px;
-
         }
 
-
         .candidate-description {
-
             margin-top: 15px;
 
             color: var(--gray);
@@ -527,19 +554,17 @@
             font-size: 12px;
 
             line-height: 1.65;
-
         }
 
-
         .candidate-button {
-
             width: 100%;
 
             height: 39px;
 
             margin-top: 19px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             background: white;
 
@@ -552,18 +577,17 @@
             cursor: pointer;
 
             transition: .2s;
-
         }
-
 
         .candidate-button:hover {
-
             background: var(--light);
 
-            border-color: #ccccca;
+            border-color:
+                var(--blue);
 
+            color:
+                var(--blue-dark);
         }
-
 
 
         /* =========================================
@@ -571,71 +595,74 @@
         ========================================= */
 
         .how {
-
             background: var(--light);
 
             padding: 80px 24px;
-
         }
-
 
         .how-container {
-
             max-width: 1180px;
-
             margin: auto;
-
         }
 
-
         .steps {
-
             margin-top: 30px;
 
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 15px;
-
         }
 
-
         .step {
-
             background: white;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 13px;
 
             padding: 24px;
 
+            position: relative;
+
+            overflow: hidden;
         }
 
+        .step::after {
+            content: "";
+
+            position: absolute;
+
+            width: 80px;
+            height: 80px;
+
+            right: -35px;
+            bottom: -35px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(0,175,202,.16);
+        }
 
         .step-number {
-
             color: var(--red);
 
             font-size: 11px;
 
             font-weight: 800;
-
         }
 
-
         .step h3 {
-
             margin-top: 22px;
 
             font-size: 17px;
-
         }
 
-
         .step p {
-
             margin-top: 8px;
 
             color: var(--gray);
@@ -643,9 +670,7 @@
             font-size: 12px;
 
             line-height: 1.7;
-
         }
-
 
 
         /* =========================================
@@ -653,54 +678,57 @@
         ========================================= */
 
         .security {
-
             padding: 80px 24px;
-
         }
-
 
         .security-container {
-
             max-width: 1180px;
-
             margin: auto;
-
         }
 
-
         .security-grid {
-
             margin-top: 30px;
 
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns:
+                repeat(3, 1fr);
 
             gap: 15px;
-
         }
 
-
         .security-item {
-
             padding: 24px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 13px;
 
+            position: relative;
         }
 
+        .security-item::before {
+            content: "Ұ";
+
+            position: absolute;
+
+            right: 22px;
+            top: 20px;
+
+            color:
+                rgba(0,175,202,.18);
+
+            font-size: 25px;
+
+            font-weight: 800;
+        }
 
         .security-item h3 {
-
             font-size: 16px;
-
         }
 
-
         .security-item p {
-
             margin-top: 8px;
 
             color: var(--gray);
@@ -708,9 +736,7 @@
             font-size: 12px;
 
             line-height: 1.7;
-
         }
-
 
 
         /* =========================================
@@ -718,16 +744,14 @@
         ========================================= */
 
         footer {
+            border-top:
+                1px solid var(--border);
 
-            border-top: 1px solid var(--border);
-
-            padding: 30px 24px;
-
+            padding:
+                30px 24px;
         }
 
-
         .footer-container {
-
             max-width: 1180px;
 
             margin: auto;
@@ -739,27 +763,19 @@
             align-items: center;
 
             gap: 20px;
-
         }
 
-
         .footer-logo {
-
             font-size: 13px;
 
             font-weight: 800;
-
         }
 
-
         .footer-text {
-
             color: var(--gray);
 
             font-size: 10px;
-
         }
-
 
 
         /* =========================================
@@ -767,16 +783,13 @@
         ========================================= */
 
         .storage-clear {
-
             text-align: center;
 
-            padding: 15px 24px 30px;
-
+            padding:
+                15px 24px 30px;
         }
 
-
         .storage-clear-button {
-
             border: none;
 
             background: transparent;
@@ -786,16 +799,11 @@
             font-size: 10px;
 
             cursor: pointer;
-
         }
-
 
         .storage-clear-button:hover {
-
             color: var(--red);
-
         }
-
 
 
         /* =========================================
@@ -803,7 +811,6 @@
         ========================================= */
 
         .modal {
-
             position: fixed;
 
             inset: 0;
@@ -811,29 +818,24 @@
             display: none;
 
             align-items: center;
-
             justify-content: center;
 
             padding: 20px;
 
-            background: rgba(0,0,0,.55);
+            background:
+                rgba(0,0,0,.55);
 
-            backdrop-filter: blur(5px);
+            backdrop-filter:
+                blur(5px);
 
             z-index: 100;
-
         }
-
 
         .modal.active {
-
             display: flex;
-
         }
 
-
         .modal-box {
-
             width: 100%;
 
             max-width: 420px;
@@ -846,32 +848,22 @@
 
             box-shadow:
                 0 25px 70px rgba(0,0,0,.18);
-
         }
 
-
         .modal-header {
-
             display: flex;
 
             align-items: center;
 
             justify-content: space-between;
-
         }
-
 
         .modal-header h2 {
-
             font-size: 22px;
-
         }
 
-
         .close-button {
-
             width: 31px;
-
             height: 31px;
 
             border: none;
@@ -885,12 +877,9 @@
             font-size: 20px;
 
             cursor: pointer;
-
         }
 
-
         .modal-description {
-
             margin-top: 8px;
 
             color: var(--gray);
@@ -898,19 +887,13 @@
             font-size: 12px;
 
             line-height: 1.5;
-
         }
-
 
         .form-group {
-
             margin-top: 18px;
-
         }
 
-
         .form-group label {
-
             display: block;
 
             margin-bottom: 7px;
@@ -918,38 +901,30 @@
             font-size: 11px;
 
             font-weight: 700;
-
         }
 
-
         .form-group input {
-
             width: 100%;
 
             height: 44px;
 
             padding: 0 12px;
 
-            border: 1px solid var(--border);
+            border:
+                1px solid var(--border);
 
             border-radius: 8px;
 
             outline: none;
 
             font-size: 13px;
-
         }
-
 
         .form-group input:focus {
-
-            border-color: var(--red);
-
+            border-color: var(--blue);
         }
 
-
         .form-button {
-
             width: 100%;
 
             height: 45px;
@@ -969,19 +944,13 @@
             font-weight: 700;
 
             cursor: pointer;
-
         }
-
 
         .form-button:hover {
-
             background: var(--red-dark);
-
         }
 
-
         .switch-form {
-
             margin-top: 16px;
 
             text-align: center;
@@ -989,12 +958,9 @@
             color: var(--gray);
 
             font-size: 11px;
-
         }
 
-
         .switch-form button {
-
             border: none;
 
             background: none;
@@ -1004,12 +970,9 @@
             font-weight: 700;
 
             cursor: pointer;
-
         }
 
-
         .form-error {
-
             display: none;
 
             margin-top: 11px;
@@ -1025,16 +988,11 @@
             font-size: 11px;
 
             line-height: 1.5;
-
         }
-
 
         .form-error.active {
-
             display: block;
-
         }
-
 
 
         /* =========================================
@@ -1043,52 +1001,37 @@
 
         @media (max-width: 750px) {
 
-
             .header-container {
-
                 padding: 0 17px;
-
             }
-
 
             .nav {
-
                 gap: 10px;
-
             }
-
 
             .nav a {
-
                 display: none;
-
             }
 
-
             .hero {
+                min-height: 570px;
 
                 padding:
                     75px 20px 70px;
 
+                border-radius:
+                    0 0 16px 16px;
             }
-
 
             .hero h1 {
-
                 letter-spacing: -3px;
-
             }
-
 
             .hero-description {
-
                 font-size: 14px;
-
             }
 
-
             .hero-buttons {
-
                 flex-direction: column;
 
                 width: 100%;
@@ -1096,61 +1039,41 @@
                 max-width: 300px;
 
                 margin-left: auto;
-
                 margin-right: auto;
-
             }
-
 
             .primary-button,
             .secondary-button {
-
                 width: 100%;
-
             }
-
 
             .candidates,
             .how,
             .security {
-
                 padding:
                     60px 20px;
-
             }
-
 
             .candidate-grid,
             .steps,
             .security-grid {
-
                 grid-template-columns: 1fr;
-
             }
 
-
             .candidates-header {
-
                 align-items: flex-start;
 
                 flex-direction: column;
-
             }
-
 
             .section-title {
-
                 font-size: 28px;
-
             }
 
-
             .footer-container {
-
                 flex-direction: column;
 
                 text-align: center;
-
             }
 
         }
@@ -1171,7 +1094,6 @@
 
     <div class="header-container">
 
-
         <a
             href="index.html"
             class="logo">
@@ -1187,21 +1109,17 @@
 
         <nav class="nav">
 
-
             <a href="#how">
                 Как это работает
             </a>
-
 
             <a href="#candidates">
                 Кандидаты
             </a>
 
-
             <a href="#security">
                 Безопасность
             </a>
-
 
             <button
                 class="login-nav"
@@ -1211,9 +1129,7 @@
 
             </button>
 
-
         </nav>
-
 
     </div>
 
@@ -1227,9 +1143,7 @@
 
 <section class="hero">
 
-
     <div class="hero-content">
-
 
         <div class="hero-kazakh">
 
@@ -1261,10 +1175,7 @@
         </p>
 
 
-        <!-- ТОЛЬКО ЭТИ КНОПКИ ЦЕНТРИРОВАНЫ -->
-
         <div class="hero-buttons">
-
 
             <button
                 class="primary-button"
@@ -1287,9 +1198,7 @@
 
             </button>
 
-
         </div>
-
 
     </div>
 
@@ -1305,29 +1214,19 @@
     class="candidates"
     id="candidates">
 
-
     <div class="candidates-container">
-
 
         <div class="candidates-header">
 
-
             <div>
 
-
                 <div class="section-label">
-
                     Выбор
-
                 </div>
 
-
                 <h2 class="section-title">
-
                     Кандидаты
-
                 </h2>
-
 
                 <p class="section-description">
 
@@ -1336,7 +1235,6 @@
                     до начала голосования.
 
                 </p>
-
 
             </div>
 
@@ -1349,9 +1247,7 @@
 
             </a>
 
-
         </div>
-
 
 
         <div class="candidate-grid">
@@ -1359,27 +1255,17 @@
 
             <div class="candidate-card">
 
-
                 <div class="candidate-number">
-
                     КАНДИДАТ 01
-
                 </div>
-
 
                 <h3>
-
                     Айдар Сейітов
-
                 </h3>
 
-
                 <div class="candidate-info">
-
                     Независимый кандидат
-
                 </div>
-
 
                 <p class="candidate-description">
 
@@ -1388,7 +1274,6 @@
                     и поддержка технологического бизнеса.
 
                 </p>
-
 
                 <button
                     class="candidate-button"
@@ -1401,34 +1286,22 @@
 
                 </button>
 
-
             </div>
-
 
 
             <div class="candidate-card">
 
-
                 <div class="candidate-number">
-
                     КАНДИДАТ 02
-
                 </div>
-
 
                 <h3>
-
                     Дана Омарова
-
                 </h3>
 
-
                 <div class="candidate-info">
-
                     Общественное движение
-
                 </div>
-
 
                 <p class="candidate-description">
 
@@ -1437,7 +1310,6 @@
                     молодых специалистов.
 
                 </p>
-
 
                 <button
                     class="candidate-button"
@@ -1450,34 +1322,22 @@
 
                 </button>
 
-
             </div>
-
 
 
             <div class="candidate-card">
 
-
                 <div class="candidate-number">
-
                     КАНДИДАТ 03
-
                 </div>
-
 
                 <h3>
-
                     Ерлан Нурбек
-
                 </h3>
 
-
                 <div class="candidate-info">
-
                     Независимый кандидат
-
                 </div>
-
 
                 <p class="candidate-description">
 
@@ -1486,7 +1346,6 @@
                     и модернизация инфраструктуры.
 
                 </p>
-
 
                 <button
                     class="candidate-button"
@@ -1499,12 +1358,9 @@
 
                 </button>
 
-
             </div>
 
-
         </div>
-
 
     </div>
 
@@ -1520,21 +1376,14 @@
     class="how"
     id="how">
 
-
     <div class="how-container">
 
-
         <div class="section-label">
-
             Процесс
-
         </div>
 
-
         <h2 class="section-title">
-
             Как проходит голосование
-
         </h2>
 
 
@@ -1543,20 +1392,13 @@
 
             <div class="step">
 
-
                 <div class="step-number">
-
                     01
-
                 </div>
 
-
                 <h3>
-
                     Создание аккаунта
-
                 </h3>
-
 
                 <p>
 
@@ -1566,27 +1408,18 @@
 
                 </p>
 
-
             </div>
-
 
 
             <div class="step">
 
-
                 <div class="step-number">
-
                     02
-
                 </div>
 
-
                 <h3>
-
                     Проверка личности
-
                 </h3>
-
 
                 <p>
 
@@ -1596,27 +1429,18 @@
 
                 </p>
 
-
             </div>
-
 
 
             <div class="step">
 
-
                 <div class="step-number">
-
                     03
-
                 </div>
 
-
                 <h3>
-
                     Голосование
-
                 </h3>
-
 
                 <p>
 
@@ -1626,12 +1450,10 @@
 
                 </p>
 
-
             </div>
 
 
         </div>
-
 
     </div>
 
@@ -1647,21 +1469,14 @@
     class="security"
     id="security">
 
-
     <div class="security-container">
 
-
         <div class="section-label">
-
             Защита
-
         </div>
 
-
         <h2 class="section-title">
-
             Основные принципы
-
         </h2>
 
 
@@ -1670,13 +1485,9 @@
 
             <div class="security-item">
 
-
                 <h3>
-
                     Конфиденциальность
-
                 </h3>
-
 
                 <p>
 
@@ -1687,20 +1498,14 @@
 
                 </p>
 
-
             </div>
-
 
 
             <div class="security-item">
 
-
                 <h3>
-
                     Один избиратель — один голос
-
                 </h3>
-
 
                 <p>
 
@@ -1710,20 +1515,14 @@
 
                 </p>
 
-
             </div>
-
 
 
             <div class="security-item">
 
-
                 <h3>
-
                     Контроль пользователя
-
                 </h3>
-
 
                 <p>
 
@@ -1733,12 +1532,10 @@
 
                 </p>
 
-
             </div>
 
 
         </div>
-
 
     </div>
 
@@ -1752,16 +1549,11 @@
 
 <footer>
 
-
     <div class="footer-container">
 
-
         <div class="footer-logo">
-
             VOTE
-
         </div>
-
 
         <div class="footer-text">
 
@@ -1770,9 +1562,7 @@
 
         </div>
 
-
     </div>
-
 
 </footer>
 
@@ -1784,7 +1574,6 @@
 
 <div class="storage-clear">
 
-
     <button
         class="storage-clear-button"
         onclick="clearAllStorage()">
@@ -1792,7 +1581,6 @@
         Очистить данные прототипа
 
     </button>
-
 
 </div>
 
@@ -1806,19 +1594,13 @@
     class="modal"
     id="authModal">
 
-
     <div class="modal-box">
-
 
         <div class="modal-header">
 
-
             <h2 id="modalTitle">
-
                 Вход
-
             </h2>
-
 
             <button
                 class="close-button"
@@ -1827,7 +1609,6 @@
                 ×
 
             </button>
-
 
         </div>
 
@@ -1841,46 +1622,34 @@
         </p>
 
 
-
         <!-- LOGIN -->
 
         <div id="loginForm">
 
-
             <div class="form-group">
 
-
                 <label for="loginEmail">
-
                     Email
-
                 </label>
-
 
                 <input
                     type="email"
                     id="loginEmail"
                     placeholder="example@mail.com">
 
-
             </div>
 
 
             <div class="form-group">
 
-
                 <label for="loginPassword">
-
                     Пароль
-
                 </label>
-
 
                 <input
                     type="password"
                     id="loginPassword"
                     placeholder="Введите пароль">
-
 
             </div>
 
@@ -1904,7 +1673,6 @@
 
                 Нет аккаунта?
 
-
                 <button
                     onclick="switchToRegister()">
 
@@ -1914,9 +1682,7 @@
 
             </div>
 
-
         </div>
-
 
 
         <!-- REGISTER -->
@@ -1925,60 +1691,44 @@
             id="registerForm"
             style="display:none;">
 
-
             <div class="form-group">
 
-
                 <label for="registerEmail">
-
                     Email
-
                 </label>
-
 
                 <input
                     type="email"
                     id="registerEmail"
                     placeholder="example@mail.com">
 
-
             </div>
 
 
             <div class="form-group">
 
-
                 <label for="registerPassword">
-
                     Пароль
-
                 </label>
-
 
                 <input
                     type="password"
                     id="registerPassword"
                     placeholder="Придумайте пароль">
 
-
             </div>
 
 
             <div class="form-group">
 
-
                 <label for="registerPassword2">
-
                     Повторите пароль
-
                 </label>
-
 
                 <input
                     type="password"
                     id="registerPassword2"
                     placeholder="Повторите пароль">
-
 
             </div>
 
@@ -2002,7 +1752,6 @@
 
                 Уже есть аккаунт?
 
-
                 <button
                     onclick="switchToLogin()">
 
@@ -2012,9 +1761,7 @@
 
             </div>
 
-
         </div>
-
 
     </div>
 
@@ -2030,19 +1777,13 @@
     class="modal"
     id="candidateModal">
 
-
     <div class="modal-box">
-
 
         <div class="modal-header">
 
-
             <h2 id="candidateTitle">
-
                 Кандидат
-
             </h2>
-
 
             <button
                 class="close-button"
@@ -2051,7 +1792,6 @@
                 ×
 
             </button>
-
 
         </div>
 
@@ -2070,7 +1810,6 @@
 
         </button>
 
-
     </div>
 
 </div>
@@ -2084,15 +1823,12 @@
    USERS
 ========================================= */
 
-
 function getUsers() {
 
     return JSON.parse(
-
         localStorage.getItem(
             "vote_users"
         ) || "[]"
-
     );
 
 }
@@ -2101,11 +1837,8 @@ function getUsers() {
 function saveUsers(users) {
 
     localStorage.setItem(
-
         "vote_users",
-
         JSON.stringify(users)
-
     );
 
 }
@@ -2115,7 +1848,6 @@ function saveUsers(users) {
 /* =========================================
    AUTH MODAL
 ========================================= */
-
 
 function openModal(type) {
 
@@ -2231,7 +1963,6 @@ function clearErrors() {
    REGISTER
 ========================================= */
 
-
 function register() {
 
     const email =
@@ -2298,7 +2029,8 @@ function register() {
     }
 
 
-    const users = getUsers();
+    const users =
+        getUsers();
 
 
     const existingUser =
@@ -2339,28 +2071,20 @@ function register() {
 
     users.push(user);
 
-
     saveUsers(users);
 
-
-    /*
-     * Сбрасываем старое состояние
-     */
 
     localStorage.removeItem(
         "vote_verified"
     );
 
-
     localStorage.removeItem(
         "vote_token"
     );
 
-
     localStorage.removeItem(
         "vote_current_user"
     );
-
 
     sessionStorage.clear();
 
@@ -2381,7 +2105,6 @@ function register() {
 /* =========================================
    LOGIN
 ========================================= */
-
 
 function login() {
 
@@ -2428,11 +2151,9 @@ function login() {
 
     const user =
         users.find(
-
             item =>
                 item.email === email &&
                 item.password === password
-
         );
 
 
@@ -2448,21 +2169,13 @@ function login() {
     }
 
 
-    /*
-     * При новом входе
-     * подтверждение личности
-     * начинается заново.
-     */
-
     localStorage.removeItem(
         "vote_verified"
     );
 
-
     localStorage.removeItem(
         "vote_token"
     );
-
 
     sessionStorage.clear();
 
@@ -2484,7 +2197,6 @@ function login() {
    ERROR
 ========================================= */
 
-
 function showError(
     element,
     text
@@ -2504,7 +2216,6 @@ function showError(
 /* =========================================
    CANDIDATES
 ========================================= */
-
 
 function showCandidate(
     name,
@@ -2545,7 +2256,6 @@ function closeCandidateModal() {
 /* =========================================
    CLEAR STORAGE
 ========================================= */
-
 
 function clearAllStorage() {
 
