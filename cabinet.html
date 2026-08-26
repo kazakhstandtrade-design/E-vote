@@ -239,10 +239,6 @@
         }
 
 
-        /*
-         * Верхний маленький элемент
-         */
-
         .welcome-label {
 
             display: flex;
@@ -376,8 +372,8 @@
 
 
         /*
-         * Тонкая золотая линия
-         * как элемент айдентики
+         * Тонкая линия
+         * в цветах казахстанской айдентики
          */
 
         .verification::before,
@@ -646,91 +642,7 @@
 
 
         /* =========================================
-           INFORMATION
-        ========================================= */
-
-        .info {
-
-            margin-top: 15px;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 15px;
-
-        }
-
-
-        .info-card {
-
-            background: var(--light);
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 13px;
-
-            padding: 22px;
-
-            position: relative;
-
-            overflow: hidden;
-
-        }
-
-
-        /*
-         * Маленький золотой элемент
-         */
-
-        .info-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 45px;
-
-            height: 1px;
-
-            background: var(--gold);
-
-            right: 22px;
-
-            top: 22px;
-
-        }
-
-
-        .info-title {
-
-            font-size: 12px;
-
-            font-weight: 750;
-
-        }
-
-
-        .info-text {
-
-            max-width: 400px;
-
-            margin-top: 8px;
-
-            color: var(--gray);
-
-            font-size: 10px;
-
-            line-height: 1.7;
-
-        }
-
-
-
-        /* =========================================
-           KAZAKH IDENTITY ELEMENT
+           KAZAKH IDENTITY
         ========================================= */
 
         .identity-line {
@@ -845,13 +757,6 @@
             .verify-button {
 
                 width: 100%;
-
-            }
-
-
-            .info {
-
-                grid-template-columns: 1fr;
 
             }
 
@@ -1091,61 +996,6 @@
 
     </div>
 
-
-
-    <!-- =====================================
-         INFORMATION
-    ====================================== -->
-
-    <div class="info">
-
-
-        <div class="info-card">
-
-
-            <div class="info-title">
-
-                Конфиденциальность
-
-            </div>
-
-
-            <div class="info-text">
-
-                После подтверждения права голоса
-                данные личности не должны быть
-                связаны с содержимым бюллетеня.
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="info-card">
-
-
-            <div class="info-title">
-
-                Один голос
-
-            </div>
-
-
-            <div class="info-text">
-
-                В прототипе используется правило:
-                один ИИН может использовать право
-                голоса только один раз.
-
-            </div>
-
-
-        </div>
-
-
-    </div>
 
 
     <!-- =====================================
