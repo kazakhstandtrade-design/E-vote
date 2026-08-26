@@ -24,15 +24,11 @@
         :root {
 
             --black: #15171b;
-
             --gray: #737982;
-
             --light: #f7f8f7;
-
             --border: #e6e8e6;
 
             --blue: #4aa9df;
-
             --blue-dark: #318fc5;
 
             --gold: #d8b15a;
@@ -125,10 +121,7 @@
         }
 
 
-        /*
-         * Казахстанская айдентика:
-         * голубой квадрат + золотой элемент
-         */
+        /* Казахстанская айдентика */
 
         .logo-icon {
 
@@ -321,20 +314,266 @@
         }
 
 
-        .left-column {
+
+        /* =========================================
+           CURRENT ELECTION
+        ========================================= */
+
+        .election-card {
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 15px;
+
+            padding: 29px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition:
+                border-color .2s,
+                box-shadow .2s;
+
+        }
+
+
+        .election-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 3px;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--blue),
+                    var(--gold)
+                );
+
+        }
+
+
+        .election-card:hover {
+
+            border-color: #dcdedc;
+
+            box-shadow:
+                0 12px 35px rgba(20,30,35,.045);
+
+        }
+
+
+        .election-status {
 
             display: flex;
 
-            flex-direction: column;
+            align-items: center;
 
-            gap: 15px;
+            gap: 7px;
+
+            color: var(--green);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: .8px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .election-status-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+        }
+
+
+        .election-title {
+
+            margin-top: 12px;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            letter-spacing: -.7px;
+
+        }
+
+
+        .election-date {
+
+            margin-top: 6px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+        }
+
+
+        .election-description {
+
+            max-width: 700px;
+
+            margin-top: 14px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .vote-start-button {
+
+            margin-top: 22px;
+
+            width: 100%;
+
+            height: 45px;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            background: var(--blue);
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .vote-start-button:hover {
+
+            background: var(--blue-dark);
+
+            transform: translateY(-1px);
 
         }
 
 
 
         /* =========================================
-           COMMON CARD
+           VOTING PROCESS
+        ========================================= */
+
+        .voting-process {
+
+            display: none;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+            animation:
+                fadeIn .25s ease;
+
+        }
+
+
+        .voting-process.active {
+
+            display: flex;
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(8px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+
+        /* =========================================
+           PROCESS HEADER
+        ========================================= */
+
+        .process-header {
+
+            padding: 4px 3px 10px;
+
+        }
+
+
+        .back-button {
+
+            border: 0;
+
+            background: transparent;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            cursor: pointer;
+
+            padding: 0;
+
+            transition: .2s;
+
+        }
+
+
+        .back-button:hover {
+
+            color: var(--blue-dark);
+
+        }
+
+
+
+        /* =========================================
+           COMMON PROCESS CARD
         ========================================= */
 
         .verification,
@@ -360,22 +599,6 @@
         }
 
 
-        .verification:hover,
-        .voting:hover {
-
-            border-color: #dcdedc;
-
-            box-shadow:
-                0 12px 35px rgba(20,30,35,.045);
-
-        }
-
-
-        /*
-         * Тонкая линия
-         * в цветах казахстанской айдентики
-         */
-
         .verification::before,
         .voting::before {
 
@@ -397,6 +620,17 @@
                     var(--blue),
                     var(--gold)
                 );
+
+        }
+
+
+        .verification:hover,
+        .voting:hover {
+
+            border-color: #dcdedc;
+
+            box-shadow:
+                0 12px 35px rgba(20,30,35,.045);
 
         }
 
@@ -562,7 +796,7 @@
 
 
         /* =========================================
-           VOTING
+           VOTING ACCESS
         ========================================= */
 
         .voting-title {
@@ -729,10 +963,18 @@
             }
 
 
+            .election-card,
             .verification,
             .voting {
 
                 padding: 24px;
+
+            }
+
+
+            .election-title {
+
+                font-size: 21px;
 
             }
 
@@ -789,9 +1031,7 @@
         <div class="logo">
 
             <div class="logo-icon">
-
                 V
-
             </div>
 
             VOTE
@@ -818,6 +1058,7 @@
                 Выйти
 
             </button>
+
 
         </div>
 
@@ -851,9 +1092,9 @@
 
     <p class="intro">
 
-        Здесь вы можете подтвердить свою личность
-        и получить доступ к электронному
-        голосованию.
+        Здесь вы можете ознакомиться с текущими
+        выборами и принять участие в электронном
+        голосовании.
 
     </p>
 
@@ -866,12 +1107,92 @@
     <div class="dashboard">
 
 
-        <div class="left-column">
+
+        <!-- =================================
+             CURRENT ELECTION
+        ================================== -->
+
+        <section
+            class="election-card"
+            id="currentElection">
+
+
+            <div class="election-status">
+
+                <span
+                    class="election-status-dot">
+                </span>
+
+                Голосование доступно
+
+            </div>
+
+
+            <div class="election-title">
+
+                Выборы Президента
+                Республики Казахстан
+
+            </div>
+
+
+            <div class="election-date">
+
+                31 ноября 2027 года
+
+            </div>
+
+
+            <p class="election-description">
+
+                Примите участие в электронном
+                голосовании. Для доступа к бюллетеню
+                необходимо подтвердить свою личность
+                и право голоса.
+
+            </p>
+
+
+            <button
+                class="vote-start-button"
+                onclick="openVoting()">
+
+                Проголосовать
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================
+             VOTING PROCESS
+        ================================== -->
+
+        <div
+            class="voting-process"
+            id="votingProcess">
+
+
+            <div class="process-header">
+
+
+                <button
+                    class="back-button"
+                    onclick="closeVoting()">
+
+                    ← Вернуться к текущим выборам
+
+                </button>
+
+
+            </div>
 
 
 
             <!-- =================================
-                 VERIFICATION
+                 STEP 1 — VERIFICATION
             ================================== -->
 
             <section class="verification">
@@ -946,7 +1267,7 @@
 
 
             <!-- =================================
-                 VOTING
+                 STEP 2 — VOTING
             ================================== -->
 
             <section class="voting">
@@ -999,7 +1320,7 @@
 
 
     <!-- =====================================
-         IDENTITY
+         KAZAKH IDENTITY
     ====================================== -->
 
     <div class="identity-line"></div>
@@ -1036,6 +1357,69 @@ if (currentEmail) {
         "headerEmail"
     ).textContent =
         currentEmail;
+
+}
+
+
+
+/* =========================================
+   OPEN CURRENT ELECTION
+========================================= */
+
+
+function openVoting() {
+
+    document
+        .getElementById("currentElection")
+        .style.display = "none";
+
+
+    document
+        .getElementById("votingProcess")
+        .classList
+        .add("active");
+
+
+    checkVerification();
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+
+/* =========================================
+   CLOSE VOTING
+========================================= */
+
+
+function closeVoting() {
+
+    document
+        .getElementById("votingProcess")
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById("currentElection")
+        .style.display = "block";
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
 
 }
 
@@ -1117,7 +1501,7 @@ function checkVerification() {
 
 
         text.textContent =
-            "Право голоса подтверждено. Теперь вы можете вернуться к электронному голосованию.";
+            "Право голоса подтверждено. Теперь вы можете перейти к электронному бюллетеню.";
 
 
         button.textContent =
@@ -1228,7 +1612,7 @@ function openVerification() {
 
 
 /* =========================================
-   GO TO VOTING
+   GO TO ELECTRONIC VOTING
 ========================================= */
 
 
@@ -1325,12 +1709,15 @@ checkVerification();
 
 
 setInterval(
+
     function() {
 
         checkVerification();
 
     },
+
     1000
+
 );
 
 
