@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Бюллетень</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #111318;
+            --gray: #6d737d;
+            --light-gray: #f4f5f7;
+            --border: #e3e5e8;
+            --red: #d92d3a;
+            --red-dark: #b9232f;
+            --green: #16834b;
+            --white: #ffffff;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--light-gray);
+
+            color: var(--black);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+        }
+
+
+        /* =====================================
+           HEADER
+        ===================================== */
+
+        header {
+
+            height: 76px;
+
+            background: white;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .header-container {
+
+            max-width: 900px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+        }
+
+
+        .logo-mark {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 9px;
+
+            background: var(--red);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .security {
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+        }
+
+
+        /* =====================================
+           MAIN
+        ===================================== */
+
+        main {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 45px 24px 70px;
+
+        }
+
+
+        .label {
+
+            color: var(--red);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        h1 {
+
+            margin-top: 8px;
+
+            font-size: 31px;
+
+            letter-spacing: -0.8px;
+
+        }
+
+
+        .description {
+
+            margin-top: 9px;
+
+            max-width: 650px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================
+           STATUS
+        ===================================== */
+
+        .status {
+
+            margin-top: 25px;
+
+            padding: 14px 16px;
+
+            border-radius: 10px;
+
+            background: #eefaf3;
+
+            border:
+                1px solid #ccebd9;
+
+            color: var(--green);
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================
+           BALLOT
+        ===================================== */
+
+        .ballot {
+
+            margin-top: 20px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 28px;
+
+        }
+
+
+        .ballot-header {
+
+            padding-bottom: 20px;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .ballot-number {
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+        }
+
+
+        .ballot-title {
+
+            margin-top: 7px;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            line-height: 1.4;
+
+        }
+
+
+        .ballot-description {
+
+            margin-top: 7px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================
+           OPTIONS
+        ===================================== */
+
+        .options {
+
+            margin-top: 20px;
+
+            display: grid;
+
+            gap: 10px;
+
+        }
+
+
+        .option {
+
+            position: relative;
+
+        }
+
+
+        .option input {
+
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+        }
+
+
+        .option-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            width: 100%;
+
+            padding: 16px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            transition:
+                border .15s ease,
+                background .15s ease;
+
+        }
+
+
+        .option-label:hover {
+
+            border-color: #bfc3c9;
+
+        }
+
+
+        .option input:checked
+        + .option-label {
+
+            border-color: var(--red);
+
+            background: #fff7f8;
+
+        }
+
+
+        .radio {
+
+            width: 19px;
+
+            height: 19px;
+
+            flex: 0 0 19px;
+
+            border:
+                2px solid #c5c9ce;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .option input:checked
+        + .option-label
+        .radio {
+
+            border-color: var(--red);
+
+        }
+
+
+        .option input:checked
+        + .option-label
+        .radio::after {
+
+            content: "";
+
+            width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: var(--red);
+
+        }
+
+
+        .option-name {
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        .option-subtitle {
+
+            margin-top: 3px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+        }
+
+
+        /* =====================================
+           SEND
+        ===================================== */
+
+        .send-button {
+
+            width: 100%;
+
+            height: 48px;
+
+            margin-top: 22px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: var(--red);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .send-button:hover {
+
+            background: var(--red-dark);
+
+        }
+
+
+        .send-button:disabled {
+
+            opacity: .5;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* =====================================
+           MESSAGE
+        ===================================== */
+
+        .message {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 13px;
+
+            border-radius: 9px;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .message.error {
+
+            display: block;
+
+            background: #fff1f2;
+
+            color: var(--red);
+
+        }
+
+
+        .message.success {
+
+            display: block;
+
+            background: #eefaf3;
+
+            color: var(--green);
+
+        }
+
+
+        /* =====================================
+           SUCCESS
+        ===================================== */
+
+        .success-screen {
+
+            display: none;
+
+            margin-top: 20px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 30px;
+
+            text-align: center;
+
+        }
+
+
+        .success-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            background: #eefaf3;
+
+            color: var(--green);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+        }
+
+
+        .success-title {
+
+            margin-top: 17px;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+        }
+
+
+        .success-description {
+
+            margin: 8px auto 0;
+
+            max-width: 500px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .back-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            height: 43px;
+
+            padding: 0 20px;
+
+            margin-top: 20px;
+
+            border-radius: 8px;
+
+            background: var(--black);
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .back-button:hover {
+
+            opacity: .9;
+
+        }
+
+
+        /* =====================================
+           FOOTNOTE
+        ===================================== */
+
+        .footnote {
+
+            margin-top: 18px;
+
+            color: var(--gray);
+
+            text-align: center;
+
+            font-size: 9px;
+
+            line-height: 1.6;
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            main {
+
+                padding:
+                    30px 16px 50px;
+
+            }
+
+
+            .header-container {
+
+                padding: 0 16px;
+
+            }
+
+
+            .security {
+
+                display: none;
+
+            }
+
+
+            .ballot {
+
+                padding: 20px;
+
+            }
+
+
+            h1 {
+
+                font-size: 27px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-container">
+
+
+        <div class="logo">
+
+            <div class="logo-mark">
+                V
+            </div>
+
+            VOTE
+
+        </div>
+
+
+        <div class="security">
+
+            Анонимное голосование
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <div class="label">
+
+        Электронный бюллетень
+
+    </div>
+
+
+    <h1>
+
+        Голосование
+
+    </h1>
+
+
+    <p class="description">
+
+        Выберите один вариант и нажмите
+        «Отправить бюллетень».
+
+        После отправки изменить выбор
+        будет невозможно.
+
+    </p>
+
+
+
+    <!-- STATUS -->
+
+    <div
+        class="status"
+        id="statusBox">
+
+        Право голоса подтверждено.
+        Используется одноразовый токен.
+
+    </div>
+
+
+
+    <!-- =====================================
+         BALLOT
+    ====================================== -->
+
+    <div
+        class="ballot"
+        id="ballot">
+
+
+        <div class="ballot-header">
+
+
+            <div class="ballot-number">
+
+                БЮЛЛЕТЕНЬ №001
+
+            </div>
+
+
+            <div class="ballot-title">
+
+                Какой вариант вы поддерживаете?
+
+            </div>
+
+
+            <div class="ballot-description">
+
+                Отметьте только один вариант.
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- OPTIONS -->
+
+        <div class="options">
+
+
+            <!-- OPTION 1 -->
+
+            <div class="option">
+
+                <input
+                    type="radio"
+                    name="vote"
+                    id="candidate_1"
+                    value="candidate_1">
+
+
+                <label
+                    class="option-label"
+                    for="candidate_1">
+
+
+                    <div class="radio"></div>
+
+
+                    <div>
+
+                        <div class="option-name">
+
+                            Вариант №1
+
+                        </div>
+
+                        <div class="option-subtitle">
+
+                            Первый вариант
+
+                        </div>
+
+                    </div>
+
+
+                </label>
+
+            </div>
+
+
+
+            <!-- OPTION 2 -->
+
+            <div class="option">
+
+                <input
+                    type="radio"
+                    name="vote"
+                    id="candidate_2"
+                    value="candidate_2">
+
+
+                <label
+                    class="option-label"
+                    for="candidate_2">
+
+
+                    <div class="radio"></div>
+
+
+                    <div>
+
+                        <div class="option-name">
+
+                            Вариант №2
+
+                        </div>
+
+                        <div class="option-subtitle">
+
+                            Второй вариант
+
+                        </div>
+
+                    </div>
+
+
+                </label>
+
+            </div>
+
+
+
+            <!-- OPTION 3 -->
+
+            <div class="option">
+
+                <input
+                    type="radio"
+                    name="vote"
+                    id="candidate_3"
+                    value="candidate_3">
+
+
+                <label
+                    class="option-label"
+                    for="candidate_3">
+
+
+                    <div class="radio"></div>
+
+
+                    <div>
+
+                        <div class="option-name">
+
+                            Вариант №3
+
+                        </div>
+
+                        <div class="option-subtitle">
+
+                            Третий вариант
+
+                        </div>
+
+                    </div>
+
+
+                </label>
+
+            </div>
+
+
+
+            <!-- AGAINST ALL -->
+
+            <div class="option">
+
+                <input
+                    type="radio"
+                    name="vote"
+                    id="against_all"
+                    value="against_all">
+
+
+                <label
+                    class="option-label"
+                    for="against_all">
+
+
+                    <div class="radio"></div>
+
+
+                    <div>
+
+                        <div class="option-name">
+
+                            Против всех
+
+                        </div>
+
+                        <div class="option-subtitle">
+
+                            Не поддерживаю ни один
+                            из предложенных вариантов
+
+                        </div>
+
+                    </div>
+
+
+                </label>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- SEND -->
+
+        <button
+            class="send-button"
+            id="sendButton"
+            onclick="submitVote()">
+
+            Отправить бюллетень
+
+        </button>
+
+
+        <div
+            class="message"
+            id="message">
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         SUCCESS
+    ====================================== -->
+
+    <div
+        class="success-screen"
+        id="successScreen">
+
+
+        <div class="success-icon">
+
+            ✓
+
+        </div>
+
+
+        <div class="success-title">
+
+            Бюллетень принят
+
+        </div>
+
+
+        <div class="success-description">
+
+            Ваш голос успешно принят системой.
+
+            Бюллетень был сформирован
+            и сохранён отдельно от данных
+            вашей личности.
+
+            Повторное голосование невозможно.
+
+        </div>
+
+
+        <!-- ИСПРАВЛЕН ПУТЬ -->
+
+        <a
+            href="cabinet.html"
+            class="back-button">
+
+            Вернуться в личный кабинет
+
+        </a>
+
+
+    </div>
+
+
+
+    <div class="footnote">
+
+        Демонстрационный прототип.
+        В реальной системе криптографическая
+        обработка и хранение должны выполняться
+        на серверной инфраструктуре.
+
+    </div>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =================================================
+   ПРОВЕРКА СЕССИИ
+================================================= */
+
+
+/*
+ * Получаем одноразовый токен,
+ * который был выдан после проверки личности.
+ */
+
+
+const voteToken =
+    sessionStorage.getItem(
+        "vote_token"
+    );
+
+
+/*
+ * Проверяем, была ли пройдена
+ * проверка личности.
+ */
+
+
+const identityVerified =
+    sessionStorage.getItem(
+        "identity_verified"
+    );
+
+
+/*
+ * Если токена нет —
+ * пользователь не имеет права
+ * находиться на странице голосования.
+ *
+ * ИСПРАВЛЕН ПУТЬ:
+ *
+ * verification.html
+ */
+
+
+if (
+    !voteToken ||
+    identityVerified !== "true"
+) {
+
+    window.location.href =
+        "verification.html";
+
+}
+
+
+
+/* =================================================
+   ПРОВЕРКА: НЕ ИСПОЛЬЗОВАН ЛИ ТОКЕН
+================================================= */
+
+
+function getUsedTokens() {
+
+
+    let usedTokens = [];
+
+
+    try {
+
+        usedTokens =
+            JSON.parse(
+                localStorage.getItem(
+                    "used_vote_tokens"
+                )
+            ) || [];
+
+    }
+
+    catch (error) {
+
+        usedTokens = [];
+
+    }
+
+
+    return usedTokens;
+
+}
+
+
+
+if (
+    voteToken &&
+    getUsedTokens().includes(voteToken)
+) {
+
+    document.getElementById(
+        "ballot"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "statusBox"
+    ).className =
+        "message error";
+
+
+    document.getElementById(
+        "statusBox"
+    ).textContent =
+        "Этот токен уже был использован. Повторное голосование невозможно.";
+
+}
+
+
+
+/* =================================================
+   ПОЛУЧИТЬ ВЫБРАННЫЙ ВАРИАНТ
+================================================= */
+
+
+function getSelectedVote() {
+
+
+    const selected =
+        document.querySelector(
+            'input[name="vote"]:checked'
+        );
+
+
+    if (!selected) {
+
+        return null;
+
+    }
+
+
+    return selected.value;
+
+}
+
+
+
+/* =================================================
+   СОХРАНИТЬ ГОЛОС В РЕЗУЛЬТАТЫ
+================================================= */
+
+
+function saveVoteResult(
+    selectedVote
+) {
+
+
+    let results = [];
+
+
+    try {
+
+        results =
+            JSON.parse(
+                localStorage.getItem(
+                    "vote_results"
+                )
+            ) || [];
+
+    }
+
+    catch (error) {
+
+        results = [];
+
+    }
+
+
+    /*
+     * Добавляем только технический
+     * идентификатор выбранного варианта.
+     *
+     * ИИН сюда НЕ попадает.
+     * Email сюда НЕ попадает.
+     * Token сюда НЕ попадает.
+     */
+
+
+    results.push(
+        selectedVote
+    );
+
+
+    localStorage.setItem(
+        "vote_results",
+        JSON.stringify(results)
+    );
+
+}
+
+
+
+/* =================================================
+   СОХРАНИТЬ АНОНИМНЫЙ БЮЛЛЕТЕНЬ
+================================================= */
+
+
+function saveAnonymousBallot(
+    encryptedBallot
+) {
+
+
+    let ballots = [];
+
+
+    try {
+
+        ballots =
+            JSON.parse(
+                localStorage.getItem(
+                    "anonymous_ballots"
+                )
+            ) || [];
+
+    }
+
+    catch (error) {
+
+        ballots = [];
+
+    }
+
+
+    /*
+     * ВАЖНО:
+     *
+     * Здесь намеренно нет:
+     *
+     * ИИНа
+     * email
+     * имени
+     * аккаунта
+     * verified_iin
+     *
+     * Бюллетень хранится отдельно.
+     */
+
+
+    ballots.push({
+
+        id:
+            generateAnonymousID(),
+
+        encrypted_ballot:
+            encryptedBallot,
+
+        created_at:
+            new Date().toISOString()
+
+    });
+
+
+    localStorage.setItem(
+        "anonymous_ballots",
+        JSON.stringify(ballots)
+    );
+
+}
+
+
+
+/* =================================================
+   ИМИТАЦИЯ ШИФРОВАНИЯ
+================================================= */
+
+
+async function encryptBallot(
+    selectedVote
+) {
+
+
+    /*
+     * Для демонстрации создаём
+     * случайный идентификатор.
+     *
+     * В реальной системе здесь
+     * должна использоваться настоящая
+     * криптографическая схема.
+     */
+
+
+    const randomBytes =
+        new Uint8Array(32);
+
+
+    crypto.getRandomValues(
+        randomBytes
+    );
+
+
+    const nonce =
+        Array
+            .from(randomBytes)
+            .map(
+                byte =>
+                    byte
+                        .toString(16)
+                        .padStart(2, "0")
+            )
+            .join("");
+
+
+    /*
+     * В прототипе данные представлены
+     * как условно зашифрованная строка.
+     */
+
+
+    return {
+
+        algorithm:
+            "AES-GCM-DEMO",
+
+        ciphertext:
+            btoa(
+                selectedVote +
+                ":" +
+                nonce
+            ),
+
+        nonce:
+            nonce
+
+    };
+
+}
+
+
+
+/* =================================================
+   ГЕНЕРАЦИЯ ID
+================================================= */
+
+
+function generateAnonymousID() {
+
+
+    const bytes =
+        new Uint8Array(16);
+
+
+    crypto.getRandomValues(
+        bytes
+    );
+
+
+    return Array
+        .from(bytes)
+        .map(
+            byte =>
+                byte
+                    .toString(16)
+                    .padStart(2, "0")
+        )
+        .join("");
+
+}
+
+
+
+/* =================================================
+   ДОБАВЛЕНИЕ ИИНА В РЕЕСТР
+================================================= */
+
+
+function markIINAsVoted(
+    iin
+) {
+
+
+    if (!iin) {
+
+        return false;
+
+    }
+
+
+    let votedIINS = [];
+
+
+    try {
+
+        votedIINS =
+            JSON.parse(
+                localStorage.getItem(
+                    "voted_iins"
+                )
+            ) || [];
+
+    }
+
+    catch (error) {
+
+        votedIINS = [];
+
+    }
+
+
+    /*
+     * Если ИИН уже есть —
+     * повторно ничего не делаем.
+     */
+
+
+    if (
+        votedIINS.includes(iin)
+    ) {
+
+        return false;
+
+    }
+
+
+    votedIINS.push(iin);
+
+
+    localStorage.setItem(
+        "voted_iins",
+        JSON.stringify(votedIINS)
+    );
+
+
+    return true;
+
+}
+
+
+
+/* =================================================
+   ПОМЕТИТЬ ТОКЕН КАК ИСПОЛЬЗОВАННЫЙ
+================================================= */
+
+
+function markTokenAsUsed(
+    token
+) {
+
+
+    let usedTokens = [];
+
+
+    try {
+
+        usedTokens =
+            JSON.parse(
+                localStorage.getItem(
+                    "used_vote_tokens"
+                )
+            ) || [];
+
+    }
+
+    catch (error) {
+
+        usedTokens = [];
+
+    }
+
+
+    if (
+        usedTokens.includes(token)
+    ) {
+
+        return false;
+
+    }
+
+
+    usedTokens.push(token);
+
+
+    localStorage.setItem(
+        "used_vote_tokens",
+        JSON.stringify(usedTokens)
+    );
+
+
+    return true;
+
+}
+
+
+
+/* =================================================
+   ОЧИСТКА ДАННЫХ ЛИЧНОСТИ
+================================================= */
+
+
+function destroyIdentitySession() {
+
+
+    /*
+     * Удаляем ИИН.
+     */
+
+
+    sessionStorage.removeItem(
+        "verified_iin"
+    );
+
+
+    sessionStorage.removeItem(
+        "pending_verification_iin"
+    );
+
+
+    /*
+     * Удаляем признак подтверждения.
+     */
+
+
+    sessionStorage.removeItem(
+        "identity_verified"
+    );
+
+
+    /*
+     * Удаляем токен после использования.
+     */
+
+
+    sessionStorage.removeItem(
+        "vote_token"
+    );
+
+}
+
+
+
+/* =================================================
+   ОТПРАВКА БЮЛЛЕТЕНЯ
+================================================= */
+
+
+async function submitVote() {
+
+
+    /*
+     * Повторно получаем токен.
+     */
+
+
+    const token =
+        sessionStorage.getItem(
+            "vote_token"
+        );
+
+
+    /*
+     * Получаем ИИН только сейчас,
+     * непосредственно перед фиксацией
+     * права "один ИИН — один голос".
+     */
+
+
+    const iin =
+        sessionStorage.getItem(
+            "verified_iin"
+        );
+
+
+    /*
+     * Проверяем сессию.
+     */
+
+
+    if (
+        !token ||
+        !iin
+    ) {
+
+        showError(
+            "Сессия проверки личности недействительна. Пройдите проверку заново."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Проверяем, не использован ли токен.
+     */
+
+
+    if (
+        getUsedTokens()
+            .includes(token)
+    ) {
+
+        showError(
+            "Этот токен уже был использован."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Получаем выбор.
+     */
+
+
+    const selectedVote =
+        getSelectedVote();
+
+
+    if (!selectedVote) {
+
+        showError(
+            "Выберите один вариант перед отправкой бюллетеня."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Повторно проверяем ИИН.
+     */
+
+
+    const votedIINS =
+        getVotedIINS();
+
+
+    if (
+        votedIINS.includes(iin)
+    ) {
+
+        showError(
+            "Голосование по данному ИИН уже было осуществлено."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Блокируем кнопку.
+     */
+
+
+    const button =
+        document.getElementById(
+            "sendButton"
+        );
+
+
+    button.disabled = true;
+
+
+    button.textContent =
+        "Обработка бюллетеня...";
+
+
+
+    try {
+
+
+        /*
+         * 1. Формируем условно
+         * зашифрованный бюллетень.
+         */
+
+
+        const encryptedBallot =
+            await encryptBallot(
+                selectedVote
+            );
+
+
+
+        /*
+         * 2. Сохраняем анонимный
+         * бюллетень отдельно.
+         */
+
+
+        saveAnonymousBallot(
+            encryptedBallot
+        );
+
+
+
+        /*
+         * 3. Сохраняем агрегированный
+         * результат.
+         */
+
+
+        saveVoteResult(
+            selectedVote
+        );
+
+
+
+        /*
+         * 4. Фиксируем ИИН
+         * как проголосовавший.
+         */
+
+
+        const iinMarked =
+            markIINAsVoted(
+                iin
+            );
+
+
+        if (!iinMarked) {
+
+            throw new Error(
+                "ИИН уже зарегистрирован как проголосовавший."
+            );
+
+        }
+
+
+
+        /*
+         * 5. Делаем токен использованным.
+         */
+
+
+        const tokenMarked =
+            markTokenAsUsed(
+                token
+            );
+
+
+        if (!tokenMarked) {
+
+            throw new Error(
+                "Токен уже был использован."
+            );
+
+        }
+
+
+
+        /*
+         * 6. Разрываем локальную связь
+         * личности и голосования.
+         */
+
+
+        destroyIdentitySession();
+
+
+
+        /*
+         * 7. Скрываем бюллетень.
+         */
+
+
+        document.getElementById(
+            "ballot"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "statusBox"
+        ).style.display =
+            "none";
+
+
+        /*
+         * 8. Показываем результат.
+         */
+
+
+        document.getElementById(
+            "successScreen"
+        ).style.display =
+            "block";
+
+
+    }
+
+    catch (error) {
+
+
+        console.error(error);
+
+
+        button.disabled =
+            false;
+
+
+        button.textContent =
+            "Отправить бюллетень";
+
+
+        showError(
+            "Не удалось принять бюллетень. Попробуйте пройти проверку личности заново."
+        );
+
+    }
+
+}
+
+
+
+/* =================================================
+   ПОЛУЧЕНИЕ РЕЕСТРА ИИНов
+================================================= */
+
+
+function getVotedIINS() {
+
+
+    let votedIINS = [];
+
+
+    try {
+
+        votedIINS =
+            JSON.parse(
+                localStorage.getItem(
+                    "voted_iins"
+                )
+            ) || [];
+
+    }
+
+    catch (error) {
+
+        votedIINS = [];
+
+    }
+
+
+    return votedIINS;
+
+}
+
+
+
+/* =================================================
+   ОШИБКА
+================================================= */
+
+
+function showError(
+    text
+) {
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    message.textContent =
+        text;
+
+
+    message.className =
+        "message error";
+
+}
+
+
+
+/* =================================================
+   ЗАЩИТА ОТ ПЕРЕЗАГРУЗКИ
+================================================= */
+
+
+window.addEventListener(
+    "beforeunload",
+    function() {
+
+        /*
+         * Здесь специально ничего
+         * не удаляем.
+         *
+         * Если пользователь просто
+         * обновил страницу до отправки,
+         * токен должен остаться действительным.
+         */
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>

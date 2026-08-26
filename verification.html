@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Проверка личности</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #111318;
+            --gray: #6d737d;
+            --light-gray: #f4f5f7;
+            --border: #e3e5e8;
+
+            --red: #d92d3a;
+            --red-dark: #b9232f;
+
+            --green: #16834b;
+
+            --white: #ffffff;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--light-gray);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            color: var(--black);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+
+        }
+
+
+        .container {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 32px;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+        }
+
+
+        .logo-mark {
+
+            width: 36px;
+
+            height: 36px;
+
+            border-radius: 9px;
+
+            background: var(--red);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .label {
+
+            margin-top: 32px;
+
+            color: var(--red);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        h1 {
+
+            margin-top: 8px;
+
+            font-size: 28px;
+
+            letter-spacing: -0.7px;
+
+        }
+
+
+        .description {
+
+            margin-top: 9px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .methods {
+
+            margin-top: 25px;
+
+            display: grid;
+
+            gap: 12px;
+
+        }
+
+
+        .method {
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 11px;
+
+            padding: 18px;
+
+        }
+
+
+        .method-title {
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+        }
+
+
+        .method-description {
+
+            margin-top: 5px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .method-button {
+
+            width: 100%;
+
+            height: 44px;
+
+            margin-top: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: var(--black);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .method-button:hover {
+
+            opacity: .9;
+
+        }
+
+
+        .iin-form {
+
+            display: none;
+
+            margin-top: 15px;
+
+        }
+
+
+        .iin-form.active {
+
+            display: block;
+
+        }
+
+
+        .iin-label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .iin-input {
+
+            width: 100%;
+
+            height: 44px;
+
+            padding: 0 12px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 14px;
+
+        }
+
+
+        .iin-input:focus {
+
+            border-color: var(--red);
+
+        }
+
+
+        .verify-button {
+
+            width: 100%;
+
+            height: 44px;
+
+            margin-top: 10px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: var(--red);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .verify-button:hover {
+
+            background: var(--red-dark);
+
+        }
+
+
+        .message {
+
+            display: none;
+
+            margin-top: 16px;
+
+            padding: 13px;
+
+            border-radius: 9px;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .message.error {
+
+            display: block;
+
+            background: #fff1f2;
+
+            color: var(--red);
+
+        }
+
+
+        .message.success {
+
+            display: block;
+
+            background: #eefaf3;
+
+            color: var(--green);
+
+        }
+
+
+        .biometric-box {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 9px;
+
+            background: #fafafa;
+
+        }
+
+
+        .biometric-box.active {
+
+            display: block;
+
+        }
+
+
+        .biometric-title {
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        .biometric-text {
+
+            margin-top: 5px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .biometric-button {
+
+            width: 100%;
+
+            height: 42px;
+
+            margin-top: 12px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            background: white;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .biometric-button:hover {
+
+            background: #f5f5f5;
+
+        }
+
+
+        .token-box {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 16px;
+
+            border-radius: 10px;
+
+            background: #111318;
+
+            color: white;
+
+        }
+
+
+        .token-box.active {
+
+            display: block;
+
+        }
+
+
+        .token-title {
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        .token-description {
+
+            margin-top: 6px;
+
+            color: #bfc3c9;
+
+            font-size: 10px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .token-value {
+
+            margin-top: 10px;
+
+            padding: 10px;
+
+            border-radius: 7px;
+
+            background: #202329;
+
+            word-break: break-all;
+
+            font-family: monospace;
+
+            font-size: 10px;
+
+        }
+
+
+        .continue-button {
+
+            width: 100%;
+
+            height: 44px;
+
+            margin-top: 12px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: var(--red);
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .continue-button:hover {
+
+            background: var(--red-dark);
+
+        }
+
+
+        .back {
+
+            display: block;
+
+            margin-top: 22px;
+
+            text-align: center;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            text-decoration: none;
+
+        }
+
+
+        .back:hover {
+
+            color: var(--black);
+
+        }
+
+
+        .security-note {
+
+            margin-top: 22px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid var(--border);
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.6;
+
+            text-align: center;
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .container {
+
+                padding: 25px 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        <div class="logo-mark">
+            V
+        </div>
+
+        VOTE
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <div class="label">
+        Подтверждение права голоса
+    </div>
+
+
+    <h1>
+        Проверка личности
+    </h1>
+
+
+    <p class="description">
+
+        Перед голосованием необходимо
+        подтвердить личность и право
+        участвовать в голосовании.
+
+    </p>
+
+
+    <!-- METHODS -->
+
+    <div class="methods">
+
+
+        <!-- =================================
+             ИИН + БИОМЕТРИЯ
+        ================================== -->
+
+        <div class="method">
+
+
+            <div class="method-title">
+
+                ИИН + биометрия
+
+            </div>
+
+
+            <div class="method-description">
+
+                Введите ИИН. После проверки
+                потребуется подтверждение
+                личности с помощью биометрии.
+
+            </div>
+
+
+            <button
+                class="method-button"
+                onclick="showIINForm()">
+
+                Продолжить с ИИН
+
+            </button>
+
+
+            <!-- IIN FORM -->
+
+            <div
+                class="iin-form"
+                id="iinForm">
+
+
+                <label
+                    class="iin-label"
+                    for="iin">
+
+                    ИИН
+
+                </label>
+
+
+                <input
+                    class="iin-input"
+                    id="iin"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="12"
+                    placeholder="Введите 12 цифр">
+
+
+                <button
+                    class="verify-button"
+                    onclick="checkIIN()">
+
+                    Проверить ИИН
+
+                </button>
+
+
+            </div>
+
+
+            <!-- BIOMETRIC -->
+
+            <div
+                class="biometric-box"
+                id="biometricBox">
+
+
+                <div class="biometric-title">
+
+                    ИИН найден
+
+                </div>
+
+
+                <div class="biometric-text">
+
+                    Право голоса предварительно
+                    подтверждено.
+
+                    Для завершения проверки
+                    необходимо пройти
+                    биометрическую проверку.
+
+                </div>
+
+
+                <button
+                    class="biometric-button"
+                    onclick="verifyBiometric()">
+
+                    Пройти биометрическую проверку
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             ЭЦП
+        ================================== -->
+
+        <div class="method">
+
+
+            <div class="method-title">
+
+                ЭЦП
+
+            </div>
+
+
+            <div class="method-description">
+
+                Подтверждение личности
+                с использованием электронной
+                цифровой подписи.
+
+            </div>
+
+
+            <button
+                class="method-button"
+                onclick="verifyEDS()">
+
+                Войти с помощью ЭЦП
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- MESSAGE -->
+
+    <div
+        class="message"
+        id="message">
+
+    </div>
+
+
+
+    <!-- =================================
+         TOKEN
+    ================================== -->
+
+    <div
+        class="token-box"
+        id="tokenBox">
+
+
+        <div class="token-title">
+
+            Право голоса подтверждено
+
+        </div>
+
+
+        <div class="token-description">
+
+            Система создала отдельный
+            анонимный токен для голосования.
+
+            В прототипе токен используется
+            как идентификатор права голоса.
+
+        </div>
+
+
+        <div
+            class="token-value"
+            id="tokenValue">
+
+        </div>
+
+
+        <button
+            class="continue-button"
+            onclick="continueToCabinet()">
+
+            Вернуться в личный кабинет
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- BACK -->
+
+    <a
+        href="cabinet.html"
+        class="back">
+
+        ← Вернуться в личный кабинет
+
+    </a>
+
+
+
+    <!-- SECURITY -->
+
+    <div class="security-note">
+
+        В текущем прототипе используется
+        локальная тестовая база ИИНов.
+
+        Биометрическая проверка
+        и интеграция с ЭЦП имитируются
+        на стороне браузера.
+
+        Для реальной системы необходимы
+        серверная инфраструктура,
+        защищённое хранение данных
+        и интеграция с государственными
+        системами.
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/*
+====================================================
+   ТЕСТОВАЯ БАЗА ИИНов
+====================================================
+*/
+
+
+const VALID_IINS = [
+
+    "010101500001",
+
+    "020202600002",
+
+    "030303700003",
+
+    "040404800004",
+
+    "050505900005"
+
+];
+
+
+
+/*
+====================================================
+   ПОКАЗАТЬ ФОРМУ ИИН
+====================================================
+*/
+
+
+function showIINForm() {
+
+    document
+        .getElementById("iinForm")
+        .classList
+        .add("active");
+
+}
+
+
+
+/*
+====================================================
+   ПОЛУЧЕНИЕ СПИСКА ПРОГОЛОСОВАВШИХ ИИНов
+====================================================
+*/
+
+
+function getVotedIINS() {
+
+
+    let votedIINS = [];
+
+
+    try {
+
+        votedIINS =
+            JSON.parse(
+                localStorage.getItem(
+                    "voted_iins"
+                )
+            ) || [];
+
+    }
+
+    catch (error) {
+
+        votedIINS = [];
+
+    }
+
+
+    return votedIINS;
+
+}
+
+
+
+/*
+====================================================
+   ПРОВЕРКА ИИН
+====================================================
+*/
+
+
+function checkIIN() {
+
+
+    const iin =
+        document
+            .getElementById("iin")
+            .value
+            .trim();
+
+
+    hideMessage();
+
+
+    /*
+     * Проверяем формат ИИН.
+     */
+
+
+    if (!/^\d{12}$/.test(iin)) {
+
+        showError(
+            "ИИН должен содержать ровно 12 цифр."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Проверяем наличие ИИН
+     * в тестовой базе.
+     */
+
+
+    if (!VALID_IINS.includes(iin)) {
+
+        showError(
+            "ИИН не найден в тестовой базе."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Получаем ИИНы,
+     * по которым уже был отдан голос.
+     */
+
+
+    const votedIINS =
+        getVotedIINS();
+
+
+
+    /*
+     * ОДИН ИИН = ОДИН ГОЛОС.
+     */
+
+
+    if (votedIINS.includes(iin)) {
+
+        showError(
+            "Голосование по данному ИИН уже было осуществлено. Повторное голосование невозможно."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Временно сохраняем ИИН
+     * для завершения проверки.
+     */
+
+
+    sessionStorage.setItem(
+        "pending_verification_iin",
+        iin
+    );
+
+
+    /*
+     * Показываем биометрию.
+     */
+
+
+    document
+        .getElementById("biometricBox")
+        .classList
+        .add("active");
+
+
+    showSuccess(
+        "ИИН найден. Пройдите биометрическую проверку."
+    );
+
+}
+
+
+
+/*
+====================================================
+   БИОМЕТРИЧЕСКАЯ ПРОВЕРКА
+====================================================
+
+   В ПРОТОТИПЕ ИМИТАЦИЯ.
+
+====================================================
+*/
+
+
+function verifyBiometric() {
+
+
+    const iin =
+        sessionStorage.getItem(
+            "pending_verification_iin"
+        );
+
+
+    if (!iin) {
+
+        showError(
+            "Сессия проверки личности истекла. Начните проверку заново."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * Повторная проверка.
+     */
+
+
+    const votedIINS =
+        getVotedIINS();
+
+
+    if (votedIINS.includes(iin)) {
+
+        showError(
+            "Голосование по данному ИИН уже было осуществлено."
+        );
+
+        return;
+
+    }
+
+
+
+    /*
+     * ИМИТАЦИЯ УСПЕШНОЙ БИОМЕТРИИ.
+     */
+
+
+    const token =
+        generateToken();
+
+
+
+    /*
+     * Сохраняем статус проверки.
+     */
+
+
+    sessionStorage.setItem(
+        "identity_verified",
+        "true"
+    );
+
+
+    /*
+     * Создаём уникальный токен.
+     */
+
+
+    sessionStorage.setItem(
+        "vote_token",
+        token
+    );
+
+
+    /*
+     * ИИН сохраняется только
+     * в рамках текущей сессии
+     * для демонстрации проверки.
+     *
+     * В реальной архитектуре после
+     * выдачи анонимного токена
+     * связь должна быть уничтожена
+     * на серверной стороне.
+     */
+
+
+    sessionStorage.setItem(
+        "verified_iin",
+        iin
+    );
+
+
+    /*
+     * Удаляем временный ИИН.
+     */
+
+
+    sessionStorage.removeItem(
+        "pending_verification_iin"
+    );
+
+
+
+    /*
+     * Показываем токен.
+     */
+
+
+    document
+        .getElementById("tokenValue")
+        .textContent =
+            token;
+
+
+    document
+        .getElementById("tokenBox")
+        .classList
+        .add("active");
+
+
+    /*
+     * Скрываем формы.
+     */
+
+
+    document
+        .getElementById("iinForm")
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById("biometricBox")
+        .classList
+        .remove("active");
+
+
+    showSuccess(
+        "Биометрическая проверка пройдена. Право голоса подтверждено."
+    );
+
+}
+
+
+
+/*
+====================================================
+   ЭЦП
+====================================================
+*/
+
+
+function verifyEDS() {
+
+
+    showError(
+        "Интеграция с ЭЦП пока не подключена. В прототипе этот способ обозначен как отдельный канал идентификации."
+    );
+
+}
+
+
+
+/*
+====================================================
+   ГЕНЕРАЦИЯ ТОКЕНА
+====================================================
+*/
+
+
+function generateToken() {
+
+
+    const bytes =
+        new Uint8Array(32);
+
+
+    crypto.getRandomValues(
+        bytes
+    );
+
+
+    return Array
+        .from(bytes)
+        .map(
+            byte =>
+                byte
+                    .toString(16)
+                    .padStart(2, "0")
+        )
+        .join("");
+
+}
+
+
+
+/*
+====================================================
+   ВОЗВРАТ В ЛИЧНЫЙ КАБИНЕТ
+====================================================
+*/
+
+
+function continueToCabinet() {
+
+
+    const token =
+        sessionStorage.getItem(
+            "vote_token"
+        );
+
+
+    const verified =
+        sessionStorage.getItem(
+            "identity_verified"
+        );
+
+
+    if (
+        !token ||
+        verified !== "true"
+    ) {
+
+        showError(
+            "Не удалось подтвердить право голоса."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * После подтверждения
+     * возвращаем пользователя
+     * именно в личный кабинет.
+     *
+     * Уже оттуда пользователь
+     * самостоятельно переходит
+     * к бюллетеню.
+     */
+
+
+    window.location.href =
+        "cabinet.html";
+
+}
+
+
+
+/*
+====================================================
+   СООБЩЕНИЯ
+====================================================
+*/
+
+
+function showError(text) {
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    message.textContent =
+        text;
+
+
+    message.className =
+        "message error";
+
+}
+
+
+
+function showSuccess(text) {
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    message.textContent =
+        text;
+
+
+    message.className =
+        "message success";
+
+}
+
+
+
+function hideMessage() {
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    message.className =
+        "message";
+
+}
+
+
+
+/*
+====================================================
+   ЗАПРЕТ БУКВ В ИИН
+====================================================
+*/
+
+
+document
+    .getElementById("iin")
+    .addEventListener(
+        "input",
+        function() {
+
+            this.value =
+                this.value
+                    .replace(/\D/g, "")
+                    .slice(0, 12);
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Личный кабинет</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #111318;
+            --dark: #191c22;
+
+            --gray: #737984;
+            --light-gray: #f5f6f8;
+
+            --border: #e5e7eb;
+
+            --red: #d92d3a;
+            --red-dark: #bb2531;
+
+            --green: #16834b;
+
+            --white: #ffffff;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--light-gray);
+
+            color: var(--black);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            height: 72px;
+
+            background: rgba(255,255,255,.97);
+
+            border-bottom:
+                1px solid var(--border);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 20;
+
+        }
+
+
+        .header-inner {
+
+            max-width: 900px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 19px;
+
+            font-weight: 800;
+
+            letter-spacing: -.3px;
+
+        }
+
+
+        .logo-icon {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 9px;
+
+            background: var(--red);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+        }
+
+
+        .account {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+        }
+
+
+        .email {
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+        }
+
+
+        .logout {
+
+            border: 0;
+
+            background: transparent;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+        }
+
+
+        .logout:hover {
+
+            color: var(--red);
+
+        }
+
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding:
+                42px 24px 70px;
+
+        }
+
+
+        .welcome-label {
+
+            color: var(--red);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        h1 {
+
+            margin-top: 8px;
+
+            font-size: 34px;
+
+            letter-spacing: -1.2px;
+
+        }
+
+
+        .intro {
+
+            max-width: 680px;
+
+            margin-top: 8px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.65;
+
+        }
+
+
+
+        /* =========================================
+           DASHBOARD
+        ========================================= */
+
+        .dashboard {
+
+            margin-top: 30px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+        }
+
+
+        .left-column {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+        }
+
+
+
+        /* =========================================
+           VERIFICATION
+        ========================================= */
+
+        .verification {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 10px 30px rgba(17,19,24,.045);
+
+        }
+
+
+        .step {
+
+            color: var(--red);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .verification-title {
+
+            margin-top: 8px;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            letter-spacing: -.5px;
+
+        }
+
+
+        .verification-text {
+
+            margin-top: 9px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.65;
+
+        }
+
+
+        .verification-bottom {
+
+            margin-top: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .verify-button {
+
+            height: 42px;
+
+            padding:
+                0 20px;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            background: var(--black);
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .verify-button:hover {
+
+            background: #292c33;
+
+        }
+
+
+        .verify-button:disabled {
+
+            background: #d3d5d9;
+
+            cursor: default;
+
+        }
+
+
+        .verification-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: var(--red);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--red);
+
+        }
+
+
+        .verification-status.verified {
+
+            color: var(--green);
+
+        }
+
+
+        .verification-status.verified
+        .status-dot {
+
+            background: var(--green);
+
+        }
+
+
+
+        /* =========================================
+           VOTING
+        ========================================= */
+
+        .voting {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 10px 30px rgba(17,19,24,.045);
+
+        }
+
+
+        .voting-title {
+
+            margin-top: 8px;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            letter-spacing: -.5px;
+
+        }
+
+
+        .voting-text {
+
+            margin-top: 8px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.65;
+
+        }
+
+
+        .vote-button {
+
+            width: 100%;
+
+            height: 45px;
+
+            margin-top: 22px;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            background: var(--red);
+
+            color: white;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .vote-button:hover {
+
+            background: var(--red-dark);
+
+        }
+
+
+        .vote-button.disabled {
+
+            background: #d3d5d9;
+
+            cursor: not-allowed;
+
+        }
+
+
+
+        /* =========================================
+           INFORMATION
+        ========================================= */
+
+        .info {
+
+            margin-top: 20px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .info-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 15px;
+
+            padding: 21px;
+
+        }
+
+
+        .info-title {
+
+            font-size: 12px;
+
+            font-weight: 750;
+
+        }
+
+
+        .info-text {
+
+            margin-top: 7px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .header-inner {
+
+                padding:
+                    0 16px;
+
+            }
+
+
+            .email {
+
+                display: none;
+
+            }
+
+
+            main {
+
+                padding:
+                    30px 16px 50px;
+
+            }
+
+
+            h1 {
+
+                font-size: 28px;
+
+            }
+
+
+            .verification,
+            .voting {
+
+                padding: 24px;
+
+            }
+
+
+            .info {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-inner">
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                V
+
+            </div>
+
+            VOTE
+
+        </div>
+
+
+        <div class="account">
+
+
+            <div
+                class="email"
+                id="headerEmail">
+
+                Пользователь
+
+            </div>
+
+
+            <button
+                class="logout"
+                onclick="logout()">
+
+                Выйти
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <div class="welcome-label">
+
+        Электронное голосование
+
+    </div>
+
+
+    <h1>
+
+        Личный кабинет
+
+    </h1>
+
+
+    <p class="intro">
+
+        Здесь вы можете подтвердить свою личность
+        и получить доступ к электронному
+        голосованию.
+
+    </p>
+
+
+
+    <!-- =====================================
+         DASHBOARD
+    ====================================== -->
+
+    <div class="dashboard">
+
+
+        <div class="left-column">
+
+
+
+            <!-- =================================
+                 VERIFICATION
+            ================================== -->
+
+            <section class="verification">
+
+
+                <div class="step">
+
+                    Шаг 1
+
+                </div>
+
+
+                <div class="verification-title">
+
+                    Подтвердите свою личность
+
+                </div>
+
+
+                <div
+                    class="verification-text"
+                    id="verificationText">
+
+                    Для участия в голосовании
+                    необходимо подтвердить право
+                    голоса.
+
+                    Проверка может выполняться
+                    с помощью ИИН и биометрии
+                    или ЭЦП.
+
+                </div>
+
+
+                <div class="verification-bottom">
+
+
+                    <button
+                        class="verify-button"
+                        id="verifyButton"
+                        onclick="openVerification()">
+
+                        Подтвердить личность
+
+                    </button>
+
+
+                    <div
+                        class="verification-status"
+                        id="verificationStatus">
+
+
+                        <div class="status-dot"></div>
+
+
+                        <span
+                            id="verificationStatusText">
+
+                            Не подтверждено
+
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 VOTING
+            ================================== -->
+
+            <section class="voting">
+
+
+                <div class="step">
+
+                    Шаг 2
+
+                </div>
+
+
+                <div class="voting-title">
+
+                    Перейти к электронному голосованию
+
+                </div>
+
+
+                <div
+                    class="voting-text"
+                    id="votingText">
+
+                    После подтверждения личности
+                    вам станет доступен электронный
+                    бюллетень.
+
+                </div>
+
+
+                <button
+                    class="vote-button disabled"
+                    id="voteButton"
+                    onclick="goToVoting()"
+                    disabled>
+
+                    Перейти к голосованию
+
+                </button>
+
+
+            </section>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         INFORMATION
+    ====================================== -->
+
+    <div class="info">
+
+
+        <div class="info-card">
+
+
+            <div class="info-title">
+
+                Конфиденциальность
+
+            </div>
+
+
+            <div class="info-text">
+
+                После подтверждения права голоса
+                данные личности не должны быть
+                связаны с содержимым бюллетеня.
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="info-card">
+
+
+            <div class="info-title">
+
+                Один голос
+
+            </div>
+
+
+            <div class="info-text">
+
+                В прототипе используется правило:
+                один ИИН может использовать право
+                голоса только один раз.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =========================================
+   USER
+========================================= */
+
+
+const currentEmail =
+    sessionStorage.getItem(
+        "current_user_email"
+    );
+
+
+if (currentEmail) {
+
+    document.getElementById(
+        "headerEmail"
+    ).textContent =
+        currentEmail;
+
+}
+
+
+
+/* =========================================
+   CHECK VERIFICATION
+========================================= */
+
+
+function checkVerification() {
+
+
+    const verified =
+        sessionStorage.getItem(
+            "identity_verified"
+        );
+
+
+    const token =
+        sessionStorage.getItem(
+            "vote_token"
+        );
+
+
+    const status =
+        document.getElementById(
+            "verificationStatus"
+        );
+
+
+    const statusText =
+        document.getElementById(
+            "verificationStatusText"
+        );
+
+
+    const text =
+        document.getElementById(
+            "verificationText"
+        );
+
+
+    const button =
+        document.getElementById(
+            "verifyButton"
+        );
+
+
+    const voteButton =
+        document.getElementById(
+            "voteButton"
+        );
+
+
+    const votingText =
+        document.getElementById(
+            "votingText"
+        );
+
+
+
+    /* =====================================
+       VERIFIED
+    ====================================== */
+
+    if (
+        verified === "true" &&
+        token
+    ) {
+
+
+        status.className =
+            "verification-status verified";
+
+
+        statusText.textContent =
+            "Личность подтверждена";
+
+
+        text.textContent =
+            "Право голоса подтверждено. Теперь вы можете вернуться к электронному голосованию.";
+
+
+        button.textContent =
+            "Личность подтверждена";
+
+
+        button.disabled =
+            true;
+
+
+        voteButton.classList.remove(
+            "disabled"
+        );
+
+
+        voteButton.disabled =
+            false;
+
+
+        votingText.textContent =
+            "Право голоса подтверждено. Электронный бюллетень доступен.";
+
+
+        return true;
+
+    }
+
+
+
+    /* =====================================
+       NOT VERIFIED
+    ====================================== */
+
+    status.className =
+        "verification-status";
+
+
+    statusText.textContent =
+        "Не подтверждено";
+
+
+    text.textContent =
+        "Для участия в голосовании необходимо подтвердить право голоса. Проверка может выполняться с помощью ИИН и биометрии или ЭЦП.";
+
+
+    button.textContent =
+        "Подтвердить личность";
+
+
+    button.disabled =
+        false;
+
+
+    voteButton.classList.add(
+        "disabled"
+    );
+
+
+    voteButton.disabled =
+        true;
+
+
+    votingText.textContent =
+        "После подтверждения личности вам станет доступен электронный бюллетень.";
+
+
+    return false;
+
+}
+
+
+
+/* =========================================
+   OPEN VERIFICATION
+========================================= */
+
+
+function openVerification() {
+
+
+    const verified =
+        sessionStorage.getItem(
+            "identity_verified"
+        );
+
+
+    const token =
+        sessionStorage.getItem(
+            "vote_token"
+        );
+
+
+    if (
+        verified === "true" &&
+        token
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+     * Страница проверки личности:
+     *
+     * verification.html
+     */
+
+
+    window.location.href =
+        "verification.html";
+
+}
+
+
+
+/* =========================================
+   GO TO VOTING
+========================================= */
+
+
+function goToVoting() {
+
+
+    const verified =
+        sessionStorage.getItem(
+            "identity_verified"
+        );
+
+
+    const token =
+        sessionStorage.getItem(
+            "vote_token"
+        );
+
+
+    if (
+        verified !== "true" ||
+        !token
+    ) {
+
+
+        alert(
+            "Сначала необходимо подтвердить личность."
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+     * После проверки пользователь
+     * находится в кабинете.
+     *
+     * Только отсюда он переходит
+     * в электронный бюллетень.
+     */
+
+
+    window.location.href =
+        "ballot.html";
+
+}
+
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+
+function logout() {
+
+
+    /*
+     * Удаляем только данные
+     * текущей сессии.
+     *
+     * Зарегистрированный аккаунт,
+     * список пользователей и результаты
+     * голосования не удаляются.
+     */
+
+
+    sessionStorage.removeItem(
+        "identity_verified"
+    );
+
+
+    sessionStorage.removeItem(
+        "vote_token"
+    );
+
+
+    sessionStorage.removeItem(
+        "verified_iin"
+    );
+
+
+    sessionStorage.removeItem(
+        "pending_verification_iin"
+    );
+
+
+    sessionStorage.removeItem(
+        "current_user_email"
+    );
+
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+
+/* =========================================
+   START
+========================================= */
+
+
+checkVerification();
+
+
+
+/* =========================================
+   PERIODIC CHECK
+========================================= */
+
+
+setInterval(
+    function() {
+
+        checkVerification();
+
+    },
+    1000
+);
+
+
+</script>
+
+
+</body>
+
+</html>
