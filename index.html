@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Электронное голосование</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #111318;
+            --dark: #1b1e24;
+            --gray: #6d737d;
+            --light-gray: #f4f5f7;
+            --border: #e3e5e8;
+            --red: #d92d3a;
+            --red-dark: #b9232f;
+            --white: #ffffff;
+
+        }
+
+
+        body {
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            color: var(--black);
+
+            background: white;
+
+            min-height: 100vh;
+
+        }
+
+
+        /* HEADER */
+
+        header {
+
+            height: 76px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            background: white;
+
+        }
+
+
+        .header-container {
+
+            max-width: 1240px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            color: var(--black);
+
+            text-decoration: none;
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+        }
+
+
+        .logo-mark {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 9px;
+
+            background: var(--red);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+        }
+
+
+        .nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+        }
+
+
+        .nav a {
+
+            color: var(--gray);
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+        }
+
+
+        .nav a:hover {
+
+            color: var(--black);
+
+        }
+
+
+        .login-nav {
+
+            padding: 10px 17px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            background: white;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* HERO */
+
+        .hero {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding:
+                100px 24px 75px;
+
+            display: flex;
+
+            justify-content: center;
+
+            text-align: center;
+
+        }
+
+
+        .hero > div {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+
+        .hero-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--red);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--red);
+
+        }
+
+
+        .hero h1 {
+
+            margin-top: 20px;
+
+            font-size: 64px;
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+        }
+
+
+        .hero h1 span {
+
+            color: var(--red);
+
+        }
+
+
+        .hero-description {
+
+            max-width: 650px;
+
+            margin-top: 22px;
+
+            color: var(--gray);
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 30px;
+
+        }
+
+
+        .primary-button {
+
+            border: none;
+
+            background: var(--red);
+
+            color: white;
+
+            padding: 14px 22px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .primary-button:hover {
+
+            background: var(--red-dark);
+
+        }
+
+
+        .secondary-button {
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: var(--black);
+
+            padding: 14px 22px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        /* HOW */
+
+        .how {
+
+            background: var(--light-gray);
+
+            padding: 75px 24px;
+
+        }
+
+
+        .section-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+
+        .section-label {
+
+            color: var(--red);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .section-title {
+
+            margin-top: 10px;
+
+            font-size: 32px;
+
+            letter-spacing: -1px;
+
+        }
+
+
+        .steps {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 30px;
+
+        }
+
+
+        .step {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 13px;
+
+            padding: 25px;
+
+        }
+
+
+        .step-number {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 8px;
+
+            background: var(--black);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        .step h3 {
+
+            margin-top: 18px;
+
+            font-size: 17px;
+
+        }
+
+
+        .step p {
+
+            margin-top: 8px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* SECURITY */
+
+        .security {
+
+            padding: 75px 24px;
+
+        }
+
+
+        .security-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 30px;
+
+        }
+
+
+        .security-item {
+
+            padding: 23px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 13px;
+
+        }
+
+
+        .security-item h3 {
+
+            font-size: 16px;
+
+        }
+
+
+        .security-item p {
+
+            margin-top: 8px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            border-top:
+                1px solid var(--border);
+
+            padding: 25px 24px;
+
+            color: var(--gray);
+
+            font-size: 12px;
+
+            text-align: center;
+
+        }
+
+
+        /* MODAL */
+
+        .modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(0,0,0,0.55);
+
+            z-index: 100;
+
+        }
+
+
+        .modal.active {
+
+            display: flex;
+
+        }
+
+
+        .modal-box {
+
+            width: 100%;
+
+            max-width: 420px;
+
+            background: white;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+        }
+
+
+        .modal-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .modal-header h2 {
+
+            font-size: 22px;
+
+        }
+
+
+        .close-button {
+
+            border: none;
+
+            background: none;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            color: var(--gray);
+
+        }
+
+
+        .modal-description {
+
+            margin-top: 8px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .form-group {
+
+            margin-top: 18px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        .form-group input {
+
+            width: 100%;
+
+            height: 45px;
+
+            padding: 0 12px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 14px;
+
+        }
+
+
+        .form-group input:focus {
+
+            border-color: var(--red);
+
+        }
+
+
+        .form-button {
+
+            width: 100%;
+
+            height: 46px;
+
+            margin-top: 20px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: var(--red);
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .form-button:hover {
+
+            background: var(--red-dark);
+
+        }
+
+
+        .switch-form {
+
+            margin-top: 17px;
+
+            text-align: center;
+
+            color: var(--gray);
+
+            font-size: 12px;
+
+        }
+
+
+        .switch-form button {
+
+            border: none;
+
+            background: none;
+
+            color: var(--red);
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .form-error {
+
+            display: none;
+
+            margin-top: 12px;
+
+            padding: 10px;
+
+            border-radius: 7px;
+
+            background: #fff1f2;
+
+            color: var(--red);
+
+            font-size: 12px;
+
+        }
+
+
+        .form-error.active {
+
+            display: block;
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            .nav a {
+
+                display: none;
+
+            }
+
+
+            .hero {
+
+                padding-top: 70px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 44px;
+
+                letter-spacing: -2px;
+
+            }
+
+
+            .hero-buttons {
+
+                flex-direction: column;
+
+                width: 100%;
+
+                max-width: 300px;
+
+            }
+
+
+            .steps,
+            .security-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="index.html"
+            class="logo">
+
+            <div class="logo-mark">
+                V
+            </div>
+
+            VOTE
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="#how">
+                Как это работает
+            </a>
+
+            <a href="#security">
+                Безопасность
+            </a>
+
+            <button
+                class="login-nav"
+                onclick="openModal('login')">
+
+                Войти
+
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<section class="hero">
+
+    <div>
+
+        <div class="hero-label">
+
+            <span class="status-dot"></span>
+
+            Система готова к голосованию
+
+        </div>
+
+
+        <h1>
+
+            Твой голос.
+
+            <br>
+
+            <span>Твоя тайна.</span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Электронная система голосования,
+            разработанная с принципом разделения
+            личности избирателя и его бюллетеня.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <button
+                class="primary-button"
+                onclick="openModal('register')">
+
+                Зарегистрироваться
+
+            </button>
+
+
+            <button
+                class="secondary-button"
+                onclick="document
+                    .getElementById('how')
+                    .scrollIntoView({
+                        behavior: 'smooth'
+                    })">
+
+                Как это работает →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section
+    class="how"
+    id="how">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            Архитектура
+        </div>
+
+
+        <h2 class="section-title">
+            Как работает система
+        </h2>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Регистрация
+                </h3>
+
+                <p>
+
+                    Пользователь создаёт
+                    учётную запись и входит
+                    в личный кабинет.
+
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Подтверждение личности
+                </h3>
+
+                <p>
+
+                    Право голоса подтверждается
+                    через ИИН и биометрическую
+                    идентификацию или ЭЦП.
+
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Анонимное голосование
+                </h3>
+
+                <p>
+
+                    После подтверждения права
+                    голоса создаётся отдельный
+                    анонимный токен.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section
+    class="security"
+    id="security">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            Безопасность
+        </div>
+
+
+        <h2 class="section-title">
+            Разделение личности и голоса
+        </h2>
+
+
+        <div class="security-grid">
+
+            <div class="security-item">
+
+                <h3>
+                    Анонимный токен
+                </h3>
+
+                <p>
+
+                    Для участия в голосовании
+                    используется отдельный
+                    случайный идентификатор,
+                    не содержащий ИИН или email.
+
+                </p>
+
+            </div>
+
+
+            <div class="security-item">
+
+                <h3>
+                    Зашифрованный бюллетень
+                </h3>
+
+                <p>
+
+                    В дальнейшем бюллетень
+                    будет шифроваться перед
+                    отправкой на сервер
+                    голосования.
+
+                </p>
+
+            </div>
+
+
+            <div class="security-item">
+
+                <h3>
+                    Разрыв связи
+                </h3>
+
+                <p>
+
+                    Сервис, принимающий бюллетень,
+                    не должен получать сведения,
+                    позволяющие установить личность
+                    избирателя.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    VOTE — прототип системы электронного
+    анонимного голосования
+
+</footer>
+
+
+
+<div
+    class="modal"
+    id="authModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                Вход
+            </h2>
+
+
+            <button
+                class="close-button"
+                onclick="closeModal()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <p
+            class="modal-description"
+            id="modalDescription">
+
+            Войдите в свою учётную запись.
+
+        </p>
+
+
+
+        <!-- LOGIN -->
+
+        <div id="loginForm">
+
+            <div class="form-group">
+
+                <label for="loginEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="example@mail.com">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="loginPassword">
+                    Пароль
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Введите пароль">
+
+            </div>
+
+
+            <div
+                class="form-error"
+                id="loginError">
+            </div>
+
+
+            <button
+                class="form-button"
+                onclick="login()">
+
+                Войти
+
+            </button>
+
+
+            <div class="switch-form">
+
+                Нет аккаунта?
+
+                <button
+                    onclick="switchToRegister()">
+
+                    Зарегистрироваться
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- REGISTER -->
+
+        <div
+            id="registerForm"
+            style="display:none;">
+
+            <div class="form-group">
+
+                <label for="registerEmail">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="example@mail.com">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="registerPassword">
+                    Пароль
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Придумайте пароль">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="registerPassword2">
+                    Повторите пароль
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword2"
+                    placeholder="Повторите пароль">
+
+            </div>
+
+
+            <div
+                class="form-error"
+                id="registerError">
+            </div>
+
+
+            <button
+                class="form-button"
+                onclick="register()">
+
+                Создать аккаунт
+
+            </button>
+
+
+            <div class="switch-form">
+
+                Уже есть аккаунт?
+
+                <button
+                    onclick="switchToLogin()">
+
+                    Войти
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================
+   USERS
+========================================= */
+
+
+function getUsers() {
+
+    return JSON.parse(
+        localStorage.getItem(
+            "vote_users"
+        ) || "[]"
+    );
+
+}
+
+
+function saveUsers(users) {
+
+    localStorage.setItem(
+        "vote_users",
+        JSON.stringify(users)
+    );
+
+}
+
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+
+function openModal(type) {
+
+    document
+        .getElementById("authModal")
+        .classList
+        .add("active");
+
+
+    if (type === "register") {
+
+        switchToRegister();
+
+    } else {
+
+        switchToLogin();
+
+    }
+
+}
+
+
+function closeModal() {
+
+    document
+        .getElementById("authModal")
+        .classList
+        .remove("active");
+
+}
+
+
+function switchToRegister() {
+
+    document
+        .getElementById("loginForm")
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById("registerForm")
+        .style.display =
+            "block";
+
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+            "Регистрация";
+
+
+    document
+        .getElementById("modalDescription")
+        .textContent =
+            "Создайте учётную запись для участия в системе.";
+
+
+    clearErrors();
+
+}
+
+
+function switchToLogin() {
+
+    document
+        .getElementById("registerForm")
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById("loginForm")
+        .style.display =
+            "block";
+
+
+    document
+        .getElementById("modalTitle")
+        .textContent =
+            "Вход";
+
+
+    document
+        .getElementById("modalDescription")
+        .textContent =
+            "Войдите в свою учётную запись.";
+
+
+    clearErrors();
+
+}
+
+
+function clearErrors() {
+
+    document
+        .getElementById("loginError")
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById("registerError")
+        .classList
+        .remove("active");
+
+}
+
+
+
+/* =========================================
+   REGISTER
+========================================= */
+
+
+function register() {
+
+    const email =
+        document
+            .getElementById("registerEmail")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const password =
+        document
+            .getElementById("registerPassword")
+            .value;
+
+
+    const password2 =
+        document
+            .getElementById("registerPassword2")
+            .value;
+
+
+    const error =
+        document
+            .getElementById("registerError");
+
+
+    error.classList.remove(
+        "active"
+    );
+
+
+    if (!email) {
+
+        showError(
+            error,
+            "Введите email."
+        );
+
+        return;
+
+    }
+
+
+    if (password.length < 6) {
+
+        showError(
+            error,
+            "Пароль должен содержать минимум 6 символов."
+        );
+
+        return;
+
+    }
+
+
+    if (password !== password2) {
+
+        showError(
+            error,
+            "Пароли не совпадают."
+        );
+
+        return;
+
+    }
+
+
+    const users =
+        getUsers();
+
+
+    const existingUser =
+        users.find(
+            user =>
+                user.email === email
+        );
+
+
+    if (existingUser) {
+
+        showError(
+            error,
+            "Аккаунт с таким email уже существует."
+        );
+
+        return;
+
+    }
+
+
+    const user = {
+
+        id:
+            crypto.randomUUID(),
+
+        email:
+            email,
+
+        password:
+            password,
+
+        registeredAt:
+            new Date().toISOString()
+
+    };
+
+
+    users.push(user);
+
+
+    saveUsers(users);
+
+
+    /*
+     * Сбрасываем состояние
+     * предыдущей сессии.
+     */
+
+    localStorage.removeItem(
+        "vote_verified"
+    );
+
+    localStorage.removeItem(
+        "vote_token"
+    );
+
+    localStorage.removeItem(
+        "vote_current_user"
+    );
+
+
+    localStorage.setItem(
+        "vote_current_user",
+        JSON.stringify(user)
+    );
+
+
+    /*
+     * ВАЖНО:
+     * файл должен называться
+     * cabinet.html
+     */
+
+    window.location.href =
+        "cabinet.html";
+
+}
+
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+
+function login() {
+
+    const email =
+        document
+            .getElementById("loginEmail")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const password =
+        document
+            .getElementById("loginPassword")
+            .value;
+
+
+    const error =
+        document
+            .getElementById("loginError");
+
+
+    error.classList.remove(
+        "active"
+    );
+
+
+    if (
+        !email ||
+        !password
+    ) {
+
+        showError(
+            error,
+            "Введите email и пароль."
+        );
+
+        return;
+
+    }
+
+
+    const users =
+        getUsers();
+
+
+    const user =
+        users.find(
+            item =>
+                item.email === email &&
+                item.password === password
+        );
+
+
+    if (!user) {
+
+        showError(
+            error,
+            "Неверный email или пароль."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * При новом входе
+     * подтверждение личности
+     * начинается заново.
+     */
+
+    localStorage.removeItem(
+        "vote_verified"
+    );
+
+    localStorage.removeItem(
+        "vote_token"
+    );
+
+    localStorage.removeItem(
+        "vote_current_user"
+    );
+
+
+    localStorage.setItem(
+        "vote_current_user",
+        JSON.stringify(user)
+    );
+
+
+    /*
+     * Переходим в кабинет.
+     */
+
+    window.location.href =
+        "cabinet.html";
+
+}
+
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+
+function showError(
+    element,
+    text
+) {
+
+    element.textContent =
+        text;
+
+    element.classList.add(
+        "active"
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
