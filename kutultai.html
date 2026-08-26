@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Выборы в Курултай</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #15171b;
+
+            --gray: #737982;
+
+            --light: #f7f8f7;
+
+            --border: #e6e8e6;
+
+            --blue: #4aa9df;
+
+            --blue-dark: #318fc5;
+
+            --gold: #d8b15a;
+
+            --green: #16834b;
+
+            --red: #c92d38;
+
+            --white: #ffffff;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--white);
+
+            color: var(--black);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            height: 72px;
+
+            background:
+                rgba(255,255,255,.97);
+
+            border-bottom:
+                1px solid var(--border);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 20;
+
+            backdrop-filter:
+                blur(12px);
+
+        }
+
+
+        .header-inner {
+
+            max-width: 1080px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: -.4px;
+
+        }
+
+
+        .logo-icon {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 9px;
+
+            background: var(--blue);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .logo-icon::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+
+            right: 5px;
+
+            top: 5px;
+
+        }
+
+
+        .back-button {
+
+            border: 1px solid var(--border);
+
+            background: white;
+
+            color: var(--black);
+
+            padding: 9px 15px;
+
+            border-radius: 8px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .back-button:hover {
+
+            border-color: var(--blue);
+
+            color: var(--blue-dark);
+
+        }
+
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+
+            max-width: 1080px;
+
+            margin: auto;
+
+            padding:
+                55px 24px 75px;
+
+        }
+
+
+        .page-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--blue-dark);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .page-label::before {
+
+            content: "";
+
+            width: 24px;
+
+            height: 1px;
+
+            background: var(--gold);
+
+        }
+
+
+        h1 {
+
+            margin-top: 12px;
+
+            font-size: 42px;
+
+            line-height: 1.08;
+
+            letter-spacing: -1.8px;
+
+            font-weight: 800;
+
+        }
+
+
+        .subtitle {
+
+            max-width: 720px;
+
+            margin-top: 12px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+
+        /* =========================================
+           ELECTION INFO
+        ========================================= */
+
+        .election-info {
+
+            margin-top: 35px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 14px;
+
+        }
+
+
+        .info-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 23px;
+
+            background: white;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .info-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 3px;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--blue),
+                    var(--gold)
+                );
+
+        }
+
+
+        .info-label {
+
+            color: var(--gray);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .info-value {
+
+            margin-top: 9px;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            letter-spacing: -.7px;
+
+        }
+
+
+        .info-description {
+
+            margin-top: 5px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+        }
+
+
+
+        /* =========================================
+           RESULTS
+        ========================================= */
+
+        .section {
+
+            margin-top: 55px;
+
+        }
+
+
+        .section-label {
+
+            color: var(--blue-dark);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .section-title {
+
+            margin-top: 9px;
+
+            font-size: 28px;
+
+            letter-spacing: -1px;
+
+            font-weight: 800;
+
+        }
+
+
+        .section-description {
+
+            max-width: 680px;
+
+            margin-top: 8px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .results-list {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+
+        }
+
+
+        .result-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 13px;
+
+            padding: 20px 22px;
+
+            background: white;
+
+        }
+
+
+        .result-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .party-name {
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+        }
+
+
+        .party-votes {
+
+            color: var(--blue-dark);
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+        }
+
+
+        .party-details {
+
+            margin-top: 5px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+        }
+
+
+        .progress {
+
+            width: 100%;
+
+            height: 7px;
+
+            margin-top: 15px;
+
+            background: #eef0ef;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+        }
+
+
+        .progress-fill {
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    var(--gold)
+                );
+
+            border-radius: 20px;
+
+        }
+
+
+        .result-bottom {
+
+            margin-top: 9px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: var(--gray);
+
+            font-size: 9px;
+
+        }
+
+
+
+        /* =========================================
+           MANDATES
+        ========================================= */
+
+        .mandates {
+
+            margin-top: 25px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr 1fr;
+
+            gap: 15px;
+
+        }
+
+
+        .mandate-main {
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 25px;
+
+            background: white;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .mandate-main::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 3px;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--blue),
+                    var(--gold)
+                );
+
+        }
+
+
+        .mandate-number {
+
+            font-size: 55px;
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: -3px;
+
+        }
+
+
+        .mandate-title {
+
+            margin-top: 10px;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+        }
+
+
+        .mandate-text {
+
+            margin-top: 7px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .mandate-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+
+        }
+
+
+        .mandate-item {
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 11px;
+
+            padding: 14px 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: white;
+
+        }
+
+
+        .mandate-party {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .mandate-count {
+
+            color: var(--blue-dark);
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+        }
+
+
+
+        /* =========================================
+           PARTIES
+        ========================================= */
+
+        .party-grid {
+
+            margin-top: 25px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+
+        }
+
+
+        .party-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 23px;
+
+            background: white;
+
+            transition: .2s;
+
+        }
+
+
+        .party-card:hover {
+
+            border-color: #d7dcdc;
+
+            box-shadow:
+                0 10px 30px rgba(20,30,35,.04);
+
+        }
+
+
+        .party-top {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+        }
+
+
+        .party-number {
+
+            width: 31px;
+
+            height: 31px;
+
+            border-radius: 8px;
+
+            background: var(--light);
+
+            color: var(--blue-dark);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .party-card h3 {
+
+            margin-top: 15px;
+
+            font-size: 16px;
+
+            line-height: 1.35;
+
+        }
+
+
+        .party-card p {
+
+            margin-top: 8px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .party-status {
+
+            margin-top: 17px;
+
+            padding-top: 12px;
+
+            border-top: 1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .party-status-label {
+
+            color: var(--gray);
+
+            font-size: 9px;
+
+        }
+
+
+        .party-status-value {
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .passed {
+
+            color: var(--green);
+
+        }
+
+
+        .not-passed {
+
+            color: var(--gray);
+
+        }
+
+
+
+        /* =========================================
+           NOTE
+        ========================================= */
+
+        .note {
+
+            margin-top: 30px;
+
+            padding: 18px 20px;
+
+            border-radius: 11px;
+
+            background: var(--light);
+
+            border: 1px solid var(--border);
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .note strong {
+
+            color: var(--black);
+
+        }
+
+
+
+        /* =========================================
+           IDENTITY
+        ========================================= */
+
+        .identity-line {
+
+            margin-top: 55px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    var(--gold),
+                    var(--blue),
+                    transparent
+                );
+
+            opacity: .55;
+
+        }
+
+
+        .identity-caption {
+
+            margin-top: 12px;
+
+            text-align: center;
+
+            color: #a0a4aa;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            border-top:
+                1px solid var(--border);
+
+            padding:
+                25px 24px;
+
+        }
+
+
+        .footer-inner {
+
+            max-width: 1080px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+        }
+
+
+        .footer-logo {
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+        }
+
+
+        .footer-text {
+
+            color: var(--gray);
+
+            font-size: 9px;
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+
+            .header-inner {
+
+                padding:
+                    0 16px;
+
+            }
+
+
+            main {
+
+                padding:
+                    38px 16px 55px;
+
+            }
+
+
+            h1 {
+
+                font-size: 31px;
+
+            }
+
+
+            .election-info {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .mandates {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .party-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .result-header {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+                gap: 5px;
+
+            }
+
+
+            .footer-inner {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-inner">
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                V
+            </div>
+
+            VOTE
+
+        </div>
+
+
+        <button
+            class="back-button"
+            onclick="goBack()">
+
+            ← Личный кабинет
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <div class="page-label">
+
+        Прошедшие выборы
+
+    </div>
+
+
+    <h1>
+
+        Выборы в Курултай
+
+    </h1>
+
+
+    <p class="subtitle">
+
+        Результаты выборов депутатов Курултая
+        Республики Казахстан, состоявшихся
+        23 августа 2026 года.
+
+    </p>
+
+
+
+    <!-- =====================================
+         INFO
+    ====================================== -->
+
+    <div class="election-info">
+
+
+        <div class="info-card">
+
+
+            <div class="info-label">
+
+                Дата голосования
+
+            </div>
+
+
+            <div class="info-value">
+
+                23 августа 2026
+
+            </div>
+
+
+            <div class="info-description">
+
+                Выборы депутатов Курултая
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="info-card">
+
+
+            <div class="info-label">
+
+                Явка
+
+            </div>
+
+
+            <div class="info-value">
+
+                74,08%
+
+            </div>
+
+
+            <div class="info-description">
+
+                9 351 539 проголосовавших
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="info-card">
+
+
+            <div class="info-label">
+
+                Мест в Курултае
+
+            </div>
+
+
+            <div class="info-value">
+
+                145
+
+            </div>
+
+
+            <div class="info-description">
+
+                Новый однопалатный парламент
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         RESULTS
+    ====================================== -->
+
+    <section class="section">
+
+
+        <div class="section-label">
+
+            Итоги голосования
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Результаты партий
+
+        </h2>
+
+
+        <p class="section-description">
+
+            Окончательные результаты голосования
+            установлены Центральной избирательной
+            комиссией Республики Казахстан.
+
+        </p>
+
+
+
+        <div class="results-list">
+
+
+            <!-- ӘДІЛЕТ -->
+
+            <div class="result-card">
+
+
+                <div class="result-header">
+
+
+                    <div>
+
+                        <div class="party-name">
+
+                            Партия «Әділет»
+
+                        </div>
+
+
+                        <div class="party-details">
+
+                            6 528 948 голосов
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="party-votes">
+
+                        71,17%
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:71.17%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-bottom">
+
+                    <span>
+                        110 депутатских мандатов
+                    </span>
+
+                    <span>
+                        1-е место
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- АУЫЛ -->
+
+            <div class="result-card">
+
+
+                <div class="result-header">
+
+
+                    <div>
+
+                        <div class="party-name">
+
+                            Партия «Ауыл»
+
+                        </div>
+
+
+                        <div class="party-details">
+
+                            574 621 голос
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="party-votes">
+
+                        6,26%
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:6.26%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-bottom">
+
+                    <span>
+                        10 депутатских мандатов
+                    </span>
+
+                    <span>
+                        2-е место
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RESPUBLICA -->
+
+            <div class="result-card">
+
+
+                <div class="result-header">
+
+
+                    <div>
+
+                        <div class="party-name">
+
+                            Respublica
+
+                        </div>
+
+
+                        <div class="party-details">
+
+                            509 631 голос
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="party-votes">
+
+                        5,56%
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:5.56%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-bottom">
+
+                    <span>
+                        9 депутатских мандатов
+                    </span>
+
+                    <span>
+                        3-е место
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- АК ЖОЛ -->
+
+            <div class="result-card">
+
+
+                <div class="result-header">
+
+
+                    <div>
+
+                        <div class="party-name">
+
+                            Демократическая партия
+                            Казахстана «Ақ жол»
+
+                        </div>
+
+
+                        <div class="party-details">
+
+                            478 083 голоса
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="party-votes">
+
+                        5,21%
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:5.21%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-bottom">
+
+                    <span>
+                        8 депутатских мандатов
+                    </span>
+
+                    <span>
+                        4-е место
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ОСДП -->
+
+            <div class="result-card">
+
+
+                <div class="result-header">
+
+
+                    <div>
+
+                        <div class="party-name">
+
+                            Общенациональная
+                            социал-демократическая партия
+
+                        </div>
+
+
+                        <div class="party-details">
+
+                            469 058 голосов
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="party-votes">
+
+                        5,11%
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:5.11%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-bottom">
+
+                    <span>
+                        8 депутатских мандатов
+                    </span>
+
+                    <span>
+                        5-е место
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- НПК -->
+
+            <div class="result-card">
+
+
+                <div class="result-header">
+
+
+                    <div>
+
+                        <div class="party-name">
+
+                            Народная партия Казахстана
+
+                        </div>
+
+
+                        <div class="party-details">
+
+                            3,11%
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="party-votes">
+
+                        3,11%
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:3.11%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-bottom">
+
+                    <span>
+                        Мандаты не получены
+                    </span>
+
+                    <span>
+                        Ниже 5%
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- БАЙТАК -->
+
+            <div class="result-card">
+
+
+                <div class="result-header">
+
+
+                    <div>
+
+                        <div class="party-name">
+
+                            Казахстанская партия
+                            зелёных «Байтақ»
+
+                        </div>
+
+
+                        <div class="party-details">
+
+                            1,07%
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="party-votes">
+
+                        1,07%
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:1.07%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-bottom">
+
+                    <span>
+                        Мандаты не получены
+                    </span>
+
+                    <span>
+                        Ниже 5%
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         MANDATES
+    ====================================== -->
+
+    <section class="section">
+
+
+        <div class="section-label">
+
+            Распределение мест
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            145 депутатских мандатов
+
+        </h2>
+
+
+        <p class="section-description">
+
+            По итогам голосования пять партий
+            преодолели установленный
+            пятипроцентный избирательный барьер.
+
+        </p>
+
+
+
+        <div class="mandates">
+
+
+            <div class="mandate-main">
+
+
+                <div class="mandate-number">
+
+                    110
+
+                </div>
+
+
+                <div class="mandate-title">
+
+                    Партия «Әділет»
+
+                </div>
+
+
+                <div class="mandate-text">
+
+                    Наибольшее количество голосов
+                    и депутатских мандатов
+                    по итогам выборов.
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="mandate-list">
+
+
+                <div class="mandate-item">
+
+                    <div class="mandate-party">
+                        «Ауыл»
+                    </div>
+
+                    <div class="mandate-count">
+                        10
+                    </div>
+
+                </div>
+
+
+                <div class="mandate-item">
+
+                    <div class="mandate-party">
+                        Respublica
+                    </div>
+
+                    <div class="mandate-count">
+                        9
+                    </div>
+
+                </div>
+
+
+                <div class="mandate-item">
+
+                    <div class="mandate-party">
+                        «Ақ жол»
+                    </div>
+
+                    <div class="mandate-count">
+                        8
+                    </div>
+
+                </div>
+
+
+                <div class="mandate-item">
+
+                    <div class="mandate-party">
+                        ОСДП
+                    </div>
+
+                    <div class="mandate-count">
+                        8
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         PARTIES
+    ====================================== -->
+
+    <section class="section">
+
+
+        <div class="section-label">
+
+            Политические партии
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Участники выборов
+
+        </h2>
+
+
+        <p class="section-description">
+
+            В выборах депутатов Курултая приняли
+            участие семь политических партий.
+
+        </p>
+
+
+
+        <div class="party-grid">
+
+
+            <div class="party-card">
+
+
+                <div class="party-top">
+
+                    <div class="party-number">
+                        01
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Партия «Әділет»
+                </h3>
+
+
+                <p>
+
+                    Получила наибольшую поддержку
+                    избирателей и 110 депутатских
+                    мандатов.
+
+                </p>
+
+
+                <div class="party-status">
+
+                    <span class="party-status-label">
+                        Результат
+                    </span>
+
+                    <span class="party-status-value passed">
+                        Прошла барьер
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="party-card">
+
+
+                <div class="party-top">
+
+                    <div class="party-number">
+                        02
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Общенациональная
+                    социал-демократическая партия
+                </h3>
+
+
+                <p>
+
+                    По итогам голосования получила
+                    5,11% голосов и 8 депутатских
+                    мандатов.
+
+                </p>
+
+
+                <div class="party-status">
+
+                    <span class="party-status-label">
+                        Результат
+                    </span>
+
+                    <span class="party-status-value passed">
+                        Прошла барьер
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="party-card">
+
+
+                <div class="party-top">
+
+                    <div class="party-number">
+                        03
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Казахстанская партия
+                    зелёных «Байтақ»
+                </h3>
+
+
+                <p>
+
+                    Получила 1,07% голосов
+                    и не преодолела установленный
+                    пятипроцентный барьер.
+
+                </p>
+
+
+                <div class="party-status">
+
+                    <span class="party-status-label">
+                        Результат
+                    </span>
+
+                    <span class="party-status-value not-passed">
+                        Не прошла барьер
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="party-card">
+
+
+                <div class="party-top">
+
+                    <div class="party-number">
+                        04
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Народная партия Казахстана
+                </h3>
+
+
+                <p>
+
+                    Получила 3,11% голосов
+                    и не преодолела пятипроцентный
+                    барьер.
+
+                </p>
+
+
+                <div class="party-status">
+
+                    <span class="party-status-label">
+                        Результат
+                    </span>
+
+                    <span class="party-status-value not-passed">
+                        Не прошла барьер
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="party-card">
+
+
+                <div class="party-top">
+
+                    <div class="party-number">
+                        05
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Партия «Ауыл»
+                </h3>
+
+
+                <p>
+
+                    Получила 6,26% голосов
+                    и 10 депутатских мандатов.
+
+                </p>
+
+
+                <div class="party-status">
+
+                    <span class="party-status-label">
+                        Результат
+                    </span>
+
+                    <span class="party-status-value passed">
+                        Прошла барьер
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="party-card">
+
+
+                <div class="party-top">
+
+                    <div class="party-number">
+                        06
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Демократическая партия
+                    Казахстана «Ақ жол»
+                </h3>
+
+
+                <p>
+
+                    Получила 5,21% голосов
+                    и 8 депутатских мандатов.
+
+                </p>
+
+
+                <div class="party-status">
+
+                    <span class="party-status-label">
+                        Результат
+                    </span>
+
+                    <span class="party-status-value passed">
+                        Прошла барьер
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="party-card">
+
+
+                <div class="party-top">
+
+                    <div class="party-number">
+                        07
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Respublica
+                </h3>
+
+
+                <p>
+
+                    Получила 5,56% голосов
+                    и 9 депутатских мандатов.
+
+                </p>
+
+
+                <div class="party-status">
+
+                    <span class="party-status-label">
+                        Результат
+                    </span>
+
+                    <span class="party-status-value passed">
+                        Прошла барьер
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         NOTE
+    ====================================== -->
+
+    <div class="note">
+
+        <strong>Источник данных:</strong>
+        окончательные результаты выборов
+        депутатов Курултая Республики Казахстан,
+        установленные Центральной избирательной
+        комиссией 25 августа 2026 года.
+
+        Данные на странице используются
+        для информационного отображения
+        результатов в прототипе VOTE.
+
+    </div>
+
+
+
+    <!-- =====================================
+         IDENTITY
+    ====================================== -->
+
+    <div class="identity-line"></div>
+
+
+    <div class="identity-caption">
+
+        Qauipsiz sailau · Қазақстан
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+
+        <div class="footer-logo">
+
+            VOTE
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Информационный раздел
+            о прошедших выборах
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+
+function goBack() {
+
+    window.location.href =
+        "cabinet.html";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
