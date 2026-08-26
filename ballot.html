@@ -9,7 +9,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>VOTE — Бюллетень</title>
+    <title>VOTE — Избирательный бюллетень</title>
 
 
     <style>
@@ -65,7 +65,9 @@
                 url("kazakhstan-pattern.jpg");
 
             background-size: cover;
+
             background-position: center;
+
             background-attachment: fixed;
 
         }
@@ -179,11 +181,10 @@
 
         .security {
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
             font-size: 10px;
-
-            letter-spacing: .2px;
 
         }
 
@@ -304,10 +305,6 @@
         }
 
 
-        /*
-         * Казахстанская декоративная полоса
-         */
-
         .kazakhstan-strip {
 
             height: 6px;
@@ -355,22 +352,60 @@
         }
 
 
+        /* =====================================
+           НАЗВАНИЕ БЮЛЛЕТЕНЯ
+        ===================================== */
+
         .ballot-title {
 
-            margin-top: 9px;
+            margin-top: 10px;
 
-            font-size: 20px;
+            font-size: 19px;
 
-            font-weight: 750;
+            font-weight: 800;
 
-            line-height: 1.4;
+            line-height: 1.5;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .ballot-subtitle {
+
+            margin-top: 3px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            line-height: 1.6;
+
+        }
+
+
+        .ballot-date {
+
+            margin-top: 2px;
+
+            color:
+                var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.6;
 
         }
 
 
         .ballot-instruction {
 
-            margin-top: 11px;
+            margin-top: 16px;
+
+            padding-top: 15px;
+
+            border-top:
+                1px solid var(--border);
 
             color:
                 var(--black);
@@ -624,7 +659,8 @@
 
             margin-top: 20px;
 
-            padding: 16px 17px;
+            padding:
+                16px 17px;
 
             border:
                 1px solid #e3e7ea;
@@ -806,7 +842,8 @@
 
             border-radius: 14px;
 
-            padding: 30px;
+            padding:
+                30px;
 
             text-align: center;
 
@@ -901,6 +938,13 @@
         }
 
 
+        .back-button:hover {
+
+            opacity: .9;
+
+        }
+
+
 
         /* =====================================
            FOOTNOTE
@@ -969,7 +1013,21 @@
 
             .ballot-title {
 
-                font-size: 18px;
+                font-size: 17px;
+
+            }
+
+
+            .ballot-subtitle {
+
+                font-size: 13px;
+
+            }
+
+
+            .ballot-instruction {
+
+                font-size: 11px;
 
             }
 
@@ -1110,7 +1168,21 @@
 
                 <div class="ballot-title">
 
-                    Какой вариант вы поддерживаете?
+                    ИЗБИРАТЕЛЬНЫЙ БЮЛЛЕТЕНЬ
+
+                </div>
+
+
+                <div class="ballot-subtitle">
+
+                    по выборам Президента Республики Казахстан
+
+                </div>
+
+
+                <div class="ballot-date">
+
+                    31 ноября 2027 года
 
                 </div>
 
@@ -1129,7 +1201,9 @@
 
 
 
-            <!-- CANDIDATES -->
+            <!-- =================================
+                 CANDIDATES
+            ================================== -->
 
             <div class="candidate-list">
 
@@ -1137,15 +1211,23 @@
                 <div class="candidate-header">
 
                     <div>
+
                         №
+
                     </div>
+
 
                     <div>
+
                         Кандидат
+
                     </div>
 
+
                     <div class="candidate-header-right">
+
                         Отметка
+
                     </div>
 
                 </div>
@@ -1368,15 +1450,17 @@
 
 
 
-            <!-- INVALID BALLOT -->
+            <!-- =================================
+                 INVALID BALLOT
+            ================================== -->
 
             <div class="invalid-note">
 
 
                 <div class="invalid-title">
 
-                    В каких случаях бюллетень считается
-                    недействительным
+                    В каких случаях бюллетень
+                    считается недействительным
 
                 </div>
 
@@ -1400,7 +1484,9 @@
 
 
 
-            <!-- SEND -->
+            <!-- =================================
+                 SEND
+            ================================== -->
 
             <button
                 class="send-button"
@@ -1425,7 +1511,9 @@
 
 
 
-    <!-- SUCCESS -->
+    <!-- =====================================
+         SUCCESS
+    ====================================== -->
 
     <div
         class="success-screen"
@@ -1472,6 +1560,7 @@
     <div class="footnote">
 
         Демонстрационный прототип.
+
         В текущей версии данные хранятся
         локально в браузере.
 
@@ -1509,10 +1598,10 @@ const identityVerified =
 
 
 /*
- * Проверяем только наличие
+ * Проверяем наличие
  * подтверждённой сессии и токена.
  *
- * ИИН здесь больше не используется.
+ * ИИН здесь не используется.
  */
 
 
@@ -1584,7 +1673,8 @@ if (
 
     document.getElementById(
         "ballot"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
@@ -1729,23 +1819,8 @@ function saveAnonymousBallot(
 
 
 /* =================================================
-   ДЕМО-ПРЕДСТАВЛЕНИЕ БЮЛЛЕТЕНЯ
+   ПОДГОТОВКА БЮЛЛЕТЕНЯ
 ================================================= */
-
-
-/*
- * ВАЖНО:
- *
- * Здесь больше НЕ используется
- * название AES-GCM, потому что
- * браузерный код ниже не выполняет
- * настоящее шифрование.
- *
- * Для настоящего шифрования
- * нужен сервер и криптографический
- * ключ, которым пользователь
- * не владеет.
- */
 
 
 async function prepareBallot(
@@ -1872,12 +1947,6 @@ function markTokenAsUsed(
 function destroyIdentitySession() {
 
 
-    /*
-     * ИИН здесь никогда
-     * не используется.
-     */
-
-
     sessionStorage.removeItem(
         "pending_verification_iin"
     );
@@ -1892,7 +1961,6 @@ function destroyIdentitySession() {
         "vote_token"
     );
 
-
 }
 
 
@@ -1905,21 +1973,10 @@ function destroyIdentitySession() {
 async function submitVote() {
 
 
-    /*
-     * Получаем актуальный токен.
-     */
-
-
     const token =
         sessionStorage.getItem(
             "vote_token"
         );
-
-
-    /*
-     * Проверяем наличие
-     * подтверждённой сессии.
-     */
 
 
     const verified =
@@ -1943,12 +2000,6 @@ async function submitVote() {
 
 
 
-    /*
-     * Проверяем,
-     * не использован ли токен.
-     */
-
-
     if (
         isTokenUsed(token)
     ) {
@@ -1961,11 +2012,6 @@ async function submitVote() {
 
     }
 
-
-
-    /*
-     * Получаем выбор.
-     */
 
 
     const selectedVote =
@@ -1982,14 +2028,6 @@ async function submitVote() {
 
     }
 
-
-
-    /*
-     * Блокируем кнопку.
-     *
-     * Это защищает от нескольких
-     * быстрых нажатий.
-     */
 
 
     const button =
@@ -2010,13 +2048,6 @@ async function submitVote() {
     try {
 
 
-        /*
-         * 1.
-         * Формируем демонстрационное
-         * представление бюллетеня.
-         */
-
-
         const ballot =
             await prepareBallot(
                 selectedVote
@@ -2025,11 +2056,9 @@ async function submitVote() {
 
 
         /*
-         * 2.
          * Сохраняем бюллетень
          * без ИИН.
          */
-
 
         saveAnonymousBallot(
             ballot
@@ -2038,11 +2067,8 @@ async function submitVote() {
 
 
         /*
-         * 3.
-         * Сохраняем агрегированный
-         * результат.
+         * Сохраняем результат.
          */
-
 
         saveVoteResult(
             selectedVote
@@ -2051,11 +2077,9 @@ async function submitVote() {
 
 
         /*
-         * 4.
          * Помечаем токен
          * использованным.
          */
-
 
         const tokenMarked =
             markTokenAsUsed(
@@ -2074,20 +2098,16 @@ async function submitVote() {
 
 
         /*
-         * 5.
          * Удаляем сессию.
          */
-
 
         destroyIdentitySession();
 
 
 
         /*
-         * 6.
          * Скрываем бюллетень.
          */
-
 
         document.getElementById(
             "ballot"
@@ -2103,11 +2123,8 @@ async function submitVote() {
 
 
         /*
-         * 7.
-         * Показываем успешное
-         * завершение голосования.
+         * Показываем результат.
          */
-
 
         document.getElementById(
             "successScreen"
