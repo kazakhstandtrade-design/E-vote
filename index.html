@@ -227,91 +227,68 @@
 
         .hero {
 
-            max-width:
-                1180px;
+            position: relative;
 
-            min-height:
-                560px;
+            max-width: 1180px;
 
-            margin:
-                auto;
+            min-height: 560px;
+
+            margin: auto;
 
             padding:
-                105px 24px 95px;
+                105px 24px
+                95px;
 
-            position:
-                relative;
+            display: flex;
 
-            display:
-                flex;
+            align-items: center;
 
-            align-items:
-                center;
-
-            overflow:
-                hidden;
-
-            color:
-                white;
+            overflow: hidden;
 
             background-image:
-
                 linear-gradient(
-                    rgba(0, 0, 0, .58),
+                    rgba(0, 0, 0, .48),
                     rgba(0, 0, 0, .58)
                 ),
+                url("kazakhstan-flag.JPG");
 
-                url("images/kazakhstan-flag.jpg");
+            background-size: cover;
 
-            background-size:
-                cover;
-
-            background-position:
-                center;
-
-            border-radius:
-                0 0 18px 18px;
+            background-position: center;
 
         }
 
 
-        /* Дополнительное затемнение */
-
         .hero::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            inset:
-                0;
+            inset: 0;
 
             background:
-
                 linear-gradient(
                     90deg,
-                    rgba(0,0,0,.68),
-                    rgba(0,0,0,.30)
+                    rgba(0,0,0,.62),
+                    rgba(0,0,0,.28),
+                    rgba(0,0,0,.42)
                 );
 
-            z-index:
-                0;
+            pointer-events: none;
 
         }
 
 
         .hero-content {
 
-            position:
-                relative;
+            position: relative;
 
-            z-index:
-                1;
+            z-index: 2;
 
-            max-width:
-                850px;
+            max-width: 850px;
+
+            width: 100%;
 
         }
 
@@ -319,7 +296,7 @@
         .hero-kazakh {
 
             color:
-                rgba(255,255,255,.9);
+                rgba(255,255,255,.85);
 
             font-size:
                 11px;
@@ -376,7 +353,7 @@
                 25px;
 
             color:
-                rgba(255,255,255,.82);
+                rgba(255,255,255,.84);
 
             font-size:
                 15px;
@@ -389,7 +366,6 @@
 
         /* =========================================
            HERO BUTTONS
-           ТОЛЬКО КНОПКИ ЦЕНТРИРОВАНЫ
         ========================================= */
 
         .hero-buttons {
@@ -414,8 +390,6 @@
 
         }
 
-
-        /* Зарегистрироваться */
 
         .primary-button {
 
@@ -452,15 +426,13 @@
         .primary-button:hover {
 
             background:
-                #f1f1f1;
+                #f0f0f0;
 
             transform:
                 translateY(-1px);
 
         }
 
-
-        /* Узнать больше */
 
         .secondary-button {
 
@@ -504,6 +476,231 @@
 
             border-color:
                 white;
+
+        }
+
+
+
+        /* =========================================
+           REAL-TIME RESULTS
+        ========================================= */
+
+        .results {
+
+            padding:
+                70px 24px;
+
+            background:
+                white;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .results-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .results-header {
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            justify-content:
+                space-between;
+
+            gap:
+                30px;
+
+        }
+
+
+        .results-status {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+        }
+
+
+        .status-dot {
+
+            width:
+                7px;
+
+            height:
+                7px;
+
+            border-radius:
+                50%;
+
+            background:
+                #38a169;
+
+        }
+
+
+        .results-grid {
+
+            margin-top:
+                30px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .result-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            padding:
+                22px;
+
+            background:
+                white;
+
+        }
+
+
+        .result-top {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+        }
+
+
+        .result-name {
+
+            font-size:
+                15px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .result-percent {
+
+            font-size:
+                16px;
+
+            font-weight:
+                800;
+
+            color:
+                var(--red);
+
+        }
+
+
+        .result-bar {
+
+            width:
+                100%;
+
+            height:
+                5px;
+
+            margin-top:
+                17px;
+
+            background:
+                #eeeeeb;
+
+            border-radius:
+                10px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .result-fill {
+
+            height:
+                100%;
+
+            background:
+                var(--red);
+
+            border-radius:
+                10px;
+
+        }
+
+
+        .result-votes {
+
+            margin-top:
+                9px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
+
+        }
+
+
+        .results-note {
+
+            margin-top:
+                18px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
 
         }
 
@@ -1055,7 +1252,7 @@
 
 
         /* =========================================
-           MODAL
+           MODALS
         ========================================= */
 
         .modal {
@@ -1403,13 +1600,8 @@
                     600px;
 
                 padding:
-                    75px 20px 70px;
-
-                border-radius:
-                    0 0 15px 15px;
-
-                background-position:
-                    center;
+                    75px 20px
+                    70px;
 
             }
 
@@ -1459,6 +1651,7 @@
             }
 
 
+            .results,
             .candidates,
             .how,
             .security {
@@ -1469,6 +1662,18 @@
             }
 
 
+            .results-header {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .results-grid,
             .candidate-grid,
             .steps,
             .security-grid {
@@ -1544,23 +1749,17 @@
 
 
             <a href="#how">
-
                 Как это работает
-
             </a>
 
 
             <a href="#candidates">
-
                 Кандидаты
-
             </a>
 
 
             <a href="#security">
-
                 Безопасность
-
             </a>
 
 
@@ -1646,6 +1845,193 @@
 
             </button>
 
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     REAL-TIME RESULTS
+========================================= -->
+
+<section
+    class="results"
+    id="results">
+
+
+    <div class="results-container">
+
+
+        <div class="results-header">
+
+
+            <div>
+
+
+                <div class="section-label">
+
+                    Голосование
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Результаты в реальном времени
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Предварительные результаты
+                    отображаются по мере поступления
+                    обезличенных голосов.
+
+                </p>
+
+
+            </div>
+
+
+            <div class="results-status">
+
+                <span class="status-dot"></span>
+
+                Обновляется автоматически
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="results-grid">
+
+
+            <div class="result-card">
+
+
+                <div class="result-top">
+
+                    <div class="result-name">
+                        Айдар Сейітов
+                    </div>
+
+                    <div class="result-percent">
+                        42%
+                    </div>
+
+                </div>
+
+
+                <div class="result-bar">
+
+                    <div
+                        class="result-fill"
+                        style="width:42%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-votes">
+
+                    4 200 голосов
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="result-card">
+
+
+                <div class="result-top">
+
+                    <div class="result-name">
+                        Дана Омарова
+                    </div>
+
+                    <div class="result-percent">
+                        35%
+                    </div>
+
+                </div>
+
+
+                <div class="result-bar">
+
+                    <div
+                        class="result-fill"
+                        style="width:35%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-votes">
+
+                    3 500 голосов
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="result-card">
+
+
+                <div class="result-top">
+
+                    <div class="result-name">
+                        Ерлан Нурбек
+                    </div>
+
+                    <div class="result-percent">
+                        23%
+                    </div>
+
+                </div>
+
+
+                <div class="result-bar">
+
+                    <div
+                        class="result-fill"
+                        style="width:23%;">
+                    </div>
+
+                </div>
+
+
+                <div class="result-votes">
+
+                    2 300 голосов
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="results-note">
+
+            Результаты являются демонстрационными
+            и используются только в рамках прототипа.
 
         </div>
 
@@ -2131,7 +2517,6 @@
 
 
     </div>
-
 
 </footer>
 
@@ -2657,7 +3042,8 @@ function register() {
     }
 
 
-    const users = getUsers();
+    const users =
+        getUsers();
 
 
     const existingUser =
