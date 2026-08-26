@@ -9,7 +9,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>VOTE — Электронное голосование</title>
+    <title>VOTE — Qauipsiz sailau</title>
 
 
     <style>
@@ -23,17 +23,21 @@
 
         :root {
 
-            --black: #111318;
-            --dark: #1b1e24;
-            --gray: #6d737d;
-            --light-gray: #f4f5f7;
-            --border: #e3e5e8;
+            --black: #17181c;
+            --gray: #70747d;
+            --light: #f6f6f4;
+            --border: #e7e7e4;
 
-            --red: #d92d3a;   
-            --red-dark: #b9232f;
+            --red: #c92d38;
+            --red-dark: #ad222d;
 
             --white: #ffffff;
 
+        }
+
+
+        html {
+            scroll-behavior: smooth;
         }
 
 
@@ -49,7 +53,8 @@
 
             color: var(--black);
 
-            background: white;
+            background:
+                var(--white);
 
             min-height: 100vh;
 
@@ -62,31 +67,36 @@
 
         header {
 
-            height: 76px;
+            height: 72px;
+
+            background:
+                rgba(255,255,255,.96);
 
             border-bottom:
                 1px solid var(--border);
-
-            background: rgba(255,255,255,.96);
 
             position: sticky;
 
             top: 0;
 
-            z-index: 20;
+            z-index: 50;
+
+            backdrop-filter:
+                blur(10px);
 
         }
 
 
         .header-container {
 
-            max-width: 1240px;
+            max-width: 1180px;
 
             height: 100%;
 
             margin: auto;
 
-            padding: 0 28px;
+            padding:
+                0 24px;
 
             display: flex;
 
@@ -103,32 +113,34 @@
 
             align-items: center;
 
-            gap: 11px;
+            gap: 10px;
 
             color: var(--black);
 
             text-decoration: none;
 
-            font-size: 21px;
+            font-size: 19px;
 
             font-weight: 800;
 
-            letter-spacing: -.5px;
+            letter-spacing: -.4px;
 
         }
 
 
         .logo-mark {
 
-            width: 35px;
+            width: 33px;
 
-            height: 35px;
+            height: 33px;
 
-            border-radius: 10px;
+            border-radius: 9px;
 
-            background: var(--red);
+            background:
+                var(--red);
 
-            color: white;
+            color:
+                white;
 
             display: flex;
 
@@ -137,9 +149,6 @@
             justify-content: center;
 
             font-weight: 800;
-
-            box-shadow:
-                0 5px 15px rgba(217,45,58,.2);
 
         }
 
@@ -150,18 +159,19 @@
 
             align-items: center;
 
-            gap: 28px;
+            gap: 25px;
 
         }
 
 
         .nav a {
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
             text-decoration: none;
 
-            font-size: 13px;
+            font-size: 12px;
 
             transition: .2s;
 
@@ -170,40 +180,48 @@
 
         .nav a:hover {
 
-            color: var(--black);
+            color:
+                var(--black);
 
         }
 
 
         .login-nav {
 
-            padding: 11px 18px;
-
             border:
                 1px solid var(--border);
 
-            border-radius: 9px;
+            background:
+                white;
 
-            background: white;
+            color:
+                var(--black);
 
-            color: var(--black);
+            padding:
+                9px 17px;
 
-            cursor: pointer;
+            border-radius:
+                8px;
 
-            font-size: 13px;
+            font-size:
+                12px;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
-            transition: .2s;
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
 
         }
 
 
         .login-nav:hover {
 
-            border-color: var(--black);
-
-            transform: translateY(-1px);
+            border-color:
+                var(--black);
 
         }
 
@@ -215,164 +233,148 @@
 
         .hero {
 
-            max-width: 1100px;
+            max-width:
+                1180px;
 
-            margin: auto;
-
-            min-height: 600px;
-
-            padding:
-                100px 28px 90px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-        }
-
-
-        .hero > div {
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-        }
-
-
-        .hero-label {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 9px;
+            margin:
+                auto;
 
             padding:
-                8px 13px;
-
-            border:
-                1px solid #f0d4d7;
-
-            border-radius: 50px;
-
-            background: #fff8f8;
-
-            color: var(--red);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
+                105px 24px
+                95px;
 
         }
 
 
-        .status-dot {
+        .hero-content {
 
-            width: 7px;
+            max-width:
+                850px;
 
-            height: 7px;
+        }
 
-            border-radius: 50%;
 
-            background: var(--red);
+        .hero-kazakh {
 
-            box-shadow:
-                0 0 0 4px rgba(217,45,58,.08);
+            color:
+                var(--red);
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.5px;
+
+            text-transform:
+                uppercase;
 
         }
 
 
         .hero h1 {
 
-            margin-top: 25px;
+            margin-top:
+                18px;
 
-            font-size: 68px;
+            font-size:
+                clamp(52px, 8vw, 88px);
 
-            line-height: 1.02;
+            line-height:
+                .98;
 
-            letter-spacing: -4px;
+            letter-spacing:
+                -5px;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
         }
 
 
         .hero h1 span {
 
-            color: var(--red);
+            color:
+                var(--red);
 
         }
 
 
         .hero-description {
 
-            max-width: 670px;
+            max-width:
+                680px;
 
-            margin-top: 24px;
+            margin-top:
+                25px;
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
-            font-size: 16px;
+            font-size:
+                15px;
 
-            line-height: 1.75;
+            line-height:
+                1.75;
 
         }
 
 
         .hero-buttons {
 
-            display: flex;
+            display:
+                flex;
 
-            gap: 12px;
+            gap:
+                10px;
 
-            margin-top: 34px;
+            margin-top:
+                30px;
 
         }
 
 
         .primary-button {
 
-            border: none;
+            border:
+                none;
 
-            background: var(--red);
+            background:
+                var(--red);
 
-            color: white;
+            color:
+                white;
 
             padding:
-                15px 24px;
+                14px 22px;
 
-            border-radius: 9px;
+            border-radius:
+                8px;
 
-            font-size: 13px;
+            font-size:
+                12px;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
-            transition: .2s;
-
-            box-shadow:
-                0 8px 20px rgba(217,45,58,.16);
+            transition:
+                .2s;
 
         }
 
 
         .primary-button:hover {
 
-            background: var(--red-dark);
+            background:
+                var(--red-dark);
 
-            transform: translateY(-2px);
+            transform:
+                translateY(-1px);
 
         }
 
@@ -382,168 +384,535 @@
             border:
                 1px solid var(--border);
 
-            background: white;
+            background:
+                white;
 
-            color: var(--black);
+            color:
+                var(--black);
 
             padding:
-                15px 24px;
+                14px 22px;
 
-            border-radius: 9px;
+            border-radius:
+                8px;
 
-            font-size: 13px;
+            font-size:
+                12px;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
-            transition: .2s;
+            transition:
+                .2s;
 
         }
 
 
         .secondary-button:hover {
 
-            border-color: #bfc2c7;
-
-            transform: translateY(-2px);
+            border-color:
+                #c9c9c6;
 
         }
 
 
 
         /* =========================================
-           HOW
+           KAZAKH IDENTITY
         ========================================= */
 
-        .how {
+        .identity {
 
-            background: var(--light-gray);
+            background:
+                var(--light);
+
+            border-top:
+                1px solid var(--border);
+
+            border-bottom:
+                1px solid var(--border);
 
             padding:
-                85px 28px;
+                65px 24px;
 
         }
 
 
-        .section-container {
+        .identity-container {
 
-            max-width: 1100px;
+            max-width:
+                1180px;
 
-            margin: auto;
+            margin:
+                auto;
+
+        }
+
+
+        .identity-header {
+
+            max-width:
+                650px;
 
         }
 
 
         .section-label {
 
-            color: var(--red);
+            color:
+                var(--red);
 
-            font-size: 10px;
+            font-size:
+                10px;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
-            text-transform: uppercase;
+            letter-spacing:
+                1.3px;
 
-            letter-spacing: 1.2px;
+            text-transform:
+                uppercase;
 
         }
 
 
         .section-title {
 
-            margin-top: 10px;
+            margin-top:
+                9px;
 
-            font-size: 34px;
+            font-size:
+                32px;
 
-            letter-spacing: -1.2px;
+            line-height:
+                1.15;
+
+            letter-spacing:
+                -1.2px;
+
+        }
+
+
+        .section-description {
+
+            margin-top:
+                10px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .identity-grid {
+
+            margin-top:
+                30px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .identity-card {
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            padding:
+                24px;
+
+        }
+
+
+        .identity-symbol {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            border-radius:
+                8px;
+
+            background:
+                var(--black);
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .identity-card h3 {
+
+            margin-top:
+                18px;
+
+            font-size:
+                16px;
+
+        }
+
+
+        .identity-card p {
+
+            margin-top:
+                7px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.65;
+
+        }
+
+
+
+        /* =========================================
+           CANDIDATES
+        ========================================= */
+
+        .candidates {
+
+            padding:
+                80px 24px;
+
+        }
+
+
+        .candidates-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .candidates-header {
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            justify-content:
+                space-between;
+
+            gap:
+                30px;
+
+        }
+
+
+        .candidates-link {
+
+            color:
+                var(--black);
+
+            text-decoration:
+                none;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            border-bottom:
+                1px solid var(--black);
+
+            padding-bottom:
+                3px;
+
+        }
+
+
+        .candidate-grid {
+
+            margin-top:
+                30px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .candidate-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            padding:
+                22px;
+
+            background:
+                white;
+
+        }
+
+
+        .candidate-number {
+
+            color:
+                var(--red);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .candidate-card h3 {
+
+            margin-top:
+                15px;
+
+            font-size:
+                18px;
+
+        }
+
+
+        .candidate-info {
+
+            margin-top:
+                6px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+        }
+
+
+        .candidate-description {
+
+            margin-top:
+                15px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.65;
+
+        }
+
+
+        .candidate-button {
+
+            width:
+                100%;
+
+            height:
+                39px;
+
+            margin-top:
+                19px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            border-radius:
+                7px;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .candidate-button:hover {
+
+            background:
+                var(--light);
+
+            border-color:
+                #ccccca;
+
+        }
+
+
+
+        /* =========================================
+           HOW IT WORKS
+        ========================================= */
+
+        .how {
+
+            background:
+                var(--light);
+
+            padding:
+                80px 24px;
+
+        }
+
+
+        .how-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
 
         }
 
 
         .steps {
 
-            display: grid;
+            margin-top:
+                30px;
+
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 18px;
-
-            margin-top: 32px;
+            gap:
+                15px;
 
         }
 
 
         .step {
 
-            background: white;
+            background:
+                white;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 15px;
+            border-radius:
+                13px;
 
-            padding: 27px;
-
-            transition: .2s;
-
-        }
-
-
-        .step:hover {
-
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 15px 35px rgba(17,19,24,.06);
+            padding:
+                24px;
 
         }
 
 
         .step-number {
 
-            width: 36px;
+            color:
+                var(--red);
 
-            height: 36px;
+            font-size:
+                11px;
 
-            border-radius: 9px;
-
-            background: var(--black);
-
-            color: white;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            font-size: 11px;
-
-            font-weight: 700;
+            font-weight:
+                800;
 
         }
 
 
         .step h3 {
 
-            margin-top: 19px;
+            margin-top:
+                22px;
 
-            font-size: 17px;
+            font-size:
+                17px;
 
         }
 
 
         .step p {
 
-            margin-top: 9px;
+            margin-top:
+                8px;
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
-            font-size: 13px;
+            font-size:
+                12px;
 
-            line-height: 1.65;
+            line-height:
+                1.7;
 
         }
 
@@ -556,66 +925,74 @@
         .security {
 
             padding:
-                85px 28px;
+                80px 24px;
+
+        }
+
+
+        .security-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
 
         }
 
 
         .security-grid {
 
-            display: grid;
+            margin-top:
+                30px;
+
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 18px;
-
-            margin-top: 32px;
+            gap:
+                15px;
 
         }
 
 
         .security-item {
 
-            padding: 26px;
+            padding:
+                24px;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 15px;
-
-            background: white;
-
-            transition: .2s;
-
-        }
-
-
-        .security-item:hover {
-
-            border-color: #cfd2d6;
-
-            transform: translateY(-3px);
+            border-radius:
+                13px;
 
         }
 
 
         .security-item h3 {
 
-            font-size: 16px;
+            font-size:
+                16px;
 
         }
 
 
         .security-item p {
 
-            margin-top: 9px;
+            margin-top:
+                8px;
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
-            font-size: 13px;
+            font-size:
+                12px;
 
-            line-height: 1.65;
+            line-height:
+                1.7;
 
         }
 
@@ -631,32 +1008,68 @@
                 1px solid var(--border);
 
             padding:
-                27px 24px;
+                30px 24px;
 
-            color: var(--gray);
+        }
 
-            font-size: 12px;
 
-            text-align: center;
+        .footer-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+        }
+
+
+        .footer-logo {
+
+            font-size:
+                13px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .footer-text {
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
 
         }
 
 
 
         /* =========================================
-           CLEAR STORAGE
+           STORAGE
         ========================================= */
 
         .storage-clear {
 
-            max-width: 1100px;
-
-            margin: auto;
+            text-align:
+                center;
 
             padding:
-                10px 28px 35px;
-
-            text-align: center;
+                15px 24px 30px;
 
         }
 
@@ -664,35 +1077,27 @@
         .storage-clear-button {
 
             border:
-                1px solid var(--border);
+                none;
 
-            background: white;
+            background:
+                transparent;
 
-            color: var(--gray);
+            color:
+                #a0a3a8;
 
-            padding:
-                10px 18px;
+            font-size:
+                10px;
 
-            border-radius: 8px;
-
-            font-size: 11px;
-
-            font-weight: 600;
-
-            cursor: pointer;
-
-            transition: .2s;
+            cursor:
+                pointer;
 
         }
 
 
         .storage-clear-button:hover {
 
-            border-color: var(--red);
-
-            color: var(--red);
-
-            background: #fff7f7;
+            color:
+                var(--red);
 
         }
 
@@ -704,281 +1109,307 @@
 
         .modal {
 
-            position: fixed;
+            position:
+                fixed;
 
-            inset: 0;
+            inset:
+                0;
 
-            display: none;
+            display:
+                none;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            padding: 20px;
+            padding:
+                20px;
 
             background:
                 rgba(0,0,0,.55);
 
-            backdrop-filter: blur(4px);
+            backdrop-filter:
+                blur(5px);
 
-            z-index: 100;
+            z-index:
+                100;
 
         }
 
 
         .modal.active {
 
-            display: flex;
+            display:
+                flex;
 
         }
 
 
         .modal-box {
 
-            width: 100%;
+            width:
+                100%;
 
-            max-width: 430px;
+            max-width:
+                420px;
 
-            background: white;
+            background:
+                white;
 
-            border-radius: 17px;
+            border-radius:
+                15px;
 
-            padding: 32px;
+            padding:
+                30px;
 
             box-shadow:
                 0 25px 70px rgba(0,0,0,.18);
-
-            animation:
-                modalIn .2s ease;
-
-        }
-
-
-        @keyframes modalIn {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(10px)
-                    scale(.98);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-
-            }
 
         }
 
 
         .modal-header {
 
-            display: flex;
+            display:
+                flex;
 
-            justify-content: space-between;
+            align-items:
+                center;
 
-            align-items: center;
+            justify-content:
+                space-between;
 
         }
 
 
         .modal-header h2 {
 
-            font-size: 23px;
-
-            letter-spacing: -.5px;
+            font-size:
+                22px;
 
         }
 
 
         .close-button {
 
-            width: 32px;
+            width:
+                31px;
 
-            height: 32px;
+            height:
+                31px;
 
-            border: none;
+            border:
+                none;
 
-            background: var(--light-gray);
+            background:
+                var(--light);
 
-            border-radius: 8px;
+            border-radius:
+                8px;
 
-            font-size: 20px;
+            color:
+                var(--gray);
 
-            cursor: pointer;
+            font-size:
+                20px;
 
-            color: var(--gray);
-
-        }
-
-
-        .close-button:hover {
-
-            color: var(--black);
+            cursor:
+                pointer;
 
         }
 
 
         .modal-description {
 
-            margin-top: 9px;
+            margin-top:
+                8px;
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
-            font-size: 13px;
+            font-size:
+                12px;
 
-            line-height: 1.5;
+            line-height:
+                1.5;
 
         }
 
 
         .form-group {
 
-            margin-top: 19px;
+            margin-top:
+                18px;
 
         }
 
 
         .form-group label {
 
-            display: block;
+            display:
+                block;
 
-            margin-bottom: 7px;
+            margin-bottom:
+                7px;
 
-            font-size: 12px;
+            font-size:
+                11px;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
         }
 
 
         .form-group input {
 
-            width: 100%;
+            width:
+                100%;
 
-            height: 46px;
+            height:
+                44px;
 
             padding:
-                0 13px;
+                0 12px;
 
             border:
                 1px solid var(--border);
 
-            border-radius: 9px;
+            border-radius:
+                8px;
 
-            outline: none;
+            outline:
+                none;
 
-            font-size: 14px;
-
-            transition: .2s;
+            font-size:
+                13px;
 
         }
 
 
         .form-group input:focus {
 
-            border-color: var(--red);
-
-            box-shadow:
-                0 0 0 3px rgba(217,45,58,.08);
+            border-color:
+                var(--red);
 
         }
 
 
         .form-button {
 
-            width: 100%;
+            width:
+                100%;
 
-            height: 47px;
+            height:
+                45px;
 
-            margin-top: 21px;
+            margin-top:
+                20px;
 
-            border: none;
+            border:
+                none;
 
-            border-radius: 9px;
+            border-radius:
+                8px;
 
-            background: var(--red);
+            background:
+                var(--red);
 
-            color: white;
+            color:
+                white;
 
-            font-size: 13px;
+            font-size:
+                12px;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
-            cursor: pointer;
-
-            transition: .2s;
+            cursor:
+                pointer;
 
         }
 
 
         .form-button:hover {
 
-            background: var(--red-dark);
+            background:
+                var(--red-dark);
 
         }
 
 
         .switch-form {
 
-            margin-top: 18px;
+            margin-top:
+                16px;
 
-            text-align: center;
+            text-align:
+                center;
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
-            font-size: 12px;
+            font-size:
+                11px;
 
         }
 
 
         .switch-form button {
 
-            border: none;
+            border:
+                none;
 
-            background: none;
+            background:
+                none;
 
-            color: var(--red);
+            color:
+                var(--red);
 
-            font-weight: 700;
+            font-weight:
+                700;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
         }
 
 
         .form-error {
 
-            display: none;
+            display:
+                none;
 
-            margin-top: 12px;
+            margin-top:
+                11px;
 
-            padding: 11px;
+            padding:
+                10px;
 
-            border-radius: 8px;
+            border-radius:
+                7px;
 
-            background: #fff1f2;
+            background:
+                #fff1f2;
 
-            color: var(--red);
+            color:
+                var(--red);
 
-            font-size: 12px;
+            font-size:
+                11px;
 
-            line-height: 1.5;
+            line-height:
+                1.5;
 
         }
 
 
         .form-error.active {
 
-            display: block;
+            display:
+                block;
 
         }
 
@@ -990,6 +1421,7 @@
 
         @media (max-width: 750px) {
 
+
             .header-container {
 
                 padding:
@@ -1000,88 +1432,111 @@
 
             .nav {
 
-                gap: 10px;
+                gap:
+                    10px;
 
             }
 
 
             .nav a {
 
-                display: none;
+                display:
+                    none;
 
             }
 
 
             .hero {
 
-                min-height: auto;
-
                 padding:
-                    75px 20px 80px;
+                    75px 20px
+                    70px;
 
             }
 
 
             .hero h1 {
 
-                font-size: 45px;
-
-                letter-spacing: -2.5px;
+                letter-spacing:
+                    -3px;
 
             }
 
 
             .hero-description {
 
-                font-size: 14px;
+                font-size:
+                    14px;
 
             }
 
 
             .hero-buttons {
 
-                flex-direction: column;
+                flex-direction:
+                    column;
 
-                width: 100%;
+                width:
+                    100%;
 
-                max-width: 300px;
-
-            }
-
-
-            .steps,
-            .security-grid {
-
-                grid-template-columns: 1fr;
+                max-width:
+                    300px;
 
             }
 
 
+            .identity,
+            .candidates,
             .how,
             .security {
 
                 padding:
-                    65px 20px;
+                    60px 20px;
+
+            }
+
+
+            .identity-grid,
+            .candidate-grid,
+            .steps,
+            .security-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .candidates-header {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
 
             }
 
 
             .section-title {
 
-                font-size: 29px;
+                font-size:
+                    28px;
 
             }
 
 
-            .storage-clear {
+            .footer-container {
 
-                padding:
-                    10px 20px 30px;
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
 
             }
 
         }
-
 
     </style>
 
@@ -1117,12 +1572,23 @@
 
 
             <a href="#how">
+
                 Как это работает
+
+            </a>
+
+
+            <a href="#candidates">
+
+                Кандидаты
+
             </a>
 
 
             <a href="#security">
+
                 Безопасность
+
             </a>
 
 
@@ -1137,6 +1603,7 @@
 
         </nav>
 
+
     </div>
 
 </header>
@@ -1149,34 +1616,36 @@
 
 <section class="hero">
 
-    <div>
+
+    <div class="hero-content">
 
 
-        <div class="hero-label">
+        <div class="hero-kazakh">
 
-            <span class="status-dot"></span>
-
-            Система готова к голосованию
+            Қазақстанның цифрлық таңдауы
 
         </div>
 
 
         <h1>
 
-            Твой голос.
+            Qauipsiz
 
             <br>
 
-            <span>Твоя тайна.</span>
+            <span>sailau.</span>
 
         </h1>
 
 
         <p class="hero-description">
 
-            Электронная система голосования,
-            разработанная с принципом разделения
-            личности избирателя и его бюллетеня.
+            Цифровая платформа для электронного
+            голосования, где подтверждение личности
+            отделено от содержания вашего голоса.
+
+            Простая регистрация, проверка права голоса
+            и анонимное участие в выборах.
 
         </p>
 
@@ -1201,7 +1670,7 @@
                         behavior: 'smooth'
                     })">
 
-                Как это работает →
+                Узнать больше →
 
             </button>
 
@@ -1216,7 +1685,367 @@
 
 
 <!-- =========================================
-     HOW
+     KAZAKH IDENTITY
+========================================= -->
+
+<section class="identity">
+
+
+    <div class="identity-container">
+
+
+        <div class="identity-header">
+
+
+            <div class="section-label">
+
+                Қазақстан
+
+            </div>
+
+
+            <h2 class="section-title">
+
+                Цифровое голосование
+                с казахской идентичностью
+
+            </h2>
+
+
+            <p class="section-description">
+
+                Система создана как прототип
+                современной цифровой инфраструктуры
+                голосования с учётом принципов
+                конфиденциальности и защиты
+                избирательного права.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="identity-grid">
+
+
+            <div class="identity-card">
+
+
+                <div class="identity-symbol">
+
+                    Ұ
+
+                </div>
+
+
+                <h3>
+
+                    Доверие
+
+                </h3>
+
+
+                <p>
+
+                    Каждый избиратель должен иметь
+                    возможность подтвердить своё
+                    право голоса без раскрытия
+                    содержания своего выбора.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="identity-card">
+
+
+                <div class="identity-symbol">
+
+                    Q
+
+                </div>
+
+
+                <h3>
+
+                    Қазақстан
+
+                </h3>
+
+
+                <p>
+
+                    Интерфейс и концепция системы
+                    ориентированы на использование
+                    в цифровой среде Казахстана.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="identity-card">
+
+
+                <div class="identity-symbol">
+
+                    ✓
+
+                </div>
+
+
+                <h3>
+
+                    Ответственность
+
+                </h3>
+
+
+                <p>
+
+                    Каждый голос должен учитываться
+                    только один раз и принадлежать
+                    подтверждённому избирателю.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CANDIDATES
+========================================= -->
+
+<section
+    class="candidates"
+    id="candidates">
+
+
+    <div class="candidates-container">
+
+
+        <div class="candidates-header">
+
+
+            <div>
+
+
+                <div class="section-label">
+
+                    Выбор
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Кандидаты
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Ознакомьтесь с кандидатами
+                    и их основными программами
+                    до начала голосования.
+
+                </p>
+
+
+            </div>
+
+
+            <a
+                href="#candidates"
+                class="candidates-link">
+
+                Все кандидаты →
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="candidate-grid">
+
+
+            <div class="candidate-card">
+
+
+                <div class="candidate-number">
+
+                    КАНДИДАТ 01
+
+                </div>
+
+
+                <h3>
+
+                    Айдар Сейітов
+
+                </h3>
+
+
+                <div class="candidate-info">
+
+                    Независимый кандидат
+
+                </div>
+
+
+                <p class="candidate-description">
+
+                    Развитие цифровой инфраструктуры,
+                    прозрачность государственных услуг
+                    и поддержка технологического бизнеса.
+
+                </p>
+
+
+                <button
+                    class="candidate-button"
+                    onclick="showCandidate(
+                        'Айдар Сейітов',
+                        'Развитие цифровой инфраструктуры, прозрачность государственных услуг и поддержка технологического бизнеса.'
+                    )">
+
+                    Узнать больше
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="candidate-card">
+
+
+                <div class="candidate-number">
+
+                    КАНДИДАТ 02
+
+                </div>
+
+
+                <h3>
+
+                    Дана Омарова
+
+                </h3>
+
+
+                <div class="candidate-info">
+
+                    Общественное движение
+
+                </div>
+
+
+                <p class="candidate-description">
+
+                    Развитие образования, доступность
+                    цифровых сервисов и поддержка
+                    молодых специалистов.
+
+                </p>
+
+
+                <button
+                    class="candidate-button"
+                    onclick="showCandidate(
+                        'Дана Омарова',
+                        'Развитие образования, доступность цифровых сервисов и поддержка молодых специалистов.'
+                    )">
+
+                    Узнать больше
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="candidate-card">
+
+
+                <div class="candidate-number">
+
+                    КАНДИДАТ 03
+
+                </div>
+
+
+                <h3>
+
+                    Ерлан Нурбек
+
+                </h3>
+
+
+                <div class="candidate-info">
+
+                    Независимый кандидат
+
+                </div>
+
+
+                <p class="candidate-description">
+
+                    Экономическое развитие регионов,
+                    поддержка предпринимательства
+                    и модернизация инфраструктуры.
+
+                </p>
+
+
+                <button
+                    class="candidate-button"
+                    onclick="showCandidate(
+                        'Ерлан Нурбек',
+                        'Экономическое развитие регионов, поддержка предпринимательства и модернизация инфраструктуры.'
+                    )">
+
+                    Узнать больше
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     HOW IT WORKS
 ========================================= -->
 
 <section
@@ -1224,19 +2053,19 @@
     id="how">
 
 
-    <div class="section-container">
+    <div class="how-container">
 
 
         <div class="section-label">
 
-            Архитектура
+            Процесс
 
         </div>
 
 
         <h2 class="section-title">
 
-            Как работает система
+            Как проходит голосование
 
         </h2>
 
@@ -1246,23 +2075,29 @@
 
             <div class="step">
 
+
                 <div class="step-number">
+
                     01
+
                 </div>
 
 
                 <h3>
-                    Регистрация
+
+                    Создание аккаунта
+
                 </h3>
 
 
                 <p>
 
-                    Пользователь создаёт
-                    учётную запись и входит
-                    в личный кабинет.
+                    Пользователь регистрируется
+                    и получает доступ в личный
+                    кабинет.
 
                 </p>
+
 
             </div>
 
@@ -1270,23 +2105,29 @@
 
             <div class="step">
 
+
                 <div class="step-number">
+
                     02
+
                 </div>
 
 
                 <h3>
-                    Подтверждение личности
+
+                    Проверка личности
+
                 </h3>
 
 
                 <p>
 
                     Право голоса подтверждается
-                    через ИИН и биометрическую
-                    идентификацию или ЭЦП.
+                    посредством ИИН и биометрической
+                    проверки либо ЭЦП.
 
                 </p>
+
 
             </div>
 
@@ -1294,23 +2135,29 @@
 
             <div class="step">
 
+
                 <div class="step-number">
+
                     03
+
                 </div>
 
 
                 <h3>
-                    Анонимное голосование
+
+                    Голосование
+
                 </h3>
 
 
                 <p>
 
-                    После подтверждения права
-                    голоса создаётся отдельный
-                    анонимный токен.
+                    После подтверждения пользователь
+                    получает доступ к электронному
+                    бюллетеню.
 
                 </p>
+
 
             </div>
 
@@ -1333,19 +2180,19 @@
     id="security">
 
 
-    <div class="section-container">
+    <div class="security-container">
 
 
         <div class="section-label">
 
-            Безопасность
+            Защита
 
         </div>
 
 
         <h2 class="section-title">
 
-            Разделение личности и голоса
+            Основные принципы
 
         </h2>
 
@@ -1357,16 +2204,18 @@
 
 
                 <h3>
-                    Анонимный токен
+
+                    Конфиденциальность
+
                 </h3>
 
 
                 <p>
 
-                    Для участия в голосовании
-                    используется отдельный
-                    случайный идентификатор,
-                    не содержащий ИИН или email.
+                    Данные, используемые
+                    для подтверждения личности,
+                    не должны быть связаны
+                    с выбором избирателя.
 
                 </p>
 
@@ -1379,16 +2228,17 @@
 
 
                 <h3>
-                    Зашифрованный бюллетень
+
+                    Один избиратель — один голос
+
                 </h3>
 
 
                 <p>
 
-                    В дальнейшем бюллетень
-                    будет шифроваться перед
-                    отправкой на сервер
-                    голосования.
+                    Система должна предотвращать
+                    повторное использование права
+                    голоса одним пользователем.
 
                 </p>
 
@@ -1401,16 +2251,17 @@
 
 
                 <h3>
-                    Разрыв связи
+
+                    Контроль пользователя
+
                 </h3>
 
 
                 <p>
 
-                    Сервис, принимающий бюллетень,
-                    не должен получать сведения,
-                    позволяющие установить личность
-                    избирателя.
+                    Пользователь самостоятельно
+                    проходит проверку личности
+                    и получает доступ к бюллетеню.
 
                 </p>
 
@@ -1433,15 +2284,34 @@
 
 <footer>
 
-    VOTE — прототип системы электронного
-    анонимного голосования
+
+    <div class="footer-container">
+
+
+        <div class="footer-logo">
+
+            VOTE
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Прототип цифровой системы
+            электронного голосования
+
+        </div>
+
+
+    </div>
+
 
 </footer>
 
 
 
 <!-- =========================================
-     CLEAR STORAGE BUTTON
+     CLEAR STORAGE
 ========================================= -->
 
 <div class="storage-clear">
@@ -1476,7 +2346,9 @@
 
 
             <h2 id="modalTitle">
+
                 Вход
+
             </h2>
 
 
@@ -1502,9 +2374,7 @@
 
 
 
-        <!-- =================================
-             LOGIN
-        ================================== -->
+        <!-- LOGIN -->
 
         <div id="loginForm">
 
@@ -1528,7 +2398,6 @@
             </div>
 
 
-
             <div class="form-group">
 
 
@@ -1548,12 +2417,10 @@
             </div>
 
 
-
             <div
                 class="form-error"
                 id="loginError">
             </div>
-
 
 
             <button
@@ -1563,7 +2430,6 @@
                 Войти
 
             </button>
-
 
 
             <div class="switch-form">
@@ -1585,9 +2451,7 @@
 
 
 
-        <!-- =================================
-             REGISTER
-        ================================== -->
+        <!-- REGISTER -->
 
         <div
             id="registerForm"
@@ -1613,7 +2477,6 @@
             </div>
 
 
-
             <div class="form-group">
 
 
@@ -1631,7 +2494,6 @@
 
 
             </div>
-
 
 
             <div class="form-group">
@@ -1653,12 +2515,10 @@
             </div>
 
 
-
             <div
                 class="form-error"
                 id="registerError">
             </div>
-
 
 
             <button
@@ -1668,7 +2528,6 @@
                 Создать аккаунт
 
             </button>
-
 
 
             <div class="switch-form">
@@ -1687,6 +2546,62 @@
 
 
         </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     CANDIDATE MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="candidateModal">
+
+
+    <div class="modal-box">
+
+
+        <div class="modal-header">
+
+
+            <h2 id="candidateTitle">
+
+                Кандидат
+
+            </h2>
+
+
+            <button
+                class="close-button"
+                onclick="closeCandidateModal()">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+        <p
+            class="modal-description"
+            id="candidateDescription">
+
+        </p>
+
+
+        <button
+            class="form-button"
+            onclick="closeCandidateModal()">
+
+            Закрыть
+
+        </button>
 
 
     </div>
@@ -1731,7 +2646,7 @@ function saveUsers(users) {
 
 
 /* =========================================
-   MODAL
+   AUTH MODAL
 ========================================= */
 
 
@@ -1758,7 +2673,6 @@ function openModal(type) {
 
 
 function closeModal() {
-
 
     document
         .getElementById("authModal")
@@ -1978,8 +2892,7 @@ function register() {
 
 
     /*
-     * Сбрасываем состояние
-     * предыдущей сессии.
+     * Сбрасываем старое состояние.
      */
 
     localStorage.removeItem(
@@ -1997,19 +2910,14 @@ function register() {
     );
 
 
-    /*
-     * Сохраняем текущего пользователя.
-     */
+    sessionStorage.clear();
+
 
     localStorage.setItem(
         "vote_current_user",
         JSON.stringify(user)
     );
 
-
-    /*
-     * Переходим в кабинет.
-     */
 
     window.location.href =
         "cabinet.html";
@@ -2107,9 +3015,7 @@ function login() {
     );
 
 
-    localStorage.removeItem(
-        "vote_current_user"
-    );
+    sessionStorage.clear();
 
 
     localStorage.setItem(
@@ -2117,10 +3023,6 @@ function login() {
         JSON.stringify(user)
     );
 
-
-    /*
-     * Переходим в кабинет.
-     */
 
     window.location.href =
         "cabinet.html";
@@ -2139,10 +3041,8 @@ function showError(
     text
 ) {
 
-
     element.textContent =
         text;
-
 
     element.classList.add(
         "active"
@@ -2153,7 +3053,49 @@ function showError(
 
 
 /* =========================================
-   CLEAR ALL STORAGE
+   CANDIDATES
+========================================= */
+
+
+function showCandidate(
+    name,
+    description
+) {
+
+
+    document
+        .getElementById("candidateTitle")
+        .textContent =
+            name;
+
+
+    document
+        .getElementById("candidateDescription")
+        .textContent =
+            description;
+
+
+    document
+        .getElementById("candidateModal")
+        .classList
+        .add("active");
+
+}
+
+
+function closeCandidateModal() {
+
+    document
+        .getElementById("candidateModal")
+        .classList
+        .remove("active");
+
+}
+
+
+
+/* =========================================
+   CLEAR STORAGE
 ========================================= */
 
 
@@ -2181,18 +3123,7 @@ function clearAllStorage() {
     }
 
 
-    /*
-     * Полностью очищаем
-     * localStorage.
-     */
-
     localStorage.clear();
-
-
-    /*
-     * Полностью очищаем
-     * sessionStorage.
-     */
 
     sessionStorage.clear();
 
@@ -2201,12 +3132,6 @@ function clearAllStorage() {
         "Все данные прототипа очищены."
     );
 
-
-    /*
-     * Перезагружаем страницу,
-     * чтобы интерфейс тоже
-     * вернулся в исходное состояние.
-     */
 
     window.location.reload();
 
