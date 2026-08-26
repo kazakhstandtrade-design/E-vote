@@ -23,16 +23,19 @@
 
         :root {
 
-            --black: #111318;
-            --dark: #191c22;
+            --black: #15171b;
 
-            --gray: #737984;
-            --light-gray: #f5f6f8;
+            --gray: #737982;
 
-            --border: #e5e7eb;
+            --light: #f7f8f7;
 
-            --red: #d92d3a;
-            --red-dark: #bb2531;
+            --border: #e6e8e6;
+
+            --blue: #4aa9df;
+
+            --blue-dark: #318fc5;
+
+            --gold: #d8b15a;
 
             --green: #16834b;
 
@@ -45,7 +48,7 @@
 
             min-height: 100vh;
 
-            background: var(--light-gray);
+            background: var(--white);
 
             color: var(--black);
 
@@ -68,7 +71,8 @@
 
             height: 72px;
 
-            background: rgba(255,255,255,.97);
+            background:
+                rgba(255,255,255,.97);
 
             border-bottom:
                 1px solid var(--border);
@@ -79,12 +83,15 @@
 
             z-index: 20;
 
+            backdrop-filter:
+                blur(12px);
+
         }
 
 
         .header-inner {
 
-            max-width: 900px;
+            max-width: 980px;
 
             height: 100%;
 
@@ -109,14 +116,19 @@
 
             gap: 10px;
 
-            font-size: 19px;
+            font-size: 18px;
 
             font-weight: 800;
 
-            letter-spacing: -.3px;
+            letter-spacing: -.4px;
 
         }
 
+
+        /*
+         * Казахстанская айдентика:
+         * голубой квадрат + золотой элемент
+         */
 
         .logo-icon {
 
@@ -126,7 +138,7 @@
 
             border-radius: 9px;
 
-            background: var(--red);
+            background: var(--blue);
 
             color: white;
 
@@ -137,6 +149,31 @@
             justify-content: center;
 
             font-weight: 800;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .logo-icon::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+
+            right: 5px;
+
+            top: 5px;
 
         }
 
@@ -173,12 +210,14 @@
 
             cursor: pointer;
 
+            transition: .2s;
+
         }
 
 
         .logout:hover {
 
-            color: var(--red);
+            color: var(--blue-dark);
 
         }
 
@@ -190,53 +229,80 @@
 
         main {
 
-            max-width: 900px;
+            max-width: 980px;
 
             margin: auto;
 
             padding:
-                42px 24px 70px;
+                55px 24px 75px;
 
         }
 
 
+        /*
+         * Верхний маленький элемент
+         */
+
         .welcome-label {
 
-            color: var(--red);
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--blue-dark);
 
             font-size: 10px;
 
             font-weight: 800;
 
-            letter-spacing: 1.2px;
+            letter-spacing: 1.3px;
 
             text-transform: uppercase;
 
         }
 
 
+        .welcome-label::before {
+
+            content: "";
+
+            width: 24px;
+
+            height: 1px;
+
+            background: var(--gold);
+
+        }
+
+
         h1 {
 
-            margin-top: 8px;
+            margin-top: 11px;
 
-            font-size: 34px;
+            font-size: 38px;
 
-            letter-spacing: -1.2px;
+            line-height: 1.1;
+
+            letter-spacing: -1.6px;
+
+            font-weight: 800;
 
         }
 
 
         .intro {
 
-            max-width: 680px;
+            max-width: 650px;
 
-            margin-top: 8px;
+            margin-top: 10px;
 
             color: var(--gray);
 
             font-size: 13px;
 
-            line-height: 1.65;
+            line-height: 1.7;
 
         }
 
@@ -248,13 +314,13 @@
 
         .dashboard {
 
-            margin-top: 30px;
+            margin-top: 35px;
 
             display: flex;
 
             flex-direction: column;
 
-            gap: 20px;
+            gap: 15px;
 
         }
 
@@ -265,7 +331,96 @@
 
             flex-direction: column;
 
-            gap: 20px;
+            gap: 15px;
+
+        }
+
+
+
+        /* =========================================
+           COMMON CARD
+        ========================================= */
+
+        .verification,
+        .voting {
+
+            background: var(--white);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 15px;
+
+            padding: 29px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition:
+                border-color .2s,
+                box-shadow .2s;
+
+        }
+
+
+        .verification:hover,
+        .voting:hover {
+
+            border-color: #dcdedc;
+
+            box-shadow:
+                0 12px 35px rgba(20,30,35,.045);
+
+        }
+
+
+        /*
+         * Тонкая золотая линия
+         * как элемент айдентики
+         */
+
+        .verification::before,
+        .voting::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 3px;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--blue),
+                    var(--gold)
+                );
+
+        }
+
+
+
+        /* =========================================
+           STEP
+        ========================================= */
+
+        .step {
+
+            color: var(--blue-dark);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
 
         }
 
@@ -275,52 +430,22 @@
            VERIFICATION
         ========================================= */
 
-        .verification {
-
-            background: white;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 18px;
-
-            padding: 30px;
-
-            box-shadow:
-                0 10px 30px rgba(17,19,24,.045);
-
-        }
-
-
-        .step {
-
-            color: var(--red);
-
-            font-size: 9px;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-
-        }
-
-
         .verification-title {
 
-            margin-top: 8px;
+            margin-top: 9px;
 
             font-size: 22px;
 
             font-weight: 800;
 
-            letter-spacing: -.5px;
+            letter-spacing: -.6px;
 
         }
 
 
         .verification-text {
+
+            max-width: 720px;
 
             margin-top: 9px;
 
@@ -328,20 +453,20 @@
 
             font-size: 11px;
 
-            line-height: 1.65;
+            line-height: 1.7;
 
         }
 
 
         .verification-bottom {
 
-            margin-top: 22px;
+            margin-top: 23px;
 
             display: flex;
 
             align-items: center;
 
-            gap: 14px;
+            gap: 15px;
 
             flex-wrap: wrap;
 
@@ -353,7 +478,7 @@
             height: 42px;
 
             padding:
-                0 20px;
+                0 21px;
 
             border: 0;
 
@@ -369,21 +494,27 @@
 
             cursor: pointer;
 
+            transition: .2s;
+
         }
 
 
         .verify-button:hover {
 
-            background: #292c33;
+            background: #292c31;
+
+            transform: translateY(-1px);
 
         }
 
 
         .verify-button:disabled {
 
-            background: #d3d5d9;
+            background: #d8dadc;
 
             cursor: default;
+
+            transform: none;
 
         }
 
@@ -396,7 +527,7 @@
 
             gap: 7px;
 
-            color: var(--red);
+            color: var(--gray);
 
             font-size: 9px;
 
@@ -413,7 +544,7 @@
 
             border-radius: 50%;
 
-            background: var(--red);
+            background: var(--gold);
 
         }
 
@@ -438,37 +569,22 @@
            VOTING
         ========================================= */
 
-        .voting {
-
-            background: white;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 18px;
-
-            padding: 30px;
-
-            box-shadow:
-                0 10px 30px rgba(17,19,24,.045);
-
-        }
-
-
         .voting-title {
 
-            margin-top: 8px;
+            margin-top: 9px;
 
             font-size: 22px;
 
             font-weight: 800;
 
-            letter-spacing: -.5px;
+            letter-spacing: -.6px;
 
         }
 
 
         .voting-text {
+
+            max-width: 720px;
 
             margin-top: 8px;
 
@@ -476,7 +592,7 @@
 
             font-size: 11px;
 
-            line-height: 1.65;
+            line-height: 1.7;
 
         }
 
@@ -493,7 +609,7 @@
 
             border-radius: 8px;
 
-            background: var(--red);
+            background: var(--blue);
 
             color: white;
 
@@ -503,21 +619,27 @@
 
             cursor: pointer;
 
+            transition: .2s;
+
         }
 
 
         .vote-button:hover {
 
-            background: var(--red-dark);
+            background: var(--blue-dark);
+
+            transform: translateY(-1px);
 
         }
 
 
         .vote-button.disabled {
 
-            background: #d3d5d9;
+            background: #d8dadc;
 
             cursor: not-allowed;
+
+            transform: none;
 
         }
 
@@ -529,28 +651,55 @@
 
         .info {
 
-            margin-top: 20px;
+            margin-top: 15px;
 
             display: grid;
 
             grid-template-columns:
                 1fr 1fr;
 
-            gap: 20px;
+            gap: 15px;
 
         }
 
 
         .info-card {
 
-            background: white;
+            background: var(--light);
 
             border:
                 1px solid var(--border);
 
-            border-radius: 15px;
+            border-radius: 13px;
 
-            padding: 21px;
+            padding: 22px;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        /*
+         * Маленький золотой элемент
+         */
+
+        .info-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 45px;
+
+            height: 1px;
+
+            background: var(--gold);
+
+            right: 22px;
+
+            top: 22px;
 
         }
 
@@ -566,7 +715,9 @@
 
         .info-text {
 
-            margin-top: 7px;
+            max-width: 400px;
+
+            margin-top: 8px;
 
             color: var(--gray);
 
@@ -579,10 +730,53 @@
 
 
         /* =========================================
+           KAZAKH IDENTITY ELEMENT
+        ========================================= */
+
+        .identity-line {
+
+            margin-top: 48px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    var(--gold),
+                    var(--blue),
+                    transparent
+                );
+
+            opacity: .55;
+
+        }
+
+
+        .identity-caption {
+
+            margin-top: 12px;
+
+            text-align: center;
+
+            color: #a0a4aa;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        /* =========================================
            MOBILE
         ========================================= */
 
         @media (max-width: 600px) {
+
 
             .header-inner {
 
@@ -602,14 +796,23 @@
             main {
 
                 padding:
-                    30px 16px 50px;
+                    38px 16px 55px;
 
             }
 
 
             h1 {
 
-                font-size: 28px;
+                font-size: 30px;
+
+                letter-spacing: -1.2px;
+
+            }
+
+
+            .intro {
+
+                font-size: 12px;
 
             }
 
@@ -622,9 +825,40 @@
             }
 
 
+            .verification-title,
+            .voting-title {
+
+                font-size: 19px;
+
+            }
+
+
+            .verification-bottom {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+            }
+
+
+            .verify-button {
+
+                width: 100%;
+
+            }
+
+
             .info {
 
                 grid-template-columns: 1fr;
+
+            }
+
+
+            .identity-line {
+
+                margin-top: 38px;
 
             }
 
@@ -914,6 +1148,20 @@
     </div>
 
 
+    <!-- =====================================
+         IDENTITY
+    ====================================== -->
+
+    <div class="identity-line"></div>
+
+
+    <div class="identity-caption">
+
+        Qauipsiz sailau · Қазақстан
+
+    </div>
+
+
 </main>
 
 
@@ -1122,13 +1370,6 @@ function openVerification() {
     }
 
 
-    /*
-     * Страница проверки личности:
-     *
-     * verification.html
-     */
-
-
     window.location.href =
         "verification.html";
 
@@ -1172,15 +1413,6 @@ function goToVoting() {
     }
 
 
-    /*
-     * После проверки пользователь
-     * находится в кабинете.
-     *
-     * Только отсюда он переходит
-     * в электронный бюллетень.
-     */
-
-
     window.location.href =
         "ballot.html";
 
@@ -1194,16 +1426,6 @@ function goToVoting() {
 
 
 function logout() {
-
-
-    /*
-     * Удаляем только данные
-     * текущей сессии.
-     *
-     * Зарегистрированный аккаунт,
-     * список пользователей и результаты
-     * голосования не удаляются.
-     */
 
 
     sessionStorage.removeItem(
