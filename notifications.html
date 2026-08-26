@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Уведомления</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #15171b;
+
+            --gray: #737982;
+
+            --light: #f7f8f7;
+
+            --border: #e6e8e6;
+
+            --blue: #4aa9df;
+
+            --blue-dark: #318fc5;
+
+            --gold: #d8b15a;
+
+            --green: #16834b;
+
+            --white: #ffffff;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--white);
+
+            color: var(--black);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            height: 72px;
+
+            background:
+                rgba(255,255,255,.97);
+
+            border-bottom:
+                1px solid var(--border);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 20;
+
+            backdrop-filter:
+                blur(12px);
+
+        }
+
+
+        .header-inner {
+
+            max-width: 980px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: -.4px;
+
+        }
+
+
+        .logo-icon {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 9px;
+
+            background: var(--blue);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .logo-icon::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+
+            right: 5px;
+
+            top: 5px;
+
+        }
+
+
+        .account {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+        }
+
+
+        .email {
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+        }
+
+
+        /* =========================================
+           NOTIFICATION BUTTON
+        ========================================= */
+
+        .notification-button {
+
+            position: relative;
+
+            width: 34px;
+
+            height: 34px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            background: white;
+
+            color: var(--black);
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: .2s;
+
+        }
+
+
+        .notification-button:hover {
+
+            border-color: #cfd3d6;
+
+            background: var(--light);
+
+            transform: translateY(-1px);
+
+        }
+
+
+        .bell {
+
+            width: 15px;
+
+            height: 15px;
+
+            position: relative;
+
+        }
+
+
+        .bell::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 3px;
+
+            top: 1px;
+
+            width: 9px;
+
+            height: 10px;
+
+            border: 1.5px solid var(--black);
+
+            border-radius:
+                7px 7px 4px 4px;
+
+        }
+
+
+        .bell::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 1px;
+
+            bottom: 1px;
+
+            width: 13px;
+
+            height: 1.5px;
+
+            background: var(--black);
+
+            border-radius: 10px;
+
+        }
+
+
+        .notification-badge {
+
+            position: absolute;
+
+            top: -4px;
+
+            right: -4px;
+
+            min-width: 15px;
+
+            height: 15px;
+
+            padding: 0 3px;
+
+            border-radius: 10px;
+
+            background: var(--blue);
+
+            color: white;
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 2px solid white;
+
+        }
+
+
+        .logout {
+
+            border: 0;
+
+            background: transparent;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .logout:hover {
+
+            color: var(--blue-dark);
+
+        }
+
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+
+            max-width: 980px;
+
+            margin: auto;
+
+            padding:
+                55px 24px 75px;
+
+        }
+
+
+        .page-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--blue-dark);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .page-label::before {
+
+            content: "";
+
+            width: 24px;
+
+            height: 1px;
+
+            background: var(--gold);
+
+        }
+
+
+        h1 {
+
+            margin-top: 11px;
+
+            font-size: 38px;
+
+            line-height: 1.1;
+
+            letter-spacing: -1.6px;
+
+            font-weight: 800;
+
+        }
+
+
+        .intro {
+
+            max-width: 650px;
+
+            margin-top: 10px;
+
+            color: var(--gray);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           BACK BUTTON
+        ========================================= */
+
+        .back-button {
+
+            margin-top: 30px;
+
+            border: 0;
+
+            background: transparent;
+
+            padding: 0;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .back-button:hover {
+
+            color: var(--blue-dark);
+
+        }
+
+
+
+        /* =========================================
+           NOTIFICATIONS
+        ========================================= */
+
+        .notifications {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+        }
+
+
+        .notification {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 17px;
+
+            padding: 23px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: white;
+
+            transition:
+                border-color .2s,
+                box-shadow .2s,
+                transform .2s;
+
+        }
+
+
+        .notification:hover {
+
+            border-color: #dcdedc;
+
+            box-shadow:
+                0 12px 35px rgba(20,30,35,.045);
+
+            transform: translateY(-1px);
+
+        }
+
+
+        .notification::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            width: 3px;
+
+            height: 100%;
+
+            border-radius:
+                14px 0 0 14px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--blue),
+                    var(--gold)
+                );
+
+        }
+
+
+        .notification.unread {
+
+            background: #fbfdff;
+
+        }
+
+
+        /* =========================================
+           ICON
+        ========================================= */
+
+        .notification-icon {
+
+            flex-shrink: 0;
+
+            width: 38px;
+
+            height: 38px;
+
+            border-radius: 10px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            background: #eef7fc;
+
+            color: var(--blue-dark);
+
+        }
+
+
+        .notification.success
+        .notification-icon {
+
+            background: #edf8f2;
+
+            color: var(--green);
+
+        }
+
+
+        .notification.warning
+        .notification-icon {
+
+            background: #fbf5e8;
+
+            color: #a47d25;
+
+        }
+
+
+        /* =========================================
+           CONTENT
+        ========================================= */
+
+        .notification-content {
+
+            flex: 1;
+
+            min-width: 0;
+
+        }
+
+
+        .notification-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+        }
+
+
+        .notification-title {
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            letter-spacing: -.2px;
+
+        }
+
+
+        .notification-time {
+
+            flex-shrink: 0;
+
+            color: #a0a4aa;
+
+            font-size: 9px;
+
+        }
+
+
+        .notification-text {
+
+            margin-top: 7px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .notification-link {
+
+            display: inline-block;
+
+            margin-top: 13px;
+
+            border: 0;
+
+            background: transparent;
+
+            padding: 0;
+
+            color: var(--blue-dark);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .notification-link:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+
+        /* =========================================
+           EMPTY STATE
+        ========================================= */
+
+        .empty {
+
+            display: none;
+
+            padding: 45px 20px;
+
+            text-align: center;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+        }
+
+
+        .empty-title {
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+        }
+
+
+        .empty-text {
+
+            margin-top: 7px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+        }
+
+
+
+        /* =========================================
+           IDENTITY
+        ========================================= */
+
+        .identity-line {
+
+            margin-top: 48px;
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    var(--gold),
+                    var(--blue),
+                    transparent
+                );
+
+            opacity: .55;
+
+        }
+
+
+        .identity-caption {
+
+            margin-top: 12px;
+
+            text-align: center;
+
+            color: #a0a4aa;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .header-inner {
+
+                padding: 0 16px;
+
+            }
+
+
+            .email {
+
+                display: none;
+
+            }
+
+
+            .account {
+
+                gap: 10px;
+
+            }
+
+
+            main {
+
+                padding:
+                    38px 16px 55px;
+
+            }
+
+
+            h1 {
+
+                font-size: 30px;
+
+                letter-spacing: -1.2px;
+
+            }
+
+
+            .intro {
+
+                font-size: 12px;
+
+            }
+
+
+            .notification {
+
+                padding: 20px;
+
+                gap: 13px;
+
+            }
+
+
+            .notification-icon {
+
+                width: 34px;
+
+                height: 34px;
+
+            }
+
+
+            .notification-top {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 4px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-inner">
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                V
+
+            </div>
+
+            VOTE
+
+        </div>
+
+
+        <div class="account">
+
+
+            <div
+                class="email"
+                id="headerEmail">
+
+                Пользователь
+
+            </div>
+
+
+            <button
+                class="notification-button"
+                onclick="goToNotifications()"
+                aria-label="Уведомления">
+
+                <span class="bell"></span>
+
+                <span
+                    class="notification-badge"
+                    id="notificationBadge">
+
+                    3
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="logout"
+                onclick="logout()">
+
+                Выйти
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <div class="page-label">
+
+        Центр уведомлений
+
+    </div>
+
+
+    <h1>
+
+        Уведомления
+
+    </h1>
+
+
+    <p class="intro">
+
+        Здесь отображаются важные сообщения
+        о выборах, голосовании, подтверждении
+        личности и публикации результатов.
+
+    </p>
+
+
+    <button
+        class="back-button"
+        onclick="goToCabinet()">
+
+        ← Вернуться в личный кабинет
+
+    </button>
+
+
+
+    <!-- =====================================
+         NOTIFICATIONS
+    ====================================== -->
+
+    <div
+        class="notifications"
+        id="notifications">
+
+
+
+        <!-- =================================
+             NOTIFICATION 1
+        ================================== -->
+
+        <article
+            class="notification unread success">
+
+            <div class="notification-icon">
+
+                ✓
+
+            </div>
+
+
+            <div class="notification-content">
+
+                <div class="notification-top">
+
+                    <div class="notification-title">
+
+                        Результаты выборов опубликованы
+
+                    </div>
+
+
+                    <div class="notification-time">
+
+                        Сегодня
+
+                    </div>
+
+                </div>
+
+
+                <p class="notification-text">
+
+                    Опубликованы официальные результаты
+                    прошедших выборов в Курултай
+                    Республики Казахстан.
+
+                </p>
+
+
+                <button
+                    class="notification-link"
+                    onclick="
+                        window.location.href =
+                        'kurultai.html'
+                    ">
+
+                    Посмотреть результаты →
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================
+             NOTIFICATION 2
+        ================================== -->
+
+        <article
+            class="notification unread warning">
+
+            <div class="notification-icon">
+
+                !
+
+            </div>
+
+
+            <div class="notification-content">
+
+                <div class="notification-top">
+
+                    <div class="notification-title">
+
+                        Голосование завершено
+
+                    </div>
+
+
+                    <div class="notification-time">
+
+                        23 августа 2026
+
+                    </div>
+
+                </div>
+
+
+                <p class="notification-text">
+
+                    Голосование на выборах в Курултай
+                    завершено. Электронное голосование
+                    больше недоступно.
+
+                </p>
+
+
+                <button
+                    class="notification-link"
+                    onclick="
+                        window.location.href =
+                        'kurultai.html'
+                    ">
+
+                    Открыть информацию о выборах →
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================
+             NOTIFICATION 3
+        ================================== -->
+
+        <article
+            class="notification unread">
+
+            <div class="notification-icon">
+
+                V
+
+            </div>
+
+
+            <div class="notification-content">
+
+                <div class="notification-top">
+
+                    <div class="notification-title">
+
+                        Электронное голосование доступно
+
+                    </div>
+
+
+                    <div class="notification-time">
+
+                        Сейчас
+
+                    </div>
+
+                </div>
+
+
+                <p class="notification-text">
+
+                    Для текущих выборов доступно
+                    электронное голосование. Перед
+                    получением бюллетеня необходимо
+                    подтвердить свою личность.
+
+                </p>
+
+
+                <button
+                    class="notification-link"
+                    onclick="
+                        goToCabinet()
+                    ">
+
+                    Перейти к голосованию →
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================
+             NOTIFICATION 4
+        ================================== -->
+
+        <article
+            class="notification">
+
+            <div class="notification-icon">
+
+                i
+
+            </div>
+
+
+            <div class="notification-content">
+
+                <div class="notification-top">
+
+                    <div class="notification-title">
+
+                        Напоминание о подтверждении личности
+
+                    </div>
+
+
+                    <div class="notification-time">
+
+                        Ранее
+
+                    </div>
+
+                </div>
+
+
+                <p class="notification-text">
+
+                    Для участия в электронном голосовании
+                    необходимо пройти процедуру
+                    подтверждения личности.
+
+                </p>
+
+
+                <button
+                    class="notification-link"
+                    onclick="
+                        goToCabinet()
+                    ">
+
+                    Перейти в личный кабинет →
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         EMPTY STATE
+    ====================================== -->
+
+    <div
+        class="empty"
+        id="emptyNotifications">
+
+        <div class="empty-title">
+
+            Уведомлений нет
+
+        </div>
+
+
+        <div class="empty-text">
+
+            Здесь будут отображаться важные
+            сообщения о выборах.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         IDENTITY
+    ====================================== -->
+
+    <div class="identity-line"></div>
+
+
+    <div class="identity-caption">
+
+        Qauipsiz sailau · Қазақстан
+
+    </div>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =========================================
+   USER
+========================================= */
+
+const currentEmail =
+    sessionStorage.getItem(
+        "current_user_email"
+    );
+
+
+if (currentEmail) {
+
+    document.getElementById(
+        "headerEmail"
+    ).textContent =
+        currentEmail;
+
+}
+
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+function goToCabinet() {
+
+    window.location.href =
+        "cabinet.html";
+
+}
+
+
+function goToNotifications() {
+
+    window.location.href =
+        "notifications.html";
+
+}
+
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logout() {
+
+    sessionStorage.removeItem(
+        "identity_verified"
+    );
+
+
+    sessionStorage.removeItem(
+        "vote_token"
+    );
+
+
+    sessionStorage.removeItem(
+        "verified_iin"
+    );
+
+
+    sessionStorage.removeItem(
+        "pending_verification_iin"
+    );
+
+
+    sessionStorage.removeItem(
+        "current_user_email"
+    );
+
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+
+/* =========================================
+   MARK NOTIFICATIONS AS READ
+========================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const notification =
+            event.target.closest(
+                ".notification"
+            );
+
+
+        if (!notification) {
+
+            return;
+
+        }
+
+
+        notification.classList.remove(
+            "unread"
+        );
+
+
+        updateBadge();
+
+    }
+);
+
+
+
+/* =========================================
+   UPDATE BADGE
+========================================= */
+
+function updateBadge() {
+
+    const unread =
+        document.querySelectorAll(
+            ".notification.unread"
+        ).length;
+
+
+    const badge =
+        document.getElementById(
+            "notificationBadge"
+        );
+
+
+    if (unread === 0) {
+
+        badge.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    badge.style.display =
+        "flex";
+
+
+    badge.textContent =
+        unread;
+
+}
+
+
+updateBadge();
+
+
+</script>
+
+
+</body>
+
+</html>
