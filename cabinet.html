@@ -125,8 +125,6 @@
         }
 
 
-        /* Казахстанская айдентика */
-
         .logo-icon {
 
             width: 34px;
@@ -175,6 +173,10 @@
         }
 
 
+        /* =========================================
+           ACCOUNT
+        ========================================= */
+
         .account {
 
             display: flex;
@@ -191,6 +193,126 @@
             color: var(--gray);
 
             font-size: 11px;
+
+        }
+
+
+        /* =========================================
+           NOTIFICATION BUTTON
+        ========================================= */
+
+        .notification-button {
+
+            width: 32px;
+
+            height: 32px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            background: white;
+
+            color: var(--gray);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            position: relative;
+
+            transition: .2s;
+
+        }
+
+
+        .notification-button:hover {
+
+            color: var(--blue-dark);
+
+            border-color: #d7eaf4;
+
+            background: #f7fbfd;
+
+        }
+
+
+        .notification-icon {
+
+            width: 15px;
+
+            height: 15px;
+
+            position: relative;
+
+        }
+
+
+        .notification-icon::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 3px;
+
+            top: 2px;
+
+            width: 9px;
+
+            height: 10px;
+
+            border: 1.5px solid currentColor;
+
+            border-radius: 6px 6px 4px 4px;
+
+        }
+
+
+        .notification-icon::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 5px;
+
+            bottom: 1px;
+
+            width: 5px;
+
+            height: 1.5px;
+
+            border-radius: 2px;
+
+            background: currentColor;
+
+        }
+
+
+        /* Красная точка новых уведомлений */
+
+        .notification-badge {
+
+            position: absolute;
+
+            top: 5px;
+
+            right: 5px;
+
+            width: 6px;
+
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #d9534f;
+
+            border: 1px solid white;
 
         }
 
@@ -990,9 +1112,25 @@
             }
 
 
+            .account {
+
+                gap: 10px;
+
+            }
+
+
             .email {
 
                 display: none;
+
+            }
+
+
+            .notification-button {
+
+                width: 31px;
+
+                height: 31px;
 
             }
 
@@ -1110,6 +1248,31 @@
 
             </div>
 
+
+            <!-- =================================
+                 NOTIFICATIONS
+            ================================== -->
+
+            <button
+                class="notification-button"
+                onclick="openNotifications()"
+                aria-label="Уведомления">
+
+                <span
+                    class="notification-icon">
+                </span>
+
+                <span
+                    class="notification-badge"
+                    id="notificationBadge">
+                </span>
+
+            </button>
+
+
+            <!-- =================================
+                 LOGOUT
+            ================================== -->
 
             <button
                 class="logout"
@@ -1273,10 +1436,7 @@
 
                 <button
                     class="vote-start-button results-button"
-                    onclick="
-                        window.location.href =
-                        'kurultai.html'
-                    ">
+                    onclick="openKurultaiResults()">
 
                     Посмотреть результаты
 
@@ -1480,6 +1640,32 @@ if (currentEmail) {
         "headerEmail"
     ).textContent =
         currentEmail;
+
+}
+
+
+
+/* =========================================
+   OPEN NOTIFICATIONS
+========================================= */
+
+function openNotifications() {
+
+    window.location.href =
+        "notifications.html";
+
+}
+
+
+
+/* =========================================
+   OPEN KURULTAI RESULTS
+========================================= */
+
+function openKurultaiResults() {
+
+    window.location.href =
+        "kurultai.html";
 
 }
 
