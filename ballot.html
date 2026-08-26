@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 
 <head>
@@ -24,14 +23,22 @@
 
         :root {
 
-            --black: #111318;
-            --gray: #6d737d;
-            --light-gray: #f4f5f7;
-            --border: #e3e5e8;
-            --red: #d92d3a;
-            --red-dark: #b9232f;
+            --black: #15181d;
+            --gray: #68717b;
+
+            --light: #f4f8fa;
+            --border: #dfe7eb;
+
+            --blue: #bfe7f5;
+            --blue-dark: #9dd7e9;
+
+            --red: #c92d38;
             --green: #16834b;
+
             --white: #ffffff;
+
+            --gold: #d8b34a;
+            --kazakh-blue: #36a9d6;
 
         }
 
@@ -39,8 +46,6 @@
         body {
 
             min-height: 100vh;
-
-            background: var(--light-gray);
 
             color: var(--black);
 
@@ -51,6 +56,17 @@
                 Roboto,
                 Arial,
                 sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(244,248,250,.91),
+                    rgba(244,248,250,.94)
+                ),
+                url("kazakhstan-pattern.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
 
         }
 
@@ -63,10 +79,14 @@
 
             height: 76px;
 
-            background: white;
+            background:
+                rgba(255,255,255,.94);
 
             border-bottom:
                 1px solid var(--border);
+
+            backdrop-filter:
+                blur(12px);
 
         }
 
@@ -102,18 +122,21 @@
 
             font-weight: 800;
 
+            letter-spacing: -.5px;
+
         }
 
 
         .logo-mark {
 
-            width: 34px;
+            width: 35px;
 
-            height: 34px;
+            height: 35px;
 
             border-radius: 9px;
 
-            background: var(--red);
+            background:
+                var(--kazakh-blue);
 
             color: white;
 
@@ -122,6 +145,34 @@
             align-items: center;
 
             justify-content: center;
+
+            font-weight: 800;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .logo-mark::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                var(--gold);
+
+            top: 6px;
+
+            right: 6px;
 
         }
 
@@ -132,7 +183,10 @@
 
             font-size: 10px;
 
+            letter-spacing: .2px;
+
         }
+
 
 
         /* =====================================
@@ -145,22 +199,24 @@
 
             margin: auto;
 
-            padding: 45px 24px 70px;
+            padding:
+                45px 24px 70px;
 
         }
 
 
         .label {
 
-            color: var(--red);
+            color:
+                var(--kazakh-blue);
 
-            font-size: 11px;
+            font-size: 10px;
 
             font-weight: 800;
 
             text-transform: uppercase;
 
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
 
         }
 
@@ -169,26 +225,30 @@
 
             margin-top: 8px;
 
-            font-size: 31px;
+            font-size: 32px;
 
-            letter-spacing: -0.8px;
+            letter-spacing: -1px;
+
+            font-weight: 800;
 
         }
 
 
         .description {
 
-            margin-top: 9px;
+            margin-top: 10px;
 
-            max-width: 650px;
+            max-width: 700px;
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
-            font-size: 13px;
+            font-size: 12px;
 
-            line-height: 1.6;
+            line-height: 1.7;
 
         }
+
 
 
         /* =====================================
@@ -197,24 +257,27 @@
 
         .status {
 
-            margin-top: 25px;
+            margin-top: 24px;
 
             padding: 14px 16px;
 
             border-radius: 10px;
 
-            background: #eefaf3;
+            background:
+                rgba(238,250,243,.95);
 
             border:
                 1px solid #ccebd9;
 
-            color: var(--green);
+            color:
+                var(--green);
 
             font-size: 11px;
 
             line-height: 1.5;
 
         }
+
 
 
         /* =====================================
@@ -225,21 +288,54 @@
 
             margin-top: 20px;
 
-            background: white;
+            background:
+                rgba(255,255,255,.97);
 
             border:
                 1px solid var(--border);
 
-            border-radius: 14px;
+            border-radius: 16px;
 
-            padding: 28px;
+            overflow: hidden;
+
+            box-shadow:
+                0 18px 50px rgba(30,55,70,.08);
+
+        }
+
+
+        /*
+         * Казахстанская декоративная полоса
+         */
+
+        .kazakhstan-strip {
+
+            height: 6px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    var(--kazakh-blue) 0%,
+                    var(--kazakh-blue) 78%,
+                    var(--gold) 78%,
+                    var(--gold) 82%,
+                    var(--kazakh-blue) 82%,
+                    var(--kazakh-blue) 100%
+                );
+
+        }
+
+
+        .ballot-content {
+
+            padding: 30px;
 
         }
 
 
         .ballot-header {
 
-            padding-bottom: 20px;
+            padding-bottom: 22px;
 
             border-bottom:
                 1px solid var(--border);
@@ -249,62 +345,122 @@
 
         .ballot-number {
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
             font-size: 10px;
+
+            letter-spacing: .4px;
 
         }
 
 
         .ballot-title {
 
-            margin-top: 7px;
+            margin-top: 9px;
 
-            font-size: 19px;
+            font-size: 20px;
 
-            font-weight: 700;
+            font-weight: 750;
 
             line-height: 1.4;
 
         }
 
 
-        .ballot-description {
+        .ballot-instruction {
 
-            margin-top: 7px;
+            margin-top: 11px;
 
-            color: var(--gray);
+            color:
+                var(--black);
 
-            font-size: 11px;
+            font-size: 12px;
 
-            line-height: 1.5;
+            line-height: 1.75;
 
         }
+
 
 
         /* =====================================
-           OPTIONS
+           CANDIDATES
         ===================================== */
 
-        .options {
+        .candidate-list {
 
-            margin-top: 20px;
+            margin-top: 22px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+        }
+
+
+        .candidate-header {
 
             display: grid;
 
-            gap: 10px;
+            grid-template-columns:
+                60px 1fr 70px;
+
+            align-items: center;
+
+            min-height: 42px;
+
+            padding:
+                0 16px;
+
+            background:
+                #f7fafb;
+
+            border-bottom:
+                1px solid var(--border);
+
+            color:
+                var(--gray);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: .8px;
 
         }
 
 
-        .option {
+        .candidate-header-right {
+
+            text-align: center;
+
+        }
+
+
+        .candidate {
 
             position: relative;
 
+            border-bottom:
+                1px solid var(--border);
+
         }
 
 
-        .option input {
+        .candidate:last-child {
+
+            border-bottom:
+                none;
+
+        }
+
+
+        .candidate input {
 
             position: absolute;
 
@@ -315,61 +471,90 @@
         }
 
 
-        .option-label {
+        .candidate-label {
 
-            display: flex;
+            min-height: 72px;
+
+            padding:
+                14px 16px;
+
+            display: grid;
+
+            grid-template-columns:
+                60px 1fr 70px;
 
             align-items: center;
-
-            gap: 14px;
-
-            width: 100%;
-
-            padding: 16px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 10px;
 
             cursor: pointer;
 
             transition:
-                border .15s ease,
                 background .15s ease;
 
         }
 
 
-        .option-label:hover {
+        .candidate-label:hover {
 
-            border-color: #bfc3c9;
-
-        }
-
-
-        .option input:checked
-        + .option-label {
-
-            border-color: var(--red);
-
-            background: #fff7f8;
+            background:
+                #f8fbfc;
 
         }
 
 
-        .radio {
+        .candidate-number {
 
-            width: 19px;
+            color:
+                var(--gray);
 
-            height: 19px;
+            font-size: 11px;
 
-            flex: 0 0 19px;
+            font-weight: 700;
+
+        }
+
+
+        .candidate-name {
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        .candidate-description {
+
+            margin-top: 3px;
+
+            color:
+                var(--gray);
+
+            font-size: 10px;
+
+        }
+
+
+        .vote-cell {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        .vote-mark {
+
+            width: 25px;
+
+            height: 25px;
 
             border:
-                2px solid #c5c9ce;
+                2px solid #aeb8be;
 
-            border-radius: 50%;
+            border-radius: 4px;
 
             display: flex;
 
@@ -377,53 +562,114 @@
 
             justify-content: center;
 
-        }
-
-
-        .option input:checked
-        + .option-label
-        .radio {
-
-            border-color: var(--red);
+            transition:
+                .15s ease;
 
         }
 
 
-        .option input:checked
-        + .option-label
-        .radio::after {
+        .candidate input:checked
+        + .candidate-label {
 
-            content: "";
-
-            width: 9px;
-
-            height: 9px;
-
-            border-radius: 50%;
-
-            background: var(--red);
+            background:
+                #f2fbfe;
 
         }
 
 
-        .option-name {
+        .candidate input:checked
+        + .candidate-label
+        .vote-mark {
 
-            font-size: 13px;
+            border-color:
+                var(--kazakh-blue);
 
-            font-weight: 600;
+            background:
+                var(--kazakh-blue);
+
+            color:
+                white;
 
         }
 
 
-        .option-subtitle {
+        .vote-mark::after {
 
-            margin-top: 3px;
+            content: "✓";
 
-            color: var(--gray);
+            opacity: 0;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+        }
+
+
+        .candidate input:checked
+        + .candidate-label
+        .vote-mark::after {
+
+            opacity: 1;
+
+        }
+
+
+
+        /* =====================================
+           INVALID NOTE
+        ===================================== */
+
+        .invalid-note {
+
+            margin-top: 20px;
+
+            padding: 16px 17px;
+
+            border:
+                1px solid #e3e7ea;
+
+            border-left:
+                3px solid var(--gold);
+
+            border-radius: 9px;
+
+            background:
+                #fafbfc;
+
+        }
+
+
+        .invalid-title {
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+        }
+
+
+        .invalid-text {
+
+            margin-top: 7px;
+
+            color:
+                var(--gray);
 
             font-size: 10px;
 
+            line-height: 1.7;
+
         }
+
+
+        .invalid-text strong {
+
+            color:
+                var(--black);
+
+        }
+
 
 
         /* =====================================
@@ -434,41 +680,58 @@
 
             width: 100%;
 
-            height: 48px;
+            height: 50px;
 
-            margin-top: 22px;
+            margin-top: 20px;
 
-            border: none;
+            border:
+                1px solid #a9dceb;
 
             border-radius: 9px;
 
-            background: var(--red);
+            background:
+                var(--blue);
 
-            color: white;
+            color:
+                #173a47;
 
             font-size: 12px;
 
-            font-weight: 700;
+            font-weight: 800;
 
             cursor: pointer;
+
+            transition:
+                background .2s,
+                transform .1s;
 
         }
 
 
         .send-button:hover {
 
-            background: var(--red-dark);
+            background:
+                var(--blue-dark);
+
+        }
+
+
+        .send-button:active {
+
+            transform:
+                scale(.995);
 
         }
 
 
         .send-button:disabled {
 
-            opacity: .5;
+            opacity: .55;
 
             cursor: not-allowed;
 
         }
+
 
 
         /* =====================================
@@ -496,9 +759,14 @@
 
             display: block;
 
-            background: #fff1f2;
+            background:
+                #fff1f2;
 
-            color: var(--red);
+            color:
+                var(--red);
+
+            border:
+                1px solid #f0d4d7;
 
         }
 
@@ -507,11 +775,17 @@
 
             display: block;
 
-            background: #eefaf3;
+            background:
+                #eefaf3;
 
-            color: var(--green);
+            color:
+                var(--green);
+
+            border:
+                1px solid #d4ecde;
 
         }
+
 
 
         /* =====================================
@@ -524,7 +798,8 @@
 
             margin-top: 20px;
 
-            background: white;
+            background:
+                rgba(255,255,255,.97);
 
             border:
                 1px solid var(--border);
@@ -548,9 +823,11 @@
 
             border-radius: 50%;
 
-            background: #eefaf3;
+            background:
+                #eefaf3;
 
-            color: var(--green);
+            color:
+                var(--green);
 
             display: flex;
 
@@ -582,7 +859,8 @@
 
             max-width: 500px;
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
             font-size: 11px;
 
@@ -601,15 +879,18 @@
 
             height: 43px;
 
-            padding: 0 20px;
+            padding:
+                0 20px;
 
             margin-top: 20px;
 
             border-radius: 8px;
 
-            background: var(--black);
+            background:
+                var(--black);
 
-            color: white;
+            color:
+                white;
 
             text-decoration: none;
 
@@ -620,12 +901,6 @@
         }
 
 
-        .back-button:hover {
-
-            opacity: .9;
-
-        }
-
 
         /* =====================================
            FOOTNOTE
@@ -635,30 +910,37 @@
 
             margin-top: 18px;
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
             text-align: center;
 
             font-size: 9px;
 
-            line-height: 1.6;
+            line-height: 1.7;
 
         }
 
+
+
+        /* =====================================
+           MOBILE
+        ===================================== */
 
         @media (max-width: 600px) {
 
             main {
 
                 padding:
-                    30px 16px 50px;
+                    30px 14px 50px;
 
             }
 
 
             .header-container {
 
-                padding: 0 16px;
+                padding:
+                    0 16px;
 
             }
 
@@ -670,9 +952,10 @@
             }
 
 
-            .ballot {
+            .ballot-content {
 
-                padding: 20px;
+                padding:
+                    20px;
 
             }
 
@@ -680,6 +963,52 @@
             h1 {
 
                 font-size: 27px;
+
+            }
+
+
+            .ballot-title {
+
+                font-size: 18px;
+
+            }
+
+
+            .candidate-header,
+            .candidate-label {
+
+                grid-template-columns:
+                    42px 1fr 52px;
+
+            }
+
+
+            .candidate-header {
+
+                padding:
+                    0 10px;
+
+            }
+
+
+            .candidate-label {
+
+                padding:
+                    12px 10px;
+
+            }
+
+
+            .candidate-name {
+
+                font-size: 12px;
+
+            }
+
+
+            .candidate-description {
+
+                font-size: 9px;
 
             }
 
@@ -693,14 +1022,9 @@
 <body>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
-
 <header>
 
     <div class="header-container">
-
 
         <div class="logo">
 
@@ -715,20 +1039,15 @@
 
         <div class="security">
 
-            Анонимное голосование
+            Анонимное электронное голосование
 
         </div>
-
 
     </div>
 
 </header>
 
 
-
-<!-- =========================================
-     MAIN
-========================================= -->
 
 <main>
 
@@ -749,269 +1068,364 @@
 
     <p class="description">
 
-        Выберите один вариант и нажмите
-        «Отправить бюллетень».
-
-        После отправки изменить выбор
-        будет невозможно.
+        Внимательно ознакомьтесь с инструкцией
+        и выберите только один вариант ответа.
 
     </p>
 
 
-
-    <!-- STATUS -->
 
     <div
         class="status"
         id="statusBox">
 
         Право голоса подтверждено.
-        Используется одноразовый токен.
+        Для голосования используется одноразовый
+        анонимный токен.
 
     </div>
 
 
-
-    <!-- =====================================
-         BALLOT
-    ====================================== -->
 
     <div
         class="ballot"
         id="ballot">
 
 
-        <div class="ballot-header">
+        <div class="kazakhstan-strip"></div>
 
 
-            <div class="ballot-number">
+        <div class="ballot-content">
 
-                БЮЛЛЕТЕНЬ №001
+
+            <div class="ballot-header">
+
+
+                <div class="ballot-number">
+
+                    БЮЛЛЕТЕНЬ №001
+
+                </div>
+
+
+                <div class="ballot-title">
+
+                    Какой вариант вы поддерживаете?
+
+                </div>
+
+
+                <div class="ballot-instruction">
+
+                    Выберите отметку справа от фамилии
+                    кандидата, за которого Вы голосуете,
+                    либо выберите отметку, расположенную
+                    справа от строки «Против всех».
+
+                </div>
+
 
             </div>
 
 
-            <div class="ballot-title">
 
-                Какой вариант вы поддерживаете?
+            <!-- CANDIDATES -->
+
+            <div class="candidate-list">
+
+
+                <div class="candidate-header">
+
+                    <div>
+                        №
+                    </div>
+
+                    <div>
+                        Кандидат
+                    </div>
+
+                    <div class="candidate-header-right">
+                        Отметка
+                    </div>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 1 -->
+
+                <div class="candidate">
+
+                    <input
+                        type="radio"
+                        name="vote"
+                        id="candidate_1"
+                        value="candidate_1">
+
+
+                    <label
+                        class="candidate-label"
+                        for="candidate_1">
+
+
+                        <div class="candidate-number">
+
+                            01
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="candidate-name">
+
+                                Ахметов Ерлан Серикович
+
+                            </div>
+
+                            <div class="candidate-description">
+
+                                Кандидат №1
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vote-cell">
+
+                            <div class="vote-mark"></div>
+
+                        </div>
+
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 2 -->
+
+                <div class="candidate">
+
+                    <input
+                        type="radio"
+                        name="vote"
+                        id="candidate_2"
+                        value="candidate_2">
+
+
+                    <label
+                        class="candidate-label"
+                        for="candidate_2">
+
+
+                        <div class="candidate-number">
+
+                            02
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="candidate-name">
+
+                                Сагындык Алия Маратовна
+
+                            </div>
+
+                            <div class="candidate-description">
+
+                                Кандидат №2
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vote-cell">
+
+                            <div class="vote-mark"></div>
+
+                        </div>
+
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- CANDIDATE 3 -->
+
+                <div class="candidate">
+
+                    <input
+                        type="radio"
+                        name="vote"
+                        id="candidate_3"
+                        value="candidate_3">
+
+
+                    <label
+                        class="candidate-label"
+                        for="candidate_3">
+
+
+                        <div class="candidate-number">
+
+                            03
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="candidate-name">
+
+                                Нурбеков Данияр Кайратович
+
+                            </div>
+
+                            <div class="candidate-description">
+
+                                Кандидат №3
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vote-cell">
+
+                            <div class="vote-mark"></div>
+
+                        </div>
+
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- AGAINST ALL -->
+
+                <div class="candidate">
+
+                    <input
+                        type="radio"
+                        name="vote"
+                        id="against_all"
+                        value="against_all">
+
+
+                    <label
+                        class="candidate-label"
+                        for="against_all">
+
+
+                        <div class="candidate-number">
+
+                            —
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="candidate-name">
+
+                                Против всех
+
+                            </div>
+
+                            <div class="candidate-description">
+
+                                Не поддерживаю ни одного
+                                из предложенных кандидатов
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vote-cell">
+
+                            <div class="vote-mark"></div>
+
+                        </div>
+
+
+                    </label>
+
+                </div>
+
 
             </div>
 
 
-            <div class="ballot-description">
 
-                Отметьте только один вариант.
+            <!-- INVALID BALLOT -->
+
+            <div class="invalid-note">
+
+
+                <div class="invalid-title">
+
+                    В каких случаях бюллетень считается
+                    недействительным
+
+                </div>
+
+
+                <div class="invalid-text">
+
+                    Бюллетень считается недействительным,
+                    если в нём невозможно достоверно
+                    определить волеизъявление избирателя.
+
+                    Например, если отмечено
+                    <strong>более одного варианта</strong>,
+                    не отмечен ни один вариант либо
+                    отметка позволяет неоднозначно
+                    определить выбранного кандидата.
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- SEND -->
+
+            <button
+                class="send-button"
+                id="sendButton"
+                onclick="submitVote()">
+
+                Отправить бюллетень
+
+            </button>
+
+
+            <div
+                class="message"
+                id="message">
 
             </div>
 
 
         </div>
-
-
-
-        <!-- OPTIONS -->
-
-        <div class="options">
-
-
-            <!-- OPTION 1 -->
-
-            <div class="option">
-
-                <input
-                    type="radio"
-                    name="vote"
-                    id="candidate_1"
-                    value="candidate_1">
-
-
-                <label
-                    class="option-label"
-                    for="candidate_1">
-
-
-                    <div class="radio"></div>
-
-
-                    <div>
-
-                        <div class="option-name">
-
-                            Вариант №1
-
-                        </div>
-
-                        <div class="option-subtitle">
-
-                            Первый вариант
-
-                        </div>
-
-                    </div>
-
-
-                </label>
-
-            </div>
-
-
-
-            <!-- OPTION 2 -->
-
-            <div class="option">
-
-                <input
-                    type="radio"
-                    name="vote"
-                    id="candidate_2"
-                    value="candidate_2">
-
-
-                <label
-                    class="option-label"
-                    for="candidate_2">
-
-
-                    <div class="radio"></div>
-
-
-                    <div>
-
-                        <div class="option-name">
-
-                            Вариант №2
-
-                        </div>
-
-                        <div class="option-subtitle">
-
-                            Второй вариант
-
-                        </div>
-
-                    </div>
-
-
-                </label>
-
-            </div>
-
-
-
-            <!-- OPTION 3 -->
-
-            <div class="option">
-
-                <input
-                    type="radio"
-                    name="vote"
-                    id="candidate_3"
-                    value="candidate_3">
-
-
-                <label
-                    class="option-label"
-                    for="candidate_3">
-
-
-                    <div class="radio"></div>
-
-
-                    <div>
-
-                        <div class="option-name">
-
-                            Вариант №3
-
-                        </div>
-
-                        <div class="option-subtitle">
-
-                            Третий вариант
-
-                        </div>
-
-                    </div>
-
-
-                </label>
-
-            </div>
-
-
-
-            <!-- AGAINST ALL -->
-
-            <div class="option">
-
-                <input
-                    type="radio"
-                    name="vote"
-                    id="against_all"
-                    value="against_all">
-
-
-                <label
-                    class="option-label"
-                    for="against_all">
-
-
-                    <div class="radio"></div>
-
-
-                    <div>
-
-                        <div class="option-name">
-
-                            Против всех
-
-                        </div>
-
-                        <div class="option-subtitle">
-
-                            Не поддерживаю ни один
-                            из предложенных вариантов
-
-                        </div>
-
-                    </div>
-
-
-                </label>
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- SEND -->
-
-        <button
-            class="send-button"
-            id="sendButton"
-            onclick="submitVote()">
-
-            Отправить бюллетень
-
-        </button>
-
-
-        <div
-            class="message"
-            id="message">
-
-        </div>
-
 
     </div>
 
 
 
-    <!-- =====================================
-         SUCCESS
-    ====================================== -->
+    <!-- SUCCESS -->
 
     <div
         class="success-screen"
@@ -1036,16 +1450,11 @@
 
             Ваш голос успешно принят системой.
 
-            Бюллетень был сформирован
-            и сохранён отдельно от данных
-            вашей личности.
-
-            Повторное голосование невозможно.
+            После фиксации бюллетеня повторное
+            использование токена невозможно.
 
         </div>
 
-
-        <!-- ИСПРАВЛЕН ПУТЬ -->
 
         <a
             href="cabinet.html"
@@ -1063,9 +1472,13 @@
     <div class="footnote">
 
         Демонстрационный прототип.
-        В реальной системе криптографическая
-        обработка и хранение должны выполняться
-        на серверной инфраструктуре.
+        В текущей версии данные хранятся
+        локально в браузере.
+
+        В реальной системе проверка токена,
+        фиксация голоса и защита от повторного
+        голосования должны выполняться
+        на сервере.
 
     </div>
 
@@ -1078,14 +1491,8 @@
 
 
 /* =================================================
-   ПРОВЕРКА СЕССИИ
+   ПОЛУЧЕНИЕ ТОКЕНА
 ================================================= */
-
-
-/*
- * Получаем одноразовый токен,
- * который был выдан после проверки личности.
- */
 
 
 const voteToken =
@@ -1094,26 +1501,18 @@ const voteToken =
     );
 
 
-/*
- * Проверяем, была ли пройдена
- * проверка личности.
- */
-
-
 const identityVerified =
     sessionStorage.getItem(
         "identity_verified"
     );
 
 
+
 /*
- * Если токена нет —
- * пользователь не имеет права
- * находиться на странице голосования.
+ * Проверяем только наличие
+ * подтверждённой сессии и токена.
  *
- * ИСПРАВЛЕН ПУТЬ:
- *
- * verification.html
+ * ИИН здесь больше не используется.
  */
 
 
@@ -1130,7 +1529,7 @@ if (
 
 
 /* =================================================
-   ПРОВЕРКА: НЕ ИСПОЛЬЗОВАН ЛИ ТОКЕН
+   ПОЛУЧЕНИЕ ИСПОЛЬЗОВАННЫХ ТОКЕНОВ
 ================================================= */
 
 
@@ -1164,9 +1563,23 @@ function getUsedTokens() {
 
 
 
+/* =================================================
+   ПРОВЕРКА ТОКЕНА
+================================================= */
+
+
+function isTokenUsed(token) {
+
+    return getUsedTokens()
+        .includes(token);
+
+}
+
+
+
 if (
     voteToken &&
-    getUsedTokens().includes(voteToken)
+    isTokenUsed(voteToken)
 ) {
 
     document.getElementById(
@@ -1217,7 +1630,7 @@ function getSelectedVote() {
 
 
 /* =================================================
-   СОХРАНИТЬ ГОЛОС В РЕЗУЛЬТАТЫ
+   СОХРАНЕНИЕ РЕЗУЛЬТАТА
 ================================================= */
 
 
@@ -1247,16 +1660,6 @@ function saveVoteResult(
     }
 
 
-    /*
-     * Добавляем только технический
-     * идентификатор выбранного варианта.
-     *
-     * ИИН сюда НЕ попадает.
-     * Email сюда НЕ попадает.
-     * Token сюда НЕ попадает.
-     */
-
-
     results.push(
         selectedVote
     );
@@ -1272,12 +1675,12 @@ function saveVoteResult(
 
 
 /* =================================================
-   СОХРАНИТЬ АНОНИМНЫЙ БЮЛЛЕТЕНЬ
+   СОХРАНЕНИЕ АНОНИМНОГО БЮЛЛЕТЕНЯ
 ================================================= */
 
 
 function saveAnonymousBallot(
-    encryptedBallot
+    ballot
 ) {
 
 
@@ -1302,28 +1705,13 @@ function saveAnonymousBallot(
     }
 
 
-    /*
-     * ВАЖНО:
-     *
-     * Здесь намеренно нет:
-     *
-     * ИИНа
-     * email
-     * имени
-     * аккаунта
-     * verified_iin
-     *
-     * Бюллетень хранится отдельно.
-     */
-
-
     ballots.push({
 
         id:
             generateAnonymousID(),
 
-        encrypted_ballot:
-            encryptedBallot,
+        ballot:
+            ballot,
 
         created_at:
             new Date().toISOString()
@@ -1341,23 +1729,28 @@ function saveAnonymousBallot(
 
 
 /* =================================================
-   ИМИТАЦИЯ ШИФРОВАНИЯ
+   ДЕМО-ПРЕДСТАВЛЕНИЕ БЮЛЛЕТЕНЯ
 ================================================= */
 
 
-async function encryptBallot(
+/*
+ * ВАЖНО:
+ *
+ * Здесь больше НЕ используется
+ * название AES-GCM, потому что
+ * браузерный код ниже не выполняет
+ * настоящее шифрование.
+ *
+ * Для настоящего шифрования
+ * нужен сервер и криптографический
+ * ключ, которым пользователь
+ * не владеет.
+ */
+
+
+async function prepareBallot(
     selectedVote
 ) {
-
-
-    /*
-     * Для демонстрации создаём
-     * случайный идентификатор.
-     *
-     * В реальной системе здесь
-     * должна использоваться настоящая
-     * криптографическая схема.
-     */
 
 
     const randomBytes =
@@ -1381,23 +1774,10 @@ async function encryptBallot(
             .join("");
 
 
-    /*
-     * В прототипе данные представлены
-     * как условно зашифрованная строка.
-     */
-
-
     return {
 
-        algorithm:
-            "AES-GCM-DEMO",
-
-        ciphertext:
-            btoa(
-                selectedVote +
-                ":" +
-                nonce
-            ),
+        vote:
+            selectedVote,
 
         nonce:
             nonce
@@ -1409,7 +1789,7 @@ async function encryptBallot(
 
 
 /* =================================================
-   ГЕНЕРАЦИЯ ID
+   ГЕНЕРАЦИЯ АНОНИМНОГО ID
 ================================================= */
 
 
@@ -1440,75 +1820,7 @@ function generateAnonymousID() {
 
 
 /* =================================================
-   ДОБАВЛЕНИЕ ИИНА В РЕЕСТР
-================================================= */
-
-
-function markIINAsVoted(
-    iin
-) {
-
-
-    if (!iin) {
-
-        return false;
-
-    }
-
-
-    let votedIINS = [];
-
-
-    try {
-
-        votedIINS =
-            JSON.parse(
-                localStorage.getItem(
-                    "voted_iins"
-                )
-            ) || [];
-
-    }
-
-    catch (error) {
-
-        votedIINS = [];
-
-    }
-
-
-    /*
-     * Если ИИН уже есть —
-     * повторно ничего не делаем.
-     */
-
-
-    if (
-        votedIINS.includes(iin)
-    ) {
-
-        return false;
-
-    }
-
-
-    votedIINS.push(iin);
-
-
-    localStorage.setItem(
-        "voted_iins",
-        JSON.stringify(votedIINS)
-    );
-
-
-    return true;
-
-}
-
-
-
-/* =================================================
-   ПОМЕТИТЬ ТОКЕН КАК ИСПОЛЬЗОВАННЫЙ
+   ПОМЕТИТЬ ТОКЕН ИСПОЛЬЗОВАННЫМ
 ================================================= */
 
 
@@ -1517,25 +1829,15 @@ function markTokenAsUsed(
 ) {
 
 
-    let usedTokens = [];
+    if (!token) {
 
-
-    try {
-
-        usedTokens =
-            JSON.parse(
-                localStorage.getItem(
-                    "used_vote_tokens"
-                )
-            ) || [];
+        return false;
 
     }
 
-    catch (error) {
 
-        usedTokens = [];
-
-    }
+    let usedTokens =
+        getUsedTokens();
 
 
     if (
@@ -1563,7 +1865,7 @@ function markTokenAsUsed(
 
 
 /* =================================================
-   ОЧИСТКА ДАННЫХ ЛИЧНОСТИ
+   УДАЛЕНИЕ СЕССИИ
 ================================================= */
 
 
@@ -1571,13 +1873,9 @@ function destroyIdentitySession() {
 
 
     /*
-     * Удаляем ИИН.
+     * ИИН здесь никогда
+     * не используется.
      */
-
-
-    sessionStorage.removeItem(
-        "verified_iin"
-    );
 
 
     sessionStorage.removeItem(
@@ -1585,24 +1883,15 @@ function destroyIdentitySession() {
     );
 
 
-    /*
-     * Удаляем признак подтверждения.
-     */
-
-
     sessionStorage.removeItem(
         "identity_verified"
     );
 
 
-    /*
-     * Удаляем токен после использования.
-     */
-
-
     sessionStorage.removeItem(
         "vote_token"
     );
+
 
 }
 
@@ -1617,7 +1906,7 @@ async function submitVote() {
 
 
     /*
-     * Повторно получаем токен.
+     * Получаем актуальный токен.
      */
 
 
@@ -1628,26 +1917,20 @@ async function submitVote() {
 
 
     /*
-     * Получаем ИИН только сейчас,
-     * непосредственно перед фиксацией
-     * права "один ИИН — один голос".
+     * Проверяем наличие
+     * подтверждённой сессии.
      */
 
 
-    const iin =
+    const verified =
         sessionStorage.getItem(
-            "verified_iin"
+            "identity_verified"
         );
-
-
-    /*
-     * Проверяем сессию.
-     */
 
 
     if (
         !token ||
-        !iin
+        verified !== "true"
     ) {
 
         showError(
@@ -1661,13 +1944,13 @@ async function submitVote() {
 
 
     /*
-     * Проверяем, не использован ли токен.
+     * Проверяем,
+     * не использован ли токен.
      */
 
 
     if (
-        getUsedTokens()
-            .includes(token)
+        isTokenUsed(token)
     ) {
 
         showError(
@@ -1702,30 +1985,10 @@ async function submitVote() {
 
 
     /*
-     * Повторно проверяем ИИН.
-     */
-
-
-    const votedIINS =
-        getVotedIINS();
-
-
-    if (
-        votedIINS.includes(iin)
-    ) {
-
-        showError(
-            "Голосование по данному ИИН уже было осуществлено."
-        );
-
-        return;
-
-    }
-
-
-
-    /*
      * Блокируем кнопку.
+     *
+     * Это защищает от нескольких
+     * быстрых нажатий.
      */
 
 
@@ -1735,7 +1998,8 @@ async function submitVote() {
         );
 
 
-    button.disabled = true;
+    button.disabled =
+        true;
 
 
     button.textContent =
@@ -1747,32 +2011,35 @@ async function submitVote() {
 
 
         /*
-         * 1. Формируем условно
-         * зашифрованный бюллетень.
+         * 1.
+         * Формируем демонстрационное
+         * представление бюллетеня.
          */
 
 
-        const encryptedBallot =
-            await encryptBallot(
+        const ballot =
+            await prepareBallot(
                 selectedVote
             );
 
 
 
         /*
-         * 2. Сохраняем анонимный
-         * бюллетень отдельно.
+         * 2.
+         * Сохраняем бюллетень
+         * без ИИН.
          */
 
 
         saveAnonymousBallot(
-            encryptedBallot
+            ballot
         );
 
 
 
         /*
-         * 3. Сохраняем агрегированный
+         * 3.
+         * Сохраняем агрегированный
          * результат.
          */
 
@@ -1784,29 +2051,9 @@ async function submitVote() {
 
 
         /*
-         * 4. Фиксируем ИИН
-         * как проголосовавший.
-         */
-
-
-        const iinMarked =
-            markIINAsVoted(
-                iin
-            );
-
-
-        if (!iinMarked) {
-
-            throw new Error(
-                "ИИН уже зарегистрирован как проголосовавший."
-            );
-
-        }
-
-
-
-        /*
-         * 5. Делаем токен использованным.
+         * 4.
+         * Помечаем токен
+         * использованным.
          */
 
 
@@ -1827,8 +2074,8 @@ async function submitVote() {
 
 
         /*
-         * 6. Разрываем локальную связь
-         * личности и голосования.
+         * 5.
+         * Удаляем сессию.
          */
 
 
@@ -1837,7 +2084,8 @@ async function submitVote() {
 
 
         /*
-         * 7. Скрываем бюллетень.
+         * 6.
+         * Скрываем бюллетень.
          */
 
 
@@ -1853,8 +2101,11 @@ async function submitVote() {
             "none";
 
 
+
         /*
-         * 8. Показываем результат.
+         * 7.
+         * Показываем успешное
+         * завершение голосования.
          */
 
 
@@ -1891,42 +2142,7 @@ async function submitVote() {
 
 
 /* =================================================
-   ПОЛУЧЕНИЕ РЕЕСТРА ИИНов
-================================================= */
-
-
-function getVotedIINS() {
-
-
-    let votedIINS = [];
-
-
-    try {
-
-        votedIINS =
-            JSON.parse(
-                localStorage.getItem(
-                    "voted_iins"
-                )
-            ) || [];
-
-    }
-
-    catch (error) {
-
-        votedIINS = [];
-
-    }
-
-
-    return votedIINS;
-
-}
-
-
-
-/* =================================================
-   ОШИБКА
+   СООБЩЕНИЯ
 ================================================= */
 
 
@@ -1950,28 +2166,6 @@ function showError(
 
 }
 
-
-
-/* =================================================
-   ЗАЩИТА ОТ ПЕРЕЗАГРУЗКИ
-================================================= */
-
-
-window.addEventListener(
-    "beforeunload",
-    function() {
-
-        /*
-         * Здесь специально ничего
-         * не удаляем.
-         *
-         * Если пользователь просто
-         * обновил страницу до отправки,
-         * токен должен остаться действительным.
-         */
-
-    }
-);
 
 
 </script>
