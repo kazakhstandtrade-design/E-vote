@@ -24,11 +24,15 @@
         :root {
 
             --black: #15171b;
+
             --gray: #737982;
+
             --light: #f7f8f7;
+
             --border: #e6e8e6;
 
             --blue: #4aa9df;
+
             --blue-dark: #318fc5;
 
             --gold: #d8b15a;
@@ -314,9 +318,20 @@
         }
 
 
+        .elections-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+        }
+
+
 
         /* =========================================
-           CURRENT ELECTION
+           ELECTION CARD
         ========================================= */
 
         .election-card {
@@ -409,6 +424,21 @@
         }
 
 
+        .election-status.unavailable {
+
+            color: var(--gray);
+
+        }
+
+
+        .election-status.unavailable
+        .election-status-dot {
+
+            background: #aeb2b6;
+
+        }
+
+
         .election-title {
 
             margin-top: 12px;
@@ -484,6 +514,33 @@
         }
 
 
+        .results-button {
+
+            background: #eef7fc;
+
+            color: var(--blue-dark);
+
+            border: 1px solid #d8edf8;
+
+        }
+
+
+        .results-button:hover {
+
+            background: #e2f2fa;
+
+            border-color: #c8e6f4;
+
+        }
+
+
+        .previous-election {
+
+            opacity: .92;
+
+        }
+
+
 
         /* =========================================
            VOTING PROCESS
@@ -540,7 +597,8 @@
 
         .process-header {
 
-            padding: 4px 3px 10px;
+            padding:
+                4px 3px 10px;
 
         }
 
@@ -573,7 +631,7 @@
 
 
         /* =========================================
-           COMMON PROCESS CARD
+           VERIFICATION
         ========================================= */
 
         .verification,
@@ -1031,7 +1089,9 @@
         <div class="logo">
 
             <div class="logo-icon">
+
                 V
+
             </div>
 
             VOTE
@@ -1093,8 +1153,8 @@
     <p class="intro">
 
         Здесь вы можете ознакомиться с текущими
-        выборами и принять участие в электронном
-        голосовании.
+        и прошедшими выборами, а также принять
+        участие в электронном голосовании.
 
     </p>
 
@@ -1107,68 +1167,132 @@
     <div class="dashboard">
 
 
-
-        <!-- =================================
-             CURRENT ELECTION
-        ================================== -->
-
-        <section
-            class="election-card"
-            id="currentElection">
+        <div class="elections-list">
 
 
-            <div class="election-status">
+            <!-- =================================
+                 CURRENT ELECTION
+            ================================== -->
 
-                <span
-                    class="election-status-dot">
-                </span>
-
-                Голосование доступно
-
-            </div>
+            <section
+                class="election-card"
+                id="currentElection">
 
 
-            <div class="election-title">
+                <div class="election-status">
 
-                Выборы Президента
-                Республики Казахстан
+                    <span
+                        class="election-status-dot">
+                    </span>
 
-            </div>
+                    Голосование доступно
 
-
-            <div class="election-date">
-
-                31 ноября 2027 года
-
-            </div>
+                </div>
 
 
-            <p class="election-description">
+                <div class="election-title">
 
-                Примите участие в электронном
-                голосовании. Для доступа к бюллетеню
-                необходимо подтвердить свою личность
-                и право голоса.
+                    Выборы Президента
+                    Республики Казахстан
 
-            </p>
+                </div>
 
 
-            <button
-                class="vote-start-button"
-                onclick="openVoting()">
+                <div class="election-date">
 
-                Проголосовать
+                    31 ноября 2027 года
 
-            </button>
+                </div>
 
 
-        </section>
+                <p class="election-description">
+
+                    Примите участие в электронном
+                    голосовании. Для доступа к бюллетеню
+                    необходимо подтвердить свою личность
+                    и право голоса.
+
+                </p>
+
+
+                <button
+                    class="vote-start-button"
+                    onclick="openVoting()">
+
+                    Проголосовать
+
+                </button>
+
+
+            </section>
 
 
 
-        <!-- =================================
+            <!-- =================================
+                 PREVIOUS ELECTION
+            ================================== -->
+
+            <section
+                class="election-card previous-election">
+
+
+                <div class="election-status unavailable">
+
+                    <span
+                        class="election-status-dot">
+                    </span>
+
+                    Голосование недоступно
+
+                </div>
+
+
+                <div class="election-title">
+
+                    Выборы в Курултай
+
+                </div>
+
+
+                <div class="election-date">
+
+                    23 августа 2026 года
+
+                </div>
+
+
+                <p class="election-description">
+
+                    Голосование завершено.
+                    Ознакомьтесь с результатами
+                    проведённого электронного
+                    голосования.
+
+                </p>
+
+
+                <button
+                    class="vote-start-button results-button"
+                    onclick="
+                        window.location.href =
+                        'kurultai.html'
+                    ">
+
+                    Посмотреть результаты
+
+                </button>
+
+
+            </section>
+
+
+        </div>
+
+
+
+        <!-- =====================================
              VOTING PROCESS
-        ================================== -->
+        ====================================== -->
 
         <div
             class="voting-process"
@@ -1192,7 +1316,7 @@
 
 
             <!-- =================================
-                 STEP 1 — VERIFICATION
+                 STEP 1
             ================================== -->
 
             <section class="verification">
@@ -1267,7 +1391,7 @@
 
 
             <!-- =================================
-                 STEP 2 — VOTING
+                 STEP 2
             ================================== -->
 
             <section class="voting">
@@ -1344,7 +1468,6 @@
    USER
 ========================================= */
 
-
 const currentEmail =
     sessionStorage.getItem(
         "current_user_email"
@@ -1363,19 +1486,31 @@ if (currentEmail) {
 
 
 /* =========================================
-   OPEN CURRENT ELECTION
+   OPEN VOTING
 ========================================= */
-
 
 function openVoting() {
 
     document
-        .getElementById("currentElection")
-        .style.display = "none";
+        .getElementById(
+            "currentElection"
+        )
+        .style.display =
+            "none";
 
 
     document
-        .getElementById("votingProcess")
+        .querySelector(
+            ".previous-election"
+        )
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById(
+            "votingProcess"
+        )
         .classList
         .add("active");
 
@@ -1399,18 +1534,30 @@ function openVoting() {
    CLOSE VOTING
 ========================================= */
 
-
 function closeVoting() {
 
     document
-        .getElementById("votingProcess")
+        .getElementById(
+            "votingProcess"
+        )
         .classList
         .remove("active");
 
 
     document
-        .getElementById("currentElection")
-        .style.display = "block";
+        .getElementById(
+            "currentElection"
+        )
+        .style.display =
+            "block";
+
+
+    document
+        .querySelector(
+            ".previous-election"
+        )
+        .style.display =
+            "block";
 
 
     window.scrollTo({
@@ -1428,7 +1575,6 @@ function closeVoting() {
 /* =========================================
    CHECK VERIFICATION
 ========================================= */
-
 
 function checkVerification() {
 
@@ -1567,9 +1713,6 @@ function checkVerification() {
     votingText.textContent =
         "После подтверждения личности вам станет доступен электронный бюллетень.";
 
-
-    return false;
-
 }
 
 
@@ -1577,7 +1720,6 @@ function checkVerification() {
 /* =========================================
    OPEN VERIFICATION
 ========================================= */
-
 
 function openVerification() {
 
@@ -1612,9 +1754,8 @@ function openVerification() {
 
 
 /* =========================================
-   GO TO ELECTRONIC VOTING
+   GO TO VOTING
 ========================================= */
-
 
 function goToVoting() {
 
@@ -1658,7 +1799,6 @@ function goToVoting() {
    LOGOUT
 ========================================= */
 
-
 function logout() {
 
 
@@ -1698,7 +1838,6 @@ function logout() {
    START
 ========================================= */
 
-
 checkVerification();
 
 
@@ -1706,7 +1845,6 @@ checkVerification();
 /* =========================================
    PERIODIC CHECK
 ========================================= */
-
 
 setInterval(
 
