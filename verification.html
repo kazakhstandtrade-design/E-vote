@@ -11,7 +11,6 @@
 
     <title>VOTE — Проверка личности</title>
 
-
     <style>
 
         * {
@@ -20,31 +19,46 @@
             box-sizing: border-box;
         }
 
-
         :root {
 
-            --black: #111318;
-            --gray: #70757f;
+            --black: #15171b;
+            --black-soft: #22252b;
 
-            --light: #f6f7f8;
-            --border: #e5e7ea;
+            --gray: #737982;
+            --gray-light: #a4a9b0;
 
-            --red: #c92d38;
-            --red-dark: #ad222d;
+            --bg: #f5f7f9;
+            --white: #ffffff;
+
+            --border: #e4e7eb;
+            --border-dark: #d5d9de;
+
+            --blue: #3ba4d6;
+            --blue-dark: #2788b8;
+            --blue-light: #edf8fd;
+
+            --gold: #d7b45a;
 
             --green: #16834b;
+            --green-light: #eef9f3;
 
-            --white: #ffffff;
+            --red: #c92d38;
+            --red-dark: #a9212c;
+            --red-light: #fff2f3;
 
         }
 
+
+        /* =========================================
+           BODY
+        ========================================= */
 
         body {
 
             min-height: 100vh;
 
             background:
-                var(--light);
+                var(--bg);
 
             color:
                 var(--black);
@@ -66,10 +80,10 @@
 
         header {
 
-            height: 72px;
+            height: 68px;
 
             background:
-                rgba(255,255,255,.96);
+                rgba(255,255,255,.94);
 
             border-bottom:
                 1px solid var(--border);
@@ -78,23 +92,24 @@
 
             top: 0;
 
-            z-index: 20;
+            z-index: 50;
 
             backdrop-filter:
-                blur(10px);
+                blur(16px);
 
         }
 
 
         .header-inner {
 
-            max-width: 900px;
+            max-width: 1050px;
 
             height: 100%;
 
             margin: auto;
 
-            padding: 0 24px;
+            padding:
+                0 25px;
 
             display: flex;
 
@@ -111,27 +126,31 @@
 
             align-items: center;
 
-            gap: 10px;
+            gap: 9px;
 
-            font-size: 19px;
+            font-size: 17px;
 
-            font-weight: 800;
+            font-weight: 850;
 
-            letter-spacing: -.4px;
+            letter-spacing: -.5px;
 
         }
 
 
         .logo-icon {
 
-            width: 34px;
+            width: 32px;
 
-            height: 34px;
+            height: 32px;
 
             border-radius: 9px;
 
             background:
-                var(--red);
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--blue-dark)
+                );
 
             color:
                 white;
@@ -142,19 +161,60 @@
 
             justify-content: center;
 
-            font-weight: 800;
+            font-size: 14px;
+
+            font-weight: 850;
+
+            box-shadow:
+                0 5px 15px rgba(59,164,214,.18);
 
         }
 
 
-        .header-label {
+        .header-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+        }
+
+
+        .secure-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
 
             color:
                 var(--gray);
 
-            font-size: 10px;
+            font-size: 9px;
 
-            letter-spacing: .5px;
+            font-weight: 700;
+
+            letter-spacing: .4px;
+
+        }
+
+
+        .secure-dot {
+
+            width: 6px;
+
+            height: 6px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+
+            box-shadow:
+                0 0 0 3px rgba(22,131,75,.08);
 
         }
 
@@ -166,107 +226,285 @@
 
         main {
 
-            max-width: 900px;
+            max-width: 920px;
 
             margin: auto;
 
             padding:
-                55px 24px 70px;
+                45px 24px 70px;
 
         }
 
 
 
         /* =========================================
-           PAGE INTRO
+           TOP NAV
         ========================================= */
 
-        .page-intro {
+        .back-link {
 
-            position: relative;
+            display: inline-flex;
 
-            padding-left: 18px;
+            align-items: center;
 
-        }
-
-
-        .page-intro::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-
-            top: 2px;
-
-            width: 3px;
-
-            height: 54px;
-
-            border-radius: 3px;
-
-            background:
-                var(--red);
-
-        }
-
-
-        .label {
+            gap: 7px;
 
             color:
-                var(--red);
+                var(--gray);
+
+            text-decoration: none;
 
             font-size: 10px;
 
-            font-weight: 800;
+            font-weight: 650;
 
-            letter-spacing: 1.3px;
+            transition: .2s;
+
+        }
+
+
+        .back-link:hover {
+
+            color:
+                var(--black);
+
+        }
+
+
+        .back-arrow {
+
+            font-size: 14px;
+
+        }
+
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro {
+
+            margin-top: 28px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr auto;
+
+            gap: 35px;
+
+            align-items: end;
+
+        }
+
+
+        .eyebrow {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            color:
+                var(--blue-dark);
+
+            font-size: 9px;
+
+            font-weight: 850;
+
+            letter-spacing: 1.4px;
 
             text-transform: uppercase;
 
         }
 
 
-        h1 {
+        .eyebrow-line {
 
-            margin-top: 7px;
+            width: 23px;
 
-            font-size: 34px;
+            height: 1px;
 
-            line-height: 1.1;
-
-            letter-spacing: -1.4px;
-
-            font-weight: 800;
+            background:
+                var(--gold);
 
         }
 
 
-        .description {
-
-            max-width: 620px;
+        h1 {
 
             margin-top: 9px;
+
+            font-size: 38px;
+
+            line-height: 1.05;
+
+            letter-spacing: -1.7px;
+
+            font-weight: 850;
+
+        }
+
+
+        .intro-text {
+
+            max-width: 610px;
+
+            margin-top: 12px;
 
             color:
                 var(--gray);
 
             font-size: 12px;
 
-            line-height: 1.7;
+            line-height: 1.75;
+
+        }
+
+
+        .step-counter {
+
+            min-width: 105px;
+
+            padding: 13px 15px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 11px;
+
+            background:
+                rgba(255,255,255,.75);
+
+            text-align: center;
+
+        }
+
+
+        .step-counter-number {
+
+            font-size: 19px;
+
+            font-weight: 850;
+
+            letter-spacing: -.5px;
+
+        }
+
+
+        .step-counter-label {
+
+            margin-top: 2px;
+
+            color:
+                var(--gray);
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: .8px;
+
+            text-transform: uppercase;
 
         }
 
 
 
         /* =========================================
-           VERIFICATION CARD
+           PROGRESS
+        ========================================= */
+
+        .progress {
+
+            margin-top: 28px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .progress-item {
+
+            flex: 1;
+
+        }
+
+
+        .progress-line {
+
+            height: 4px;
+
+            border-radius: 10px;
+
+            background:
+                #dfe4e8;
+
+            overflow: hidden;
+
+        }
+
+
+        .progress-fill {
+
+            width: 0;
+
+            height: 100%;
+
+            background:
+                var(--blue);
+
+            border-radius: inherit;
+
+            transition:
+                width .35s ease;
+
+        }
+
+
+        .progress-item.active .progress-fill {
+
+            width: 100%;
+
+        }
+
+
+        .progress-label {
+
+            margin-top: 7px;
+
+            color:
+                var(--gray-light);
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+        }
+
+
+        .progress-item.active .progress-label {
+
+            color:
+                var(--blue-dark);
+
+        }
+
+
+
+        /* =========================================
+           MAIN CARD
         ========================================= */
 
         .verification-card {
 
-            margin-top: 30px;
+            margin-top: 27px;
 
             background:
                 var(--white);
@@ -274,26 +512,29 @@
             border:
                 1px solid var(--border);
 
-            border-radius: 16px;
+            border-radius: 18px;
 
             overflow: hidden;
+
+            box-shadow:
+                0 15px 45px rgba(20,28,35,.045);
 
         }
 
 
-        .kazakhstan-strip {
+        .card-top {
 
-            height: 5px;
+            height: 4px;
 
             background:
                 linear-gradient(
-                    to right,
-                    #38a9d6 0%,
-                    #38a9d6 72%,
-                    #f1c84b 72%,
-                    #f1c84b 78%,
-                    #38a9d6 78%,
-                    #38a9d6 100%
+                    90deg,
+                    var(--blue) 0%,
+                    var(--blue) 70%,
+                    var(--gold) 70%,
+                    var(--gold) 77%,
+                    var(--blue) 77%,
+                    var(--blue) 100%
                 );
 
         }
@@ -301,7 +542,91 @@
 
         .card-content {
 
-            padding: 28px;
+            padding:
+                28px;
+
+        }
+
+
+
+        /* =========================================
+           CARD HEADER
+        ========================================= */
+
+        .card-heading {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            align-items: flex-start;
+
+        }
+
+
+        .card-title {
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: -.5px;
+
+        }
+
+
+        .card-description {
+
+            max-width: 620px;
+
+            margin-top: 6px;
+
+            color:
+                var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.65;
+
+        }
+
+
+        .privacy-badge {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding:
+                7px 9px;
+
+            border:
+                1px solid #dcefe5;
+
+            border-radius: 7px;
+
+            background:
+                var(--green-light);
+
+            color:
+                var(--green);
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
+        }
+
+
+        .privacy-icon {
+
+            font-size: 10px;
 
         }
 
@@ -313,28 +638,32 @@
 
         .methods {
 
+            margin-top: 24px;
+
             display: grid;
 
-            gap: 12px;
+            gap: 11px;
 
         }
 
 
         .method {
 
+            padding:
+                19px;
+
             border:
                 1px solid var(--border);
 
-            border-radius: 12px;
-
-            padding: 20px;
+            border-radius: 13px;
 
             background:
-                white;
+                #fff;
 
             transition:
                 border-color .2s,
-                box-shadow .2s;
+                box-shadow .2s,
+                transform .2s;
 
         }
 
@@ -342,10 +671,13 @@
         .method:hover {
 
             border-color:
-                #d7d9dc;
+                var(--border-dark);
 
             box-shadow:
-                0 8px 25px rgba(17,19,24,.035);
+                0 9px 28px rgba(20,28,35,.045);
+
+            transform:
+                translateY(-1px);
 
         }
 
@@ -354,8 +686,6 @@
 
             display: flex;
 
-            align-items: flex-start;
-
             justify-content: space-between;
 
             gap: 20px;
@@ -363,11 +693,76 @@
         }
 
 
+        .method-left {
+
+            display: flex;
+
+            gap: 12px;
+
+        }
+
+
+        .method-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            flex: 0 0 38px;
+
+            border-radius: 10px;
+
+            background:
+                var(--blue-light);
+
+            color:
+                var(--blue-dark);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+        }
+
+
+        .method-icon.eds {
+
+            background:
+                #f3f4f6;
+
+            color:
+                var(--black);
+
+        }
+
+
         .method-title {
 
-            font-size: 14px;
+            font-size: 13px;
 
-            font-weight: 750;
+            font-weight: 800;
+
+        }
+
+
+        .method-description {
+
+            max-width: 590px;
+
+            margin-top: 5px;
+
+            color:
+                var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.6;
 
         }
 
@@ -375,29 +770,13 @@
         .method-number {
 
             color:
-                #a2a6ad;
+                #b1b5bb;
 
-            font-size: 9px;
+            font-size: 8px;
 
-            font-weight: 800;
+            font-weight: 850;
 
             letter-spacing: 1px;
-
-        }
-
-
-        .method-description {
-
-            max-width: 600px;
-
-            margin-top: 6px;
-
-            color:
-                var(--gray);
-
-            font-size: 11px;
-
-            line-height: 1.6;
 
         }
 
@@ -406,12 +785,11 @@
 
             width: 100%;
 
-            height: 43px;
+            height: 42px;
 
             margin-top: 15px;
 
-            border:
-                1px solid var(--black);
+            border: 0;
 
             border-radius: 8px;
 
@@ -421,9 +799,9 @@
             color:
                 white;
 
-            font-size: 11px;
+            font-size: 10px;
 
-            font-weight: 700;
+            font-weight: 750;
 
             cursor: pointer;
 
@@ -435,7 +813,10 @@
         .method-button:hover {
 
             background:
-                #292c33;
+                #292c32;
+
+            transform:
+                translateY(-1px);
 
         }
 
@@ -451,10 +832,13 @@
 
             margin-top: 16px;
 
-            padding-top: 16px;
+            padding-top: 17px;
 
             border-top:
                 1px solid var(--border);
+
+            animation:
+                slideDown .25s ease;
 
         }
 
@@ -466,15 +850,48 @@
         }
 
 
-        .iin-label {
+        @keyframes slideDown {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-5px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        .input-label {
 
             display: block;
 
             margin-bottom: 7px;
 
-            font-size: 10px;
+            color:
+                var(--black);
 
-            font-weight: 750;
+            font-size: 9px;
+
+            font-weight: 800;
+
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
 
         }
 
@@ -483,10 +900,10 @@
 
             width: 100%;
 
-            height: 44px;
+            height: 45px;
 
             padding:
-                0 12px;
+                0 43px 0 13px;
 
             border:
                 1px solid var(--border);
@@ -496,14 +913,19 @@
             outline: none;
 
             background:
-                white;
+                #fafbfc;
+
+            color:
+                var(--black);
 
             font-size: 14px;
 
-            letter-spacing: .5px;
+            letter-spacing: .8px;
 
             transition:
-                border-color .2s;
+                border-color .2s,
+                background .2s,
+                box-shadow .2s;
 
         }
 
@@ -511,7 +933,13 @@
         .iin-input:focus {
 
             border-color:
-                var(--black);
+                var(--blue);
+
+            background:
+                white;
+
+            box-shadow:
+                0 0 0 3px rgba(59,164,214,.09);
 
         }
 
@@ -519,7 +947,30 @@
         .iin-input::placeholder {
 
             color:
-                #b0b3b8;
+                #b4b8bd;
+
+            letter-spacing: 0;
+
+        }
+
+
+        .input-counter {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                #adb1b6;
+
+            font-size: 8px;
+
+            font-weight: 700;
 
         }
 
@@ -532,19 +983,19 @@
 
             margin-top: 9px;
 
-            border: none;
+            border: 0;
 
             border-radius: 8px;
 
             background:
-                var(--red);
+                var(--blue);
 
             color:
                 white;
 
-            font-size: 11px;
+            font-size: 10px;
 
-            font-weight: 700;
+            font-weight: 750;
 
             cursor: pointer;
 
@@ -556,7 +1007,10 @@
         .verify-button:hover {
 
             background:
-                var(--red-dark);
+                var(--blue-dark);
+
+            transform:
+                translateY(-1px);
 
         }
 
@@ -570,20 +1024,20 @@
 
             display: none;
 
-            margin-top: 15px;
+            margin-top: 14px;
 
-            padding: 15px;
+            padding: 14px;
 
             border:
-                1px solid #f0d3d6;
+                1px solid #f1d5d8;
 
             border-radius: 10px;
 
             background:
-                #fff7f8;
+                var(--red-light);
 
-            color:
-                var(--red);
+            animation:
+                slideDown .25s ease;
 
         }
 
@@ -595,7 +1049,36 @@
         }
 
 
-        .age-warning-title {
+        .warning-head {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+
+        .warning-icon {
+
+            width: 23px;
+
+            height: 23px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(201,45,56,.1);
+
+            color:
+                var(--red);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
 
             font-size: 11px;
 
@@ -604,11 +1087,26 @@
         }
 
 
-        .age-warning-text {
+        .age-warning-title {
 
-            margin-top: 5px;
+            color:
+                var(--red);
 
             font-size: 10px;
+
+            font-weight: 850;
+
+        }
+
+
+        .age-warning-text {
+
+            margin-top: 7px;
+
+            color:
+                #9d4b52;
+
+            font-size: 9px;
 
             line-height: 1.6;
 
@@ -624,17 +1122,24 @@
 
             display: none;
 
-            margin-top: 15px;
+            margin-top: 14px;
 
             padding: 17px;
 
             border:
-                1px solid #dfe4e8;
+                1px solid #d9e8df;
 
-            border-radius: 10px;
+            border-radius: 11px;
 
             background:
-                #fafbfc;
+                linear-gradient(
+                    135deg,
+                    #f8fcfa,
+                    #f1f9f5
+                );
+
+            animation:
+                slideDown .25s ease;
 
         }
 
@@ -652,16 +1157,75 @@
 
             align-items: center;
 
-            gap: 8px;
+            gap: 9px;
 
         }
 
 
-        .biometric-dot {
+        .biometric-icon {
 
-            width: 7px;
+            width: 28px;
 
-            height: 7px;
+            height: 28px;
+
+            border-radius: 8px;
+
+            background:
+                var(--green);
+
+            color:
+                white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 12px;
+
+            font-weight: 850;
+
+        }
+
+
+        .biometric-title {
+
+            color:
+                var(--green);
+
+            font-size: 11px;
+
+            font-weight: 850;
+
+        }
+
+
+        .biometric-status {
+
+            margin-left: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            color:
+                var(--green);
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+        }
+
+
+        .status-dot {
+
+            width: 6px;
+
+            height: 6px;
 
             border-radius: 50%;
 
@@ -671,25 +1235,16 @@
         }
 
 
-        .biometric-title {
-
-            font-size: 11px;
-
-            font-weight: 750;
-
-        }
-
-
         .biometric-text {
 
-            margin-top: 7px;
+            margin-top: 9px;
 
             color:
-                var(--gray);
+                #5e7568;
 
-            font-size: 10px;
+            font-size: 9px;
 
-            line-height: 1.6;
+            line-height: 1.65;
 
         }
 
@@ -703,7 +1258,7 @@
             margin-top: 13px;
 
             border:
-                1px solid var(--border);
+                1px solid #cfe1d7;
 
             border-radius: 8px;
 
@@ -715,7 +1270,7 @@
 
             font-size: 10px;
 
-            font-weight: 700;
+            font-weight: 750;
 
             cursor: pointer;
 
@@ -727,7 +1282,10 @@
         .biometric-button:hover {
 
             border-color:
-                var(--black);
+                var(--green);
+
+            background:
+                #fbfefc;
 
         }
 
@@ -741,15 +1299,19 @@
 
             display: none;
 
-            margin-top: 16px;
+            margin-top: 15px;
 
-            padding: 13px 15px;
+            padding:
+                12px 14px;
 
             border-radius: 9px;
 
-            font-size: 10px;
+            font-size: 9px;
 
             line-height: 1.6;
+
+            animation:
+                slideDown .25s ease;
 
         }
 
@@ -759,13 +1321,13 @@
             display: block;
 
             background:
-                #fff2f3;
+                var(--red-light);
 
             color:
                 var(--red);
 
             border:
-                1px solid #f4d5d8;
+                1px solid #f1d5d8;
 
         }
 
@@ -775,13 +1337,13 @@
             display: block;
 
             background:
-                #eef9f3;
+                var(--green-light);
 
             color:
                 var(--green);
 
             border:
-                1px solid #d5eddf;
+                1px solid #d6ebdf;
 
         }
 
@@ -795,17 +1357,27 @@
 
             display: none;
 
-            margin-top: 20px;
+            margin-top: 17px;
 
             padding: 20px;
 
-            border-radius: 12px;
+            border-radius: 13px;
 
             background:
-                var(--black);
+                linear-gradient(
+                    145deg,
+                    #15171b,
+                    #25282e
+                );
 
             color:
                 white;
+
+            box-shadow:
+                0 15px 30px rgba(17,19,24,.12);
+
+            animation:
+                tokenAppear .35s ease;
 
         }
 
@@ -817,27 +1389,53 @@
         }
 
 
+        @keyframes tokenAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(10px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
         .token-header {
 
             display: flex;
 
             align-items: center;
 
-            gap: 9px;
+            gap: 10px;
 
         }
 
 
         .token-check {
 
-            width: 22px;
+            width: 28px;
 
-            height: 22px;
+            height: 28px;
 
             border-radius: 50%;
 
             background:
                 var(--green);
+
+            color:
+                white;
 
             display: flex;
 
@@ -845,9 +1443,12 @@
 
             justify-content: center;
 
-            font-size: 11px;
+            font-size: 12px;
 
-            font-weight: 800;
+            font-weight: 850;
+
+            box-shadow:
+                0 0 0 4px rgba(22,131,75,.12);
 
         }
 
@@ -856,45 +1457,81 @@
 
             font-size: 12px;
 
-            font-weight: 750;
+            font-weight: 800;
+
+        }
+
+
+        .token-subtitle {
+
+            margin-top: 2px;
+
+            color:
+                #969ba3;
+
+            font-size: 8px;
 
         }
 
 
         .token-description {
 
-            margin-top: 9px;
+            margin-top: 13px;
 
             color:
                 #bfc3c9;
 
-            font-size: 10px;
+            font-size: 9px;
 
-            line-height: 1.6;
+            line-height: 1.65;
+
+        }
+
+
+        .token-label {
+
+            margin-top: 14px;
+
+            color:
+                #8e939a;
+
+            font-size: 7px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
 
         }
 
 
         .token-value {
 
-            margin-top: 12px;
+            margin-top: 6px;
 
-            padding: 11px;
+            padding:
+                11px;
+
+            border:
+                1px solid #363a41;
 
             border-radius: 7px;
 
             background:
-                #202329;
+                #1e2126;
 
             color:
-                #e6e8eb;
+                #dfe2e5;
 
             word-break: break-all;
 
             font-family:
+                "SFMono-Regular",
+                Consolas,
                 monospace;
 
-            font-size: 9px;
+            font-size: 8px;
 
             line-height: 1.5;
 
@@ -909,7 +1546,7 @@
 
             margin-top: 12px;
 
-            border: none;
+            border: 0;
 
             border-radius: 8px;
 
@@ -919,9 +1556,9 @@
             color:
                 var(--black);
 
-            font-size: 11px;
+            font-size: 10px;
 
-            font-weight: 750;
+            font-weight: 800;
 
             cursor: pointer;
 
@@ -933,64 +1570,106 @@
         .continue-button:hover {
 
             background:
-                #f0f1f2;
+                #eef0f2;
+
+            transform:
+                translateY(-1px);
 
         }
 
 
 
         /* =========================================
-           BACK
+           SECURITY INFO
         ========================================= */
 
-        .back {
+        .security-panel {
 
-            display: block;
+            margin-top: 18px;
 
-            margin-top: 20px;
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
+
+        }
+
+
+        .security-item {
+
+            padding:
+                13px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,.65);
+
+        }
+
+
+        .security-item-icon {
+
+            color:
+                var(--blue-dark);
+
+            font-size: 13px;
+
+        }
+
+
+        .security-item-title {
+
+            margin-top: 7px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+        }
+
+
+        .security-item-text {
+
+            margin-top: 4px;
 
             color:
                 var(--gray);
 
-            font-size: 10px;
+            font-size: 8px;
 
-            text-decoration: none;
-
-            text-align: center;
-
-            transition: .2s;
-
-        }
-
-
-        .back:hover {
-
-            color:
-                var(--black);
+            line-height: 1.5;
 
         }
 
 
 
         /* =========================================
-           SECURITY NOTE
+           FOOTER NOTE
         ========================================= */
 
         .security-note {
 
-            max-width: 700px;
+            max-width: 730px;
 
-            margin: 30px auto 0;
+            margin:
+                25px auto 0;
 
-            padding-top: 20px;
+            padding-top:
+                17px;
 
             border-top:
                 1px solid var(--border);
 
             color:
-                #8a8e95;
+                #969ba2;
 
-            font-size: 9px;
+            font-size: 8px;
 
             line-height: 1.7;
 
@@ -1004,45 +1683,62 @@
            MOBILE
         ========================================= */
 
-        @media (max-width: 600px) {
-
+        @media (max-width: 700px) {
 
             .header-inner {
 
                 padding:
-                    0 17px;
+                    0 16px;
 
             }
 
-
-            .header-label {
+            .secure-label {
 
                 display: none;
 
             }
 
-
             main {
 
                 padding:
-                    38px 16px 50px;
+                    30px 16px 50px;
 
             }
 
+            .intro {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 18px;
+
+            }
 
             h1 {
 
-                font-size: 29px;
+                font-size: 31px;
 
             }
 
+            .step-counter {
 
-            .page-intro::before {
+                width: 100%;
 
-                height: 48px;
+                text-align: left;
+
+                display: flex;
+
+                align-items: center;
+
+                gap: 8px;
 
             }
 
+            .step-counter-label {
+
+                margin-top: 0;
+
+            }
 
             .card-content {
 
@@ -1051,11 +1747,68 @@
 
             }
 
+            .card-heading {
+
+                flex-direction: column;
+
+            }
+
+            .privacy-badge {
+
+                align-self: flex-start;
+
+            }
+
+            .security-panel {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            h1 {
+
+                font-size: 28px;
+
+            }
+
+            .progress-label {
+
+                font-size: 7px;
+
+            }
 
             .method {
 
                 padding:
-                    17px;
+                    16px;
+
+            }
+
+            .method-left {
+
+                gap: 9px;
+
+            }
+
+            .method-icon {
+
+                width: 34px;
+
+                height: 34px;
+
+                flex-basis: 34px;
+
+            }
+
+            .biometric-status {
+
+                display: none;
 
             }
 
@@ -1068,6 +1821,10 @@
 
 <body>
 
+
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <header>
 
@@ -1084,9 +1841,15 @@
         </div>
 
 
-        <div class="header-label">
+        <div class="header-right">
 
-            Qauipsiz sailau
+            <div class="secure-label">
+
+                <span class="secure-dot"></span>
+
+                Защищённое соединение
+
+            </div>
 
         </div>
 
@@ -1096,55 +1859,182 @@
 
 
 
+<!-- =========================================
+     MAIN
+========================================= -->
+
 <main>
 
 
-    <div class="page-intro">
+    <a
+        href="cabinet.html"
+        class="back-link">
 
-        <div class="label">
+        <span class="back-arrow">←</span>
 
-            Шаг 1 · Подтверждение
+        Вернуться в личный кабинет
+
+    </a>
+
+
+
+    <!-- =====================================
+         INTRO
+    ====================================== -->
+
+    <section class="intro">
+
+        <div>
+
+            <div class="eyebrow">
+
+                <span class="eyebrow-line"></span>
+
+                Шаг 1 · Подтверждение
+
+            </div>
+
+
+            <h1>
+
+                Проверка личности
+
+            </h1>
+
+
+            <p class="intro-text">
+
+                Перед участием в электронном голосовании
+                необходимо подтвердить личность и право
+                голоса. После успешной проверки система
+                создаст отдельный токен для перехода
+                к бюллетеню.
+
+            </p>
 
         </div>
 
 
-        <h1>
+        <div class="step-counter">
 
-            Проверка личности
+            <div class="step-counter-number">
 
-        </h1>
+                01
+
+            </div>
+
+            <div class="step-counter-label">
+
+                из 02 шагов
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-        <p class="description">
 
-            Перед голосованием необходимо
-            подтвердить личность и право
-            участвовать в выборах.
+    <!-- =====================================
+         PROGRESS
+    ====================================== -->
 
-            После проверки система выдаст
-            отдельный анонимный токен
-            для голосования.
+    <div class="progress">
 
-        </p>
+        <div class="progress-item active">
+
+            <div class="progress-line">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+            <div class="progress-label">
+
+                Проверка личности
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-item">
+
+            <div class="progress-line">
+
+                <div class="progress-fill"></div>
+
+            </div>
+
+            <div class="progress-label">
+
+                Электронный бюллетень
+
+            </div>
+
+        </div>
 
     </div>
 
 
 
+    <!-- =====================================
+         VERIFICATION CARD
+    ====================================== -->
+
     <section class="verification-card">
 
 
-        <div class="kazakhstan-strip"></div>
+        <div class="card-top"></div>
 
 
         <div class="card-content">
 
 
+            <div class="card-heading">
+
+                <div>
+
+                    <div class="card-title">
+
+                        Выберите способ подтверждения
+
+                    </div>
+
+
+                    <div class="card-description">
+
+                        Используйте один из доступных
+                        способов идентификации для
+                        подтверждения права участия
+                        в голосовании.
+
+                    </div>
+
+                </div>
+
+
+                <div class="privacy-badge">
+
+                    <span class="privacy-icon">✓</span>
+
+                    Защита данных
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 METHODS
+            ================================== -->
+
             <div class="methods">
 
 
                 <!-- =================================
-                     ИИН + БИОМЕТРИЯ
+                     IIN + BIOMETRIC
                 ================================== -->
 
                 <div class="method">
@@ -1153,23 +2043,36 @@
                     <div class="method-top">
 
 
-                        <div>
+                        <div class="method-left">
 
-                            <div class="method-title">
 
-                                ИИН + биометрия
+                            <div class="method-icon">
+
+                                ◉
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="method-title">
+
+                                    ИИН + биометрия
+
+                                </div>
+
+
+                                <div class="method-description">
+
+                                    Введите ИИН для проверки
+                                    права голоса. После успешной
+                                    проверки потребуется
+                                    биометрическое подтверждение.
+
+                                </div>
 
                             </div>
 
-
-                            <div class="method-description">
-
-                                Введите ИИН для проверки
-                                права голоса. После успешной
-                                проверки потребуется
-                                биометрическое подтверждение.
-
-                            </div>
 
                         </div>
 
@@ -1179,7 +2082,6 @@
                             01
 
                         </div>
-
 
                     </div>
 
@@ -1204,7 +2106,7 @@
 
 
                         <label
-                            class="iin-label"
+                            class="input-label"
                             for="iin">
 
                             ИИН
@@ -1212,14 +2114,26 @@
                         </label>
 
 
-                        <input
-                            class="iin-input"
-                            id="iin"
-                            type="text"
-                            inputmode="numeric"
-                            maxlength="12"
-                            autocomplete="off"
-                            placeholder="Введите 12 цифр">
+                        <div class="input-wrapper">
+
+                            <input
+                                class="iin-input"
+                                id="iin"
+                                type="text"
+                                inputmode="numeric"
+                                maxlength="12"
+                                autocomplete="off"
+                                placeholder="Введите 12 цифр">
+
+                            <span
+                                class="input-counter"
+                                id="iinCounter">
+
+                                0/12
+
+                            </span>
+
+                        </div>
 
 
                         <button
@@ -1244,9 +2158,20 @@
                         id="ageWarning">
 
 
-                        <div class="age-warning-title">
+                        <div class="warning-head">
 
-                            Доступ к голосованию ограничен
+                            <div class="warning-icon">
+
+                                !
+
+                            </div>
+
+
+                            <div class="age-warning-title">
+
+                                Доступ к голосованию ограничен
+
+                            </div>
 
                         </div>
 
@@ -1256,7 +2181,8 @@
                             id="ageWarningText">
 
                             Для участия в голосовании
-                            необходимо достичь 18-летнего возраста.
+                            необходимо достичь
+                            18-летнего возраста.
 
                         </div>
 
@@ -1276,7 +2202,12 @@
 
                         <div class="biometric-header">
 
-                            <div class="biometric-dot"></div>
+
+                            <div class="biometric-icon">
+
+                                ✓
+
+                            </div>
 
 
                             <div class="biometric-title">
@@ -1285,19 +2216,28 @@
 
                             </div>
 
+
+                            <div class="biometric-status">
+
+                                <span class="status-dot"></span>
+
+                                Проверка пройдена
+
+                            </div>
+
+
                         </div>
 
 
                         <div class="biometric-text">
 
-                            ИИН прошёл проверку,
-                            возрастное требование выполнено,
-                            право голоса найдено в тестовой базе,
-                            повторное голосование не обнаружено.
+                            ИИН прошёл проверку, возрастное
+                            требование выполнено, право голоса
+                            найдено в тестовой базе, повторное
+                            голосование не обнаружено.
 
-                            Для завершения проверки
-                            необходимо пройти
-                            биометрическую проверку.
+                            Для завершения проверки необходимо
+                            пройти биометрическую проверку.
 
                         </div>
 
@@ -1319,7 +2259,7 @@
 
 
                 <!-- =================================
-                     ЭЦП
+                     EDS
                 ================================== -->
 
                 <div class="method">
@@ -1328,22 +2268,36 @@
                     <div class="method-top">
 
 
-                        <div>
+                        <div class="method-left">
 
-                            <div class="method-title">
+
+                            <div class="method-icon eds">
 
                                 ЭЦП
 
                             </div>
 
 
-                            <div class="method-description">
+                            <div>
 
-                                Подтверждение личности
-                                с использованием электронной
-                                цифровой подписи.
+                                <div class="method-title">
+
+                                    Электронная цифровая подпись
+
+                                </div>
+
+
+                                <div class="method-description">
+
+                                    Подтверждение личности
+                                    с использованием
+                                    электронной цифровой
+                                    подписи.
+
+                                </div>
 
                             </div>
+
 
                         </div>
 
@@ -1353,7 +2307,6 @@
                             02
 
                         </div>
-
 
                     </div>
 
@@ -1374,9 +2327,9 @@
 
 
 
-            <!-- =================================
+            <!-- =====================================
                  MESSAGE
-            ================================== -->
+            ====================================== -->
 
             <div
                 class="message"
@@ -1386,9 +2339,9 @@
 
 
 
-            <!-- =================================
+            <!-- =====================================
                  TOKEN
-            ================================== -->
+            ====================================== -->
 
             <div
                 class="token-box"
@@ -1405,24 +2358,38 @@
                     </div>
 
 
-                    <div class="token-title">
+                    <div>
 
-                        Право голоса подтверждено
+                        <div class="token-title">
+
+                            Право голоса подтверждено
+
+                        </div>
+
+
+                        <div class="token-subtitle">
+
+                            Идентификация успешно завершена
+
+                        </div>
 
                     </div>
-
 
                 </div>
 
 
                 <div class="token-description">
 
-                    Система создала отдельный
-                    анонимный токен для голосования.
+                    Система создала отдельный анонимный
+                    токен для голосования. Он используется
+                    для перехода к электронному бюллетеню.
 
-                    В прототипе токен используется
-                    как идентификатор подтверждённого
-                    права голоса.
+                </div>
+
+
+                <div class="token-label">
+
+                    Одноразовый токен
 
                 </div>
 
@@ -1438,7 +2405,7 @@
                     class="continue-button"
                     onclick="continueToCabinet()">
 
-                    Вернуться к голосованию
+                    Вернуться к голосованию →
 
                 </button>
 
@@ -1453,32 +2420,105 @@
 
 
 
-    <a
-        href="cabinet.html"
-        class="back">
+    <!-- =====================================
+         SECURITY FEATURES
+    ====================================== -->
 
-        ← Вернуться в личный кабинет
-
-    </a>
+    <div class="security-panel">
 
 
+        <div class="security-item">
+
+            <div class="security-item-icon">
+
+                ◉
+
+            </div>
+
+            <div class="security-item-title">
+
+                Проверка ИИН
+
+            </div>
+
+            <div class="security-item-text">
+
+                Проверяется формат, контрольная
+                цифра, дата рождения и право
+                участия.
+
+            </div>
+
+        </div>
+
+
+        <div class="security-item">
+
+            <div class="security-item-icon">
+
+                ✓
+
+            </div>
+
+            <div class="security-item-title">
+
+                Биометрия
+
+            </div>
+
+            <div class="security-item-text">
+
+                Дополнительный уровень подтверждения
+                личности перед выдачей токена.
+
+            </div>
+
+        </div>
+
+
+        <div class="security-item">
+
+            <div class="security-item-icon">
+
+                #
+
+            </div>
+
+            <div class="security-item-title">
+
+                Анонимный токен
+
+            </div>
+
+            <div class="security-item-text">
+
+                После подтверждения создаётся
+                отдельный идентификатор доступа
+                к голосованию.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         SECURITY NOTE
+    ====================================== -->
 
     <div class="security-note">
 
-        В текущем прототипе используется
-        локальная тестовая база ИИНов.
-
-        Проверка контрольной цифры,
-        даты рождения и возраста выполняется
-        на стороне браузера.
-
-        Биометрическая проверка и интеграция
-        с ЭЦП имитируются.
-
-        Для реальной системы критические проверки
-        должны выполняться на защищённом сервере
-        с использованием официальных источников
-        данных.
+        В текущем прототипе используется локальная
+        тестовая база ИИНов. Проверка контрольной цифры,
+        даты рождения и возраста выполняется на стороне
+        браузера. Биометрическая проверка и интеграция
+        с ЭЦП имитируются. Для реальной системы
+        критические проверки должны выполняться
+        на защищённом сервере с использованием
+        официальных источников данных.
 
     </div>
 
@@ -1805,15 +2845,6 @@ function calculateAge(birthDate) {
 ====================================================
    ПРОВЕРКА ИИН
 ====================================================
-
-   Здесь главное изменение:
-
-   Сначала проверяется, не использовался ли
-   этот ИИН ранее.
-
-   Поэтому один и тот же ИИН не сможет
-   повторно дойти до биометрии.
-====================================================
 */
 
 function checkIIN() {
@@ -1850,7 +2881,6 @@ function checkIIN() {
     /*
     =========================================
     ШАГ 1
-    Проверяем 12 цифр
     =========================================
     */
 
@@ -1869,11 +2899,8 @@ function checkIIN() {
     /*
     =========================================
     ШАГ 2
-    ПРОВЕРКА ПОВТОРНОГО ИИН
+    ПОВТОРНАЯ ПРОВЕРКА
     =========================================
-
-    Проверяем ИИН, который уже был
-    подтверждён в текущей сессии.
     */
 
     const verifiedIIN =
@@ -2041,7 +3068,7 @@ function checkIIN() {
     /*
     =========================================
     ШАГ 7
-    ПРОВЕРКА ТЕСТОВОЙ БАЗЫ
+    ТЕСТОВАЯ БАЗА
     =========================================
     */
 
@@ -2064,7 +3091,7 @@ function checkIIN() {
     /*
     =========================================
     ШАГ 8
-    СОХРАНЯЕМ ИИН ДО БИОМЕТРИИ
+    СОХРАНЕНИЕ ДО БИОМЕТРИИ
     =========================================
     */
 
@@ -2301,14 +3328,6 @@ function verifyBiometric() {
     );
 
 
-    /*
-    В прототипе сохраняем ИИН.
-
-    Это позволяет определить,
-    что этот ИИН уже проходил
-    подтверждение личности.
-    */
-
     sessionStorage.setItem(
         "verified_iin",
         iin
@@ -2316,7 +3335,9 @@ function verifyBiometric() {
 
 
     /*
-    Удаляем временный ИИН.
+    =========================================
+    УДАЛЯЕМ ВРЕМЕННЫЙ ИИН
+    =========================================
     */
 
     sessionStorage.removeItem(
@@ -2344,7 +3365,9 @@ function verifyBiometric() {
 
 
     /*
-    Скрываем формы.
+    =========================================
+    СКРЫВАЕМ ФОРМЫ
+    =========================================
     */
 
     document
@@ -2357,6 +3380,29 @@ function verifyBiometric() {
         .getElementById("biometricBox")
         .classList
         .remove("active");
+
+
+    /*
+    =========================================
+    ПРОГРЕСС
+    =========================================
+    */
+
+    const progressItems =
+        document.querySelectorAll(
+            ".progress-item"
+        );
+
+
+    if (
+        progressItems[1]
+    ) {
+
+        progressItems[1]
+            .classList
+            .add("active");
+
+    }
 
 
     showSuccess(
@@ -2423,17 +3469,6 @@ function generateToken() {
 /*
 ====================================================
    ВОЗВРАТ В ЛИЧНЫЙ КАБИНЕТ
-====================================================
-
-   ВАЖНО:
-
-   Теперь мы передаём параметр:
-
-   ?openVoting=true
-
-   cabinet.html увидит этот параметр
-   и автоматически откроет экран
-   с двумя шагами.
 ====================================================
 */
 
@@ -2549,6 +3584,13 @@ document
                 this.value
                     .replace(/\D/g, "")
                     .slice(0, 12);
+
+
+            document
+                .getElementById("iinCounter")
+                .textContent =
+                    this.value.length +
+                    "/12";
 
         }
     );
