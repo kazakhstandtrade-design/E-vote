@@ -1,0 +1,3596 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Петиции</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #15171b;
+            --gray: #737982;
+
+            --light: #f7f8f7;
+
+            --border: #e6e8e6;
+
+            --blue: #4aa9df;
+            --blue-dark: #318fc5;
+
+            --gold: #d8b15a;
+
+            --green: #16834b;
+
+            --red: #d9534f;
+
+            --white: #ffffff;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                var(--white);
+
+            color:
+                var(--black);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+        }
+
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            height:
+                72px;
+
+            background:
+                rgba(255,255,255,.97);
+
+            border-bottom:
+                1px solid var(--border);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                50;
+
+            backdrop-filter:
+                blur(12px);
+
+        }
+
+
+        .header-inner {
+
+            max-width:
+                980px;
+
+            height:
+                100%;
+
+            margin:
+                auto;
+
+            padding:
+                0 24px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+        }
+
+
+        .logo {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            color:
+                var(--black);
+
+            text-decoration:
+                none;
+
+            font-size:
+                18px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                -.4px;
+
+        }
+
+
+        .logo-icon {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            border-radius:
+                9px;
+
+            background:
+                var(--blue);
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-weight:
+                800;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .logo-icon::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                9px;
+
+            height:
+                9px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--gold);
+
+            right:
+                5px;
+
+            top:
+                5px;
+
+        }
+
+
+        .header-actions {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+        }
+
+
+        .back-button {
+
+            height:
+                34px;
+
+            padding:
+                0 14px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                8px;
+
+            background:
+                white;
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .back-button:hover {
+
+            color:
+                var(--black);
+
+            border-color:
+                #d2d5d3;
+
+        }
+
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+
+            max-width:
+                980px;
+
+            margin:
+                auto;
+
+            padding:
+                58px 24px 80px;
+
+        }
+
+
+        .page-label {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.3px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .page-label::before {
+
+            content:
+                "";
+
+            width:
+                24px;
+
+            height:
+                1px;
+
+            background:
+                var(--gold);
+
+        }
+
+
+        h1 {
+
+            margin-top:
+                12px;
+
+            font-size:
+                42px;
+
+            line-height:
+                1.08;
+
+            letter-spacing:
+                -1.8px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .intro {
+
+            max-width:
+                670px;
+
+            margin-top:
+                12px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.75;
+
+        }
+
+
+
+        /* =========================================
+           TOP ACTIONS
+        ========================================= */
+
+        .top-actions {
+
+            margin-top:
+                30px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+        }
+
+
+        .search-box {
+
+            position:
+                relative;
+
+            flex:
+                1;
+
+        }
+
+
+        .search-icon {
+
+            position:
+                absolute;
+
+            left:
+                15px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                #a3a7ac;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .search-input {
+
+            width:
+                100%;
+
+            height:
+                46px;
+
+            padding:
+                0 15px 0 40px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                9px;
+
+            outline:
+                none;
+
+            color:
+                var(--black);
+
+            font-size:
+                11px;
+
+            background:
+                white;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .search-input:focus {
+
+            border-color:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 3px rgba(74,169,223,.08);
+
+        }
+
+
+        .create-button {
+
+            height:
+                46px;
+
+            padding:
+                0 19px;
+
+            border:
+                0;
+
+            border-radius:
+                9px;
+
+            background:
+                var(--black);
+
+            color:
+                white;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            white-space:
+                nowrap;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .create-button:hover {
+
+            background:
+                #292c31;
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+
+        /* =========================================
+           FILTERS
+        ========================================= */
+
+        .filters {
+
+            margin-top:
+                18px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            flex-wrap:
+                wrap;
+
+        }
+
+
+        .filter-button {
+
+            height:
+                31px;
+
+            padding:
+                0 12px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                7px;
+
+            background:
+                white;
+
+            color:
+                var(--gray);
+
+            font-size:
+                9px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .filter-button:hover {
+
+            border-color:
+                #cbdfe9;
+
+            color:
+                var(--blue-dark);
+
+        }
+
+
+        .filter-button.active {
+
+            background:
+                #eef7fc;
+
+            border-color:
+                #d5ebf6;
+
+            color:
+                var(--blue-dark);
+
+        }
+
+
+
+        /* =========================================
+           SECTION HEADER
+        ========================================= */
+
+        .section-header {
+
+            margin-top:
+                45px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.3px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .section-title {
+
+            margin-top:
+                8px;
+
+            font-size:
+                27px;
+
+            letter-spacing:
+                -1px;
+
+        }
+
+
+        .petition-count {
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
+
+        }
+
+
+
+        /* =========================================
+           PETITIONS
+        ========================================= */
+
+        .petition-list {
+
+            margin-top:
+                25px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                13px;
+
+        }
+
+
+        .petition-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                14px;
+
+            padding:
+                24px;
+
+            background:
+                white;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .petition-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                3px;
+
+            height:
+                100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--blue),
+                    var(--gold)
+                );
+
+        }
+
+
+        .petition-card:hover {
+
+            border-color:
+                #d9dcda;
+
+            box-shadow:
+                0 12px 35px rgba(20,30,35,.045);
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        .petition-category {
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                8px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .petition-title {
+
+            margin-top:
+                12px;
+
+            font-size:
+                18px;
+
+            line-height:
+                1.3;
+
+            letter-spacing:
+                -.4px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .petition-description {
+
+            margin-top:
+                9px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .petition-meta {
+
+            margin-top:
+                18px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                10px;
+
+        }
+
+
+        .signatures {
+
+            color:
+                var(--black);
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .goal {
+
+            color:
+                var(--gray);
+
+            font-size:
+                9px;
+
+        }
+
+
+        .progress {
+
+            margin-top:
+                9px;
+
+            width:
+                100%;
+
+            height:
+                5px;
+
+            border-radius:
+                10px;
+
+            background:
+                #edf0ef;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .progress-bar {
+
+            height:
+                100%;
+
+            border-radius:
+                inherit;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--blue),
+                    #71bfe7
+                );
+
+            transition:
+                width .4s ease;
+
+        }
+
+
+        .petition-footer {
+
+            margin-top:
+                18px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                10px;
+
+        }
+
+
+        .deadline {
+
+            color:
+                var(--gray);
+
+            font-size:
+                9px;
+
+        }
+
+
+        .sign-button {
+
+            height:
+                36px;
+
+            padding:
+                0 14px;
+
+            border:
+                0;
+
+            border-radius:
+                7px;
+
+            background:
+                var(--blue);
+
+            color:
+                white;
+
+            font-size:
+                9px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .sign-button:hover {
+
+            background:
+                var(--blue-dark);
+
+        }
+
+
+        .sign-button.signed {
+
+            background:
+                #eaf6f0;
+
+            color:
+                var(--green);
+
+            border:
+                1px solid #d4ebdf;
+
+        }
+
+
+
+        /* =========================================
+           EMPTY
+        ========================================= */
+
+        .empty {
+
+            display:
+                none;
+
+            padding:
+                45px 20px;
+
+            text-align:
+                center;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+        }
+
+
+
+        /* =========================================
+           INFORMATION
+        ========================================= */
+
+        .info-section {
+
+            margin-top:
+                65px;
+
+            padding:
+                30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                15px;
+
+            background:
+                var(--light);
+
+        }
+
+
+        .info-section h2 {
+
+            font-size:
+                21px;
+
+            letter-spacing:
+                -.5px;
+
+        }
+
+
+        .info-section p {
+
+            max-width:
+                730px;
+
+            margin-top:
+                9px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .info-points {
+
+            margin-top:
+                22px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                10px;
+
+        }
+
+
+        .info-point {
+
+            padding:
+                15px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                9px;
+
+            background:
+                white;
+
+        }
+
+
+        .info-point strong {
+
+            display:
+                block;
+
+            font-size:
+                11px;
+
+        }
+
+
+        .info-point span {
+
+            display:
+                block;
+
+            margin-top:
+                5px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                9px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+
+        /* =========================================
+           MODAL
+        ========================================= */
+
+        .modal {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            background:
+                rgba(0,0,0,.55);
+
+            backdrop-filter:
+                blur(5px);
+
+            display:
+                none;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            padding:
+                20px;
+
+            z-index:
+                100;
+
+        }
+
+
+        .modal.active {
+
+            display:
+                flex;
+
+        }
+
+
+        .modal-box {
+
+            width:
+                100%;
+
+            max-width:
+                480px;
+
+            max-height:
+                90vh;
+
+            overflow:
+                auto;
+
+            background:
+                white;
+
+            border-radius:
+                15px;
+
+            padding:
+                29px;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.18);
+
+        }
+
+
+        .modal-header {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+        }
+
+
+        .modal-header h2 {
+
+            font-size:
+                21px;
+
+        }
+
+
+        .close-button {
+
+            width:
+                31px;
+
+            height:
+                31px;
+
+            border:
+                0;
+
+            border-radius:
+                8px;
+
+            background:
+                var(--light);
+
+            color:
+                var(--gray);
+
+            font-size:
+                19px;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .modal-description {
+
+            margin-top:
+                8px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .modal-title {
+
+            margin-top:
+                22px;
+
+            font-size:
+                20px;
+
+            line-height:
+                1.35;
+
+        }
+
+
+        .modal-text {
+
+            margin-top:
+                12px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .modal-stat {
+
+            margin-top:
+                20px;
+
+            padding:
+                17px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                10px;
+
+            background:
+                var(--light);
+
+        }
+
+
+        .modal-stat-row {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+            font-size:
+                10px;
+
+        }
+
+
+        .modal-stat-row + .modal-stat-row {
+
+            margin-top:
+                8px;
+
+        }
+
+
+        .modal-stat-row span {
+
+            color:
+                var(--gray);
+
+        }
+
+
+        .modal-button {
+
+            width:
+                100%;
+
+            height:
+                43px;
+
+            margin-top:
+                20px;
+
+            border:
+                0;
+
+            border-radius:
+                8px;
+
+            background:
+                var(--blue);
+
+            color:
+                white;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .modal-button:hover {
+
+            background:
+                var(--blue-dark);
+
+        }
+
+
+        .form-group {
+
+            margin-top:
+                17px;
+
+        }
+
+
+        .form-group label {
+
+            display:
+                block;
+
+            margin-bottom:
+                7px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width:
+                100%;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                8px;
+
+            outline:
+                none;
+
+            background:
+                white;
+
+            color:
+                var(--black);
+
+            font-family:
+                inherit;
+
+            font-size:
+                11px;
+
+        }
+
+
+        .form-group input,
+        .form-group select {
+
+            height:
+                43px;
+
+            padding:
+                0 11px;
+
+        }
+
+
+        .form-group textarea {
+
+            min-height:
+                105px;
+
+            padding:
+                11px;
+
+            resize:
+                vertical;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+
+            border-color:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 3px rgba(74,169,223,.08);
+
+        }
+
+
+        .form-error {
+
+            display:
+                none;
+
+            margin-top:
+                12px;
+
+            padding:
+                10px;
+
+            border-radius:
+                7px;
+
+            background:
+                #fff1f2;
+
+            color:
+                var(--red);
+
+            font-size:
+                10px;
+
+            line-height:
+                1.5;
+
+        }
+
+
+        .form-error.active {
+
+            display:
+                block;
+
+        }
+
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            border-top:
+                1px solid var(--border);
+
+            padding:
+                27px 24px;
+
+        }
+
+
+        .footer-inner {
+
+            max-width:
+                980px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+        }
+
+
+        .footer-logo {
+
+            font-size:
+                13px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .footer-text {
+
+            color:
+                var(--gray);
+
+            font-size:
+                9px;
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+
+            .header-inner {
+
+                padding:
+                    0 16px;
+
+            }
+
+
+            main {
+
+                padding:
+                    40px 16px 60px;
+
+            }
+
+
+            h1 {
+
+                font-size:
+                    32px;
+
+                letter-spacing:
+                    -1.3px;
+
+            }
+
+
+            .top-actions {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+            }
+
+
+            .create-button {
+
+                width:
+                    100%;
+
+            }
+
+
+            .petition-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .info-points {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .section-header {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .petition-footer {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .sign-button {
+
+                width:
+                    100%;
+
+            }
+
+
+            .modal-box {
+
+                padding:
+                    23px;
+
+            }
+
+
+            .footer-inner {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-inner">
+
+
+        <a
+            href="index.html"
+            class="logo">
+
+            <div class="logo-icon">
+                V
+            </div>
+
+            VOTE
+
+        </a>
+
+
+        <div class="header-actions">
+
+            <button
+                class="back-button"
+                onclick="goBack()">
+
+                ← Вернуться
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <div class="page-label">
+
+        Гражданские инициативы
+
+    </div>
+
+
+    <h1>
+
+        Петиции
+
+    </h1>
+
+
+    <p class="intro">
+
+        Предлагайте изменения, поддерживайте
+        общественные инициативы и следите за
+        количеством подписей. Здесь собраны
+        петиции пользователей платформы.
+
+    </p>
+
+
+
+    <!-- =========================================
+         SEARCH + CREATE
+    ========================================== -->
+
+    <div class="top-actions">
+
+
+        <div class="search-box">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+
+            <input
+                type="text"
+                class="search-input"
+                id="searchInput"
+                placeholder="Поиск петиций..."
+                oninput="renderPetitions()">
+
+        </div>
+
+
+        <button
+            class="create-button"
+            onclick="openCreateModal()">
+
+            + Создать петицию
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         FILTERS
+    ========================================== -->
+
+    <div class="filters">
+
+
+        <button
+            class="filter-button active"
+            data-filter="all"
+            onclick="setFilter('all', this)">
+
+            Все
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-filter="active"
+            onclick="setFilter('active', this)">
+
+            Активные
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-filter="signed"
+            onclick="setFilter('signed', this)">
+
+            Я подписал
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-filter="education"
+            onclick="setFilter('education', this)">
+
+            Образование
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-filter="city"
+            onclick="setFilter('city', this)">
+
+            Город
+
+        </button>
+
+
+        <button
+            class="filter-button"
+            data-filter="environment"
+            onclick="setFilter('environment', this)">
+
+            Экология
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         PETITION SECTION
+    ========================================== -->
+
+    <section>
+
+
+        <div class="section-header">
+
+
+            <div>
+
+                <div class="section-label">
+
+                    Инициативы граждан
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Актуальные петиции
+
+                </h2>
+
+            </div>
+
+
+            <div
+                class="petition-count"
+                id="petitionCount">
+
+                0 петиций
+
+            </div>
+
+
+        </div>
+
+
+
+        <div
+            class="petition-list"
+            id="petitionList">
+        </div>
+
+
+        <div
+            class="empty"
+            id="emptyState">
+
+            По вашему запросу ничего не найдено.
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         INFORMATION
+    ========================================== -->
+
+    <section class="info-section">
+
+
+        <h2>
+
+            Как работают петиции
+
+        </h2>
+
+
+        <p>
+
+            Петиции позволяют гражданам публично
+            обозначать общественно значимые вопросы
+            и собирать поддержку других пользователей.
+            В реальной системе перед публикацией
+            инициативы должны проходить предусмотренную
+            законодательством процедуру проверки.
+
+        </p>
+
+
+        <div class="info-points">
+
+
+            <div class="info-point">
+
+                <strong>
+                    01 · Создайте
+                </strong>
+
+                <span>
+                    Опишите проблему и предложите
+                    конкретное решение.
+                </span>
+
+            </div>
+
+
+
+            <div class="info-point">
+
+                <strong>
+                    02 · Соберите поддержку
+                </strong>
+
+                <span>
+                    Другие граждане могут ознакомиться
+                    с инициативой и подписать её.
+                </span>
+
+            </div>
+
+
+
+            <div class="info-point">
+
+                <strong>
+                    03 · Следите за статусом
+                </strong>
+
+                <span>
+                    Отслеживайте количество подписей
+                    и дальнейший статус инициативы.
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+
+        <div class="footer-logo">
+
+            VOTE
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Qauipsiz sailau · Қазақстан
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     PETITION DETAILS MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="detailsModal">
+
+
+    <div class="modal-box">
+
+
+        <div class="modal-header">
+
+
+            <h2>
+                Петиция
+            </h2>
+
+
+            <button
+                class="close-button"
+                onclick="closeModal('detailsModal')">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            class="modal-title"
+            id="detailsTitle">
+        </div>
+
+
+        <div
+            class="modal-text"
+            id="detailsText">
+        </div>
+
+
+        <div class="modal-stat">
+
+
+            <div class="modal-stat-row">
+
+                <span>
+                    Подписей
+                </span>
+
+                <strong id="detailsSignatures">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="modal-stat-row">
+
+                <span>
+                    Цель
+                </span>
+
+                <strong id="detailsGoal">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="modal-stat-row">
+
+                <span>
+                    Категория
+                </span>
+
+                <strong id="detailsCategory">
+                    —
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="modal-button"
+            id="detailsAction"
+            onclick="signFromModal()">
+
+            Подписать петицию
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     CREATE MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="createModal">
+
+
+    <div class="modal-box">
+
+
+        <div class="modal-header">
+
+
+            <h2>
+                Создать петицию
+            </h2>
+
+
+            <button
+                class="close-button"
+                onclick="closeModal('createModal')">
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+        <p class="modal-description">
+
+            Заполните форму. В прототипе новая
+            петиция будет добавлена локально
+            в список инициатив.
+
+        </p>
+
+
+
+        <div class="form-group">
+
+            <label for="petitionTitleInput">
+
+                Название
+
+            </label>
+
+
+            <input
+                type="text"
+                id="petitionTitleInput"
+                placeholder="Например: Улучшение городской инфраструктуры">
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label for="petitionCategoryInput">
+
+                Категория
+
+            </label>
+
+
+            <select id="petitionCategoryInput">
+
+                <option value="city">
+                    Город
+                </option>
+
+                <option value="education">
+                    Образование
+                </option>
+
+                <option value="environment">
+                    Экология
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label for="petitionGoalInput">
+
+                Цель подписей
+
+            </label>
+
+
+            <input
+                type="number"
+                id="petitionGoalInput"
+                min="10"
+                value="1000">
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label for="petitionDescriptionInput">
+
+                Описание
+
+            </label>
+
+
+            <textarea
+                id="petitionDescriptionInput"
+                placeholder="Опишите проблему и предлагаемое решение..."></textarea>
+
+        </div>
+
+
+
+        <div
+            class="form-error"
+            id="createError">
+        </div>
+
+
+        <button
+            class="modal-button"
+            onclick="createPetition()">
+
+            Опубликовать петицию
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================
+   DEFAULT PETITIONS
+========================================= */
+
+const defaultPetitions = [
+
+    {
+
+        id:
+            "petition_1",
+
+        category:
+            "city",
+
+        categoryName:
+            "Город",
+
+        title:
+            "Развитие общественного транспорта в Алматы",
+
+        description:
+            "Предлагается расширить сеть общественного транспорта, увеличить количество выделенных полос и улучшить интервалы движения автобусов.",
+
+        signatures:
+            7421,
+
+        goal:
+            10000,
+
+        deadline:
+            "30 декабря 2026 года"
+
+    },
+
+
+    {
+
+        id:
+            "petition_2",
+
+        category:
+            "education",
+
+        categoryName:
+            "Образование",
+
+        title:
+            "Развитие цифровой инфраструктуры школ",
+
+        description:
+            "Предлагается обеспечить школы современной цифровой инфраструктурой и расширить доступ учащихся к образовательным технологиям.",
+
+        signatures:
+            4180,
+
+        goal:
+            7500,
+
+        deadline:
+            "15 января 2027 года"
+
+    },
+
+
+    {
+
+        id:
+            "petition_3",
+
+        category:
+            "environment",
+
+        categoryName:
+            "Экология",
+
+        title:
+            "Увеличение количества зелёных зон в городах",
+
+        description:
+            "Инициатива направлена на увеличение количества общественных зелёных пространств, деревьев и зон отдыха.",
+
+        signatures:
+            9320,
+
+        goal:
+            15000,
+
+        deadline:
+            "10 февраля 2027 года"
+
+    },
+
+
+    {
+
+        id:
+            "petition_4",
+
+        category:
+            "city",
+
+        categoryName:
+            "Город",
+
+        title:
+            "Повышение доступности городской среды",
+
+        description:
+            "Создание более удобной городской среды и улучшение доступности общественных пространств для всех жителей.",
+
+        signatures:
+            2840,
+
+        goal:
+            5000,
+
+        deadline:
+            "20 марта 2027 года"
+
+    }
+
+];
+
+
+
+/* =========================================
+   STATE
+========================================= */
+
+let currentFilter =
+    "all";
+
+
+let currentPetitionId =
+    null;
+
+
+
+/* =========================================
+   GET PETITIONS
+========================================= */
+
+function getPetitions() {
+
+    const saved =
+        localStorage.getItem(
+            "vote_petitions"
+        );
+
+
+    if (!saved) {
+
+        localStorage.setItem(
+
+            "vote_petitions",
+
+            JSON.stringify(
+                defaultPetitions
+            )
+
+        );
+
+
+        return [
+            ...defaultPetitions
+        ];
+
+    }
+
+
+    try {
+
+        return JSON.parse(saved);
+
+    } catch (error) {
+
+        localStorage.setItem(
+
+            "vote_petitions",
+
+            JSON.stringify(
+                defaultPetitions
+            )
+
+        );
+
+
+        return [
+            ...defaultPetitions
+        ];
+
+    }
+
+}
+
+
+
+/* =========================================
+   SAVE PETITIONS
+========================================= */
+
+function savePetitions(petitions) {
+
+    localStorage.setItem(
+
+        "vote_petitions",
+
+        JSON.stringify(petitions)
+
+    );
+
+}
+
+
+
+/* =========================================
+   SIGNED PETITIONS
+========================================= */
+
+function getSignedPetitions() {
+
+    try {
+
+        return JSON.parse(
+
+            localStorage.getItem(
+                "vote_signed_petitions"
+            ) || "[]"
+
+        );
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+
+function saveSignedPetitions(ids) {
+
+    localStorage.setItem(
+
+        "vote_signed_petitions",
+
+        JSON.stringify(ids)
+
+    );
+
+}
+
+
+
+/* =========================================
+   RENDER
+========================================= */
+
+function renderPetitions() {
+
+    const list =
+        document.getElementById(
+            "petitionList"
+        );
+
+
+    const empty =
+        document.getElementById(
+            "emptyState"
+        );
+
+
+    const query =
+        document
+            .getElementById(
+                "searchInput"
+            )
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const petitions =
+        getPetitions();
+
+
+    const signed =
+        getSignedPetitions();
+
+
+    const filtered =
+        petitions.filter(
+            function(petition) {
+
+
+                const matchesSearch =
+
+                    !query ||
+
+                    petition.title
+                        .toLowerCase()
+                        .includes(query) ||
+
+                    petition.description
+                        .toLowerCase()
+                        .includes(query);
+
+
+                if (!matchesSearch) {
+
+                    return false;
+
+                }
+
+
+                if (
+                    currentFilter ===
+                    "all"
+                ) {
+
+                    return true;
+
+                }
+
+
+                if (
+                    currentFilter ===
+                    "signed"
+                ) {
+
+                    return signed.includes(
+                        petition.id
+                    );
+
+                }
+
+
+                if (
+                    currentFilter ===
+                    "active"
+                ) {
+
+                    return (
+                        petition.signatures <
+                        petition.goal
+                    );
+
+                }
+
+
+                return (
+                    petition.category ===
+                    currentFilter
+                );
+
+            }
+        );
+
+
+    list.innerHTML =
+        "";
+
+
+    document.getElementById(
+        "petitionCount"
+    ).textContent =
+
+        filtered.length +
+        " " +
+        getPetitionWord(
+            filtered.length
+        );
+
+
+    if (!filtered.length) {
+
+        empty.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    empty.style.display =
+        "none";
+
+
+    filtered.forEach(
+        function(petition) {
+
+            const isSigned =
+                signed.includes(
+                    petition.id
+                );
+
+
+            const progress =
+                Math.min(
+
+                    100,
+
+                    Math.round(
+
+                        (
+                            petition.signatures /
+                            petition.goal
+                        ) * 100
+
+                    )
+
+                );
+
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "petition-card";
+
+
+            card.innerHTML = `
+
+                <div class="petition-category">
+
+                    ${escapeHTML(
+                        petition.categoryName
+                    )}
+
+                </div>
+
+
+                <div class="petition-title">
+
+                    ${escapeHTML(
+                        petition.title
+                    )}
+
+                </div>
+
+
+                <div class="petition-description">
+
+                    ${escapeHTML(
+                        petition.description
+                    )}
+
+                </div>
+
+
+                <div class="petition-meta">
+
+                    <div class="signatures">
+
+                        ${formatNumber(
+                            petition.signatures
+                        )}
+
+                        подписей
+
+                    </div>
+
+
+                    <div class="goal">
+
+                        цель:
+                        ${formatNumber(
+                            petition.goal
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-bar"
+                        style="width:${progress}%">
+                    </div>
+
+                </div>
+
+
+                <div class="petition-footer">
+
+                    <div class="deadline">
+
+                        До
+                        ${escapeHTML(
+                            petition.deadline
+                        )}
+
+                    </div>
+
+
+                    <button
+                        class="sign-button ${
+                            isSigned
+                                ? "signed"
+                                : ""
+                        }"
+                        onclick="openDetails(
+                            '${petition.id}'
+                        )">
+
+                        ${
+                            isSigned
+                                ? "✓ Вы подписали"
+                                : "Подробнее"
+                        }
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            list.appendChild(card);
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+function setFilter(
+    filter,
+    button
+) {
+
+    currentFilter =
+        filter;
+
+
+    document
+        .querySelectorAll(
+            ".filter-button"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    renderPetitions();
+
+}
+
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+function openDetails(id) {
+
+    const petitions =
+        getPetitions();
+
+
+    const petition =
+        petitions.find(
+            function(item) {
+
+                return item.id === id;
+
+            }
+        );
+
+
+    if (!petition) {
+
+        return;
+
+    }
+
+
+    currentPetitionId =
+        id;
+
+
+    const signed =
+        getSignedPetitions()
+            .includes(id);
+
+
+    document.getElementById(
+        "detailsTitle"
+    ).textContent =
+        petition.title;
+
+
+    document.getElementById(
+        "detailsText"
+    ).textContent =
+        petition.description;
+
+
+    document.getElementById(
+        "detailsSignatures"
+    ).textContent =
+        formatNumber(
+            petition.signatures
+        );
+
+
+    document.getElementById(
+        "detailsGoal"
+    ).textContent =
+        formatNumber(
+            petition.goal
+        );
+
+
+    document.getElementById(
+        "detailsCategory"
+    ).textContent =
+        petition.categoryName;
+
+
+    const action =
+        document.getElementById(
+            "detailsAction"
+        );
+
+
+    if (signed) {
+
+        action.textContent =
+            "✓ Вы подписали петицию";
+
+        action.style.background =
+            "var(--green)";
+
+    } else {
+
+        action.textContent =
+            "Подписать петицию";
+
+        action.style.background =
+            "var(--blue)";
+
+    }
+
+
+    document
+        .getElementById(
+            "detailsModal"
+        )
+        .classList
+        .add("active");
+
+}
+
+
+
+/* =========================================
+   SIGN
+========================================= */
+
+function signFromModal() {
+
+    if (!currentPetitionId) {
+
+        return;
+
+    }
+
+
+    const signed =
+        getSignedPetitions();
+
+
+    const petitions =
+        getPetitions();
+
+
+    const petition =
+        petitions.find(
+            function(item) {
+
+                return (
+                    item.id ===
+                    currentPetitionId
+                );
+
+            }
+        );
+
+
+    if (!petition) {
+
+        return;
+
+    }
+
+
+    const index =
+        signed.indexOf(
+            currentPetitionId
+        );
+
+
+    if (index !== -1) {
+
+        signed.splice(
+            index,
+            1
+        );
+
+
+        petition.signatures =
+            Math.max(
+                0,
+                petition.signatures - 1
+            );
+
+    } else {
+
+        signed.push(
+            currentPetitionId
+        );
+
+
+        petition.signatures += 1;
+
+    }
+
+
+    saveSignedPetitions(
+        signed
+    );
+
+
+    savePetitions(
+        petitions
+    );
+
+
+    closeModal(
+        "detailsModal"
+    );
+
+
+    renderPetitions();
+
+}
+
+
+
+/* =========================================
+   CREATE PETITION
+========================================= */
+
+function openCreateModal() {
+
+    document
+        .getElementById(
+            "createModal"
+        )
+        .classList
+        .add("active");
+
+}
+
+
+function createPetition() {
+
+    const title =
+        document
+            .getElementById(
+                "petitionTitleInput"
+            )
+            .value
+            .trim();
+
+
+    const category =
+        document
+            .getElementById(
+                "petitionCategoryInput"
+            )
+            .value;
+
+
+    const goal =
+        Number(
+            document
+                .getElementById(
+                    "petitionGoalInput"
+                )
+                .value
+        );
+
+
+    const description =
+        document
+            .getElementById(
+                "petitionDescriptionInput"
+            )
+            .value
+            .trim();
+
+
+    const error =
+        document.getElementById(
+            "createError"
+        );
+
+
+    error.classList.remove(
+        "active"
+    );
+
+
+    if (!title) {
+
+        showError(
+            error,
+            "Введите название петиции."
+        );
+
+        return;
+
+    }
+
+
+    if (title.length < 10) {
+
+        showError(
+            error,
+            "Название должно содержать минимум 10 символов."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !description ||
+        description.length < 20
+    ) {
+
+        showError(
+            error,
+            "Добавьте описание петиции не менее 20 символов."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !goal ||
+        goal < 10
+    ) {
+
+        showError(
+            error,
+            "Цель должна быть не менее 10 подписей."
+        );
+
+        return;
+
+    }
+
+
+    const categoryNames = {
+
+        city:
+            "Город",
+
+        education:
+            "Образование",
+
+        environment:
+            "Экология"
+
+    };
+
+
+    const petitions =
+        getPetitions();
+
+
+    const newPetition = {
+
+        id:
+            "petition_" +
+            Date.now(),
+
+        category:
+            category,
+
+        categoryName:
+            categoryNames[category],
+
+        title:
+            title,
+
+        description:
+            description,
+
+        signatures:
+            0,
+
+        goal:
+            goal,
+
+        deadline:
+            "дата определяется"
+
+    };
+
+
+    petitions.unshift(
+        newPetition
+    );
+
+
+    savePetitions(
+        petitions
+    );
+
+
+    document.getElementById(
+        "petitionTitleInput"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "petitionDescriptionInput"
+    ).value =
+        "";
+
+
+    document.getElementById(
+        "petitionGoalInput"
+    ).value =
+        "1000";
+
+
+    closeModal(
+        "createModal"
+    );
+
+
+    renderPetitions();
+
+
+    alert(
+        "Петиция добавлена в прототип."
+    );
+
+}
+
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+function showError(
+    element,
+    text
+) {
+
+    element.textContent =
+        text;
+
+    element.classList.add(
+        "active"
+    );
+
+}
+
+
+
+/* =========================================
+   CLOSE MODAL
+========================================= */
+
+function closeModal(id) {
+
+    document
+        .getElementById(id)
+        .classList
+        .remove("active");
+
+}
+
+
+
+/* =========================================
+   BACK
+========================================= */
+
+function goBack() {
+
+    if (
+        document.referrer &&
+        document.referrer !==
+        window.location.href
+    ) {
+
+        window.history.back();
+
+    } else {
+
+        window.location.href =
+            "index.html";
+
+    }
+
+}
+
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+function formatNumber(number) {
+
+    return Number(
+        number
+    ).toLocaleString(
+        "ru-RU"
+    );
+
+}
+
+
+
+/* =========================================
+   WORD
+========================================= */
+
+function getPetitionWord(number) {
+
+    if (
+        number % 10 === 1 &&
+        number % 100 !== 11
+    ) {
+
+        return "петиция";
+
+    }
+
+
+    if (
+        number % 10 >= 2 &&
+        number % 10 <= 4 &&
+        (
+            number % 100 < 10 ||
+            number % 100 >= 20
+        )
+    ) {
+
+        return "петиции";
+
+    }
+
+
+    return "петиций";
+
+}
+
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+
+/* =========================================
+   MODAL OUTSIDE CLICK
+========================================= */
+
+document
+    .querySelectorAll(".modal")
+    .forEach(
+        function(modal) {
+
+            modal.addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target ===
+                        modal
+                    ) {
+
+                        modal.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+
+/* =========================================
+   ESC
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            document
+                .querySelectorAll(
+                    ".modal.active"
+                )
+                .forEach(
+                    function(modal) {
+
+                        modal.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   START
+========================================= */
+
+renderPetitions();
+
+
+</script>
+
+
+</body>
+
+</html>
