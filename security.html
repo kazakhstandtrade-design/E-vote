@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Безопасность</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #15171b;
+            --gray: #737982;
+            --light: #f6f8f9;
+            --border: #e5e8ea;
+
+            --blue: #4aa9df;
+            --blue-dark: #318fc5;
+
+            --gold: #d8b15a;
+
+            --green: #16834b;
+
+            --white: #ffffff;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--white);
+
+            color: var(--black);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            height: 72px;
+
+            background:
+                rgba(255,255,255,.97);
+
+            border-bottom:
+                1px solid var(--border);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 50;
+
+            backdrop-filter:
+                blur(12px);
+
+        }
+
+
+        .header-container {
+
+            max-width: 1180px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--black);
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: -.4px;
+
+        }
+
+
+        .logo-mark {
+
+            width: 33px;
+
+            height: 33px;
+
+            border-radius: 9px;
+
+            background: var(--blue);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .logo-mark::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+
+            right: 5px;
+
+            top: 5px;
+
+        }
+
+
+        .nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+        }
+
+
+        .nav a {
+
+            color: var(--gray);
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            transition: .2s;
+
+        }
+
+
+        .nav a:hover {
+
+            color: var(--black);
+
+        }
+
+
+        .login-button {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            color:
+                var(--black);
+
+            padding:
+                9px 17px;
+
+            border-radius:
+                8px;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .login-button:hover {
+
+            border-color:
+                var(--blue);
+
+            color:
+                var(--blue-dark);
+
+        }
+
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding:
+                75px 24px 90px;
+
+        }
+
+
+
+        /* =========================================
+           PAGE INTRO
+        ========================================= */
+
+        .page-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--blue-dark);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.4px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .page-label::before {
+
+            content: "";
+
+            width: 25px;
+
+            height: 1px;
+
+            background: var(--gold);
+
+        }
+
+
+        h1 {
+
+            margin-top: 12px;
+
+            font-size: 44px;
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            font-weight: 800;
+
+        }
+
+
+        .intro {
+
+            max-width: 720px;
+
+            margin-top: 16px;
+
+            color: var(--gray);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+
+        /* =========================================
+           SECURITY STATUS
+        ========================================= */
+
+        .security-status {
+
+            margin-top: 38px;
+
+            padding: 25px 27px;
+
+            border:
+                1px solid #dceee5;
+
+            background:
+                #f7fcf9;
+
+            border-radius:
+                14px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .status-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 11px;
+
+            background: #e2f3ea;
+
+            color: var(--green);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 19px;
+
+            font-weight: 800;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .status-title {
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+        }
+
+
+        .status-text {
+
+            margin-top: 4px;
+
+            color: var(--gray);
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+        }
+
+
+
+        /* =========================================
+           SECURITY GRID
+        ========================================= */
+
+        .security-grid {
+
+            margin-top: 25px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .security-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                14px;
+
+            padding:
+                27px;
+
+            background:
+                white;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .security-card:hover {
+
+            border-color:
+                #d5e7f0;
+
+            box-shadow:
+                0 12px 35px rgba(20,30,35,.045);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .security-number {
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.2px;
+
+        }
+
+
+        .security-card h2 {
+
+            margin-top:
+                13px;
+
+            font-size:
+                19px;
+
+            letter-spacing:
+                -.4px;
+
+        }
+
+
+        .security-card p {
+
+            margin-top:
+                9px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.75;
+
+        }
+
+
+
+        /* =========================================
+           PRIVACY BLOCK
+        ========================================= */
+
+        .privacy {
+
+            margin-top:
+                15px;
+
+            padding:
+                30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                14px;
+
+            background:
+                var(--light);
+
+        }
+
+
+        .privacy h2 {
+
+            font-size:
+                21px;
+
+            letter-spacing:
+                -.5px;
+
+        }
+
+
+        .privacy p {
+
+            max-width:
+                780px;
+
+            margin-top:
+                10px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .privacy-list {
+
+            margin-top:
+                20px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                10px 25px;
+
+        }
+
+
+        .privacy-item {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                9px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        .privacy-item::before {
+
+            content:
+                "✓";
+
+            color:
+                var(--green);
+
+            font-weight:
+                800;
+
+        }
+
+
+
+        /* =========================================
+           PROCESS
+        ========================================= */
+
+        .process {
+
+            margin-top:
+                50px;
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.3px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .section-title {
+
+            margin-top:
+                9px;
+
+            font-size:
+                27px;
+
+            letter-spacing:
+                -1px;
+
+        }
+
+
+        .steps {
+
+            margin-top:
+                24px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .step {
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            padding:
+                24px;
+
+            background:
+                white;
+
+        }
+
+
+        .step-number {
+
+            color:
+                var(--gold);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .step h3 {
+
+            margin-top:
+                18px;
+
+            font-size:
+                15px;
+
+        }
+
+
+        .step p {
+
+            margin-top:
+                8px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+
+        /* =========================================
+           PRINCIPLES
+        ========================================= */
+
+        .principles {
+
+            margin-top:
+                50px;
+
+        }
+
+
+        .principle-list {
+
+            margin-top:
+                22px;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .principle {
+
+            padding:
+                21px 5px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                25px;
+
+        }
+
+
+        .principle strong {
+
+            font-size:
+                13px;
+
+        }
+
+
+        .principle span {
+
+            max-width:
+                570px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.6;
+
+            text-align:
+                right;
+
+        }
+
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            border-top:
+                1px solid var(--border);
+
+            padding:
+                30px 24px;
+
+        }
+
+
+        .footer-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                25px;
+
+        }
+
+
+        .footer-logo {
+
+            font-size:
+                13px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .footer-links {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            justify-content:
+                center;
+
+            gap:
+                18px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--gray);
+
+            text-decoration:
+                none;
+
+            font-size:
+                10px;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--blue-dark);
+
+        }
+
+
+        .footer-copy {
+
+            color:
+                #a0a4aa;
+
+            font-size:
+                9px;
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 750px) {
+
+
+            .header-container {
+
+                padding:
+                    0 17px;
+
+            }
+
+
+            .nav {
+
+                gap:
+                    10px;
+
+            }
+
+
+            .nav a {
+
+                display:
+                    none;
+
+            }
+
+
+            main {
+
+                padding:
+                    50px 18px 65px;
+
+            }
+
+
+            h1 {
+
+                font-size:
+                    34px;
+
+                letter-spacing:
+                    -1.5px;
+
+            }
+
+
+            .intro {
+
+                font-size:
+                    13px;
+
+            }
+
+
+            .security-status {
+
+                align-items:
+                    flex-start;
+
+            }
+
+
+            .security-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .privacy-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .steps {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .principle {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+                gap:
+                    7px;
+
+            }
+
+
+            .principle span {
+
+                text-align:
+                    left;
+
+            }
+
+
+            .footer-container {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-container">
+
+
+        <a
+            href="index.html"
+            class="logo">
+
+            <div class="logo-mark">
+                V
+            </div>
+
+            VOTE
+
+        </a>
+
+
+        <nav class="nav">
+
+
+            <a href="about.html">
+                О платформе
+            </a>
+
+
+            <a href="security.html">
+                Безопасность
+            </a>
+
+
+            <a href="how.html">
+                Как это работает
+            </a>
+
+
+            <a href="results.html">
+                Результаты выборов
+            </a>
+
+
+            <a href="petitions.html">
+                Петиции
+            </a>
+
+
+            <a href="help.html">
+                Помощь
+            </a>
+
+
+            <button
+                class="login-button"
+                onclick="goToLogin()">
+
+                Войти
+
+            </button>
+
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <!-- =====================================
+         INTRO
+    ====================================== -->
+
+    <div class="page-label">
+
+        Безопасность
+
+    </div>
+
+
+    <h1>
+
+        Безопасность
+        электронного голосования
+
+    </h1>
+
+
+    <p class="intro">
+
+        VOTE создаётся с учётом главного принципа
+        электронного голосования — пользователь
+        должен иметь возможность подтвердить своё
+        право голоса, не раскрывая содержание
+        своего выбора.
+
+        Безопасность платформы строится на разделении
+        идентификации избирателя, доступа к бюллетеню
+        и самого голоса.
+
+    </p>
+
+
+
+    <!-- =====================================
+         STATUS
+    ====================================== -->
+
+    <div class="security-status">
+
+
+        <div class="status-icon">
+
+            ✓
+
+        </div>
+
+
+        <div>
+
+
+            <div class="status-title">
+
+                Защита данных пользователя
+
+            </div>
+
+
+            <div class="status-text">
+
+                Персональные данные используются
+                только в рамках необходимых процедур
+                идентификации и подтверждения права
+                голоса.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         SECURITY CARDS
+    ====================================== -->
+
+    <div class="security-grid">
+
+
+        <div class="security-card">
+
+
+            <div class="security-number">
+
+                01 · ИДЕНТИФИКАЦИЯ
+
+            </div>
+
+
+            <h2>
+
+                Подтверждение личности
+
+            </h2>
+
+
+            <p>
+
+                Перед голосованием пользователь
+                проходит процедуру подтверждения
+                личности и права участия в выборах.
+
+                Это позволяет предотвратить
+                использование чужих данных
+                и повторное участие одного
+                избирателя.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="security-card">
+
+
+            <div class="security-number">
+
+                02 · КОНФИДЕНЦИАЛЬНОСТЬ
+
+            </div>
+
+
+            <h2>
+
+                Тайна голосования
+
+            </h2>
+
+
+            <p>
+
+                Информация о личности избирателя
+                должна быть отделена от информации
+                о сделанном им выборе.
+
+                Система не должна позволять
+                связать конкретного пользователя
+                с конкретным вариантом бюллетеня.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="security-card">
+
+
+            <div class="security-number">
+
+                03 · ДОСТУП
+
+            </div>
+
+
+            <h2>
+
+                Защищённый доступ
+
+            </h2>
+
+
+            <p>
+
+                Доступ к функциям голосования
+                предоставляется только после
+                успешной авторизации и проверки
+                необходимых условий участия.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="security-card">
+
+
+            <div class="security-number">
+
+                04 · КОНТРОЛЬ
+
+            </div>
+
+
+            <h2>
+
+                Один избиратель — один голос
+
+            </h2>
+
+
+            <p>
+
+                После использования права голоса
+                система фиксирует факт участия,
+                чтобы исключить повторное
+                голосование в рамках одного
+                избирательного события.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         PRIVACY
+    ====================================== -->
+
+    <section class="privacy">
+
+
+        <h2>
+
+            Какие данные защищаются
+
+        </h2>
+
+
+        <p>
+
+            Платформа должна обеспечивать
+            надлежащую защиту персональной
+            информации и минимизировать объём
+            данных, необходимых для работы
+            сервиса.
+
+        </p>
+
+
+        <div class="privacy-list">
+
+
+            <div class="privacy-item">
+
+                Персональные данные пользователя
+
+            </div>
+
+
+            <div class="privacy-item">
+
+                Данные, используемые для идентификации
+
+            </div>
+
+
+            <div class="privacy-item">
+
+                Данные сессии и авторизации
+
+            </div>
+
+
+            <div class="privacy-item">
+
+                Информация о праве участия
+
+            </div>
+
+
+            <div class="privacy-item">
+
+                Результат процедуры подтверждения
+
+            </div>
+
+
+            <div class="privacy-item">
+
+                Данные электронного бюллетеня
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         PROCESS
+    ====================================== -->
+
+    <section class="process">
+
+
+        <div class="section-label">
+
+            Защищённый процесс
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Как защищается голос
+
+        </h2>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+
+                <div class="step-number">
+
+                    01
+
+                </div>
+
+
+                <h3>
+
+                    Личность
+
+                </h3>
+
+
+                <p>
+
+                    Пользователь подтверждает,
+                    что он имеет право принимать
+                    участие в конкретном
+                    избирательном событии.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="step">
+
+
+                <div class="step-number">
+
+                    02
+
+                </div>
+
+
+                <h3>
+
+                    Доступ
+
+                </h3>
+
+
+                <p>
+
+                    После успешной проверки
+                    пользователю открывается
+                    электронный бюллетень.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="step">
+
+
+                <div class="step-number">
+
+                    03
+
+                </div>
+
+
+                <h3>
+
+                    Голос
+
+                </h3>
+
+
+                <p>
+
+                    Сделанный выбор обрабатывается
+                    отдельно от идентификационных
+                    данных пользователя.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         PRINCIPLES
+    ====================================== -->
+
+    <section class="principles">
+
+
+        <div class="section-label">
+
+            Принципы
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Основные требования безопасности
+
+        </h2>
+
+
+        <div class="principle-list">
+
+
+            <div class="principle">
+
+
+                <strong>
+
+                    Конфиденциальность
+
+                </strong>
+
+
+                <span>
+
+                    Персональная информация должна
+                    быть защищена от несанкционированного
+                    доступа.
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="principle">
+
+
+                <strong>
+
+                    Целостность
+
+                </strong>
+
+
+                <span>
+
+                    Данные голосования не должны
+                    изменяться после их подтверждения.
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="principle">
+
+
+                <strong>
+
+                    Доступность
+
+                </strong>
+
+
+                <span>
+
+                    Избиратель должен иметь возможность
+                    воспользоваться системой в период
+                    проведения голосования.
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="principle">
+
+
+                <strong>
+
+                    Прозрачность
+
+                </strong>
+
+
+                <span>
+
+                    Пользователь должен понимать,
+                    как проходит идентификация,
+                    голосование и обработка его выбора.
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="principle">
+
+
+                <strong>
+
+                    Контроль
+
+                </strong>
+
+
+                <span>
+
+                    Система должна предотвращать
+                    повторное использование права
+                    голоса.
+
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+
+    <div class="footer-container">
+
+
+        <div class="footer-logo">
+
+            VOTE
+
+        </div>
+
+
+        <div class="footer-links">
+
+
+            <a href="about.html">
+                О платформе
+            </a>
+
+
+            <a href="security.html">
+                Безопасность
+            </a>
+
+
+            <a href="how.html">
+                Как это работает
+            </a>
+
+
+            <a href="results.html">
+                Результаты выборов
+            </a>
+
+
+            <a href="petitions.html">
+                Петиции
+            </a>
+
+
+            <a href="help.html">
+                Помощь
+            </a>
+
+
+        </div>
+
+
+        <div class="footer-copy">
+
+            Qauipsiz sailau · Қазақстан
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+function goToLogin() {
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
