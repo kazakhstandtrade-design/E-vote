@@ -25,17 +25,15 @@
 
             --black: #15171b;
             --gray: #737982;
-            --light: #f5f7f8;
-            --border: #e5e8eb;
+            --light: #f5f7f7;
+            --border: #e4e7e7;
 
-            --blue: #4aa9df;
-            --blue-dark: #318fc5;
+            --blue: #3f9fd3;
+            --blue-dark: #2f87b7;
 
-            --gold: #d8b15a;
+            --gold: #d7b052;
 
             --green: #16834b;
-
-            --red: #c92d38;
 
             --white: #ffffff;
 
@@ -51,11 +49,9 @@
 
             min-height: 100vh;
 
-            background:
-                #f7f8f9;
+            background: #ffffff;
 
-            color:
-                var(--black);
+            color: var(--black);
 
             font-family:
                 -apple-system,
@@ -74,7 +70,7 @@
 
         header {
 
-            height: 72px;
+            height: 64px;
 
             background:
                 rgba(255,255,255,.96);
@@ -82,14 +78,11 @@
             border-bottom:
                 1px solid var(--border);
 
-            position:
-                sticky;
+            position: sticky;
 
-            top:
-                0;
+            top: 0;
 
-            z-index:
-                50;
+            z-index: 50;
 
             backdrop-filter:
                 blur(12px);
@@ -99,260 +92,176 @@
 
         .header-inner {
 
-            max-width:
-                1180px;
+            max-width: 1100px;
 
-            height:
-                100%;
+            height: 100%;
 
-            margin:
-                auto;
+            margin: auto;
 
-            padding:
-                0 24px;
+            padding: 0 22px;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                space-between;
+            justify-content: space-between;
 
         }
 
 
-        /* =========================================
-           LOGO
-        ========================================= */
-
         .logo {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                10px;
+            gap: 9px;
 
-            text-decoration:
-                none;
+            font-size: 15px;
 
-            color:
-                var(--black);
+            font-weight: 800;
+
+            letter-spacing: -.3px;
 
         }
 
 
         .logo-icon {
 
-            width:
-                34px;
+            width: 30px;
 
-            height:
-                34px;
+            height: 30px;
 
-            border-radius:
-                9px;
+            border-radius: 8px;
 
-            background:
-                var(--blue);
+            background: var(--blue);
 
-            color:
-                white;
+            color: white;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            font-size:
-                15px;
+            font-weight: 800;
 
-            font-weight:
-                800;
+            position: relative;
 
-            position:
-                relative;
-
-            overflow:
-                hidden;
+            overflow: hidden;
 
         }
 
 
         .logo-icon::after {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            width:
-                9px;
+            width: 8px;
 
-            height:
-                9px;
+            height: 8px;
 
-            border-radius:
-                50%;
+            border-radius: 50%;
 
-            background:
-                var(--gold);
+            background: var(--gold);
 
-            right:
-                5px;
+            right: 4px;
 
-            top:
-                5px;
+            top: 4px;
 
         }
 
-
-        .logo-text {
-
-            font-size:
-                18px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                -.4px;
-
-        }
-
-
-
-        /* =========================================
-           ACCOUNT
-        ========================================= */
 
         .account {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                18px;
+            gap: 15px;
 
         }
 
 
         .email {
 
-            color:
-                var(--gray);
+            color: var(--gray);
 
-            font-size:
-                11px;
+            font-size: 10px;
 
         }
 
 
         /* =========================================
-           NOTIFICATION
+           NOTIFICATIONS
         ========================================= */
 
         .notification-button {
 
-            width:
-                34px;
+            width: 31px;
 
-            height:
-                34px;
+            height: 31px;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
-            border-radius:
-                9px;
+            border-radius: 8px;
 
-            background:
-                white;
+            background: white;
 
-            color:
-                var(--gray);
+            color: var(--gray);
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            position:
-                relative;
+            position: relative;
 
-            transition:
-                .2s;
+            transition: .2s;
 
         }
 
 
         .notification-button:hover {
 
-            color:
-                var(--blue-dark);
+            color: var(--blue-dark);
 
-            border-color:
-                #d7eaf4;
+            border-color: #cfe5f1;
 
-            background:
-                #f7fbfd;
+            background: #f7fbfd;
 
         }
 
 
         .notification-icon {
 
-            width:
-                15px;
+            width: 15px;
 
-            height:
-                15px;
+            height: 15px;
 
-            position:
-                relative;
+            position: relative;
 
         }
 
 
         .notification-icon::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            left:
-                3px;
+            left: 3px;
 
-            top:
-                2px;
+            top: 2px;
 
-            width:
-                9px;
+            width: 9px;
 
-            height:
-                10px;
+            height: 10px;
 
             border:
                 1.5px solid currentColor;
@@ -365,89 +274,66 @@
 
         .notification-icon::after {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            left:
-                5px;
+            left: 5px;
 
-            bottom:
-                1px;
+            bottom: 1px;
 
-            width:
-                5px;
+            width: 5px;
 
-            height:
-                1.5px;
+            height: 1.5px;
 
-            border-radius:
-                2px;
+            border-radius: 2px;
 
-            background:
-                currentColor;
+            background: currentColor;
 
         }
 
 
         .notification-badge {
 
-            position:
-                absolute;
+            position: absolute;
 
-            top:
-                5px;
+            top: 5px;
 
-            right:
-                5px;
+            right: 5px;
 
-            width:
-                6px;
+            width: 6px;
 
-            height:
-                6px;
+            height: 6px;
 
-            border-radius:
-                50%;
+            border-radius: 50%;
 
-            background:
-                #d9534f;
+            background: #d9534f;
 
-            border:
-                1px solid white;
+            border: 1px solid white;
 
         }
 
 
         .logout {
 
-            border:
-                0;
+            border: 0;
 
-            background:
-                transparent;
+            background: transparent;
 
-            color:
-                var(--gray);
+            color: var(--gray);
 
-            font-size:
-                11px;
+            font-size: 10px;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            transition:
-                .2s;
+            transition: .2s;
 
         }
 
 
         .logout:hover {
 
-            color:
-                var(--red);
+            color: var(--blue-dark);
 
         }
 
@@ -459,491 +345,552 @@
 
         main {
 
-            max-width:
-                1180px;
+            max-width: 1100px;
 
-            margin:
-                auto;
+            margin: auto;
 
             padding:
-                38px 24px 75px;
+                38px 22px 70px;
 
         }
 
 
+        .cabinet-label {
 
-        /* =========================================
-           PAGE TOP
-        ========================================= */
+            color: #8b9096;
 
-        .page-heading {
+            font-size: 9px;
 
-            display:
-                flex;
+            font-weight: 800;
 
-            align-items:
-                flex-end;
+            letter-spacing: 1.1px;
 
-            justify-content:
-                space-between;
-
-            gap:
-                25px;
-
-            margin-bottom:
-                26px;
-
-        }
-
-
-        .page-heading-left {
-
-            min-width:
-                0;
-
-        }
-
-
-        .welcome-label {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                9px;
-
-            color:
-                var(--blue-dark);
-
-            font-size:
-                10px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                1.3px;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
-        .welcome-label::before {
-
-            content:
-                "";
-
-            width:
-                23px;
-
-            height:
-                1px;
-
-            background:
-                var(--gold);
+            text-transform: uppercase;
 
         }
 
 
         h1 {
 
-            margin-top:
-                9px;
+            margin-top: 5px;
 
-            font-size:
-                38px;
+            font-size: 26px;
 
-            line-height:
-                1.1;
+            line-height: 1.1;
 
-            letter-spacing:
-                -1.6px;
+            letter-spacing: -1px;
 
-            font-weight:
-                800;
+            font-weight: 800;
 
         }
 
 
         .intro {
 
-            max-width:
-                650px;
+            max-width: 650px;
 
-            margin-top:
-                9px;
+            margin-top: 9px;
 
-            color:
-                var(--gray);
+            color: var(--gray);
 
-            font-size:
-                13px;
+            font-size: 12px;
 
-            line-height:
-                1.7;
+            line-height: 1.7;
 
         }
 
 
 
         /* =========================================
-           INFORMATION ELECTION HERO
+           ELECTION CAROUSEL
         ========================================= */
 
-        .election-hero {
+        .elections-section {
 
-            min-height:
-                355px;
-
-            border-radius:
-                18px;
-
-            overflow:
-                hidden;
-
-            position:
-                relative;
-
-            background-image:
-
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.76),
-                    rgba(0,0,0,.48),
-                    rgba(0,0,0,.28)
-                ),
-
-                url("kazakhstan-flag.JPG");
-
-            background-size:
-                cover;
-
-            background-position:
-                center;
-
-            box-shadow:
-                0 18px 55px rgba(15,25,30,.10);
+            margin-top: 30px;
 
         }
 
 
-        .election-hero::after {
+        .section-top {
 
-            content:
-                "";
+            display: flex;
 
-            position:
-                absolute;
+            align-items: flex-end;
 
-            inset:
-                0;
+            justify-content: space-between;
 
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent 45%,
-                    rgba(0,0,0,.35)
-                );
+            gap: 20px;
 
-            pointer-events:
-                none;
-
-        }
-
-
-        .election-hero-content {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            min-height:
-                355px;
-
-            padding:
-                48px;
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            justify-content:
-                center;
-
-            max-width:
-                790px;
-
-        }
-
-
-        .election-hero-label {
-
-            color:
-                rgba(255,255,255,.75);
-
-            font-size:
-                10px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                1.5px;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
-        .election-hero h2 {
-
-            margin-top:
-                13px;
-
-            color:
-                white;
-
-            font-size:
-                clamp(30px, 4vw, 48px);
-
-            line-height:
-                1.05;
-
-            letter-spacing:
-                -1.8px;
-
-            font-weight:
-                800;
-
-        }
-
-
-        .election-hero-date {
-
-            margin-top:
-                13px;
-
-            color:
-                rgba(255,255,255,.86);
-
-            font-size:
-                13px;
-
-            font-weight:
-                600;
-
-        }
-
-
-        .election-hero-description {
-
-            max-width:
-                610px;
-
-            margin-top:
-                13px;
-
-            color:
-                rgba(255,255,255,.75);
-
-            font-size:
-                12px;
-
-            line-height:
-                1.7;
-
-        }
-
-
-        .hero-buttons {
-
-            display:
-                flex;
-
-            gap:
-                10px;
-
-            margin-top:
-                25px;
-
-        }
-
-
-        .hero-button {
-
-            min-width:
-                145px;
-
-            height:
-                43px;
-
-            padding:
-                0 20px;
-
-            border:
-                0;
-
-            border-radius:
-                8px;
-
-            font-size:
-                10px;
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
-            transition:
-                .2s;
-
-        }
-
-
-        .hero-button.primary {
-
-            background:
-                white;
-
-            color:
-                var(--black);
-
-        }
-
-
-        .hero-button.primary:hover {
-
-            background:
-                #f0f0f0;
-
-            transform:
-                translateY(-1px);
-
-        }
-
-
-        .hero-button.secondary {
-
-            background:
-                rgba(255,255,255,.10);
-
-            border:
-                1px solid rgba(255,255,255,.45);
-
-            color:
-                white;
-
-            backdrop-filter:
-                blur(5px);
-
-        }
-
-
-        .hero-button.secondary:hover {
-
-            background:
-                rgba(255,255,255,.18);
-
-            border-color:
-                white;
-
-        }
-
-
-
-        /* =========================================
-           SECTION
-        ========================================= */
-
-        .section {
-
-            margin-top:
-                38px;
-
-        }
-
-
-        .section-header {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            align-items:
-                flex-end;
-
-            gap:
-                20px;
-
-            margin-bottom:
-                17px;
+            margin-bottom: 13px;
 
         }
 
 
         .section-label {
 
-            color:
-                var(--blue-dark);
+            color: var(--blue-dark);
 
-            font-size:
-                9px;
+            font-size: 9px;
 
-            font-weight:
-                800;
+            font-weight: 800;
 
-            letter-spacing:
-                1.3px;
+            letter-spacing: 1.2px;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
         }
 
 
         .section-title {
 
-            margin-top:
-                7px;
+            margin-top: 5px;
 
-            font-size:
-                25px;
+            font-size: 21px;
 
-            line-height:
-                1.15;
-
-            letter-spacing:
-                -.8px;
+            letter-spacing: -.6px;
 
         }
 
 
-        .section-description {
+        .carousel-controls {
 
-            margin-top:
-                7px;
+            display: flex;
 
-            color:
-                var(--gray);
+            gap: 6px;
 
-            font-size:
-                11px;
+        }
 
-            line-height:
-                1.6;
+
+        .carousel-button {
+
+            width: 34px;
+
+            height: 34px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            background: white;
+
+            color: var(--black);
+
+            cursor: pointer;
+
+            font-size: 17px;
+
+            transition: .2s;
+
+        }
+
+
+        .carousel-button:hover {
+
+            background: var(--light);
+
+            border-color: #cfd4d4;
+
+        }
+
+
+        .election-carousel {
+
+            overflow: hidden;
+
+            width: 100%;
+
+        }
+
+
+        .election-track {
+
+            display: flex;
+
+            gap: 15px;
+
+            transition:
+                transform .35s ease;
+
+        }
+
+
+        .election-card {
+
+            flex:
+                0 0 calc(50% - 7.5px);
+
+            min-width: 0;
+
+            min-height: 315px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            background: white;
+
+            transition:
+                box-shadow .2s,
+                border-color .2s;
+
+        }
+
+
+        .election-card:hover {
+
+            border-color: #d6dada;
+
+            box-shadow:
+                0 15px 40px rgba(20,30,35,.06);
+
+        }
+
+
+        /* =========================================
+           ELECTION IMAGE
+        ========================================= */
+
+        .election-image {
+
+            height: 155px;
+
+            position: relative;
+
+            background-size: cover;
+
+            background-position: center;
+
+            overflow: hidden;
+
+        }
+
+
+        .election-image::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.20),
+                    rgba(0,0,0,.60)
+                );
+
+        }
+
+
+        .president-image {
+
+            background-image:
+                url("images/kazakhstan-vote.jpg");
+
+        }
+
+
+        .almaty-image {
+
+            background-image:
+                url("images/almaty-election.jpg");
+
+        }
+
+
+        .image-caption {
+
+            position: absolute;
+
+            z-index: 2;
+
+            left: 20px;
+
+            bottom: 16px;
+
+            color: white;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================================
+           ELECTION CONTENT
+        ========================================= */
+
+        .election-content {
+
+            padding: 20px;
+
+        }
+
+
+        .election-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: var(--green);
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: .8px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .election-status-dot {
+
+            width: 6px;
+
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+        }
+
+
+        .election-status.upcoming {
+
+            color: var(--blue-dark);
+
+        }
+
+
+        .election-status.upcoming
+        .election-status-dot {
+
+            background: var(--blue);
+
+        }
+
+
+        .election-title {
+
+            margin-top: 8px;
+
+            font-size: 20px;
+
+            line-height: 1.15;
+
+            font-weight: 800;
+
+            letter-spacing: -.6px;
+
+        }
+
+
+        .election-date {
+
+            margin-top: 6px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+        }
+
+
+        .election-description {
+
+            margin-top: 10px;
+
+            color: var(--gray);
+
+            font-size: 10px;
+
+            line-height: 1.65;
+
+        }
+
+
+        .election-actions {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 16px;
+
+        }
+
+
+        .election-button {
+
+            flex: 1;
+
+            height: 39px;
+
+            border: 0;
+
+            border-radius: 7px;
+
+            background: var(--blue);
+
+            color: white;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .election-button:hover {
+
+            background: var(--blue-dark);
+
+            transform: translateY(-1px);
+
+        }
+
+
+        .election-button.disabled {
+
+            background: #d7dadc;
+
+            color: #888e93;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+        }
+
+
+        .details-button {
+
+            flex:
+                0 0 95px;
+
+            border:
+                1px solid var(--border);
+
+            background: white;
+
+            color: var(--black);
+
+        }
+
+
+        .details-button:hover {
+
+            background: var(--light);
+
+        }
+
+
+
+        /* =========================================
+           PERSONAL STATUS
+        ========================================= */
+
+        .status-panel {
+
+            margin-top: 20px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr 1fr;
+
+            gap: 12px;
+
+        }
+
+
+        .status-item {
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 13px;
+
+            padding: 18px;
+
+            background: #fff;
+
+        }
+
+
+        .status-icon {
+
+            width: 31px;
+
+            height: 31px;
+
+            border-radius: 8px;
+
+            background: #eef7fb;
+
+            color: var(--blue-dark);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+        }
+
+
+        .status-item h3 {
+
+            margin-top: 12px;
+
+            font-size: 13px;
+
+        }
+
+
+        .status-item p {
+
+            margin-top: 5px;
+
+            color: var(--gray);
+
+            font-size: 9px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .status-green {
+
+            color: var(--green);
 
         }
 
@@ -953,63 +900,52 @@
            PETITIONS
         ========================================= */
 
-        .petition-card {
+        .petitions {
+
+            margin-top: 20px;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                15px;
+            border-radius: 15px;
+
+            padding: 24px;
 
             background:
-                white;
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f7fafb
+                );
 
-            padding:
-                27px;
+            display: flex;
 
-            display:
-                flex;
+            align-items: center;
 
-            align-items:
-                center;
+            justify-content: space-between;
 
-            justify-content:
-                space-between;
+            gap: 30px;
 
-            gap:
-                30px;
+            overflow: hidden;
 
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            transition:
-                .2s;
+            position: relative;
 
         }
 
 
-        .petition-card::before {
+        .petitions::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            left:
-                0;
+            left: 0;
 
-            top:
-                0;
+            top: 0;
 
-            width:
-                3px;
+            width: 3px;
 
-            height:
-                100%;
+            height: 100%;
 
             background:
                 linear-gradient(
@@ -1021,410 +957,80 @@
         }
 
 
-        .petition-card:hover {
+        .petition-label {
 
-            border-color:
-                #d9dddf;
+            color: var(--blue-dark);
 
-            box-shadow:
-                0 12px 35px rgba(20,30,35,.05);
+            font-size: 8px;
 
-        }
+            font-weight: 800;
 
+            letter-spacing: 1px;
 
-        .petition-content {
-
-            max-width:
-                720px;
+            text-transform: uppercase;
 
         }
 
 
-        .petition-icon {
+        .petitions h2 {
 
-            width:
-                43px;
+            margin-top: 6px;
 
-            height:
-                43px;
+            font-size: 21px;
 
-            border-radius:
-                11px;
-
-            background:
-                #edf7fc;
-
-            color:
-                var(--blue-dark);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            font-size:
-                19px;
-
-            margin-bottom:
-                15px;
+            letter-spacing: -.6px;
 
         }
 
 
-        .petition-title {
+        .petitions p {
 
-            font-size:
-                19px;
+            max-width: 600px;
 
-            font-weight:
-                800;
+            margin-top: 7px;
 
-            letter-spacing:
-                -.4px;
+            color: var(--gray);
 
-        }
+            font-size: 10px;
 
-
-        .petition-text {
-
-            margin-top:
-                7px;
-
-            color:
-                var(--gray);
-
-            font-size:
-                11px;
-
-            line-height:
-                1.7;
+            line-height: 1.65;
 
         }
 
 
         .petition-button {
 
-            flex-shrink:
-                0;
+            flex:
+                0 0 auto;
 
-            height:
-                42px;
+            height: 41px;
 
-            padding:
-                0 20px;
+            padding: 0 20px;
 
-            border:
-                1px solid var(--border);
+            border: 0;
 
-            border-radius:
-                8px;
+            border-radius: 8px;
 
-            background:
-                white;
+            background: var(--black);
 
-            color:
-                var(--black);
+            color: white;
 
-            font-size:
-                10px;
+            font-size: 9px;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            transition:
-                .2s;
+            transition: .2s;
 
         }
 
 
         .petition-button:hover {
 
-            background:
-                var(--black);
+            background: #292c31;
 
-            color:
-                white;
-
-            border-color:
-                var(--black);
-
-        }
-
-
-
-        /* =========================================
-           CURRENT / PREVIOUS ELECTIONS
-        ========================================= */
-
-        .elections-list {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap:
-                15px;
-
-        }
-
-
-        .election-card {
-
-            background:
-                white;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                15px;
-
-            padding:
-                25px;
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            transition:
-                .2s;
-
-        }
-
-
-        .election-card::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            left:
-                0;
-
-            top:
-                0;
-
-            width:
-                3px;
-
-            height:
-                100%;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    var(--blue),
-                    var(--gold)
-                );
-
-        }
-
-
-        .election-card:hover {
-
-            border-color:
-                #dcdfe1;
-
-            box-shadow:
-                0 12px 35px rgba(20,30,35,.045);
-
-        }
-
-
-        .election-status {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                7px;
-
-            color:
-                var(--green);
-
-            font-size:
-                9px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                .7px;
-
-            text-transform:
-                uppercase;
-
-        }
-
-
-        .election-status-dot {
-
-            width:
-                7px;
-
-            height:
-                7px;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--green);
-
-        }
-
-
-        .election-status.unavailable {
-
-            color:
-                var(--gray);
-
-        }
-
-
-        .election-status.unavailable
-        .election-status-dot {
-
-            background:
-                #aeb2b6;
-
-        }
-
-
-        .election-title {
-
-            margin-top:
-                12px;
-
-            font-size:
-                21px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                -.6px;
-
-        }
-
-
-        .election-date {
-
-            margin-top:
-                6px;
-
-            color:
-                var(--gray);
-
-            font-size:
-                10px;
-
-        }
-
-
-        .election-description {
-
-            margin-top:
-                13px;
-
-            color:
-                var(--gray);
-
-            font-size:
-                11px;
-
-            line-height:
-                1.7;
-
-        }
-
-
-        .vote-start-button {
-
-            margin-top:
-                19px;
-
-            width:
-                100%;
-
-            height:
-                42px;
-
-            border:
-                0;
-
-            border-radius:
-                8px;
-
-            background:
-                var(--blue);
-
-            color:
-                white;
-
-            font-size:
-                10px;
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
-            transition:
-                .2s;
-
-        }
-
-
-        .vote-start-button:hover {
-
-            background:
-                var(--blue-dark);
-
-            transform:
-                translateY(-1px);
-
-        }
-
-
-        .results-button {
-
-            background:
-                #eef7fc;
-
-            color:
-                var(--blue-dark);
-
-            border:
-                1px solid #d8edf8;
-
-        }
-
-
-        .results-button:hover {
-
-            background:
-                #e2f2fa;
-
-            border-color:
-                #c8e6f4;
+            transform: translateY(-1px);
 
         }
 
@@ -1436,17 +1042,13 @@
 
         .voting-process {
 
-            display:
-                none;
+            margin-top: 25px;
 
-            flex-direction:
-                column;
+            display: none;
 
-            gap:
-                15px;
+            flex-direction: column;
 
-            margin-top:
-                38px;
+            gap: 15px;
 
             animation:
                 fadeIn .25s ease;
@@ -1456,8 +1058,7 @@
 
         .voting-process.active {
 
-            display:
-                flex;
+            display: flex;
 
         }
 
@@ -1466,21 +1067,17 @@
 
             from {
 
-                opacity:
-                    0;
+                opacity: 0;
 
-                transform:
-                    translateY(8px);
+                transform: translateY(8px);
 
             }
 
             to {
 
-                opacity:
-                    1;
+                opacity: 1;
 
-                transform:
-                    translateY(0);
+                transform: translateY(0);
 
             }
 
@@ -1489,71 +1086,52 @@
 
         .process-header {
 
-            padding:
-                0 3px 5px;
+            display: flex;
+
+            justify-content: flex-start;
 
         }
 
 
         .back-button {
 
-            border:
-                0;
+            border: 0;
 
-            background:
-                transparent;
+            background: transparent;
 
-            color:
-                var(--gray);
+            color: var(--gray);
 
-            font-size:
-                10px;
+            font-size: 10px;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            padding:
-                0;
-
-            transition:
-                .2s;
+            padding: 0;
 
         }
 
 
         .back-button:hover {
 
-            color:
-                var(--blue-dark);
+            color: var(--blue-dark);
 
         }
 
 
-
-        /* =========================================
-           VERIFICATION / VOTING
-        ========================================= */
-
         .verification,
         .voting {
 
-            background:
-                white;
+            background: white;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                15px;
+            border-radius: 15px;
 
-            padding:
-                29px;
+            padding: 27px;
 
-            position:
-                relative;
+            position: relative;
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
         }
 
@@ -1561,23 +1139,17 @@
         .verification::before,
         .voting::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            left:
-                0;
+            left: 0;
 
-            top:
-                0;
+            top: 0;
 
-            width:
-                3px;
+            width: 3px;
 
-            height:
-                100%;
+            height: 100%;
 
             background:
                 linear-gradient(
@@ -1591,20 +1163,15 @@
 
         .step {
 
-            color:
-                var(--blue-dark);
+            color: var(--blue-dark);
 
-            font-size:
-                9px;
+            font-size: 8px;
 
-            font-weight:
-                800;
+            font-weight: 800;
 
-            letter-spacing:
-                1.2px;
+            letter-spacing: 1.2px;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
         }
 
@@ -1612,17 +1179,13 @@
         .verification-title,
         .voting-title {
 
-            margin-top:
-                9px;
+            margin-top: 8px;
 
-            font-size:
-                22px;
+            font-size: 20px;
 
-            font-weight:
-                800;
+            font-weight: 800;
 
-            letter-spacing:
-                -.6px;
+            letter-spacing: -.5px;
 
         }
 
@@ -1630,148 +1193,108 @@
         .verification-text,
         .voting-text {
 
-            max-width:
-                720px;
+            max-width: 720px;
 
-            margin-top:
-                9px;
+            margin-top: 8px;
 
-            color:
-                var(--gray);
+            color: var(--gray);
 
-            font-size:
-                11px;
+            font-size: 10px;
 
-            line-height:
-                1.7;
+            line-height: 1.7;
 
         }
 
 
         .verification-bottom {
 
-            margin-top:
-                23px;
+            margin-top: 20px;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                15px;
+            gap: 15px;
 
-            flex-wrap:
-                wrap;
+            flex-wrap: wrap;
 
         }
 
 
         .verify-button {
 
-            height:
-                42px;
+            height: 40px;
 
-            padding:
-                0 21px;
+            padding: 0 20px;
 
-            border:
-                0;
+            border: 0;
 
-            border-radius:
-                8px;
+            border-radius: 8px;
 
-            background:
-                var(--black);
+            background: var(--black);
 
-            color:
-                white;
+            color: white;
 
-            font-size:
-                10px;
+            font-size: 9px;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            transition:
-                .2s;
+            transition: .2s;
 
         }
 
 
         .verify-button:hover {
 
-            background:
-                #292c31;
-
-            transform:
-                translateY(-1px);
+            background: #292c31;
 
         }
 
 
         .verify-button:disabled {
 
-            background:
-                #d8dadc;
+            background: #d8dadc;
 
-            cursor:
-                default;
-
-            transform:
-                none;
+            cursor: default;
 
         }
 
 
         .verification-status {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                7px;
+            gap: 7px;
 
-            color:
-                var(--gray);
+            color: var(--gray);
 
-            font-size:
-                9px;
+            font-size: 9px;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
         }
 
 
         .status-dot {
 
-            width:
-                7px;
+            width: 7px;
 
-            height:
-                7px;
+            height: 7px;
 
-            border-radius:
-                50%;
+            border-radius: 50%;
 
-            background:
-                var(--gold);
+            background: var(--gold);
 
         }
 
 
         .verification-status.verified {
 
-            color:
-                var(--green);
+            color: var(--green);
 
         }
 
@@ -1779,71 +1302,50 @@
         .verification-status.verified
         .status-dot {
 
-            background:
-                var(--green);
+            background: var(--green);
 
         }
 
 
         .vote-button {
 
-            width:
-                100%;
+            width: 100%;
 
-            height:
-                45px;
+            height: 44px;
 
-            margin-top:
-                22px;
+            margin-top: 20px;
 
-            border:
-                0;
+            border: 0;
 
-            border-radius:
-                8px;
+            border-radius: 8px;
 
-            background:
-                var(--blue);
+            background: var(--blue);
 
-            color:
-                white;
+            color: white;
 
-            font-size:
-                10px;
+            font-size: 9px;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            transition:
-                .2s;
+            transition: .2s;
 
         }
 
 
         .vote-button:hover {
 
-            background:
-                var(--blue-dark);
-
-            transform:
-                translateY(-1px);
+            background: var(--blue-dark);
 
         }
 
 
         .vote-button.disabled {
 
-            background:
-                #d8dadc;
+            background: #d8dadc;
 
-            cursor:
-                not-allowed;
-
-            transform:
-                none;
+            cursor: not-allowed;
 
         }
 
@@ -1855,11 +1357,9 @@
 
         .identity-line {
 
-            margin-top:
-                55px;
+            margin-top: 45px;
 
-            height:
-                1px;
+            height: 1px;
 
             background:
                 linear-gradient(
@@ -1870,31 +1370,24 @@
                     transparent
                 );
 
-            opacity:
-                .55;
+            opacity: .5;
 
         }
 
 
         .identity-caption {
 
-            margin-top:
-                12px;
+            margin-top: 11px;
 
-            text-align:
-                center;
+            text-align: center;
 
-            color:
-                #a0a4aa;
+            color: #a0a4aa;
 
-            font-size:
-                8px;
+            font-size: 8px;
 
-            letter-spacing:
-                1.5px;
+            letter-spacing: 1.4px;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
         }
 
@@ -1904,7 +1397,14 @@
            MOBILE
         ========================================= */
 
-        @media (max-width: 800px) {
+        @media (max-width: 760px) {
+
+
+            header {
+
+                height: 60px;
+
+            }
 
 
             .header-inner {
@@ -1917,16 +1417,14 @@
 
             .email {
 
-                display:
-                    none;
+                display: none;
 
             }
 
 
             .account {
 
-                gap:
-                    10px;
+                gap: 9px;
 
             }
 
@@ -1939,72 +1437,29 @@
             }
 
 
-            .page-heading {
-
-                align-items:
-                    flex-start;
-
-                flex-direction:
-                    column;
-
-            }
-
-
             h1 {
 
-                font-size:
-                    31px;
+                font-size: 23px;
 
             }
 
 
-            .election-hero {
+            .intro {
 
-                min-height:
-                    430px;
-
-            }
-
-
-            .election-hero-content {
-
-                min-height:
-                    430px;
-
-                padding:
-                    30px 24px;
-
-                justify-content:
-                    flex-end;
+                font-size: 11px;
 
             }
 
 
-            .election-hero h2 {
+            .election-card {
 
-                font-size:
-                    32px;
-
-            }
-
-
-            .hero-buttons {
-
-                flex-direction:
-                    column;
+                flex:
+                    0 0 100%;
 
             }
 
 
-            .hero-button {
-
-                width:
-                    100%;
-
-            }
-
-
-            .elections-list {
+            .status-panel {
 
                 grid-template-columns:
                     1fr;
@@ -2012,24 +1467,38 @@
             }
 
 
-            .petition-card {
-
-                align-items:
-                    flex-start;
+            .petitions {
 
                 flex-direction:
                     column;
 
-                padding:
-                    24px;
+                align-items:
+                    flex-start;
+
+                gap: 18px;
 
             }
 
 
             .petition-button {
 
-                width:
-                    100%;
+                width: 100%;
+
+            }
+
+
+            .election-actions {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .details-button {
+
+                flex:
+                    1;
 
             }
 
@@ -2037,16 +1506,14 @@
             .verification,
             .voting {
 
-                padding:
-                    24px;
+                padding: 23px;
 
             }
 
 
             .verify-button {
 
-                width:
-                    100%;
+                width: 100%;
 
             }
 
@@ -2060,7 +1527,6 @@
 <body>
 
 
-
 <!-- =========================================
      HEADER
 ========================================= -->
@@ -2070,19 +1536,15 @@
     <div class="header-inner">
 
 
-        <a
-            href="cabinet.html"
-            class="logo">
+        <div class="logo">
 
             <div class="logo-icon">
                 V
             </div>
 
-            <div class="logo-text">
-                VOTE
-            </div>
+            VOTE
 
-        </a>
+        </div>
 
 
         <div class="account">
@@ -2139,35 +1601,398 @@
 
 
     <!-- =====================================
-         PAGE HEADING
+         CABINET HEADER
     ====================================== -->
 
-    <div class="page-heading">
+    <div class="cabinet-label">
+
+        Электронное голосование
+
+    </div>
 
 
-        <div class="page-heading-left">
+    <h1>
+
+        Личный кабинет
+
+    </h1>
 
 
-            <div class="welcome-label">
+    <p class="intro">
 
-                Электронное голосование
+        Здесь собраны доступные выборы,
+        состояние подтверждения личности,
+        электронное голосование и гражданские
+        инициативы.
+
+    </p>
+
+
+
+    <!-- =====================================
+         ELECTIONS
+    ====================================== -->
+
+    <section class="elections-section">
+
+
+        <div class="section-top">
+
+
+            <div>
+
+                <div class="section-label">
+
+                    Предстоящие события
+
+                </div>
+
+
+                <div class="section-title">
+
+                    Выборы
+
+                </div>
 
             </div>
 
 
-            <h1>
-
-                Личный кабинет
-
-            </h1>
+            <div class="carousel-controls">
 
 
-            <p class="intro">
+                <button
+                    class="carousel-button"
+                    onclick="moveCarousel(-1)"
+                    aria-label="Предыдущие выборы">
 
-                Здесь вы можете участвовать
-                в выборах, ознакомиться с важными
-                событиями и воспользоваться
-                гражданскими сервисами платформы.
+                    ←
+
+                </button>
+
+
+                <button
+                    class="carousel-button"
+                    onclick="moveCarousel(1)"
+                    aria-label="Следующие выборы">
+
+                    →
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="election-carousel">
+
+
+            <div
+                class="election-track"
+                id="electionTrack">
+
+
+                <!-- =================================
+                     PRESIDENT
+                ================================== -->
+
+                <article class="election-card">
+
+
+                    <div
+                        class="election-image president-image">
+
+
+                        <div class="image-caption">
+
+                            Республика Казахстан
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="election-content">
+
+
+                        <div class="election-status upcoming">
+
+                            <span
+                                class="election-status-dot">
+                            </span>
+
+                            Предстоящее голосование
+
+                        </div>
+
+
+                        <div class="election-title">
+
+                            Выборы Президента
+                            Республики Казахстан
+
+                        </div>
+
+
+                        <div class="election-date">
+
+                            31 ноября 2027 года
+
+                        </div>
+
+
+                        <p class="election-description">
+
+                            Электронное голосование за кандидатов
+                            на должность Президента Республики
+                            Казахстан.
+
+                        </p>
+
+
+                        <div class="election-actions">
+
+
+                            <button
+                                class="election-button"
+                                id="presidentVoteButton"
+                                onclick="openPresidentVoting()">
+
+                                Проголосовать
+
+                            </button>
+
+
+                            <button
+                                class="election-button details-button"
+                                onclick="openElectionDetails('president')">
+
+                                Подробнее
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================
+                     ALMATY AKIM
+                ================================== -->
+
+                <article class="election-card">
+
+
+                    <div
+                        class="election-image almaty-image">
+
+
+                        <div class="image-caption">
+
+                            Алматы
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="election-content">
+
+
+                        <div class="election-status upcoming">
+
+                            <span
+                                class="election-status-dot">
+                            </span>
+
+                            Предстоящее голосование
+
+                        </div>
+
+
+                        <div class="election-title">
+
+                            Выборы акима
+                            города Алматы
+
+                        </div>
+
+
+                        <div class="election-date">
+
+                            Дата голосования будет объявлена
+
+                        </div>
+
+
+                        <p class="election-description">
+
+                            Электронное голосование за кандидатов
+                            на должность акима города Алматы.
+
+                        </p>
+
+
+                        <div class="election-actions">
+
+
+                            <button
+                                class="election-button disabled"
+                                disabled>
+
+                                Голосование недоступно
+
+                            </button>
+
+
+                            <button
+                                class="election-button details-button"
+                                onclick="openElectionDetails('almaty')">
+
+                                Подробнее
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================
+                     KURULTAI
+                ================================== -->
+
+                <article class="election-card">
+
+
+                    <div
+                        class="election-image president-image">
+
+
+                        <div class="image-caption">
+
+                            Казахстан
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="election-content">
+
+
+                        <div class="election-status"
+                             style="color:#737982;">
+
+
+                            <span
+                                class="election-status-dot"
+                                style="background:#aeb2b6;">
+                            </span>
+
+                            Голосование завершено
+
+                        </div>
+
+
+                        <div class="election-title">
+
+                            Выборы в Курултай
+
+                        </div>
+
+
+                        <div class="election-date">
+
+                            23 августа 2026 года
+
+                        </div>
+
+
+                        <p class="election-description">
+
+                            Голосование завершено.
+                            Ознакомьтесь с результатами
+                            проведённого голосования.
+
+                        </p>
+
+
+                        <div class="election-actions">
+
+
+                            <button
+                                class="election-button details-button"
+                                style="flex:1;"
+                                onclick="openKurultaiResults()">
+
+                                Посмотреть результаты
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PERSONAL STATUS
+    ====================================== -->
+
+    <section class="status-panel">
+
+
+        <div class="status-item">
+
+
+            <div class="status-icon">
+
+                ✓
+
+            </div>
+
+
+            <h3>
+
+                Статус аккаунта
+
+            </h3>
+
+
+            <p
+                id="accountStatusText">
+
+                Учётная запись создана.
+                Для голосования требуется
+                подтверждение личности.
 
             </p>
 
@@ -2175,74 +2000,61 @@
         </div>
 
 
-    </div>
+
+        <div class="status-item">
 
 
+            <div class="status-icon">
 
-    <!-- =====================================
-         MAIN ELECTION INFORMATION
-    ====================================== -->
-
-    <section class="election-hero">
-
-
-        <div class="election-hero-content">
-
-
-            <div class="election-hero-label">
-
-                Предстоящее событие
+                ID
 
             </div>
 
 
-            <h2>
+            <h3>
 
-                Выборы Президента
-                Республики Казахстан
+                Подтверждение личности
 
-            </h2>
-
-
-            <div class="election-hero-date">
-
-                31 ноября 2027 года
-
-            </div>
+            </h3>
 
 
-            <p class="election-hero-description">
+            <p
+                id="identitySummary"
+                class="status-green">
 
-                Примите участие в электронном
-                голосовании. Перед голосованием
-                необходимо подтвердить свою личность
-                и право голоса.
+                Личность ещё не подтверждена.
 
             </p>
 
 
-            <div class="hero-buttons">
+        </div>
 
 
-                <button
-                    class="hero-button primary"
-                    onclick="goToVerification()">
 
-                    Проголосовать
-
-                </button>
+        <div class="status-item">
 
 
-                <button
-                    class="hero-button secondary"
-                    onclick="openElectionDetails()">
+            <div class="status-icon">
 
-                    Подробнее
-
-                </button>
-
+                01
 
             </div>
+
+
+            <h3>
+
+                Доступные выборы
+
+            </h3>
+
+
+            <p>
+
+                Президент Республики Казахстан
+                и другие события будут отображаться
+                здесь автоматически.
+
+            </p>
 
 
         </div>
@@ -2256,247 +2068,45 @@
          PETITIONS
     ====================================== -->
 
-    <section class="section">
+    <section class="petitions">
 
 
-        <div class="section-header">
+        <div>
 
 
-            <div>
+            <div class="petition-label">
 
-
-                <div class="section-label">
-
-                    Гражданские инициативы
-
-                </div>
-
-
-                <h2 class="section-title">
-
-                    Петиции
-
-                </h2>
-
-
-                <p class="section-description">
-
-                    Создавайте, подписывайте
-                    и отслеживайте общественные инициативы.
-
-                </p>
-
+                Гражданские инициативы
 
             </div>
 
 
-        </div>
+            <h2>
+
+                Петиции
+
+            </h2>
 
 
+            <p>
 
-        <div class="petition-card">
+                Создавайте общественные инициативы,
+                поддерживайте предложения других граждан
+                и следите за их рассмотрением.
 
-
-            <div class="petition-content">
-
-
-                <div class="petition-icon">
-
-                    ✎
-
-                </div>
-
-
-                <div class="petition-title">
-
-                    Участие в общественных инициативах
-
-                </div>
-
-
-                <p class="petition-text">
-
-                    Ознакомьтесь с актуальными петициями,
-                    поддержите важные инициативы или создайте
-                    собственное обращение.
-
-                </p>
-
-
-            </div>
-
-
-            <button
-                class="petition-button"
-                onclick="openPetitions()">
-
-                Перейти к петициям →
-
-            </button>
+            </p>
 
 
         </div>
 
 
-    </section>
+        <button
+            class="petition-button"
+            onclick="openPetitions()">
 
+            Перейти к петициям →
 
-
-    <!-- =====================================
-         ELECTIONS
-    ====================================== -->
-
-    <section class="section">
-
-
-        <div class="section-header">
-
-
-            <div>
-
-
-                <div class="section-label">
-
-                    Выборы
-
-                </div>
-
-
-                <h2 class="section-title">
-
-                    Другие события
-
-                </h2>
-
-
-                <p class="section-description">
-
-                    Текущие и прошедшие избирательные кампании.
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <div
-            class="elections-list"
-            id="electionsList">
-
-
-            <!-- CURRENT -->
-
-            <section
-                class="election-card"
-                id="currentElection">
-
-
-                <div class="election-status">
-
-                    <span
-                        class="election-status-dot">
-                    </span>
-
-                    Голосование доступно
-
-                </div>
-
-
-                <div class="election-title">
-
-                    Выборы Президента
-                    Республики Казахстан
-
-                </div>
-
-
-                <div class="election-date">
-
-                    31 ноября 2027 года
-
-                </div>
-
-
-                <p class="election-description">
-
-                    Для доступа к электронному
-                    бюллетеню необходимо подтвердить
-                    личность и право голоса.
-
-                </p>
-
-
-                <button
-                    class="vote-start-button"
-                    onclick="openVoting()">
-
-                    Проголосовать
-
-                </button>
-
-
-            </section>
-
-
-
-            <!-- PREVIOUS -->
-
-            <section
-                class="election-card"
-                id="previousElection">
-
-
-                <div class="election-status unavailable">
-
-                    <span
-                        class="election-status-dot">
-                    </span>
-
-                    Голосование недоступно
-
-                </div>
-
-
-                <div class="election-title">
-
-                    Выборы в Курултай
-
-                </div>
-
-
-                <div class="election-date">
-
-                    23 августа 2026 года
-
-                </div>
-
-
-                <p class="election-description">
-
-                    Голосование завершено.
-                    Ознакомьтесь с результатами
-                    проведённого электронного голосования.
-
-                </p>
-
-
-                <button
-                    class="vote-start-button results-button"
-                    onclick="openKurultaiResults()">
-
-                    Посмотреть результаты
-
-                </button>
-
-
-            </section>
-
-
-        </div>
+        </button>
 
 
     </section>
@@ -2615,7 +2225,7 @@
 
             <div class="voting-title">
 
-                Электронное голосование
+                Электронный бюллетень
 
             </div>
 
@@ -2674,56 +2284,56 @@
    USER
 ========================================= */
 
-function getCurrentUserEmail() {
+function loadCurrentUser() {
 
-    const sessionEmail =
+    let email =
         sessionStorage.getItem(
             "current_user_email"
         );
 
 
-    if (sessionEmail) {
+    if (!email) {
 
-        return sessionEmail;
-
-    }
-
-
-    try {
-
-        const user =
-            JSON.parse(
-                localStorage.getItem(
-                    "vote_current_user"
-                ) || "null"
+        const storedUser =
+            localStorage.getItem(
+                "vote_current_user"
             );
 
 
-        if (
-            user &&
-            user.email
-        ) {
+        if (storedUser) {
 
-            return user.email;
+            try {
+
+                const user =
+                    JSON.parse(storedUser);
+
+                email =
+                    user.email || "";
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
 
         }
-
-    } catch (error) {
-
-        console.log(error);
 
     }
 
 
-    return "Пользователь";
+    if (email) {
+
+        document
+            .getElementById("headerEmail")
+            .textContent =
+                email;
+
+    }
 
 }
 
 
-document.getElementById(
-    "headerEmail"
-).textContent =
-    getCurrentUserEmail();
+loadCurrentUser();
 
 
 
@@ -2741,52 +2351,12 @@ function openNotifications() {
 
 
 /* =========================================
-   ELECTION DETAILS
+   PRESIDENT VOTING
 ========================================= */
 
-function openElectionDetails() {
+function openPresidentVoting() {
 
-    window.location.href =
-        "election-details.html";
-
-}
-
-
-
-/* =========================================
-   PETITIONS
-========================================= */
-
-function openPetitions() {
-
-    window.location.href =
-        "petitions.html";
-
-}
-
-
-
-/* =========================================
-   DIRECT VERIFICATION
-========================================= */
-
-function goToVerification() {
-
-    window.location.href =
-        "verification.html";
-
-}
-
-
-
-/* =========================================
-   KURULTAI RESULTS
-========================================= */
-
-function openKurultaiResults() {
-
-    window.location.href =
-        "kurultai.html";
+    openVoting();
 
 }
 
@@ -2799,19 +2369,27 @@ function openKurultaiResults() {
 function openVoting() {
 
     document
-        .getElementById(
-            "electionsList"
-        )
+        .getElementById("votingProcess")
+        .classList
+        .add("active");
+
+
+    document
+        .querySelector(".elections-section")
         .style.display =
             "none";
 
 
     document
-        .getElementById(
-            "votingProcess"
-        )
-        .classList
-        .add("active");
+        .querySelector(".status-panel")
+        .style.display =
+            "none";
+
+
+    document
+        .querySelector(".petitions")
+        .style.display =
+            "none";
 
 
     checkVerification();
@@ -2830,25 +2408,36 @@ function openVoting() {
 
 
 /* =========================================
-   CLOSE VOTING PROCESS
+   CLOSE VOTING
 ========================================= */
 
 function closeVoting() {
 
     document
-        .getElementById(
-            "votingProcess"
-        )
+        .getElementById("votingProcess")
         .classList
         .remove("active");
 
 
     document
-        .getElementById(
-            "electionsList"
-        )
+        .querySelector(".elections-section")
+        .style.display =
+            "block";
+
+
+    document
+        .querySelector(".status-panel")
         .style.display =
             "grid";
+
+
+    document
+        .querySelector(".petitions")
+        .style.display =
+            "flex";
+
+
+    checkVerification();
 
 
     window.scrollTo({
@@ -2918,6 +2507,24 @@ function checkVerification() {
         );
 
 
+    const presidentButton =
+        document.getElementById(
+            "presidentVoteButton"
+        );
+
+
+    const identitySummary =
+        document.getElementById(
+            "identitySummary"
+        );
+
+
+    const accountStatus =
+        document.getElementById(
+            "accountStatusText"
+        );
+
+
 
     /* =====================================
        VERIFIED
@@ -2938,7 +2545,7 @@ function checkVerification() {
 
 
         text.textContent =
-            "Право голоса подтверждено. Теперь вы можете перейти к электронному бюллетеню.";
+            "Право голоса подтверждено. Теперь электронный бюллетень доступен.";
 
 
         button.textContent =
@@ -2959,7 +2566,41 @@ function checkVerification() {
 
 
         votingText.textContent =
-            "Право голоса подтверждено. Электронный бюллетень доступен.";
+            "Право голоса подтверждено. Вы можете перейти к электронному бюллетеню.";
+
+
+        identitySummary.textContent =
+            "Личность подтверждена. Вы можете участвовать в доступном голосовании.";
+
+
+        identitySummary.classList.add(
+            "status-green"
+        );
+
+
+        accountStatus.textContent =
+            "Аккаунт готов к участию в электронном голосовании.";
+
+
+        /*
+         * Главное:
+         * после успешной верификации
+         * активируем кнопку выборов Президента.
+         */
+
+        if (presidentButton) {
+
+            presidentButton.disabled =
+                false;
+
+            presidentButton.classList.remove(
+                "disabled"
+            );
+
+            presidentButton.textContent =
+                "Проголосовать";
+
+        }
 
 
         return true;
@@ -3003,6 +2644,39 @@ function checkVerification() {
 
     votingText.textContent =
         "После подтверждения личности вам станет доступен электронный бюллетень.";
+
+
+    identitySummary.textContent =
+        "Личность ещё не подтверждена.";
+
+
+    identitySummary.classList.remove(
+        "status-green"
+    );
+
+
+    accountStatus.textContent =
+        "Учётная запись создана. Для голосования требуется подтверждение личности.";
+
+
+    /*
+     * Пока верификации нет —
+     * кнопка голосования не ведёт в бюллетень.
+     */
+
+    if (presidentButton) {
+
+        presidentButton.disabled =
+            false;
+
+        presidentButton.classList.remove(
+            "disabled"
+        );
+
+        presidentButton.textContent =
+            "Проголосовать";
+
+    }
 
 }
 
@@ -3087,6 +2761,137 @@ function goToVoting() {
 
 
 /* =========================================
+   CAROUSEL
+========================================= */
+
+let carouselIndex = 0;
+
+
+function moveCarousel(direction) {
+
+
+    const track =
+        document.getElementById(
+            "electionTrack"
+        );
+
+
+    const cards =
+        track.querySelectorAll(
+            ".election-card"
+        );
+
+
+    if (!cards.length) {
+
+        return;
+
+    }
+
+
+    const isMobile =
+        window.innerWidth <= 760;
+
+
+    const visibleCards =
+        isMobile ? 1 : 2;
+
+
+    const maxIndex =
+        Math.max(
+            0,
+            cards.length - visibleCards
+        );
+
+
+    carouselIndex += direction;
+
+
+    if (carouselIndex < 0) {
+
+        carouselIndex = 0;
+
+    }
+
+
+    if (carouselIndex > maxIndex) {
+
+        carouselIndex = maxIndex;
+
+    }
+
+
+    const cardWidth =
+        cards[0].getBoundingClientRect().width;
+
+
+    const gap = 15;
+
+
+    track.style.transform =
+        `translateX(-${carouselIndex * (cardWidth + gap)}px)`;
+
+}
+
+
+
+/* =========================================
+   ELECTION DETAILS
+========================================= */
+
+function openElectionDetails(type) {
+
+
+    if (type === "president") {
+
+        window.location.href =
+            "election-details.html";
+
+        return;
+
+    }
+
+
+    if (type === "almaty") {
+
+        window.location.href =
+            "almaty-election-details.html";
+
+        return;
+
+    }
+
+}
+
+
+
+/* =========================================
+   PETITIONS
+========================================= */
+
+function openPetitions() {
+
+    window.location.href =
+        "petitions.html";
+
+}
+
+
+
+/* =========================================
+   KURULTAI RESULTS
+========================================= */
+
+function openKurultaiResults() {
+
+    window.location.href =
+        "kurultai.html";
+
+}
+
+
+
+/* =========================================
    LOGOUT
 ========================================= */
 
@@ -3115,11 +2920,6 @@ function logout() {
 
     sessionStorage.removeItem(
         "current_user_email"
-    );
-
-
-    localStorage.removeItem(
-        "vote_current_user"
     );
 
 
@@ -3154,6 +2954,35 @@ setInterval(
 
 );
 
+
+
+/* =========================================
+   RESIZE CAROUSEL
+========================================= */
+
+window.addEventListener(
+
+    "resize",
+
+    function() {
+
+        carouselIndex = 0;
+
+        const track =
+            document.getElementById(
+                "electionTrack"
+            );
+
+        if (track) {
+
+            track.style.transform =
+                "translateX(0)";
+
+        }
+
+    }
+
+);
 
 </script>
 
