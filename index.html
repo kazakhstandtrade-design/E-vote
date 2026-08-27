@@ -14,6 +14,241 @@
 
     <style>
 
+
+        /* =========================================
+   LOGIN REQUIRED MODAL
+========================================= */
+
+.login-modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(10,12,16,.52);
+
+    backdrop-filter:
+        blur(8px);
+
+    animation:
+        modalFade .2s ease;
+}
+
+
+@keyframes modalFade {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+.login-modal {
+
+    width: 100%;
+
+    max-width: 390px;
+
+    padding: 30px;
+
+    position: relative;
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.18);
+
+    text-align: center;
+
+    animation:
+        modalUp .25s ease;
+}
+
+
+@keyframes modalUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px)
+            scale(.98);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.login-modal-close {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 14px;
+
+    width: 30px;
+
+    height: 30px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #777;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+}
+
+
+.login-modal-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #c92d38;
+
+    color: #fff;
+
+    font-weight: 800;
+
+}
+
+
+.login-modal-label {
+
+    color: #c92d38;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.login-modal h3 {
+
+    margin-top: 7px;
+
+    font-size: 23px;
+
+    letter-spacing: -.6px;
+
+}
+
+
+.login-modal p {
+
+    margin-top: 9px;
+
+    color: #70757f;
+
+    font-size: 11px;
+
+    line-height: 1.65;
+
+}
+
+
+.login-modal-button {
+
+    width: 100%;
+
+    height: 44px;
+
+    margin-top: 21px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: #c92d38;
+
+    color: #fff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.login-modal-button:hover {
+
+    background: #ad222d;
+
+}
+
+
+.login-modal-secondary {
+
+    width: 100%;
+
+    height: 40px;
+
+    margin-top: 7px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #70757f;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+}
+
         * {
             margin: 0;
             padding: 0;
@@ -2236,13 +2471,10 @@
 
                 </a>
 
-
-                <a href="petitions.html">
-
-                    Петиции
-
-                </a>
-
+<a href="#" onclick="openPetitions(event)">
+    Петиции
+</a>
+            
 
                 <a href="help.html">
 
@@ -3080,7 +3312,122 @@ function clearAllStorage() {
     window.location.reload();
 
 }
+function openPetitions(event) {
 
+    if (event) {
+        event.preventDefault();
+    }
+
+    const email =
+        sessionStorage.getItem("current_user_email");
+
+    /*
+     * Пользователь не вошёл
+     */
+    if (!email) {
+
+        showLoginRequired();
+
+        return;
+    }
+
+    /*
+     * Пользователь авторизован
+     */
+    window.location.href = "petitions.html";
+}
+
+
+function showLoginRequired() {
+
+    const oldModal =
+        document.getElementById("loginRequiredModal");
+
+    if (oldModal) {
+        oldModal.remove();
+    }
+
+    const modal =
+        document.createElement("div");
+
+    modal.id = "loginRequiredModal";
+
+    modal.innerHTML = `
+        <div class="login-modal-overlay"
+             onclick="closeLoginRequired(event)">
+
+            <div class="login-modal"
+                 onclick="event.stopPropagation()">
+
+                <button
+                    class="login-modal-close"
+                    onclick="closeLoginRequired()">
+                    ×
+                </button>
+
+                <div class="login-modal-icon">
+                    V
+                </div>
+
+                <div class="login-modal-label">
+                    Личный кабинет
+                </div>
+
+                <h3>
+                    Войдите в аккаунт
+                </h3>
+
+                <p>
+                    Для просмотра и подписания петиций
+                    необходимо войти в личный кабинет.
+                </p>
+
+                <button
+                    class="login-modal-button"
+                    onclick="goToLogin()">
+                    Войти в аккаунт
+                </button>
+
+                <button
+                    class="login-modal-secondary"
+                    onclick="closeLoginRequired()">
+                    Отмена
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+}
+
+
+function closeLoginRequired(event) {
+
+    if (
+        event &&
+        event.target !== event.currentTarget
+    ) {
+        return;
+    }
+
+    const modal =
+        document.getElementById(
+            "loginRequiredModal"
+        );
+
+    if (modal) {
+        modal.remove();
+    }
+}
+
+
+function goToLogin() {
+
+    window.location.href =
+        "index.html?return=petitions";
+}
 
 </script>
 
