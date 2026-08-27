@@ -29,7 +29,6 @@
             --gold: #d8b15a;
             --green: #16834b;
             --red: #d9534f;
-            --orange: #c88918;
             --white: #ffffff;
         }
 
@@ -50,7 +49,9 @@
                 sans-serif;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             height: 72px;
@@ -132,7 +133,9 @@
             border-color: #d2d5d3;
         }
 
-        /* MAIN */
+        /* =========================
+           MAIN
+        ========================= */
 
         main {
             max-width: 980px;
@@ -174,7 +177,9 @@
             line-height: 1.75;
         }
 
-        /* TOP ACTIONS */
+        /* =========================
+           TOP ACTIONS
+        ========================= */
 
         .top-actions {
             margin-top: 30px;
@@ -235,7 +240,9 @@
             transform: translateY(-1px);
         }
 
-        /* FILTERS */
+        /* =========================
+           FILTERS
+        ========================= */
 
         .filters {
             margin-top: 18px;
@@ -269,7 +276,9 @@
             color: var(--blue-dark);
         }
 
-        /* SECTION */
+        /* =========================
+           SECTION
+        ========================= */
 
         .section-header {
             margin-top: 45px;
@@ -298,7 +307,9 @@
             font-size: 10px;
         }
 
-        /* PETITIONS */
+        /* =========================
+           PETITIONS
+        ========================= */
 
         .petition-list {
             margin-top: 25px;
@@ -399,45 +410,6 @@
             transition: width .4s ease;
         }
 
-        .progress-bar.completed {
-            background: linear-gradient(
-                90deg,
-                var(--green),
-                #43ad79
-            );
-        }
-
-        .petition-status {
-            margin-top: 12px;
-            display: inline-flex;
-            align-items: center;
-            min-height: 23px;
-            padding: 0 9px;
-            border-radius: 6px;
-            font-size: 8px;
-            font-weight: 800;
-        }
-
-        .petition-status.active {
-            color: var(--green);
-            background: #eaf6f0;
-        }
-
-        .petition-status.goal-reached {
-            color: var(--orange);
-            background: #fff7e6;
-        }
-
-        .petition-status.expired {
-            color: var(--gray);
-            background: #f0f1f1;
-        }
-
-        .petition-status.signed {
-            color: var(--blue-dark);
-            background: #eef7fc;
-        }
-
         .petition-footer {
             margin-top: 18px;
             display: flex;
@@ -474,13 +446,9 @@
             border: 1px solid #d4ebdf;
         }
 
-        .sign-button.disabled {
-            background: #eef0ef;
-            color: var(--gray);
-            cursor: default;
-        }
-
-        /* EMPTY */
+        /* =========================
+           EMPTY
+        ========================= */
 
         .empty {
             display: none;
@@ -492,7 +460,9 @@
             font-size: 11px;
         }
 
-        /* INFO */
+        /* =========================
+           INFORMATION
+        ========================= */
 
         .info-section {
             margin-top: 65px;
@@ -542,7 +512,9 @@
             line-height: 1.6;
         }
 
-        /* MODAL */
+        /* =========================
+           MODAL
+        ========================= */
 
         .modal {
             position: fixed;
@@ -604,7 +576,6 @@
             margin-top: 22px;
             font-size: 20px;
             line-height: 1.35;
-            font-weight: 800;
         }
 
         .modal-text {
@@ -631,15 +602,11 @@
         }
 
         .modal-stat-row + .modal-stat-row {
-            margin-top: 9px;
+            margin-top: 8px;
         }
 
         .modal-stat-row span {
             color: var(--gray);
-        }
-
-        .modal-status {
-            margin-top: 15px;
         }
 
         .modal-button {
@@ -723,7 +690,23 @@
             display: block;
         }
 
-        /* FOOTER */
+        /* =========================
+           LOGIN NOTICE
+        ========================= */
+
+        .login-notice {
+            margin-top: 14px;
+            padding: 11px 13px;
+            border-radius: 8px;
+            background: #eef7fc;
+            color: var(--blue-dark);
+            font-size: 10px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             border-top: 1px solid var(--border);
@@ -749,7 +732,9 @@
             font-size: 9px;
         }
 
-        /* MOBILE */
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 700px) {
 
@@ -811,9 +796,11 @@
 
 </head>
 
-
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -830,7 +817,6 @@
             VOTE
 
         </a>
-
 
         <div class="header-actions">
 
@@ -849,22 +835,19 @@
 </header>
 
 
+<!-- =========================
+     MAIN
+========================= -->
+
 <main>
 
-
     <div class="page-label">
-
         Гражданские инициативы
-
     </div>
 
-
     <h1>
-
         Петиции
-
     </h1>
-
 
     <p class="intro">
 
@@ -875,6 +858,8 @@
 
     </p>
 
+
+    <!-- SEARCH + CREATE -->
 
     <div class="top-actions">
 
@@ -893,7 +878,6 @@
 
         </div>
 
-
         <button
             class="create-button"
             onclick="openCreateModal()">
@@ -904,6 +888,8 @@
 
     </div>
 
+
+    <!-- FILTERS -->
 
     <div class="filters">
 
@@ -958,6 +944,8 @@
     </div>
 
 
+    <!-- PETITIONS -->
+
     <section>
 
         <div class="section-header">
@@ -984,12 +972,10 @@
 
         </div>
 
-
         <div
             class="petition-list"
             id="petitionList">
         </div>
-
 
         <div
             class="empty"
@@ -1001,6 +987,8 @@
 
     </section>
 
+
+    <!-- INFORMATION -->
 
     <section class="info-section">
 
@@ -1019,7 +1007,6 @@
 
         </p>
 
-
         <div class="info-points">
 
             <div class="info-point">
@@ -1035,7 +1022,6 @@
 
             </div>
 
-
             <div class="info-point">
 
                 <strong>
@@ -1049,7 +1035,6 @@
 
             </div>
 
-
             <div class="info-point">
 
                 <strong>
@@ -1057,8 +1042,8 @@
                 </strong>
 
                 <span>
-                    Отслеживайте количество подписей,
-                    дедлайн и дальнейший статус инициативы.
+                    Отслеживайте количество подписей
+                    и дальнейший статус инициативы.
                 </span>
 
             </div>
@@ -1069,6 +1054,10 @@
 
 </main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1087,7 +1076,9 @@
 </footer>
 
 
-<!-- DETAILS MODAL -->
+<!-- =========================
+     DETAILS MODAL
+========================= -->
 
 <div
     class="modal"
@@ -1111,18 +1102,15 @@
 
         </div>
 
-
         <div
             class="modal-title"
             id="detailsTitle">
         </div>
 
-
         <div
             class="modal-text"
             id="detailsText">
         </div>
-
 
         <div class="modal-stat">
 
@@ -1138,7 +1126,6 @@
 
             </div>
 
-
             <div class="modal-stat-row">
 
                 <span>
@@ -1150,7 +1137,6 @@
                 </strong>
 
             </div>
-
 
             <div class="modal-stat-row">
 
@@ -1164,27 +1150,13 @@
 
             </div>
 
-
-            <div class="modal-stat-row">
-
-                <span>
-                    Дедлайн
-                </span>
-
-                <strong id="detailsDeadline">
-                    —
-                </strong>
-
-            </div>
-
         </div>
-
 
         <div
-            class="modal-status"
-            id="detailsStatus">
+            class="login-notice"
+            id="loginNotice"
+            style="display:none;">
         </div>
-
 
         <button
             class="modal-button"
@@ -1200,7 +1172,9 @@
 </div>
 
 
-<!-- CREATE MODAL -->
+<!-- =========================
+     CREATE MODAL
+========================= -->
 
 <div
     class="modal"
@@ -1224,14 +1198,12 @@
 
         </div>
 
-
         <p class="modal-description">
 
-            Заполните форму. После публикации
-            петиция появится в списке инициатив.
+            Для создания петиции необходимо
+            войти в аккаунт.
 
         </p>
-
 
         <div class="form-group">
 
@@ -1242,11 +1214,9 @@
             <input
                 type="text"
                 id="petitionTitleInput"
-                maxlength="150"
                 placeholder="Например: Улучшение городской инфраструктуры">
 
         </div>
-
 
         <div class="form-group">
 
@@ -1272,7 +1242,6 @@
 
         </div>
 
-
         <div class="form-group">
 
             <label for="petitionGoalInput">
@@ -1283,24 +1252,9 @@
                 type="number"
                 id="petitionGoalInput"
                 min="10"
-                max="10000000"
                 value="1000">
 
         </div>
-
-
-        <div class="form-group">
-
-            <label for="petitionDeadlineInput">
-                Дата окончания
-            </label>
-
-            <input
-                type="date"
-                id="petitionDeadlineInput">
-
-        </div>
-
 
         <div class="form-group">
 
@@ -1310,17 +1264,14 @@
 
             <textarea
                 id="petitionDescriptionInput"
-                maxlength="3000"
                 placeholder="Опишите проблему и предлагаемое решение..."></textarea>
 
         </div>
-
 
         <div
             class="form-error"
             id="createError">
         </div>
-
 
         <button
             class="modal-button"
@@ -1337,112 +1288,87 @@
 
 <script>
 
-
-/* =========================================
+/* =====================================================
    DEFAULT PETITIONS
-========================================= */
+===================================================== */
 
 const defaultPetitions = [
 
     {
         id: "petition_1",
-
         category: "city",
-
         categoryName: "Город",
-
-        title:
-            "Развитие общественного транспорта в Алматы",
-
+        title: "Развитие общественного транспорта в Алматы",
         description:
             "Предлагается расширить сеть общественного транспорта, увеличить количество выделенных полос и улучшить интервалы движения автобусов.",
-
         signatures: 7421,
-
         goal: 10000,
-
-        deadline: "2026-12-30"
-
+        deadline: "30 декабря 2026 года"
     },
 
     {
         id: "petition_2",
-
         category: "education",
-
         categoryName: "Образование",
-
-        title:
-            "Развитие цифровой инфраструктуры школ",
-
+        title: "Развитие цифровой инфраструктуры школ",
         description:
             "Предлагается обеспечить школы современной цифровой инфраструктурой и расширить доступ учащихся к образовательным технологиям.",
-
         signatures: 4180,
-
         goal: 7500,
-
-        deadline: "2027-01-15"
-
+        deadline: "15 января 2027 года"
     },
 
     {
         id: "petition_3",
-
         category: "environment",
-
         categoryName: "Экология",
-
-        title:
-            "Увеличение количества зелёных зон в городах",
-
+        title: "Увеличение количества зелёных зон в городах",
         description:
             "Инициатива направлена на увеличение количества общественных зелёных пространств, деревьев и зон отдыха.",
-
         signatures: 9320,
-
         goal: 15000,
-
-        deadline: "2027-02-10"
-
+        deadline: "10 февраля 2027 года"
     },
 
     {
         id: "petition_4",
-
         category: "city",
-
         categoryName: "Город",
-
-        title:
-            "Повышение доступности городской среды",
-
+        title: "Повышение доступности городской среды",
         description:
             "Создание более удобной городской среды и улучшение доступности общественных пространств для всех жителей.",
-
         signatures: 2840,
-
         goal: 5000,
-
-        deadline: "2027-03-20"
-
+        deadline: "20 марта 2027 года"
     }
 
 ];
 
 
-/* =========================================
+/* =====================================================
    STATE
-========================================= */
+===================================================== */
 
 let currentFilter = "all";
 
 let currentPetitionId = null;
 
 
-/* =========================================
+/* =====================================================
    AUTHENTICATION
-========================================= */
+===================================================== */
+
+/*
+ * Авторизация НЕ используется для просмотра страницы.
+ *
+ * Она используется только:
+ *
+ * 1. при создании петиции;
+ * 2. при подписи петиции.
+ *
+ * Если в твоём index.html используется один из этих
+ * ключей, всё будет работать.
+ */
 
 function isAuthenticated() {
 
@@ -1456,9 +1382,9 @@ function isAuthenticated() {
 }
 
 
-/* =========================================
+/* =====================================================
    PETITION IDENTITY
-========================================= */
+===================================================== */
 
 function isPetitionIdentityVerified() {
 
@@ -1471,9 +1397,9 @@ function isPetitionIdentityVerified() {
 }
 
 
-/* =========================================
+/* =====================================================
    PENDING PETITION
-========================================= */
+===================================================== */
 
 function savePendingPetition(id) {
 
@@ -1484,6 +1410,10 @@ function savePendingPetition(id) {
 
 }
 
+
+/* =====================================================
+   VERIFICATION
+===================================================== */
 
 function redirectToPetitionVerification(id) {
 
@@ -1501,9 +1431,9 @@ function redirectToPetitionVerification(id) {
 }
 
 
-/* =========================================
+/* =====================================================
    OPEN PENDING PETITION
-========================================= */
+===================================================== */
 
 function openPendingPetition() {
 
@@ -1530,14 +1460,14 @@ function openPendingPetition() {
 
         openDetails(petitionId);
 
-    }, 100);
+    }, 50);
 
 }
 
 
-/* =========================================
+/* =====================================================
    PETITIONS
-========================================= */
+===================================================== */
 
 function getPetitions() {
 
@@ -1548,28 +1478,35 @@ function getPetitions() {
 
     if (!saved) {
 
-        savePetitions(defaultPetitions);
+        localStorage.setItem(
+            "vote_petitions",
+            JSON.stringify(
+                defaultPetitions
+            )
+        );
 
-        return [...defaultPetitions];
+        return [
+            ...defaultPetitions
+        ];
 
     }
 
     try {
 
-        const parsed =
-            JSON.parse(saved);
-
-        if (!Array.isArray(parsed)) {
-            throw new Error("Invalid petitions");
-        }
-
-        return parsed;
+        return JSON.parse(saved);
 
     } catch (error) {
 
-        savePetitions(defaultPetitions);
+        localStorage.setItem(
+            "vote_petitions",
+            JSON.stringify(
+                defaultPetitions
+            )
+        );
 
-        return [...defaultPetitions];
+        return [
+            ...defaultPetitions
+        ];
 
     }
 
@@ -1586,24 +1523,19 @@ function savePetitions(petitions) {
 }
 
 
-/* =========================================
+/* =====================================================
    SIGNED
-========================================= */
+===================================================== */
 
 function getSignedPetitions() {
 
     try {
 
-        const value =
-            JSON.parse(
-                localStorage.getItem(
-                    "vote_signed_petitions"
-                ) || "[]"
-            );
-
-        return Array.isArray(value)
-            ? value
-            : [];
+        return JSON.parse(
+            localStorage.getItem(
+                "vote_signed_petitions"
+            ) || "[]"
+        );
 
     } catch (error) {
 
@@ -1624,125 +1556,23 @@ function saveSignedPetitions(ids) {
 }
 
 
-/* =========================================
-   DATE
-========================================= */
-
-function parseDeadline(value) {
-
-    if (!value) {
-        return null;
-    }
-
-    const date =
-        new Date(
-            value + "T23:59:59"
-        );
-
-    if (Number.isNaN(date.getTime())) {
-        return null;
-    }
-
-    return date;
-
-}
-
-
-function formatDeadline(value) {
-
-    const date =
-        parseDeadline(value);
-
-    if (!date) {
-        return "Не указано";
-    }
-
-    return date.toLocaleDateString(
-        "ru-RU",
-        {
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-        }
-    );
-
-}
-
-
-/* =========================================
-   STATUS
-========================================= */
-
-function getPetitionStatus(petition) {
-
-    const signatures =
-        Number(
-            petition.signatures || 0
-        );
-
-    const goal =
-        Number(
-            petition.goal || 0
-        );
-
-    const deadline =
-        parseDeadline(
-            petition.deadline
-        );
-
-    if (
-        goal > 0 &&
-        signatures >= goal
-    ) {
-
-        return "goal-reached";
-
-    }
-
-    if (
-        deadline &&
-        new Date() > deadline
-    ) {
-
-        return "expired";
-
-    }
-
-    return "active";
-
-}
-
-
-function getStatusText(status) {
-
-    if (status === "goal-reached") {
-        return "Цель достигнута";
-    }
-
-    if (status === "expired") {
-        return "Петиция завершена";
-    }
-
-    return "Активна";
-
-}
-
-
-/* =========================================
+/* =====================================================
    RENDER
-========================================= */
+===================================================== */
+
+/*
+ * ВАЖНО:
+ *
+ * Здесь НЕТ проверки авторизации.
+ *
+ * Поэтому страницу можно открыть напрямую:
+ *
+ * petitions.html
+ *
+ * без входа.
+ */
 
 function renderPetitions() {
-
-    if (!isAuthenticated()) {
-
-        window.location.href =
-            "index.html?login=required";
-
-        return;
-
-    }
-
 
     const list =
         document.getElementById(
@@ -1766,47 +1596,42 @@ function renderPetitions() {
                 .toLowerCase()
             : "";
 
-
     const petitions =
         getPetitions();
 
     const signed =
         getSignedPetitions();
 
-
     const filtered =
         petitions.filter(
             function(petition) {
 
-                const title =
-                    String(
-                        petition.title || ""
-                    ).toLowerCase();
-
-                const description =
-                    String(
-                        petition.description || ""
-                    ).toLowerCase();
-
                 const matchesSearch =
+
                     !query ||
-                    title.includes(query) ||
-                    description.includes(query);
+
+                    petition.title
+                        .toLowerCase()
+                        .includes(query) ||
+
+                    petition.description
+                        .toLowerCase()
+                        .includes(query);
 
                 if (!matchesSearch) {
                     return false;
                 }
 
-
                 if (
-                    currentFilter === "all"
+                    currentFilter ===
+                    "all"
                 ) {
                     return true;
                 }
 
-
                 if (
-                    currentFilter === "signed"
+                    currentFilter ===
+                    "signed"
                 ) {
 
                     return signed.includes(
@@ -1815,19 +1640,17 @@ function renderPetitions() {
 
                 }
 
-
                 if (
-                    currentFilter === "active"
+                    currentFilter ===
+                    "active"
                 ) {
 
                     return (
-                        getPetitionStatus(
-                            petition
-                        ) === "active"
+                        Number(petition.signatures) <
+                        Number(petition.goal)
                     );
 
                 }
-
 
                 return (
                     petition.category ===
@@ -1837,9 +1660,7 @@ function renderPetitions() {
             }
         );
 
-
     list.innerHTML = "";
-
 
     document.getElementById(
         "petitionCount"
@@ -1850,7 +1671,6 @@ function renderPetitions() {
             filtered.length
         );
 
-
     if (!filtered.length) {
 
         empty.style.display = "block";
@@ -1859,9 +1679,7 @@ function renderPetitions() {
 
     }
 
-
     empty.style.display = "none";
-
 
     filtered.forEach(
         function(petition) {
@@ -1871,28 +1689,18 @@ function renderPetitions() {
                     petition.id
                 );
 
-            const status =
-                getPetitionStatus(
-                    petition
-                );
-
             const progress =
                 petition.goal > 0
                     ? Math.min(
                         100,
                         Math.round(
                             (
-                                Number(
-                                    petition.signatures || 0
-                                ) /
-                                Number(
-                                    petition.goal
-                                )
+                                petition.signatures /
+                                petition.goal
                             ) * 100
                         )
                     )
                     : 0;
-
 
             const card =
                 document.createElement(
@@ -1902,113 +1710,96 @@ function renderPetitions() {
             card.className =
                 "petition-card";
 
-
-            let buttonText =
-                "Подробнее";
-
-            let buttonClass =
-                "sign-button";
-
-
-            if (isSigned) {
-
-                buttonText =
-                    "✓ Вы подписали";
-
-                buttonClass +=
-                    " signed";
-
-            }
-
-
             card.innerHTML = `
 
                 <div class="petition-category">
+
                     ${escapeHTML(
-                        petition.categoryName ||
-                        "Другое"
+                        petition.categoryName
                     )}
+
                 </div>
 
-
                 <div class="petition-title">
+
                     ${escapeHTML(
                         petition.title
                     )}
+
                 </div>
 
-
                 <div class="petition-description">
+
                     ${escapeHTML(
                         petition.description
                     )}
-                </div>
 
+                </div>
 
                 <div class="petition-meta">
 
                     <div class="signatures">
+
                         ${formatNumber(
                             petition.signatures
                         )}
+
                         подписей
+
                     </div>
 
                     <div class="goal">
+
                         цель:
                         ${formatNumber(
                             petition.goal
                         )}
+
                     </div>
 
                 </div>
 
-
                 <div class="progress">
 
                     <div
-                        class="progress-bar ${
-                            status === "goal-reached"
-                                ? "completed"
-                                : ""
-                        }"
+                        class="progress-bar"
                         style="width:${progress}%">
                     </div>
 
                 </div>
 
-
-                <div class="petition-status ${status}">
-                    ${getStatusText(status)}
-                </div>
-
-
                 <div class="petition-footer">
 
                     <div class="deadline">
+
                         До
                         ${escapeHTML(
-                            formatDeadline(
-                                petition.deadline
-                            )
+                            petition.deadline
                         )}
+
                     </div>
 
-
                     <button
-                        class="${buttonClass}"
-                        onclick="openDetails('${escapeHTML(
-                            petition.id
-                        )}')">
+                        class="sign-button ${
+                            isSigned
+                                ? "signed"
+                                : ""
+                        }"
+                        onclick="openDetails(
+                            '${escapeHTML(petition.id)}'
+                        )">
 
-                        ${buttonText}
+                        ${
+                            isSigned
+                                ? "✓ Вы подписали"
+                                : "Подробнее"
+                        }
 
                     </button>
 
                 </div>
 
             `;
-
 
             list.appendChild(card);
 
@@ -2018,9 +1809,9 @@ function renderPetitions() {
 }
 
 
-/* =========================================
+/* =====================================================
    FILTER
-========================================= */
+===================================================== */
 
 function setFilter(
     filter,
@@ -2029,7 +1820,6 @@ function setFilter(
 
     currentFilter =
         filter;
-
 
     document
         .querySelectorAll(
@@ -2045,36 +1835,23 @@ function setFilter(
             }
         );
 
-
     button.classList.add(
         "active"
     );
-
 
     renderPetitions();
 
 }
 
 
-/* =========================================
+/* =====================================================
    DETAILS
-========================================= */
+===================================================== */
 
 function openDetails(id) {
 
-    if (!isAuthenticated()) {
-
-        window.location.href =
-            "index.html?login=required";
-
-        return;
-
-    }
-
-
     const petitions =
         getPetitions();
-
 
     const petition =
         petitions.find(
@@ -2085,38 +1862,26 @@ function openDetails(id) {
             }
         );
 
-
     if (!petition) {
         return;
     }
 
-
     currentPetitionId =
         id;
-
 
     const signed =
         getSignedPetitions()
             .includes(id);
-
-
-    const status =
-        getPetitionStatus(
-            petition
-        );
-
 
     document.getElementById(
         "detailsTitle"
     ).textContent =
         petition.title;
 
-
     document.getElementById(
         "detailsText"
     ).textContent =
         petition.description;
-
 
     document.getElementById(
         "detailsSignatures"
@@ -2125,7 +1890,6 @@ function openDetails(id) {
             petition.signatures
         );
 
-
     document.getElementById(
         "detailsGoal"
     ).textContent =
@@ -2133,91 +1897,42 @@ function openDetails(id) {
             petition.goal
         );
 
-
     document.getElementById(
         "detailsCategory"
     ).textContent =
         petition.categoryName;
-
-
-    document.getElementById(
-        "detailsDeadline"
-    ).textContent =
-        formatDeadline(
-            petition.deadline
-        );
-
-
-    const statusElement =
-        document.getElementById(
-            "detailsStatus"
-        );
-
-
-    statusElement.className =
-        "petition-status " +
-        status;
-
-
-    statusElement.textContent =
-        getStatusText(
-            status
-        );
-
 
     const action =
         document.getElementById(
             "detailsAction"
         );
 
-
-    action.disabled = false;
-
-    action.className =
-        "modal-button";
-
-
-    action.style.background =
-        "var(--blue)";
+    const notice =
+        document.getElementById(
+            "loginNotice"
+        );
 
 
-    action.style.color =
-        "white";
-
+    /*
+     * Уже подписана
+     */
 
     if (signed) {
 
         action.textContent =
             "✓ Вы подписали петицию";
 
-        action.disabled =
-            true;
-
         action.style.background =
             "var(--green)";
 
-        openDetailsModal();
-
-        return;
-
-    }
-
-
-    if (
-        status === "goal-reached"
-    ) {
-
-        action.textContent =
-            "Цель достигнута";
-
         action.disabled =
             true;
 
-        action.style.background =
-            "#d9dedb";
+        action.style.cursor =
+            "default";
 
-        action.style.color =
-            "var(--gray)";
+        notice.style.display =
+            "none";
 
         openDetailsModal();
 
@@ -2226,21 +1941,29 @@ function openDetails(id) {
     }
 
 
-    if (
-        status === "expired"
-    ) {
+    /*
+     * Неавторизованный пользователь
+     */
+
+    if (!isAuthenticated()) {
 
         action.textContent =
-            "Петиция завершена";
-
-        action.disabled =
-            true;
+            "Войти для подписи";
 
         action.style.background =
-            "#d9dedb";
+            "var(--blue)";
 
-        action.style.color =
-            "var(--gray)";
+        action.disabled =
+            false;
+
+        action.style.cursor =
+            "pointer";
+
+        notice.textContent =
+            "Для подписи петиции необходимо войти в аккаунт.";
+
+        notice.style.display =
+            "block";
 
         openDetailsModal();
 
@@ -2248,6 +1971,22 @@ function openDetails(id) {
 
     }
 
+
+    /*
+     * Авторизован, но личность не подтверждена
+     */
+
+    notice.style.display =
+        "none";
+
+    action.disabled =
+        false;
+
+    action.style.cursor =
+        "pointer";
+
+    action.style.background =
+        "var(--blue)";
 
     if (
         isPetitionIdentityVerified()
@@ -2263,15 +2002,14 @@ function openDetails(id) {
 
     }
 
-
     openDetailsModal();
 
 }
 
 
-/* =========================================
+/* =====================================================
    OPEN DETAILS MODAL
-========================================= */
+===================================================== */
 
 function openDetailsModal() {
 
@@ -2285,9 +2023,9 @@ function openDetailsModal() {
 }
 
 
-/* =========================================
+/* =====================================================
    SIGN
-========================================= */
+===================================================== */
 
 function signFromModal() {
 
@@ -2295,6 +2033,11 @@ function signFromModal() {
         return;
     }
 
+
+    /*
+     * Авторизация нужна ТОЛЬКО здесь,
+     * когда пользователь пытается подписать.
+     */
 
     if (!isAuthenticated()) {
 
@@ -2306,31 +2049,13 @@ function signFromModal() {
     }
 
 
-    const petitions =
-        getPetitions();
-
-
-    const petition =
-        petitions.find(
-            function(item) {
-
-                return (
-                    item.id ===
-                    currentPetitionId
-                );
-
-            }
-        );
-
-
-    if (!petition) {
-        return;
-    }
-
-
     const signed =
         getSignedPetitions();
 
+
+    /*
+     * Защита от повторной подписи
+     */
 
     if (
         signed.includes(
@@ -2347,37 +2072,9 @@ function signFromModal() {
     }
 
 
-    const status =
-        getPetitionStatus(
-            petition
-        );
-
-
-    if (
-        status === "goal-reached"
-    ) {
-
-        alert(
-            "Цель подписей уже достигнута."
-        );
-
-        return;
-
-    }
-
-
-    if (
-        status === "expired"
-    ) {
-
-        alert(
-            "Срок действия петиции истёк."
-        );
-
-        return;
-
-    }
-
+    /*
+     * Проверка личности
+     */
 
     if (
         !isPetitionIdentityVerified()
@@ -2392,10 +2089,52 @@ function signFromModal() {
     }
 
 
+    const petitions =
+        getPetitions();
+
+    const petition =
+        petitions.find(
+            function(item) {
+
+                return (
+                    item.id ===
+                    currentPetitionId
+                );
+
+            }
+        );
+
+    if (!petition) {
+        return;
+    }
+
+
+    /*
+     * Повторная защита
+     */
+
+    if (
+        signed.includes(
+            petition.id
+        )
+    ) {
+
+        alert(
+            "Вы уже подписали эту петицию."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Добавляем подпись
+     */
+
     signed.push(
         petition.id
     );
-
 
     petition.signatures =
         Number(
@@ -2403,29 +2142,44 @@ function signFromModal() {
         ) + 1;
 
 
+    /*
+     * Сохраняем
+     */
+
     saveSignedPetitions(
         signed
     );
-
 
     savePetitions(
         petitions
     );
 
 
+    /*
+     * Закрываем
+     */
+
     closeModal(
         "detailsModal"
     );
 
+
+    /*
+     * Обновляем список
+     */
 
     renderPetitions();
 
 }
 
 
-/* =========================================
-   CREATE
-========================================= */
+/* =====================================================
+   CREATE MODAL
+===================================================== */
+
+/*
+ * Само открытие формы также требует авторизации.
+ */
 
 function openCreateModal() {
 
@@ -2438,32 +2192,6 @@ function openCreateModal() {
 
     }
 
-
-    const deadlineInput =
-        document.getElementById(
-            "petitionDeadlineInput"
-        );
-
-
-    if (
-        !deadlineInput.value
-    ) {
-
-        const tomorrow =
-            new Date();
-
-        tomorrow.setDate(
-            tomorrow.getDate() + 30
-        );
-
-
-        deadlineInput.value =
-            tomorrow.toISOString()
-                .split("T")[0];
-
-    }
-
-
     document
         .getElementById(
             "createModal"
@@ -2474,7 +2202,15 @@ function openCreateModal() {
 }
 
 
+/* =====================================================
+   CREATE PETITION
+===================================================== */
+
 function createPetition() {
+
+    /*
+     * Дополнительная защита.
+     */
 
     if (!isAuthenticated()) {
 
@@ -2494,14 +2230,12 @@ function createPetition() {
             .value
             .trim();
 
-
     const category =
         document
             .getElementById(
                 "petitionCategoryInput"
             )
             .value;
-
 
     const goal =
         Number(
@@ -2512,15 +2246,6 @@ function createPetition() {
                 .value
         );
 
-
-    const deadline =
-        document
-            .getElementById(
-                "petitionDeadlineInput"
-            )
-            .value;
-
-
     const description =
         document
             .getElementById(
@@ -2529,12 +2254,10 @@ function createPetition() {
             .value
             .trim();
 
-
     const error =
         document.getElementById(
             "createError"
         );
-
 
     error.classList.remove(
         "active"
@@ -2553,9 +2276,7 @@ function createPetition() {
     }
 
 
-    if (
-        title.length < 10
-    ) {
+    if (title.length < 10) {
 
         showError(
             error,
@@ -2590,65 +2311,6 @@ function createPetition() {
         showError(
             error,
             "Цель должна быть не менее 10 подписей."
-        );
-
-        return;
-
-    }
-
-
-    if (
-        goal > 10000000
-    ) {
-
-        showError(
-            error,
-            "Цель не может превышать 10 000 000 подписей."
-        );
-
-        return;
-
-    }
-
-
-    if (!deadline) {
-
-        showError(
-            error,
-            "Выберите дату окончания петиции."
-        );
-
-        return;
-
-    }
-
-
-    const deadlineDate =
-        parseDeadline(
-            deadline
-        );
-
-
-    const today =
-        new Date();
-
-
-    today.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-
-    if (
-        !deadlineDate ||
-        deadlineDate < today
-    ) {
-
-        showError(
-            error,
-            "Дата окончания должна быть в будущем."
         );
 
         return;
@@ -2699,7 +2361,7 @@ function createPetition() {
             goal,
 
         deadline:
-            deadline
+            "дата определяется"
 
     };
 
@@ -2714,29 +2376,21 @@ function createPetition() {
     );
 
 
+    /*
+     * Очищаем форму
+     */
+
     document.getElementById(
         "petitionTitleInput"
     ).value = "";
-
 
     document.getElementById(
         "petitionDescriptionInput"
     ).value = "";
 
-
     document.getElementById(
         "petitionGoalInput"
     ).value = "1000";
-
-
-    document.getElementById(
-        "petitionDeadlineInput"
-    ).value = "";
-
-
-    document.getElementById(
-        "petitionCategoryInput"
-    ).value = "city";
 
 
     closeModal(
@@ -2748,15 +2402,15 @@ function createPetition() {
 
 
     alert(
-        "Петиция успешно добавлена."
+        "Петиция добавлена в прототип."
     );
 
 }
 
 
-/* =========================================
+/* =====================================================
    ERROR
-========================================= */
+===================================================== */
 
 function showError(
     element,
@@ -2773,9 +2427,9 @@ function showError(
 }
 
 
-/* =========================================
-   CLOSE
-========================================= */
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
 
 function closeModal(id) {
 
@@ -2787,9 +2441,9 @@ function closeModal(id) {
 }
 
 
-/* =========================================
+/* =====================================================
    BACK
-========================================= */
+===================================================== */
 
 function goBack() {
 
@@ -2811,14 +2465,14 @@ function goBack() {
 }
 
 
-/* =========================================
+/* =====================================================
    NUMBER
-========================================= */
+===================================================== */
 
 function formatNumber(number) {
 
     return Number(
-        number || 0
+        number
     ).toLocaleString(
         "ru-RU"
     );
@@ -2826,9 +2480,9 @@ function formatNumber(number) {
 }
 
 
-/* =========================================
+/* =====================================================
    WORD
-========================================= */
+===================================================== */
 
 function getPetitionWord(number) {
 
@@ -2840,7 +2494,6 @@ function getPetitionWord(number) {
         return "петиция";
 
     }
-
 
     if (
         number % 10 >= 2 &&
@@ -2855,15 +2508,14 @@ function getPetitionWord(number) {
 
     }
 
-
     return "петиций";
 
 }
 
 
-/* =========================================
-   ESCAPE
-========================================= */
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
 
 function escapeHTML(value) {
 
@@ -2897,9 +2549,9 @@ function escapeHTML(value) {
 }
 
 
-/* =========================================
+/* =====================================================
    MODAL OUTSIDE CLICK
-========================================= */
+===================================================== */
 
 document
     .querySelectorAll(".modal")
@@ -2928,9 +2580,9 @@ document
     );
 
 
-/* =========================================
+/* =====================================================
    ESC
-========================================= */
+===================================================== */
 
 document.addEventListener(
     "keydown",
@@ -2961,25 +2613,22 @@ document.addEventListener(
 );
 
 
-/* =========================================
+/* =====================================================
    START
-========================================= */
+===================================================== */
 
-if (!isAuthenticated()) {
+/*
+ * НИКАКОЙ ПРОВЕРКИ АВТОРИЗАЦИИ ЗДЕСЬ НЕТ.
+ *
+ * Поэтому petitions.html можно открыть
+ * абсолютно свободно.
+ */
 
-    window.location.href =
-        "index.html?login=required";
+renderPetitions();
 
-} else {
-
-    renderPetitions();
-
-    openPendingPetition();
-
-}
+openPendingPetition();
 
 </script>
-
 
 </body>
 
