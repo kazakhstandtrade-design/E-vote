@@ -23,13 +23,21 @@
 
         :root {
 
-            --black: #17181c;
-            --gray: #70747d;
-            --light: #f6f6f4;
-            --border: #e7e7e4;
+            --black: #15171b;
 
-            --red: #c92d38;
-            --red-dark: #ad222d;
+            --gray: #737982;
+
+            --light: #f7f8f7;
+
+            --border: #e6e8e6;
+
+            --blue: #4aa9df;
+
+            --blue-dark: #318fc5;
+
+            --gold: #d8b15a;
+
+            --green: #16834b;
 
             --white: #ffffff;
 
@@ -43,6 +51,14 @@
 
         body {
 
+            min-height: 100vh;
+
+            background:
+                var(--white);
+
+            color:
+                var(--black);
+
             font-family:
                 -apple-system,
                 BlinkMacSystemFont,
@@ -51,14 +67,7 @@
                 Arial,
                 sans-serif;
 
-            color: var(--black);
-
-            background: var(--white);
-
-            min-height: 100vh;
-
         }
-
 
 
         /* =========================================
@@ -70,121 +79,209 @@
             height: 72px;
 
             background:
-                rgba(255,255,255,.96);
+                rgba(255,255,255,.97);
 
             border-bottom:
                 1px solid var(--border);
 
-            position: sticky;
+            position:
+                sticky;
 
-            top: 0;
+            top:
+                0;
 
-            z-index: 50;
+            z-index:
+                50;
 
             backdrop-filter:
-                blur(10px);
+                blur(12px);
 
         }
 
 
-        .header-container {
+        .header-inner {
 
-            max-width: 1180px;
+            max-width:
+                1180px;
 
-            height: 100%;
+            height:
+                100%;
 
-            margin: auto;
+            margin:
+                auto;
 
-            padding: 0 24px;
+            padding:
+                0 24px;
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
         }
 
+
+        /* =========================================
+           LOGO
+        ========================================= */
 
         .logo {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 10px;
+            gap:
+                10px;
 
-            color: var(--black);
+            color:
+                var(--black);
 
-            text-decoration: none;
+            text-decoration:
+                none;
 
-            font-size: 19px;
+            font-size:
+                18px;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
-            letter-spacing: -.4px;
+            letter-spacing:
+                -.5px;
+
+        }
+
+
+        .logo-icon {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            border-radius:
+                9px;
+
+            background:
+                var(--blue);
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-weight:
+                800;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
 
         }
 
 
-        .logo-mark {
+        .logo-icon::after {
 
-            width: 33px;
+            content:
+                "";
 
-            height: 33px;
+            position:
+                absolute;
 
-            border-radius: 9px;
+            width:
+                9px;
 
-            background: var(--red);
+            height:
+                9px;
 
-            color: white;
+            border-radius:
+                50%;
 
-            display: flex;
+            background:
+                var(--gold);
 
-            align-items: center;
+            right:
+                5px;
 
-            justify-content: center;
-
-            font-weight: 800;
+            top:
+                5px;
 
         }
 
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
 
         .nav {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            gap: 24px;
+            gap:
+                25px;
 
         }
 
 
         .nav a {
 
-            color: var(--gray);
+            color:
+                var(--gray);
 
-            text-decoration: none;
+            text-decoration:
+                none;
 
-            font-size: 12px;
+            font-size:
+                11px;
 
-            transition: .2s;
+            transition:
+                .2s;
 
         }
 
 
         .nav a:hover {
 
-            color: var(--black);
+            color:
+                var(--black);
 
         }
 
 
-        .login-button {
+        .nav-button {
+
+            height:
+                36px;
+
+            padding:
+                0 16px;
 
             border:
                 1px solid var(--border);
+
+            border-radius:
+                8px;
 
             background:
                 white;
@@ -192,17 +289,11 @@
             color:
                 var(--black);
 
-            padding:
-                9px 17px;
-
-            border-radius:
-                8px;
-
             font-size:
-                12px;
+                11px;
 
             font-weight:
-                600;
+                700;
 
             cursor:
                 pointer;
@@ -213,7 +304,7 @@
         }
 
 
-        .login-button:hover {
+        .nav-button:hover {
 
             border-color:
                 var(--black);
@@ -223,61 +314,58 @@
 
 
         /* =========================================
-           HERO
+           MAIN
+        ========================================= */
+
+        main {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            padding:
+                80px 24px 90px;
+
+        }
+
+
+
+        /* =========================================
+           HERO TEXT
         ========================================= */
 
         .about-hero {
 
-            max-width: 1180px;
+            max-width:
+                850px;
 
-            margin: auto;
-
-            min-height: 480px;
+            margin:
+                0 auto;
 
             padding:
-                85px 24px;
+                20px 0 75px;
 
-            display: flex;
-
-            align-items: center;
-
-            position: relative;
-
-            overflow: hidden;
-
-            background-image:
-
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.72),
-                    rgba(0,0,0,.42),
-                    rgba(0,0,0,.55)
-                ),
-
-                url("images/platform-kazakhstan.jpg");
-
-            background-size: cover;
-
-            background-position: center;
+            background:
+                transparent;
 
         }
 
 
-        .hero-content {
+        .about-label {
 
-            position: relative;
+            display:
+                flex;
 
-            z-index: 2;
+            align-items:
+                center;
 
-            max-width: 760px;
-
-        }
-
-
-        .hero-label {
+            gap:
+                10px;
 
             color:
-                rgba(255,255,255,.82);
+                var(--blue-dark);
 
             font-size:
                 10px;
@@ -286,7 +374,7 @@
                 800;
 
             letter-spacing:
-                1.5px;
+                1.4px;
 
             text-transform:
                 uppercase;
@@ -294,16 +382,30 @@
         }
 
 
+        .about-label::before {
+
+            content:
+                "";
+
+            width:
+                25px;
+
+            height:
+                1px;
+
+            background:
+                var(--gold);
+
+        }
+
+
         .about-hero h1 {
 
             margin-top:
-                18px;
-
-            color:
-                white;
+                14px;
 
             font-size:
-                clamp(42px, 7vw, 70px);
+                clamp(42px, 7vw, 76px);
 
             line-height:
                 1;
@@ -317,158 +419,282 @@
         }
 
 
-        .hero-description {
+        .about-intro {
 
             max-width:
-                650px;
+                720px;
 
             margin-top:
-                22px;
+                23px;
 
             color:
-                rgba(255,255,255,.84);
+                var(--gray);
 
             font-size:
-                14px;
+                15px;
 
             line-height:
-                1.75;
-
-        }
-
-
-        .hero-buttons {
-
-            margin-top:
-                28px;
-
-            display:
-                flex;
-
-            gap:
-                10px;
-
-        }
-
-
-        .primary-button {
-
-            border:
-                none;
-
-            background:
-                white;
-
-            color:
-                var(--black);
-
-            padding:
-                13px 21px;
-
-            border-radius:
-                8px;
-
-            font-size:
-                12px;
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
-            text-decoration:
-                none;
-
-            transition:
-                .2s;
-
-        }
-
-
-        .primary-button:hover {
-
-            background:
-                #f0f0f0;
-
-            transform:
-                translateY(-1px);
-
-        }
-
-
-        .secondary-button {
-
-            border:
-                1px solid rgba(255,255,255,.5);
-
-            background:
-                rgba(255,255,255,.08);
-
-            color:
-                white;
-
-            padding:
-                13px 21px;
-
-            border-radius:
-                8px;
-
-            font-size:
-                12px;
-
-            font-weight:
-                600;
-
-            cursor:
-                pointer;
-
-            text-decoration:
-                none;
-
-            backdrop-filter:
-                blur(5px);
-
-            transition:
-                .2s;
-
-        }
-
-
-        .secondary-button:hover {
-
-            background:
-                rgba(255,255,255,.15);
-
-            border-color:
-                white;
+                1.8;
 
         }
 
 
 
         /* =========================================
-           INTRO
+           CONTENT GRID
         ========================================= */
 
-        .intro-section {
+        .about-grid {
 
-            max-width:
-                1180px;
+            display:
+                grid;
 
-            margin:
-                auto;
+            grid-template-columns:
+                repeat(2, 1fr);
 
-            padding:
-                80px 24px;
+            gap:
+                15px;
 
         }
 
 
-        .section-label {
+        .about-card {
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                15px;
+
+            padding:
+                30px;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .about-card:hover {
+
+            border-color:
+                #d7d9d7;
+
+            box-shadow:
+                0 12px 35px rgba(20,30,35,.045);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .card-number {
 
             color:
-                var(--red);
+                var(--blue-dark);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.2px;
+
+        }
+
+
+        .about-card h2 {
+
+            margin-top:
+                14px;
+
+            font-size:
+                21px;
+
+            letter-spacing:
+                -.5px;
+
+        }
+
+
+        .about-card p {
+
+            margin-top:
+                10px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+
+        /* =========================================
+           FULL WIDTH CARD
+        ========================================= */
+
+        .about-card-wide {
+
+            grid-column:
+                1 / -1;
+
+        }
+
+
+
+        /* =========================================
+           FEATURES
+        ========================================= */
+
+        .features {
+
+            margin-top:
+                15px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .feature {
+
+            padding:
+                23px;
+
+            background:
+                var(--light);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+        }
+
+
+        .feature-icon {
+
+            width:
+                35px;
+
+            height:
+                35px;
+
+            border-radius:
+                9px;
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                14px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .feature h3 {
+
+            margin-top:
+                18px;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .feature p {
+
+            margin-top:
+                7px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.65;
+
+        }
+
+
+
+        /* =========================================
+           PRINCIPLES
+        ========================================= */
+
+        .principles {
+
+            margin-top:
+                15px;
+
+            padding:
+                35px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                15px;
+
+            background:
+                white;
+
+        }
+
+
+        .principles-header {
+
+            max-width:
+                650px;
+
+        }
+
+
+        .principles-header .section-label {
+
+            color:
+                var(--blue-dark);
 
             font-size:
                 10px;
@@ -485,120 +711,30 @@
         }
 
 
-        .section-title {
+        .principles-header h2 {
 
             margin-top:
                 9px;
 
             font-size:
-                34px;
-
-            line-height:
-                1.15;
-
-            letter-spacing:
-                -1.3px;
-
-        }
-
-
-        .intro-grid {
-
-            margin-top:
                 28px;
 
-            display:
-                grid;
-
-            grid-template-columns:
-                1.2fr .8fr;
-
-            gap:
-                50px;
-
-        }
-
-
-        .intro-text {
-
-            color:
-                var(--gray);
-
-            font-size:
-                13px;
-
-            line-height:
-                1.85;
-
-        }
-
-
-        .intro-text p + p {
-
-            margin-top:
-                15px;
-
-        }
-
-
-        .intro-highlight {
-
-            padding:
-                25px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                13px;
-
-            background:
-                var(--light);
-
-        }
-
-
-        .highlight-number {
-
-            font-size:
-                40px;
-
-            font-weight:
-                800;
-
-            color:
-                var(--red);
-
             letter-spacing:
-                -2px;
+                -1px;
 
         }
 
 
-        .highlight-title {
+        .principles-header p {
 
             margin-top:
-                8px;
-
-            font-size:
-                16px;
-
-            font-weight:
-                800;
-
-        }
-
-
-        .highlight-text {
-
-            margin-top:
-                7px;
+                9px;
 
             color:
                 var(--gray);
 
             font-size:
-                11px;
+                12px;
 
             line-height:
                 1.7;
@@ -606,34 +742,7 @@
         }
 
 
-
-        /* =========================================
-           DIRECTIONS
-        ========================================= */
-
-        .directions {
-
-            background:
-                var(--light);
-
-            padding:
-                80px 24px;
-
-        }
-
-
-        .directions-container {
-
-            max-width:
-                1180px;
-
-            margin:
-                auto;
-
-        }
-
-
-        .direction-grid {
+        .principle-list {
 
             margin-top:
                 30px;
@@ -650,168 +759,27 @@
         }
 
 
-        .direction-card {
+        .principle {
 
-            background:
-                white;
+            padding:
+                22px;
 
             border:
                 1px solid var(--border);
 
             border-radius:
-                13px;
-
-            padding:
-                25px;
-
-            min-height:
-                205px;
-
-            transition:
-                .2s;
+                12px;
 
         }
 
 
-        .direction-card:hover {
-
-            transform:
-                translateY(-3px);
-
-            box-shadow:
-                0 12px 30px rgba(20,30,35,.05);
-
-        }
-
-
-        .direction-number {
+        .principle-number {
 
             color:
-                var(--red);
+                var(--gold);
 
             font-size:
                 10px;
-
-            font-weight:
-                800;
-
-            letter-spacing:
-                1px;
-
-        }
-
-
-        .direction-card h3 {
-
-            margin-top:
-                22px;
-
-            font-size:
-                17px;
-
-        }
-
-
-        .direction-card p {
-
-            margin-top:
-                9px;
-
-            color:
-                var(--gray);
-
-            font-size:
-                12px;
-
-            line-height:
-                1.7;
-
-        }
-
-
-
-        /* =========================================
-           PRINCIPLES
-        ========================================= */
-
-        .principles {
-
-            padding:
-                80px 24px;
-
-        }
-
-
-        .principles-container {
-
-            max-width:
-                1180px;
-
-            margin:
-                auto;
-
-        }
-
-
-        .principles-grid {
-
-            margin-top:
-                30px;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap:
-                15px;
-
-        }
-
-
-        .principle {
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                13px;
-
-            padding:
-                25px;
-
-        }
-
-
-        .principle-icon {
-
-            width:
-                34px;
-
-            height:
-                34px;
-
-            border-radius:
-                9px;
-
-            background:
-                #fff1f2;
-
-            color:
-                var(--red);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            font-size:
-                12px;
 
             font-weight:
                 800;
@@ -822,10 +790,10 @@
         .principle h3 {
 
             margin-top:
-                18px;
+                15px;
 
             font-size:
-                16px;
+                15px;
 
         }
 
@@ -839,128 +807,6 @@
                 var(--gray);
 
             font-size:
-                12px;
-
-            line-height:
-                1.7;
-
-        }
-
-
-
-        /* =========================================
-           PROCESS
-        ========================================= */
-
-        .process {
-
-            background:
-                var(--black);
-
-            color:
-                white;
-
-            padding:
-                80px 24px;
-
-        }
-
-
-        .process-container {
-
-            max-width:
-                1180px;
-
-            margin:
-                auto;
-
-        }
-
-
-        .process .section-label {
-
-            color:
-                #e36b74;
-
-        }
-
-
-        .process .section-title {
-
-            color:
-                white;
-
-        }
-
-
-        .process-grid {
-
-            margin-top:
-                32px;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap:
-                12px;
-
-        }
-
-
-        .process-card {
-
-            border:
-                1px solid rgba(255,255,255,.1);
-
-            background:
-                rgba(255,255,255,.04);
-
-            border-radius:
-                12px;
-
-            padding:
-                22px;
-
-        }
-
-
-        .process-number {
-
-            color:
-                #e36b74;
-
-            font-size:
-                10px;
-
-            font-weight:
-                800;
-
-        }
-
-
-        .process-card h3 {
-
-            margin-top:
-                20px;
-
-            font-size:
-                15px;
-
-        }
-
-
-        .process-card p {
-
-            margin-top:
-                8px;
-
-            color:
-                rgba(255,255,255,.58);
-
-            font-size:
                 11px;
 
             line-height:
@@ -971,32 +817,16 @@
 
 
         /* =========================================
-           PETITIONS
+           HOW IT WORKS
         ========================================= */
 
-        .petitions {
-
-            padding:
-                80px 24px;
-
-        }
-
-
-        .petitions-container {
-
-            max-width:
-                1180px;
-
-            margin:
-                auto;
-
-        }
-
-
-        .petition-box {
+        .process {
 
             margin-top:
-                30px;
+                15px;
+
+            background:
+                var(--light);
 
             border:
                 1px solid var(--border);
@@ -1005,50 +835,29 @@
                 15px;
 
             padding:
-                32px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                30px;
-
-            background:
-                linear-gradient(
-                    120deg,
-                    #ffffff,
-                    #fafafa
-                );
+                35px;
 
         }
 
 
-        .petition-content {
-
-            max-width:
-                700px;
-
-        }
-
-
-        .petition-content h3 {
+        .process h2 {
 
             font-size:
-                21px;
+                28px;
+
+            letter-spacing:
+                -1px;
 
         }
 
 
-        .petition-content p {
+        .process-description {
 
             margin-top:
-                9px;
+                8px;
+
+            max-width:
+                650px;
 
             color:
                 var(--gray);
@@ -1062,25 +871,193 @@
         }
 
 
-        .petition-button {
+        .process-steps {
 
-            flex-shrink:
-                0;
+            margin-top:
+                28px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .process-step {
 
             background:
-                var(--red);
+                white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                12px;
+
+            padding:
+                22px;
+
+        }
+
+
+        .process-step-number {
+
+            width:
+                28px;
+
+            height:
+                28px;
+
+            border-radius:
+                50%;
+
+            background:
+                var(--blue);
 
             color:
                 white;
 
-            border:
-                none;
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .process-step h3 {
+
+            margin-top:
+                17px;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .process-step p {
+
+            margin-top:
+                7px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.65;
+
+        }
+
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .about-cta {
+
+            margin-top:
+                15px;
 
             padding:
-                13px 20px;
+                38px;
+
+            border-radius:
+                15px;
+
+            background:
+                var(--black);
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                30px;
+
+        }
+
+
+        .about-cta h2 {
+
+            font-size:
+                25px;
+
+            letter-spacing:
+                -.8px;
+
+        }
+
+
+        .about-cta p {
+
+            max-width:
+                650px;
+
+            margin-top:
+                8px;
+
+            color:
+                rgba(255,255,255,.65);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .cta-button {
+
+            flex-shrink:
+                0;
+
+            height:
+                43px;
+
+            padding:
+                0 22px;
+
+            border:
+                0;
 
             border-radius:
                 8px;
+
+            background:
+                white;
+
+            color:
+                var(--black);
 
             font-size:
                 11px;
@@ -1097,131 +1074,13 @@
         }
 
 
-        .petition-button:hover {
-
-            background:
-                var(--red-dark);
-
-            transform:
-                translateY(-1px);
-
-        }
-
-
-
-        /* =========================================
-           CTA
-        ========================================= */
-
-        .cta {
-
-            padding:
-                30px 24px 80px;
-
-        }
-
-
-        .cta-container {
-
-            max-width:
-                1180px;
-
-            margin:
-                auto;
-
-        }
-
-
-        .cta-box {
-
-            border-radius:
-                15px;
-
-            background:
-                var(--light);
-
-            border:
-                1px solid var(--border);
-
-            padding:
-                38px;
-
-            text-align:
-                center;
-
-        }
-
-
-        .cta-box h2 {
-
-            font-size:
-                27px;
-
-            letter-spacing:
-                -1px;
-
-        }
-
-
-        .cta-box p {
-
-            max-width:
-                550px;
-
-            margin:
-                10px auto 0;
-
-            color:
-                var(--gray);
-
-            font-size:
-                12px;
-
-            line-height:
-                1.7;
-
-        }
-
-
-        .cta-button {
-
-            display:
-                inline-block;
-
-            margin-top:
-                22px;
-
-            padding:
-                13px 22px;
-
-            border-radius:
-                8px;
-
-            background:
-                var(--black);
-
-            color:
-                white;
-
-            text-decoration:
-                none;
-
-            font-size:
-                11px;
-
-            font-weight:
-                700;
-
-            transition:
-                .2s;
-
-        }
-
-
         .cta-button:hover {
 
             background:
-                #2b2d32;
+                #eeeeee;
+
+            transform:
+                translateY(-1px);
 
         }
 
@@ -1236,13 +1095,16 @@
             border-top:
                 1px solid var(--border);
 
+            background:
+                white;
+
             padding:
-                30px 24px;
+                32px 24px;
 
         }
 
 
-        .footer-container {
+        .footer-inner {
 
             max-width:
                 1180px;
@@ -1253,22 +1115,66 @@
             display:
                 flex;
 
-            justify-content:
-                space-between;
-
             align-items:
                 center;
 
+            justify-content:
+                space-between;
+
             gap:
-                20px;
+                25px;
 
         }
 
 
         .footer-logo {
 
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                9px;
+
             font-size:
                 13px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .footer-logo-mark {
+
+            width:
+                27px;
+
+            height:
+                27px;
+
+            border-radius:
+                7px;
+
+            background:
+                var(--blue);
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                11px;
 
             font-weight:
                 800;
@@ -1281,11 +1187,14 @@
             display:
                 flex;
 
-            gap:
-                20px;
+            align-items:
+                center;
 
             flex-wrap:
                 wrap;
+
+            gap:
+                18px;
 
         }
 
@@ -1315,18 +1224,65 @@
         }
 
 
+        .footer-copy {
+
+            color:
+                #a0a4aa;
+
+            font-size:
+                9px;
+
+        }
+
+
 
         /* =========================================
            MOBILE
         ========================================= */
 
-        @media (max-width: 750px) {
+        @media (max-width: 850px) {
+
+            .features {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
 
 
-            .header-container {
+            .process-steps {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .principle-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+
+            header {
+
+                height:
+                    64px;
+
+            }
+
+
+            .header-inner {
 
                 padding:
-                    0 17px;
+                    0 16px;
 
             }
 
@@ -1347,18 +1303,26 @@
             }
 
 
-            .about-hero {
-
-                min-height:
-                    570px;
+            main {
 
                 padding:
-                    65px 20px;
+                    50px 16px 65px;
+
+            }
+
+
+            .about-hero {
+
+                padding:
+                    10px 0 50px;
 
             }
 
 
             .about-hero h1 {
+
+                font-size:
+                    43px;
 
                 letter-spacing:
                     -2px;
@@ -1366,7 +1330,7 @@
             }
 
 
-            .hero-description {
+            .about-intro {
 
                 font-size:
                     13px;
@@ -1374,64 +1338,40 @@
             }
 
 
-            .hero-buttons {
-
-                flex-direction:
-                    column;
-
-                max-width:
-                    300px;
-
-            }
-
-
-            .primary-button,
-            .secondary-button {
-
-                text-align:
-                    center;
-
-            }
-
-
-            .intro-section,
-            .principles,
-            .petitions {
-
-                padding:
-                    60px 20px;
-
-            }
-
-
-            .directions {
-
-                padding:
-                    60px 20px;
-
-            }
-
-
-            .process {
-
-                padding:
-                    60px 20px;
-
-            }
-
-
-            .intro-grid {
+            .about-grid {
 
                 grid-template-columns:
                     1fr;
 
-                gap:
+            }
+
+
+            .about-card-wide {
+
+                grid-column:
+                    auto;
+
+            }
+
+
+            .features {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .principles,
+            .process {
+
+                padding:
                     25px;
 
             }
 
 
-            .direction-grid {
+            .process-steps {
 
                 grid-template-columns:
                     1fr;
@@ -1439,23 +1379,10 @@
             }
 
 
-            .principles-grid {
+            .about-cta {
 
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .process-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .petition-box {
+                padding:
+                    28px;
 
                 flex-direction:
                     column;
@@ -1463,13 +1390,10 @@
                 align-items:
                     flex-start;
 
-                padding:
-                    25px;
-
             }
 
 
-            .petition-button {
+            .cta-button {
 
                 width:
                     100%;
@@ -1477,7 +1401,7 @@
             }
 
 
-            .footer-container {
+            .footer-inner {
 
                 flex-direction:
                     column;
@@ -1505,21 +1429,20 @@
 <body>
 
 
-
 <!-- =========================================
      HEADER
 ========================================= -->
 
 <header>
 
-    <div class="header-container">
+    <div class="header-inner">
 
 
         <a
             href="index.html"
             class="logo">
 
-            <div class="logo-mark">
+            <div class="logo-icon">
                 V
             </div>
 
@@ -1530,29 +1453,30 @@
 
         <nav class="nav">
 
+
             <a href="index.html">
                 Главная
             </a>
 
-            <a href="about.html">
-                О платформе
+
+            <a href="index.html#candidates">
+                Кандидаты
             </a>
 
-            <a href="security.html">
+
+            <a href="index.html#security">
                 Безопасность
             </a>
 
-            <a href="how-it-works.html">
-                Как это работает
-            </a>
 
             <button
-                class="login-button"
-                onclick="goToLogin()">
+                class="nav-button"
+                onclick="goToCabinet()">
 
-                Войти
+                Личный кабинет
 
             </button>
+
 
         </nav>
 
@@ -1564,626 +1488,442 @@
 
 
 <!-- =========================================
-     HERO
+     MAIN
 ========================================= -->
 
-<section class="about-hero">
+<main>
 
 
-    <div class="hero-content">
+    <!-- =====================================
+         ABOUT HERO
+    ====================================== -->
+
+    <section class="about-hero">
 
 
-        <div class="hero-label">
+        <div class="about-label">
 
-            Цифровое участие граждан
+            О платформе
 
         </div>
 
 
         <h1>
 
-            О платформе
+            Qauipsiz<br>
+            sailau.
 
         </h1>
 
 
-        <p class="hero-description">
+        <p class="about-intro">
 
-            VOTE — цифровая платформа для
-            электронного участия граждан
-            в выборах и общественных инициативах.
+            VOTE — цифровая платформа для участия
+            граждан в электронных выборах и других
+            формах общественного волеизъявления.
 
-            Здесь гражданин может подтвердить
-            свою личность, получить доступ
-            к голосованию и ознакомиться
-            с результатами.
+            Наша задача — сделать участие граждан
+            удобным, понятным и безопасным.
 
         </p>
 
 
-        <div class="hero-buttons">
-
-
-            <a
-                href="index.html"
-                class="primary-button">
-
-                Вернуться на главную
-
-            </a>
-
-
-            <a
-                href="#about"
-                class="secondary-button">
-
-                Узнать больше ↓
-
-            </a>
-
-
-        </div>
-
-
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =========================================
-     ABOUT
-========================================= -->
+    <!-- =====================================
+         ABOUT CARDS
+    ====================================== -->
 
-<section
-    class="intro-section"
-    id="about">
+    <section class="about-grid">
 
 
-    <div class="section-label">
-
-        VOTE
-
-    </div>
+        <article class="about-card">
 
 
-    <h2 class="section-title">
-
-        Платформа для участия
-        граждан
-
-    </h2>
-
-
-    <div class="intro-grid">
-
-
-        <div class="intro-text">
-
-
-            <p>
-
-                VOTE создана как единая цифровая
-                среда, в которой гражданин может
-                участвовать в общественно значимых
-                голосованиях.
-
-            </p>
-
-
-            <p>
-
-                После регистрации пользователь
-                проходит подтверждение личности.
-                Это позволяет системе проверить
-                право участия и одновременно
-                отделить процесс идентификации
-                от самого выбора.
-
-            </p>
-
-
-            <p>
-
-                Платформа предусматривает
-                возможность проведения различных
-                видов голосований: выборов,
-                общественных инициатив и петиций.
-
-            </p>
-
-
-        </div>
-
-
-        <div class="intro-highlight">
-
-
-            <div class="highlight-number">
-
+            <div class="card-number">
                 01
-
             </div>
 
 
-            <div class="highlight-title">
+            <h2>
+                Что такое VOTE
+            </h2>
 
-                Единая точка доступа
 
+            <p>
+
+                VOTE объединяет в одном цифровом
+                пространстве информацию о выборах,
+                кандидатов, электронное голосование,
+                результаты выборов и другие инструменты
+                гражданского участия.
+
+            </p>
+
+
+        </article>
+
+
+
+        <article class="about-card">
+
+
+            <div class="card-number">
+                02
             </div>
 
 
-            <div class="highlight-text">
+            <h2>
+                Для кого создана платформа
+            </h2>
 
-                Один личный кабинет объединяет
-                информацию о выборах, доступных
-                голосованиях, результатах
-                и общественных инициативах.
 
+            <p>
+
+                Платформа предназначена для граждан,
+                которые хотят получать информацию
+                о выборах и принимать участие
+                в общественной жизни страны
+                в цифровом формате.
+
+            </p>
+
+
+        </article>
+
+
+
+        <article
+            class="about-card about-card-wide">
+
+
+            <div class="card-number">
+                03
             </div>
+
+
+            <h2>
+                Единая цифровая среда
+            </h2>
+
+
+            <p>
+
+                Вместо отдельных сервисов пользователь
+                получает единое пространство, где можно
+                узнать о предстоящих выборах, ознакомиться
+                с кандидатами, подтвердить свою личность,
+                проголосовать, посмотреть результаты
+                и участвовать в общественных инициативах.
+
+            </p>
+
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         FEATURES
+    ====================================== -->
+
+    <section class="features">
+
+
+        <article class="feature">
+
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+
+            <h3>
+                Электронное голосование
+            </h3>
+
+
+            <p>
+                Участие в доступных выборах
+                через электронный бюллетень.
+            </p>
+
+
+        </article>
+
+
+
+        <article class="feature">
+
+
+            <div class="feature-icon">
+                ID
+            </div>
+
+
+            <h3>
+                Подтверждение личности
+            </h3>
+
+
+            <p>
+                Проверка личности и права
+                гражданина на участие.
+            </p>
+
+
+        </article>
+
+
+
+        <article class="feature">
+
+
+            <div class="feature-icon">
+                R
+            </div>
+
+
+            <h3>
+                Результаты
+            </h3>
+
+
+            <p>
+                Доступ к информации
+                о завершённых выборах.
+            </p>
+
+
+        </article>
+
+
+
+        <article class="feature">
+
+
+            <div class="feature-icon">
+                P
+            </div>
+
+
+            <h3>
+                Петиции
+            </h3>
+
+
+            <p>
+                Возможность создавать
+                и поддерживать общественные инициативы.
+            </p>
+
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         PRINCIPLES
+    ====================================== -->
+
+    <section class="principles">
+
+
+        <div class="principles-header">
+
+
+            <div class="section-label">
+                Наши принципы
+            </div>
+
+
+            <h2>
+                Основа платформы
+            </h2>
+
+
+            <p>
+
+                Работа цифровой системы должна
+                строиться на понятных для граждан
+                принципах безопасности, прозрачности
+                и доступности.
+
+            </p>
 
 
         </div>
 
 
-    </div>
+
+        <div class="principle-list">
 
 
-</section>
+            <article class="principle">
 
 
-
-<!-- =========================================
-     DIRECTIONS
-========================================= -->
-
-<section class="directions">
-
-
-    <div class="directions-container">
-
-
-        <div class="section-label">
-
-            Возможности
-
-        </div>
-
-
-        <h2 class="section-title">
-
-            Что можно делать
-            на платформе
-
-        </h2>
-
-
-        <div class="direction-grid">
-
-
-            <div class="direction-card">
-
-
-                <div class="direction-number">
-
+                <div class="principle-number">
                     01
-
                 </div>
 
 
                 <h3>
-
-                    Выборы Президента
-
+                    Конфиденциальность
                 </h3>
 
 
                 <p>
 
-                    Получать доступ к электронному
-                    бюллетеню и принимать участие
-                    в выборах Президента Республики
-                    Казахстан.
+                    Информация, используемая
+                    для подтверждения личности,
+                    должна быть отделена от содержания
+                    выбора гражданина.
 
                 </p>
 
 
-            </div>
+            </article>
 
 
 
-            <div class="direction-card">
+            <article class="principle">
 
 
-                <div class="direction-number">
-
+                <div class="principle-number">
                     02
-
                 </div>
 
 
                 <h3>
-
-                    Выборы депутатов
-
-                </h3>
-
-
-                <p>
-
-                    В перспективе платформа может
-                    использоваться для голосования
-                    на выборах депутатов и других
-                    представителей граждан.
-
-                </p>
-
-
-            </div>
-
-
-
-            <div class="direction-card">
-
-
-                <div class="direction-number">
-
-                    03
-
-                </div>
-
-
-                <h3>
-
-                    Выборы акимов
-
-                </h3>
-
-
-                <p>
-
-                    Возможность участия в электронных
-                    выборах акимов городов и регионов
-                    при наличии соответствующего
-                    голосования.
-
-                </p>
-
-
-            </div>
-
-
-
-            <div class="direction-card">
-
-
-                <div class="direction-number">
-
-                    04
-
-                </div>
-
-
-                <h3>
-
-                    Курултай
-
-                </h3>
-
-
-                <p>
-
-                    Ознакомление с выборами
-                    представителей и участие
-                    в соответствующих электронных
-                    голосованиях.
-
-                </p>
-
-
-            </div>
-
-
-
-            <div class="direction-card">
-
-
-                <div class="direction-number">
-
-                    05
-
-                </div>
-
-
-                <h3>
-
-                    Петиции
-
-                </h3>
-
-
-                <p>
-
-                    Создание, просмотр и подписание
-                    общественных петиций в рамках
-                    развития гражданских инициатив.
-
-                </p>
-
-
-            </div>
-
-
-
-            <div class="direction-card">
-
-
-                <div class="direction-number">
-
-                    06
-
-                </div>
-
-
-                <h3>
-
-                    Результаты
-
-                </h3>
-
-
-                <p>
-
-                    Просмотр результатов завершённых
-                    голосований и информации
-                    о проведённых выборах.
-
-                </p>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     PRINCIPLES
-========================================= -->
-
-<section class="principles">
-
-
-    <div class="principles-container">
-
-
-        <div class="section-label">
-
-            Принципы
-
-        </div>
-
-
-        <h2 class="section-title">
-
-            На чём основана
-            платформа
-
-        </h2>
-
-
-        <div class="principles-grid">
-
-
-            <div class="principle">
-
-
-                <div class="principle-icon">
-
-                    01
-
-                </div>
-
-
-                <h3>
-
-                    Подтверждённая личность
-
-                </h3>
-
-
-                <p>
-
-                    Перед участием в голосовании
-                    пользователь проходит процедуру
-                    подтверждения личности и права
-                    голоса.
-
-                </p>
-
-
-            </div>
-
-
-
-            <div class="principle">
-
-
-                <div class="principle-icon">
-
-                    02
-
-                </div>
-
-
-                <h3>
-
-                    Один гражданин — один голос
-
+                    Один человек — один голос
                 </h3>
 
 
                 <p>
 
                     Система должна обеспечивать
-                    невозможность повторного
-                    использования права голоса
-                    в рамках одного голосования.
+                    однократное использование права
+                    голоса в рамках конкретного
+                    выборного события.
 
                 </p>
 
 
-            </div>
+            </article>
 
 
 
-            <div class="principle">
+            <article class="principle">
 
 
-                <div class="principle-icon">
-
+                <div class="principle-number">
                     03
-
                 </div>
 
 
                 <h3>
-
-                    Конфиденциальность
-
+                    Прозрачность
                 </h3>
 
 
                 <p>
 
-                    Информация, необходимая
-                    для подтверждения личности,
-                    должна быть отделена
-                    от содержания выбора.
+                    Пользователь должен понимать,
+                    как проходит процесс участия,
+                    какие действия он выполняет
+                    и где доступны результаты.
 
                 </p>
 
 
-            </div>
-
-
-
-            <div class="principle">
-
-
-                <div class="principle-icon">
-
-                    04
-
-                </div>
-
-
-                <h3>
-
-                    Доступность
-
-                </h3>
-
-
-                <p>
-
-                    Платформа создаётся таким
-                    образом, чтобы гражданин мог
-                    получить доступ к необходимым
-                    функциям из личного кабинета.
-
-                </p>
-
-
-            </div>
+            </article>
 
 
         </div>
 
 
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =========================================
-     PROCESS
-========================================= -->
+    <!-- =====================================
+         PROCESS
+    ====================================== -->
 
-<section class="process">
-
-
-    <div class="process-container">
+    <section class="process">
 
 
         <div class="section-label">
 
-            Участие
+            Как это работает
 
         </div>
 
 
-        <h2 class="section-title">
+        <h2>
 
-            Как гражданин
-            взаимодействует с VOTE
+            От регистрации
+            до голосования
 
         </h2>
 
 
-        <div class="process-grid">
+        <p class="process-description">
+
+            Участие в электронном голосовании
+            состоит из нескольких последовательных
+            этапов.
+
+        </p>
 
 
-            <div class="process-card">
+
+        <div class="process-steps">
 
 
-                <div class="process-number">
+            <article class="process-step">
 
-                    01
 
+                <div class="process-step-number">
+                    1
                 </div>
 
 
                 <h3>
-
                     Регистрация
-
                 </h3>
 
 
                 <p>
 
-                    Создание учётной записи
-                    и личного кабинета.
+                    Создание личной учётной
+                    записи на платформе.
 
                 </p>
 
 
-            </div>
+            </article>
 
 
 
-            <div class="process-card">
+            <article class="process-step">
 
 
-                <div class="process-number">
-
-                    02
-
+                <div class="process-step-number">
+                    2
                 </div>
 
 
                 <h3>
-
-                    Идентификация
-
+                    Проверка личности
                 </h3>
 
 
@@ -2195,193 +1935,106 @@
                 </p>
 
 
-            </div>
+            </article>
 
 
 
-            <div class="process-card">
+            <article class="process-step">
 
 
-                <div class="process-number">
-
-                    03
-
+                <div class="process-step-number">
+                    3
                 </div>
 
 
                 <h3>
-
-                    Голосование
-
+                    Электронный бюллетень
                 </h3>
 
 
                 <p>
 
-                    Доступ к электронному
-                    бюллетеню и выбор.
+                    Получение доступа
+                    к соответствующему голосованию.
 
                 </p>
 
 
-            </div>
+            </article>
 
 
 
-            <div class="process-card">
+            <article class="process-step">
 
 
-                <div class="process-number">
-
-                    04
-
+                <div class="process-step-number">
+                    4
                 </div>
 
 
                 <h3>
-
-                    Результаты
-
+                    Результат
                 </h3>
 
 
                 <p>
 
                     После завершения выборов
-                    доступны опубликованные
-                    результаты.
+                    публикуются результаты.
 
                 </p>
 
 
-            </div>
+            </article>
 
 
         </div>
 
 
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =========================================
-     PETITIONS
-========================================= -->
+    <!-- =====================================
+         CTA
+    ====================================== -->
 
-<section class="petitions">
-
-
-    <div class="petitions-container">
+    <section class="about-cta">
 
 
-        <div class="section-label">
-
-            Гражданские инициативы
-
-        </div>
-
-
-        <h2 class="section-title">
-
-            Петиции
-
-        </h2>
-
-
-        <div class="petition-box">
-
-
-            <div class="petition-content">
-
-
-                <h3>
-
-                    Участие граждан не заканчивается
-                    голосованием
-
-                </h3>
-
-
-                <p>
-
-                    Одно из направлений развития
-                    платформы — создание и подписание
-                    электронных петиций. Это позволит
-                    гражданам объединяться вокруг
-                    общественно значимых вопросов
-                    и поддерживать инициативы.
-
-                </p>
-
-
-            </div>
-
-
-            <button
-                class="petition-button"
-                onclick="openPetitions()">
-
-                Перейти к петициям
-
-            </button>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     CTA
-========================================= -->
-
-<section class="cta">
-
-
-    <div class="cta-container">
-
-
-        <div class="cta-box">
+        <div>
 
 
             <h2>
-
-                Ваш голос имеет значение
-
+                Участие начинается с вас
             </h2>
 
 
             <p>
 
-                Зарегистрируйтесь на платформе,
-                подтвердите личность и получите
-                доступ к доступным электронным
-                голосованиям.
+                Создайте аккаунт и получите доступ
+                к возможностям цифровой платформы
+                гражданского участия.
 
             </p>
-
-
-            <a
-                href="index.html"
-                class="cta-button">
-
-                Перейти к платформе
-
-            </a>
 
 
         </div>
 
 
-    </div>
+        <button
+            class="cta-button"
+            onclick="goToCabinet()">
 
-</section>
+            Перейти в личный кабинет
+
+        </button>
+
+
+    </section>
+
+
+</main>
 
 
 
@@ -2392,14 +2045,22 @@
 <footer>
 
 
-    <div class="footer-container">
+    <div class="footer-inner">
 
 
         <div class="footer-logo">
 
+
+            <div class="footer-logo-mark">
+                V
+            </div>
+
+
             VOTE
 
+
         </div>
+
 
 
         <div class="footer-links">
@@ -2415,7 +2076,7 @@
             </a>
 
 
-            <a href="how-it-works.html">
+            <a href="how.html">
                 Как это работает
             </a>
 
@@ -2438,6 +2099,14 @@
         </div>
 
 
+
+        <div class="footer-copy">
+
+            Qauipsiz sailau · Қазақстан
+
+        </div>
+
+
     </div>
 
 </footer>
@@ -2448,26 +2117,29 @@
 
 
 /* =========================================
-   LOGIN
+   CABINET
 ========================================= */
 
-function goToLogin() {
+function goToCabinet() {
+
+    const user =
+        localStorage.getItem(
+            "vote_current_user"
+        );
+
+
+    if (user) {
+
+        window.location.href =
+            "cabinet.html";
+
+        return;
+
+    }
+
 
     window.location.href =
         "index.html";
-
-}
-
-
-
-/* =========================================
-   PETITIONS
-========================================= */
-
-function openPetitions() {
-
-    window.location.href =
-        "petitions.html";
 
 }
 
