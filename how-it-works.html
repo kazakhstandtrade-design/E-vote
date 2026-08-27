@@ -1,0 +1,3522 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Как это работает</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #17181c;
+            --gray: #70747d;
+            --light: #f6f6f4;
+            --border: #e7e7e4;
+
+            --red: #c92d38;
+            --red-dark: #ad222d;
+
+            --white: #ffffff;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            color: var(--black);
+
+            background: var(--white);
+
+            min-height: 100vh;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            height: 72px;
+
+            background:
+                rgba(255,255,255,.96);
+
+            border-bottom:
+                1px solid var(--border);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 50;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .header-container {
+
+            max-width: 1180px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--black);
+
+            text-decoration: none;
+
+            font-size: 19px;
+
+            font-weight: 800;
+
+            letter-spacing: -.4px;
+
+        }
+
+
+        .logo-mark {
+
+            width: 33px;
+
+            height: 33px;
+
+            border-radius: 9px;
+
+            background: var(--red);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+        }
+
+
+        .nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+        }
+
+
+        .nav a {
+
+            color: var(--gray);
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            transition: .2s;
+
+        }
+
+
+        .nav a:hover {
+
+            color: var(--black);
+
+        }
+
+
+        .login-nav {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            color:
+                var(--black);
+
+            padding:
+                9px 17px;
+
+            border-radius:
+                8px;
+
+            font-size:
+                12px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .login-nav:hover {
+
+            border-color:
+                var(--black);
+
+        }
+
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .page-hero {
+
+            max-width: 1180px;
+
+            margin: auto;
+
+            padding:
+                75px 24px 65px;
+
+        }
+
+
+        .page-label {
+
+            color:
+                var(--red);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.5px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .page-hero h1 {
+
+            max-width:
+                850px;
+
+            margin-top:
+                13px;
+
+            font-size:
+                clamp(38px, 6vw, 64px);
+
+            line-height:
+                1.02;
+
+            letter-spacing:
+                -3px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .page-hero-description {
+
+            max-width:
+                720px;
+
+            margin-top:
+                20px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                14px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro-section {
+
+            background:
+                var(--light);
+
+            border-top:
+                1px solid var(--border);
+
+            border-bottom:
+                1px solid var(--border);
+
+            padding:
+                55px 24px;
+
+        }
+
+
+        .intro-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .intro-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 2fr;
+
+            gap:
+                50px;
+
+        }
+
+
+        .intro-title {
+
+            font-size:
+                25px;
+
+            line-height:
+                1.2;
+
+            letter-spacing:
+                -.8px;
+
+        }
+
+
+        .intro-text {
+
+            color:
+                var(--gray);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .intro-text p + p {
+
+            margin-top:
+                15px;
+
+        }
+
+
+
+        /* =========================================
+           PROCESS
+        ========================================= */
+
+        .process {
+
+            padding:
+                80px 24px;
+
+        }
+
+
+        .process-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--red);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.4px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .section-title {
+
+            margin-top:
+                9px;
+
+            font-size:
+                32px;
+
+            line-height:
+                1.15;
+
+            letter-spacing:
+                -1.2px;
+
+        }
+
+
+        .process-list {
+
+            margin-top:
+                38px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        /* =========================================
+           STEP
+        ========================================= */
+
+        .process-step {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                85px 1fr;
+
+            gap:
+                25px;
+
+            padding:
+                30px 0;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .process-step:last-child {
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .step-number {
+
+            color:
+                var(--red);
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .step-content h3 {
+
+            font-size:
+                21px;
+
+            letter-spacing:
+                -.5px;
+
+        }
+
+
+        .step-content p {
+
+            max-width:
+                760px;
+
+            margin-top:
+                10px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .step-note {
+
+            margin-top:
+                17px;
+
+            max-width:
+                760px;
+
+            padding:
+                14px 16px;
+
+            background:
+                var(--light);
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                9px;
+
+            color:
+                #555a62;
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .step-note strong {
+
+            color:
+                var(--black);
+
+        }
+
+
+
+        /* =========================================
+           ARCHITECTURE
+        ========================================= */
+
+        .architecture {
+
+            background:
+                var(--black);
+
+            color:
+                white;
+
+            padding:
+                80px 24px;
+
+        }
+
+
+        .architecture-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .architecture .section-label {
+
+            color:
+                #e05a64;
+
+        }
+
+
+        .architecture .section-title {
+
+            color:
+                white;
+
+        }
+
+
+        .architecture-description {
+
+            max-width:
+                720px;
+
+            margin-top:
+                12px;
+
+            color:
+                rgba(255,255,255,.65);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .architecture-flow {
+
+            margin-top:
+                40px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap:
+                10px;
+
+        }
+
+
+        .architecture-card {
+
+            min-height:
+                190px;
+
+            padding:
+                22px;
+
+            border:
+                1px solid rgba(255,255,255,.12);
+
+            border-radius:
+                13px;
+
+            background:
+                rgba(255,255,255,.045);
+
+        }
+
+
+        .architecture-number {
+
+            color:
+                #e05a64;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .architecture-card h3 {
+
+            margin-top:
+                20px;
+
+            font-size:
+                15px;
+
+        }
+
+
+        .architecture-card p {
+
+            margin-top:
+                8px;
+
+            color:
+                rgba(255,255,255,.58);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+
+        /* =========================================
+           PRIVACY
+        ========================================= */
+
+        .privacy {
+
+            padding:
+                80px 24px;
+
+        }
+
+
+        .privacy-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .privacy-grid {
+
+            margin-top:
+                32px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+        }
+
+
+        .privacy-card {
+
+            padding:
+                25px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+        }
+
+
+        .privacy-icon {
+
+            width:
+                35px;
+
+            height:
+                35px;
+
+            border-radius:
+                9px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #fff1f2;
+
+            color:
+                var(--red);
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .privacy-card h3 {
+
+            margin-top:
+                20px;
+
+            font-size:
+                16px;
+
+        }
+
+
+        .privacy-card p {
+
+            margin-top:
+                8px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.75;
+
+        }
+
+
+
+        /* =========================================
+           BULLETIN
+        ========================================= */
+
+        .bulletin {
+
+            background:
+                var(--light);
+
+            padding:
+                80px 24px;
+
+        }
+
+
+        .bulletin-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .bulletin-content {
+
+            margin-top:
+                32px;
+
+            max-width:
+                800px;
+
+        }
+
+
+        .bulletin-row {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                20px;
+
+            padding:
+                20px 0;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .bulletin-row:last-child {
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .bulletin-number {
+
+            min-width:
+                32px;
+
+            height:
+                32px;
+
+            border-radius:
+                50%;
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--red);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .bulletin-row h3 {
+
+            font-size:
+                15px;
+
+        }
+
+
+        .bulletin-row p {
+
+            margin-top:
+                6px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+
+        /* =========================================
+           RESULTS
+        ========================================= */
+
+        .results {
+
+            padding:
+                80px 24px;
+
+        }
+
+
+        .results-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .results-box {
+
+            margin-top:
+                30px;
+
+            padding:
+                30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                15px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                40px;
+
+        }
+
+
+        .results-box h3 {
+
+            font-size:
+                20px;
+
+        }
+
+
+        .results-box p {
+
+            margin-top:
+                9px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .result-points {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                12px;
+
+        }
+
+
+        .result-point {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            color:
+                #555a62;
+
+            font-size:
+                11px;
+
+        }
+
+
+        .result-point::before {
+
+            content:
+                "✓";
+
+            width:
+                21px;
+
+            height:
+                21px;
+
+            flex-shrink:
+                0;
+
+            border-radius:
+                50%;
+
+            background:
+                #f0f8f3;
+
+            color:
+                #16834b;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+        }
+
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta {
+
+            background:
+                var(--red);
+
+            color:
+                white;
+
+            padding:
+                65px 24px;
+
+        }
+
+
+        .cta-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                30px;
+
+        }
+
+
+        .cta h2 {
+
+            font-size:
+                27px;
+
+            letter-spacing:
+                -.8px;
+
+        }
+
+
+        .cta p {
+
+            max-width:
+                600px;
+
+            margin-top:
+                8px;
+
+            color:
+                rgba(255,255,255,.78);
+
+            font-size:
+                12px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .cta-button {
+
+            flex-shrink:
+                0;
+
+            padding:
+                13px 21px;
+
+            border:
+                none;
+
+            border-radius:
+                8px;
+
+            background:
+                white;
+
+            color:
+                var(--red);
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            text-decoration:
+                none;
+
+        }
+
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            border-top:
+                1px solid var(--border);
+
+            padding:
+                35px 24px;
+
+        }
+
+
+        .footer-container {
+
+            max-width:
+                1180px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            justify-content:
+                space-between;
+
+            gap:
+                30px;
+
+        }
+
+
+        .footer-logo {
+
+            font-size:
+                14px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .footer-description {
+
+            margin-top:
+                7px;
+
+            max-width:
+                350px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        .footer-links {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, auto);
+
+            gap:
+                8px 35px;
+
+        }
+
+
+        .footer-links a {
+
+            color:
+                var(--gray);
+
+            text-decoration:
+                none;
+
+            font-size:
+                10px;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color:
+                var(--black);
+
+        }
+
+
+        .footer-bottom {
+
+            max-width:
+                1180px;
+
+            margin:
+                25px auto 0;
+
+            padding-top:
+                18px;
+
+            border-top:
+                1px solid var(--border);
+
+            color:
+                #a0a3a8;
+
+            font-size:
+                9px;
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+
+            .nav a {
+
+                display:
+                    none;
+
+            }
+
+
+            .page-hero {
+
+                padding:
+                    55px 20px 50px;
+
+            }
+
+
+            .page-hero h1 {
+
+                letter-spacing:
+                    -2px;
+
+            }
+
+
+            .intro-section,
+            .process,
+            .privacy,
+            .bulletin,
+            .results {
+
+                padding:
+                    60px 20px;
+
+            }
+
+
+            .intro-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    20px;
+
+            }
+
+
+            .process-step {
+
+                grid-template-columns:
+                    45px 1fr;
+
+                gap:
+                    10px;
+
+            }
+
+
+            .architecture {
+
+                padding:
+                    60px 20px;
+
+            }
+
+
+            .architecture-flow {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .architecture-card {
+
+                min-height:
+                    auto;
+
+            }
+
+
+            .privacy-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .results-box {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .cta {
+
+                padding:
+                    55px 20px;
+
+            }
+
+
+            .cta-container {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+            }
+
+
+            .cta-button {
+
+                width:
+                    100%;
+
+                text-align:
+                    center;
+
+            }
+
+
+            .footer-container {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .footer-links {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-container">
+
+
+        <a
+            href="index.html"
+            class="logo">
+
+            <div class="logo-mark">
+                V
+            </div>
+
+            VOTE
+
+        </a>
+
+
+        <nav class="nav">
+
+
+            <a href="index.html">
+                Главная
+            </a>
+
+
+            <a href="about.html">
+                О платформе
+            </a>
+
+
+            <a href="security.html">
+                Безопасность
+            </a>
+
+
+            <a href="help.html">
+                Помощь
+            </a>
+
+
+            <button
+                class="login-nav"
+                onclick="openLogin()">
+
+                Войти
+
+            </button>
+
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="page-hero">
+
+
+    <div class="page-label">
+
+        Как это работает
+
+    </div>
+
+
+    <h1>
+
+        От регистрации
+        до отправки бюллетеня.
+
+    </h1>
+
+
+    <p class="page-hero-description">
+
+        Электронное голосование VOTE построено
+        вокруг последовательного процесса:
+        подтверждение личности, получение права
+        голоса, анонимное формирование бюллетеня,
+        его защищённая передача и последующий
+        подсчёт голосов.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =========================================
+     INTRO
+========================================= -->
+
+<section class="intro-section">
+
+
+    <div class="intro-container">
+
+
+        <div class="intro-grid">
+
+
+            <div>
+
+                <h2 class="intro-title">
+
+                    Главный принцип
+                    системы
+
+                </h2>
+
+            </div>
+
+
+            <div class="intro-text">
+
+
+                <p>
+
+                    Система разделяет два разных
+                    процесса: подтверждение того,
+                    что человек имеет право голосовать,
+                    и сам выбор, который он сделал.
+
+                </p>
+
+
+                <p>
+
+                    Сначала система устанавливает
+                    личность и право гражданина
+                    участвовать в конкретном голосовании.
+                    После успешной проверки создаётся
+                    одноразовое право на голосование.
+
+                </p>
+
+
+                <p>
+
+                    Далее бюллетень формируется
+                    и передаётся таким образом, чтобы
+                    информация о личности избирателя
+                    не использовалась как часть
+                    содержимого его голоса.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PROCESS
+========================================= -->
+
+<section class="process">
+
+
+    <div class="process-container">
+
+
+        <div class="section-label">
+
+            Процесс
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Полный путь избирателя
+
+        </h2>
+
+
+
+        <div class="process-list">
+
+
+            <!-- STEP 01 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    01
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Регистрация
+
+                    </h3>
+
+
+                    <p>
+
+                        Пользователь создаёт учётную
+                        запись на платформе VOTE.
+                        Он указывает необходимые
+                        данные для создания аккаунта
+                        и устанавливает способ доступа
+                        к личному кабинету.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Важно:
+
+                        </strong>
+
+                        регистрация аккаунта сама
+                        по себе не даёт возможности
+                        проголосовать. Для участия
+                        необходимо пройти отдельную
+                        проверку личности.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 02 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    02
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Вход в личный кабинет
+
+                    </h3>
+
+
+                    <p>
+
+                        После регистрации гражданин
+                        входит в личный кабинет.
+                        Здесь отображаются доступные
+                        выборы, сроки голосования,
+                        уведомления и другие функции
+                        цифрового сервиса.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Личный кабинет:
+
+                        </strong>
+
+                        единая точка доступа к выборам,
+                        петициям, результатам голосований
+                        и информации о платформе.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 03 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    03
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Выбор события
+
+                    </h3>
+
+
+                    <p>
+
+                        Пользователь выбирает конкретное
+                        голосование. Это может быть выбор
+                        Президента Республики Казахстан,
+                        выборы депутатов, Курултая,
+                        акимов или другое официальное
+                        голосование, подключённое
+                        к платформе.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Один сервис — несколько
+                            видов голосования.
+
+                        </strong>
+
+                        После подтверждения личности
+                        гражданин получает доступ только
+                        к тем голосованиям, в которых
+                        он имеет право участвовать.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 04 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    04
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Подтверждение личности
+
+                    </h3>
+
+
+                    <p>
+
+                        Перед получением бюллетеня
+                        гражданин проходит проверку
+                        личности. В зависимости от
+                        архитектуры государственной
+                        инфраструктуры проверка может
+                        включать ИИН, биометрическую
+                        идентификацию и/или ЭЦП.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Задача проверки:
+
+                        </strong>
+
+                        подтвердить, что перед системой
+                        находится реальный гражданин,
+                        имеющий право участвовать
+                        в конкретном голосовании.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 05 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    05
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Проверка права голоса
+
+                    </h3>
+
+
+                    <p>
+
+                        После идентификации система
+                        проверяет право пользователя
+                        участвовать в выбранном
+                        голосовании и определяет,
+                        не было ли ранее использовано
+                        его право голоса.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Принцип:
+
+                        </strong>
+
+                        один подтверждённый гражданин
+                        получает одно право голоса
+                        в рамках конкретного голосования.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 06 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    06
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Создание одноразового токена
+
+                    </h3>
+
+
+                    <p>
+
+                        После успешной проверки
+                        система создаёт одноразовый
+                        токен доступа к бюллетеню.
+                        Токен подтверждает право
+                        пользователя перейти
+                        к голосованию, но не должен
+                        содержать открытые персональные
+                        данные гражданина.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Одноразовость:
+
+                        </strong>
+
+                        токен предназначен для
+                        конкретного процесса голосования
+                        и не должен использоваться
+                        повторно для создания нескольких
+                        голосов.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 07 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    07
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Разделение личности
+                        и бюллетеня
+
+                    </h3>
+
+
+                    <p>
+
+                        После завершения проверки
+                        система должна отделить
+                        подтверждение личности
+                        от дальнейшего содержимого
+                        голосования.
+
+                        Иными словами, система знает,
+                        что право голоса было выдано
+                        конкретному гражданину, но
+                        содержимое выбора не должно
+                        использовать эти данные
+                        для идентификации избирателя.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Это один из ключевых
+                            принципов конфиденциальности:
+
+                        </strong>
+
+                        проверка права голоса и выбор
+                        гражданина являются разными
+                        информационными потоками.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 08 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    08
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Подготовка бюллетеня
+
+                    </h3>
+
+
+                    <p>
+
+                        Пользователь получает электронный
+                        бюллетень соответствующего
+                        голосования.
+
+                        Он выбирает кандидата,
+                        вариант ответа или иной
+                        предусмотренный законом
+                        вариант голосования.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Перед отправкой:
+
+                        </strong>
+
+                        пользователь должен иметь
+                        возможность проверить свой
+                        выбор и только после этого
+                        подтвердить отправку.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 09 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    09
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Шифрование бюллетеня
+
+                    </h3>
+
+
+                    <p>
+
+                        Перед передачей бюллетень
+                        шифруется. Его содержимое
+                        преобразуется в защищённые
+                        данные, которые нельзя
+                        прочитать без соответствующего
+                        механизма расшифрования.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Принцип:
+
+                        </strong>
+
+                        сервер, принимающий электронные
+                        бюллетени, не должен иметь
+                        возможность самостоятельно
+                        прочитать их содержимое
+                        до наступления предусмотренной
+                        процедуры подсчёта.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 10 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    10
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Защита сетевых данных
+
+                    </h3>
+
+
+                    <p>
+
+                        При передаче данных используются
+                        защищённые каналы связи.
+                        Сетевые и технические данные,
+                        которые могут использоваться
+                        для связывания конкретного
+                        бюллетеня с избирателем,
+                        должны обрабатываться
+                        в соответствии с архитектурой
+                        анонимизации системы.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Цель:
+
+                        </strong>
+
+                        минимизировать возможность
+                        восстановления связи между
+                        человеком и содержанием
+                        его бюллетеня.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 11 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    11
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Передача бюллетеня
+                        на сервер голосования
+
+                    </h3>
+
+
+                    <p>
+
+                        Зашифрованный бюллетень
+                        поступает в систему хранения
+                        электронных голосов.
+
+                        Сервер принимает защищённый
+                        объект и фиксирует факт его
+                        получения, не раскрывая
+                        содержимое голоса.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Сервер хранения:
+
+                        </strong>
+
+                        в предполагаемой архитектуре
+                        он не обладает полным ключом,
+                        необходимым для расшифрования
+                        всех бюллетеней.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 12 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    12
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Распределённое хранение
+                        ключей
+
+                    </h3>
+
+
+                    <p>
+
+                        Ключ расшифрования может быть
+                        разделён между несколькими
+                        независимыми участниками
+                        инфраструктуры.
+
+                        Каждый участник хранит только
+                        свою часть ключевого материала.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Принцип «пазла»:
+
+                        </strong>
+
+                        отдельная часть ключа сама
+                        по себе не позволяет получить
+                        доступ к содержимому бюллетеней.
+                        Для процедуры расшифрования
+                        требуется установленное
+                        количество независимых частей.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 13 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    13
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Контроль нескольких сторон
+
+                    </h3>
+
+
+                    <p>
+
+                        В такой архитектуре процедура
+                        раскрытия и подсчёта голосов
+                        может требовать участия
+                        нескольких независимых
+                        государственных структур
+                        и Центральной избирательной
+                        комиссии.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Зачем это нужно:
+
+                        </strong>
+
+                        ни один отдельный сервер
+                        или участник системы не должен
+                        обладать достаточными полномочиями
+                        для самостоятельного раскрытия
+                        или изменения результатов.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 14 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    14
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Подсчёт голосов
+
+                    </h3>
+
+
+                    <p>
+
+                        После окончания голосования
+                        запускается регламентированная
+                        процедура обработки бюллетеней.
+
+                        Защищённые данные обрабатываются
+                        в соответствии с установленным
+                        протоколом подсчёта.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            До окончания голосования:
+
+                        </strong>
+
+                        система должна предотвращать
+                        возможность изменения уже
+                        принятого голоса или повторного
+                        использования одного права
+                        голоса.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- STEP 15 -->
+
+            <article class="process-step">
+
+
+                <div class="step-number">
+
+                    15
+
+                </div>
+
+
+                <div class="step-content">
+
+
+                    <h3>
+
+                        Публикация результатов
+
+                    </h3>
+
+
+                    <p>
+
+                        После завершения процедуры
+                        подсчёта итоговые результаты
+                        публикуются в открытом доступе.
+
+                        Граждане получают возможность
+                        самостоятельно ознакомиться
+                        с итогами голосования.
+
+                    </p>
+
+
+                    <div class="step-note">
+
+                        <strong>
+
+                            Прозрачность:
+
+                        </strong>
+
+                        открытая публикация результатов
+                        позволяет обществу контролировать
+                        итоговые данные без раскрытия
+                        того, за кого проголосовал
+                        конкретный гражданин.
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ARCHITECTURE
+========================================= -->
+
+<section class="architecture">
+
+
+    <div class="architecture-container">
+
+
+        <div class="section-label">
+
+            Архитектура
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Как разделяются
+            основные процессы
+
+        </h2>
+
+
+        <p class="architecture-description">
+
+            В основе концепции лежит разделение
+            идентификации гражданина, выдачи права
+            голоса, передачи бюллетеня, хранения
+            и последующего подсчёта.
+
+        </p>
+
+
+        <div class="architecture-flow">
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+
+                    01
+
+                </div>
+
+                <h3>
+
+                    Гражданин
+
+                </h3>
+
+                <p>
+
+                    Подтверждает свою личность
+                    и право участвовать
+                    в голосовании.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+
+                    02
+
+                </div>
+
+                <h3>
+
+                    Система идентификации
+
+                </h3>
+
+                <p>
+
+                    Проверяет данные и выдаёт
+                    одноразовое право
+                    на голосование.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+
+                    03
+
+                </div>
+
+                <h3>
+
+                    Бюллетень
+
+                </h3>
+
+                <p>
+
+                    Формируется отдельно
+                    от сведений, использованных
+                    для идентификации.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+
+                    04
+
+                </div>
+
+                <h3>
+
+                    Сервер голосов
+
+                </h3>
+
+                <p>
+
+                    Принимает защищённые
+                    бюллетени и хранит
+                    их до процедуры подсчёта.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="architecture-card">
+
+                <div class="architecture-number">
+
+                    05
+
+                </div>
+
+                <h3>
+
+                    ЦИК и участники
+                    процедуры
+
+                </h3>
+
+                <p>
+
+                    Обеспечивают регламентированную
+                    процедуру раскрытия,
+                    подсчёта и публикации.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PRIVACY
+========================================= -->
+
+<section class="privacy">
+
+
+    <div class="privacy-container">
+
+
+        <div class="section-label">
+
+            Конфиденциальность
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Что защищает система
+
+        </h2>
+
+
+        <div class="privacy-grid">
+
+
+            <article class="privacy-card">
+
+
+                <div class="privacy-icon">
+
+                    ID
+
+                </div>
+
+
+                <h3>
+
+                    Личность
+
+                </h3>
+
+
+                <p>
+
+                    Идентификационные данные
+                    используются для проверки
+                    права гражданина участвовать
+                    в голосовании, а не для
+                    отображения его выбора.
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="privacy-card">
+
+
+                <div class="privacy-icon">
+
+                    01
+
+                </div>
+
+
+                <h3>
+
+                    Одно право голоса
+
+                </h3>
+
+
+                <p>
+
+                    Механизм выдачи права голоса
+                    должен исключать возможность
+                    повторного участия одного
+                    гражданина в одном
+                    голосовании.
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="privacy-card">
+
+
+                <div class="privacy-icon">
+
+                    🔒
+
+                </div>
+
+
+                <h3>
+
+                    Содержимое бюллетеня
+
+                </h3>
+
+
+                <p>
+
+                    Электронный бюллетень перед
+                    передачей защищается
+                    криптографическими механизмами
+                    и не должен быть доступен
+                    обычному серверу хранения
+                    в открытом виде.
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="privacy-card">
+
+
+                <div class="privacy-icon">
+
+                    IP
+
+                </div>
+
+
+                <h3>
+
+                    Сетевые данные
+
+                </h3>
+
+
+                <p>
+
+                    Архитектура должна минимизировать
+                    возможность использования
+                    сетевых идентификаторов
+                    для восстановления связи
+                    между гражданином и голосом.
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="privacy-card">
+
+
+                <div class="privacy-icon">
+
+                    K
+
+                </div>
+
+
+                <h3>
+
+                    Распределённый ключ
+
+                </h3>
+
+
+                <p>
+
+                    Ключевой материал может быть
+                    разделён между несколькими
+                    независимыми сторонами,
+                    поэтому одной стороне
+                    недостаточно для раскрытия
+                    бюллетеней.
+
+                </p>
+
+
+            </article>
+
+
+
+            <article class="privacy-card">
+
+
+                <div class="privacy-icon">
+
+                    ✓
+
+                </div>
+
+
+                <h3>
+
+                    Открытые результаты
+
+                </h3>
+
+
+                <p>
+
+                    После завершения голосования
+                    итоговые результаты становятся
+                    доступны обществу для проверки
+                    и ознакомления.
+
+                </p>
+
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     BULLETIN
+========================================= -->
+
+<section class="bulletin">
+
+
+    <div class="bulletin-container">
+
+
+        <div class="section-label">
+
+            Бюллетень
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Что происходит
+            с вашим голосом
+
+        </h2>
+
+
+        <div class="bulletin-content">
+
+
+            <div class="bulletin-row">
+
+
+                <div class="bulletin-number">
+
+                    1
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+
+                        Вы делаете выбор
+
+                    </h3>
+
+
+                    <p>
+
+                        Выбираете кандидата или
+                        вариант ответа в электронном
+                        бюллетене.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="bulletin-row">
+
+
+                <div class="bulletin-number">
+
+                    2
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+
+                        Проверяете выбор
+
+                    </h3>
+
+
+                    <p>
+
+                        Перед отправкой система
+                        предоставляет возможность
+                        убедиться, что выбран
+                        правильный вариант.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="bulletin-row">
+
+
+                <div class="bulletin-number">
+
+                    3
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+
+                        Подтверждаете отправку
+
+                    </h3>
+
+
+                    <p>
+
+                        После подтверждения
+                        бюллетень передаётся
+                        в защищённую систему.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="bulletin-row">
+
+
+                <div class="bulletin-number">
+
+                    4
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+
+                        Бюллетень защищается
+
+                    </h3>
+
+
+                    <p>
+
+                        Данные бюллетеня проходят
+                        предусмотренную системой
+                        криптографическую защиту.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="bulletin-row">
+
+
+                <div class="bulletin-number">
+
+                    5
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+
+                        Голос принимается
+
+                    </h3>
+
+
+                    <p>
+
+                        Защищённый бюллетень
+                        поступает в систему
+                        электронного голосования.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="bulletin-row">
+
+
+                <div class="bulletin-number">
+
+                    6
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+
+                        Результат учитывается
+
+                    </h3>
+
+
+                    <p>
+
+                        После окончания голосования
+                        бюллетени проходят процедуру
+                        подсчёта, после чего публикуется
+                        итоговый результат.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     RESULTS
+========================================= -->
+
+<section class="results">
+
+
+    <div class="results-container">
+
+
+        <div class="section-label">
+
+            После выборов
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Результаты доступны
+            каждому
+
+        </h2>
+
+
+        <div class="results-box">
+
+
+            <div>
+
+
+                <h3>
+
+                    Открытый результат
+
+                </h3>
+
+
+                <p>
+
+                    После завершения голосования
+                    система публикует итоговые данные
+                    в открытом доступе.
+
+                    При этом публичный результат
+                    показывает итог голосования,
+                    а не выбор конкретного гражданина.
+
+                </p>
+
+
+            </div>
+
+
+            <div class="result-points">
+
+
+                <div class="result-point">
+
+                    Итоги голосования доступны
+                    для ознакомления
+
+                </div>
+
+
+                <div class="result-point">
+
+                    Результаты не должны раскрывать
+                    выбор конкретного избирателя
+
+                </div>
+
+
+                <div class="result-point">
+
+                    Факт участия отделён
+                    от содержания бюллетеня
+
+                </div>
+
+
+                <div class="result-point">
+
+                    Подсчёт проходит по установленной
+                    процедуре
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="cta">
+
+
+    <div class="cta-container">
+
+
+        <div>
+
+
+            <h2>
+
+                Ваш голос — ваше решение.
+
+            </h2>
+
+
+            <p>
+
+                Ознакомьтесь с принципами платформы,
+                пройдите регистрацию и следите
+                за доступными голосованиями
+                в личном кабинете.
+
+            </p>
+
+
+        </div>
+
+
+        <a
+            href="index.html"
+            class="cta-button">
+
+            Вернуться на главную
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+
+    <div class="footer-container">
+
+
+        <div>
+
+
+            <div class="footer-logo">
+
+                VOTE
+
+            </div>
+
+
+            <p class="footer-description">
+
+                Цифровая платформа для электронного
+                голосования граждан.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="footer-links">
+
+
+            <a href="about.html">
+
+                О платформе
+
+            </a>
+
+
+            <a href="security.html">
+
+                Безопасность
+
+            </a>
+
+
+            <a href="how-it-works.html">
+
+                Как это работает
+
+            </a>
+
+
+            <a href="results.html">
+
+                Результаты выборов
+
+            </a>
+
+
+            <a href="petitions.html">
+
+                Петиции
+
+            </a>
+
+
+            <a href="help.html">
+
+                Помощь
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        VOTE · Qauipsiz sailau · Казахстан
+
+    </div>
+
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+function openLogin() {
+
+    window.location.href =
+        "index.html#login";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
