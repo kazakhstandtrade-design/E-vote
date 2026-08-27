@@ -45,9 +45,7 @@
 
 
         html {
-
             scroll-behavior: smooth;
-
         }
 
 
@@ -1452,6 +1450,17 @@
         }
 
 
+        .modal-button:disabled {
+
+            opacity:
+                .9;
+
+            cursor:
+                default;
+
+        }
+
+
         .form-group {
 
             margin-top:
@@ -1881,7 +1890,6 @@
             + Создать петицию
 
         </button>
-
 
     </div>
 
@@ -2523,6 +2531,166 @@ let currentPetitionId =
 
 
 /* =========================================
+   AUTHENTICATION
+========================================= */
+
+/*
+ * Проверяем авторизацию пользователя.
+ *
+ * Если в твоём проекте используется конкретный
+ * ключ авторизации, его можно оставить здесь.
+ */
+function isAuthenticated() {
+
+    return (
+        localStorage.getItem("isAuthenticated") === "true" ||
+        !!localStorage.getItem("auth_token") ||
+        !!localStorage.getItem("vote_auth_token") ||
+        !!localStorage.getItem("user")
+    );
+
+}
+
+
+
+/* =========================================
+   PETITION IDENTITY VERIFICATION
+========================================= */
+
+/*
+ * ВАЖНО:
+ *
+ * Это отдельная проверка личности для петиций.
+ *
+ * Она НЕ использует identity_verified,
+ * связанный с голосованием.
+ */
+function isPetitionIdentityVerified() {
+
+    return (
+        localStorage.getItem(
+            "petition_identity_verified"
+        ) === "true"
+    );
+
+}
+
+
+
+/* =========================================
+   SAVE PENDING PETITION
+========================================= */
+
+/*
+ * Запоминаем, какую именно петицию пользователь
+ * хотел подписать перед переходом на verification.html.
+ */
+function savePendingPetition(id) {
+
+    sessionStorage.setItem(
+        "petition_pending_id",
+        id
+    );
+
+}
+
+
+
+/* =========================================
+   REDIRECT TO VERIFICATION
+========================================= */
+
+function redirectToPetitionVerification(id) {
+
+    /*
+     * Сохраняем ID петиции.
+     */
+    savePendingPetition(id);
+
+
+    /*
+     * Формируем адрес возврата.
+     *
+     * Например:
+     *
+     * petitions.html?petition=petition_1
+     */
+    const returnUrl =
+        window.location.pathname +
+        "?petition=" +
+        encodeURIComponent(id);
+
+
+    /*
+     * Переходим на проверку личности.
+     */
+    window.location.href =
+        "verification.html?return=" +
+        encodeURIComponent(returnUrl);
+
+}
+
+
+
+/* =========================================
+   OPEN PENDING PETITION
+========================================= */
+
+/*
+ * Вызывается после загрузки страницы.
+ *
+ * Если пользователь пришёл с verification.html,
+ * автоматически открываем нужную петицию.
+ */
+function openPendingPetition() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const petitionId =
+        params.get("petition") ||
+        sessionStorage.getItem(
+            "petition_pending_id"
+        );
+
+
+    if (!petitionId) {
+
+        return;
+
+    }
+
+
+    /*
+     * Удаляем временное значение.
+     */
+    sessionStorage.removeItem(
+        "petition_pending_id"
+    );
+
+
+    /*
+     * Открываем конкретную петицию.
+     */
+    setTimeout(
+        function() {
+
+            openDetails(
+                petitionId
+            );
+
+        },
+        50
+    );
+
+}
+
+
+
+/* =========================================
    GET PETITIONS
 ========================================= */
 
@@ -2644,6 +2812,20 @@ function saveSignedPetitions(ids) {
 
 function renderPetitions() {
 
+    /*
+     * Страница доступна только авторизованному
+     * пользователю.
+     */
+    if (!isAuthenticated()) {
+
+        window.location.href =
+            "index.html?login=required";
+
+        return;
+
+    }
+
+
     const list =
         document.getElementById(
             "petitionList"
@@ -2656,14 +2838,18 @@ function renderPetitions() {
         );
 
 
+    const searchInput =
+        document.getElementById(
+            "searchInput"
+        );
+
+
     const query =
-        document
-            .getElementById(
-                "searchInput"
-            )
-            .value
-            .trim()
-            .toLowerCase();
+        searchInput
+            ? searchInput.value
+                .trim()
+                .toLowerCase()
+            : "";
 
 
     const petitions =
@@ -2961,6 +3147,19 @@ function setFilter(
 
 function openDetails(id) {
 
+    /*
+     * Дополнительная защита.
+     */
+    if (!isAuthenticated()) {
+
+        window.location.href =
+            "index.html?login=required";
+
+        return;
+
+    }
+
+
     const petitions =
         getPetitions();
 
@@ -3031,24 +3230,86 @@ function openDetails(id) {
         );
 
 
+    /*
+     * =====================================
+     * ПЕТИЦИЯ УЖЕ ПОДПИСАНА
+     * =====================================
+     */
     if (signed) {
 
         action.textContent =
             "✓ Вы подписали петицию";
 
+
         action.style.background =
             "var(--green)";
 
-    } else {
+
+        /*
+         * Кнопка полностью отключена.
+         */
+        action.disabled =
+            true;
+
+
+        action.style.cursor =
+            "default";
+
+
+        return openDetailsModal();
+
+    }
+
+
+    /*
+     * =====================================
+     * ПЕТИЦИЯ ЕЩЁ НЕ ПОДПИСАНА
+     * =====================================
+     */
+    action.disabled =
+        false;
+
+
+    action.style.cursor =
+        "pointer";
+
+
+    /*
+     * Если личность уже подтверждена
+     * для петиций — показываем обычную кнопку.
+     */
+    if (isPetitionIdentityVerified()) {
 
         action.textContent =
             "Подписать петицию";
 
-        action.style.background =
-            "var(--blue)";
+    } else {
+
+        /*
+         * Если нет — пользователь будет отправлен
+         * на verification.html.
+         */
+        action.textContent =
+            "Подтвердить личность";
 
     }
 
+
+    action.style.background =
+        "var(--blue)";
+
+
+    openDetailsModal();
+
+}
+
+
+
+/* =========================================
+   OPEN DETAILS MODAL
+========================================= */
+
+function openDetailsModal() {
 
     document
         .getElementById(
@@ -3067,6 +3328,9 @@ function openDetails(id) {
 
 function signFromModal() {
 
+    /*
+     * Нет выбранной петиции.
+     */
     if (!currentPetitionId) {
 
         return;
@@ -3074,9 +3338,77 @@ function signFromModal() {
     }
 
 
+    /*
+     * =====================================
+     * 1. АВТОРИЗАЦИЯ
+     * =====================================
+     */
+
+    if (!isAuthenticated()) {
+
+        window.location.href =
+            "index.html?login=required";
+
+        return;
+
+    }
+
+
+    /*
+     * =====================================
+     * 2. ПРОВЕРКА ПОВТОРНОЙ ПОДПИСИ
+     * =====================================
+     */
+
     const signed =
         getSignedPetitions();
 
+
+    if (
+        signed.includes(
+            currentPetitionId
+        )
+    ) {
+
+        alert(
+            "Вы уже подписали эту петицию."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * =====================================
+     * 3. ПРОВЕРКА ЛИЧНОСТИ
+     * =====================================
+     *
+     * Используем отдельный флаг:
+     *
+     * petition_identity_verified
+     *
+     * НЕ используем:
+     *
+     * identity_verified
+     */
+
+    if (!isPetitionIdentityVerified()) {
+
+        redirectToPetitionVerification(
+            currentPetitionId
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * =====================================
+     * 4. ПОЛУЧАЕМ ПЕТИЦИЮ
+     * =====================================
+     */
 
     const petitions =
         getPetitions();
@@ -3102,37 +3434,49 @@ function signFromModal() {
     }
 
 
-    const index =
-        signed.indexOf(
-            currentPetitionId
+    /*
+     * =====================================
+     * 5. ЕЩЁ РАЗ ПРОВЕРЯЕМ УНИКАЛЬНОСТЬ
+     * =====================================
+     */
+
+    if (
+        signed.includes(
+            petition.id
+        )
+    ) {
+
+        alert(
+            "Вы уже подписали эту петицию."
         );
 
-
-    if (index !== -1) {
-
-        signed.splice(
-            index,
-            1
-        );
-
-
-        petition.signatures =
-            Math.max(
-                0,
-                petition.signatures - 1
-            );
-
-    } else {
-
-        signed.push(
-            currentPetitionId
-        );
-
-
-        petition.signatures += 1;
+        return;
 
     }
 
+
+    /*
+     * =====================================
+     * 6. ДОБАВЛЯЕМ ПОДПИСЬ
+     * =====================================
+     */
+
+    signed.push(
+        petition.id
+    );
+
+
+    petition.signatures =
+        Number(
+            petition.signatures || 0
+        ) + 1;
+
+
+    /*
+     * =====================================
+     * 7. СОХРАНЯЕМ
+     * =====================================
+     */
 
     saveSignedPetitions(
         signed
@@ -3144,10 +3488,22 @@ function signFromModal() {
     );
 
 
+    /*
+     * =====================================
+     * 8. ЗАКРЫВАЕМ MODAL
+     * =====================================
+     */
+
     closeModal(
         "detailsModal"
     );
 
+
+    /*
+     * =====================================
+     * 9. ОБНОВЛЯЕМ СПИСОК
+     * =====================================
+     */
 
     renderPetitions();
 
@@ -3172,6 +3528,20 @@ function openCreateModal() {
 
 
 function createPetition() {
+
+    /*
+     * Создавать петиции тоже может
+     * только авторизованный пользователь.
+     */
+    if (!isAuthenticated()) {
+
+        window.location.href =
+            "index.html?login=required";
+
+        return;
+
+    }
+
 
     const title =
         document
@@ -3585,7 +3955,30 @@ document.addEventListener(
    START
 ========================================= */
 
-renderPetitions();
+if (!isAuthenticated()) {
+
+    /*
+     * Неавторизованный пользователь
+     * не может просматривать петиции.
+     */
+    window.location.href =
+        "index.html?login=required";
+
+} else {
+
+    /*
+     * Обычная загрузка страницы.
+     */
+    renderPetitions();
+
+
+    /*
+     * Если пришли после verification.html,
+     * открываем конкретную петицию.
+     */
+    openPendingPetition();
+
+}
 
 
 </script>
