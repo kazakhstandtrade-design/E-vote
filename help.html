@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VOTE — Помощь</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        :root {
+
+            --black: #15171b;
+            --gray: #737982;
+            --light: #f7f8f7;
+            --border: #e6e8e6;
+
+            --blue: #4aa9df;
+            --blue-dark: #318fc5;
+
+            --gold: #d8b15a;
+
+            --green: #16834b;
+
+            --white: #ffffff;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: var(--white);
+
+            color: var(--black);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+        }
+
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            height: 72px;
+
+            background:
+                rgba(255,255,255,.97);
+
+            border-bottom:
+                1px solid var(--border);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 50;
+
+            backdrop-filter:
+                blur(12px);
+
+        }
+
+
+        .header-inner {
+
+            max-width: 980px;
+
+            height: 100%;
+
+            margin: auto;
+
+            padding: 0 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--black);
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            letter-spacing: -.4px;
+
+        }
+
+
+        .logo-icon {
+
+            width: 34px;
+
+            height: 34px;
+
+            border-radius: 9px;
+
+            background: var(--blue);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: 800;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .logo-icon::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: var(--gold);
+
+            right: 5px;
+
+            top: 5px;
+
+        }
+
+
+        .header-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .back-button {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            color:
+                var(--gray);
+
+            height:
+                34px;
+
+            padding:
+                0 14px;
+
+            border-radius:
+                8px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                600;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .back-button:hover {
+
+            color:
+                var(--black);
+
+            border-color:
+                #d3d6d4;
+
+        }
+
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+
+            max-width:
+                980px;
+
+            margin:
+                auto;
+
+            padding:
+                58px 24px 80px;
+
+        }
+
+
+        .page-label {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.3px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .page-label::before {
+
+            content:
+                "";
+
+            width:
+                24px;
+
+            height:
+                1px;
+
+            background:
+                var(--gold);
+
+        }
+
+
+        h1 {
+
+            margin-top:
+                12px;
+
+            font-size:
+                42px;
+
+            line-height:
+                1.08;
+
+            letter-spacing:
+                -1.8px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .intro {
+
+            max-width:
+                650px;
+
+            margin-top:
+                12px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.75;
+
+        }
+
+
+
+        /* =========================================
+           SEARCH
+        ========================================= */
+
+        .search-box {
+
+            margin-top:
+                30px;
+
+            position:
+                relative;
+
+        }
+
+
+        .search-icon {
+
+            position:
+                absolute;
+
+            left:
+                16px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
+
+            color:
+                #a2a7ac;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .search-input {
+
+            width:
+                100%;
+
+            height:
+                48px;
+
+            padding:
+                0 16px 0 42px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                10px;
+
+            outline:
+                none;
+
+            background:
+                white;
+
+            color:
+                var(--black);
+
+            font-size:
+                12px;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .search-input:focus {
+
+            border-color:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 3px rgba(74,169,223,.08);
+
+        }
+
+
+
+        /* =========================================
+           QUICK TOPICS
+        ========================================= */
+
+        .topics {
+
+            margin-top:
+                25px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                12px;
+
+        }
+
+
+        .topic {
+
+            border:
+                1px solid var(--border);
+
+            background:
+                white;
+
+            border-radius:
+                12px;
+
+            padding:
+                20px;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .topic:hover {
+
+            border-color:
+                #cbdfe9;
+
+            background:
+                #fbfdfe;
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .topic-number {
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .topic h3 {
+
+            margin-top:
+                11px;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .topic p {
+
+            margin-top:
+                6px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+
+        /* =========================================
+           FAQ
+        ========================================= */
+
+        .faq-section {
+
+            margin-top:
+                60px;
+
+        }
+
+
+        .section-label {
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.3px;
+
+            text-transform:
+                uppercase;
+
+        }
+
+
+        .section-title {
+
+            margin-top:
+                8px;
+
+            font-size:
+                28px;
+
+            letter-spacing:
+                -1px;
+
+        }
+
+
+        .faq-list {
+
+            margin-top:
+                25px;
+
+            border-top:
+                1px solid var(--border);
+
+        }
+
+
+        .faq-item {
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .faq-question {
+
+            width:
+                100%;
+
+            min-height:
+                62px;
+
+            padding:
+                18px 4px;
+
+            border:
+                0;
+
+            background:
+                transparent;
+
+            color:
+                var(--black);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            text-align:
+                left;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .faq-plus {
+
+            width:
+                25px;
+
+            height:
+                25px;
+
+            min-width:
+                25px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                7px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                var(--gray);
+
+            font-size:
+                17px;
+
+            font-weight:
+                400;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .faq-answer {
+
+            max-height:
+                0;
+
+            overflow:
+                hidden;
+
+            transition:
+                max-height .3s ease;
+
+        }
+
+
+        .faq-answer-inner {
+
+            padding:
+                0 45px 20px 4px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.8;
+
+        }
+
+
+        .faq-item.active
+        .faq-answer {
+
+            max-height:
+                300px;
+
+        }
+
+
+        .faq-item.active
+        .faq-plus {
+
+            background:
+                var(--blue);
+
+            border-color:
+                var(--blue);
+
+            color:
+                white;
+
+            transform:
+                rotate(45deg);
+
+        }
+
+
+
+        /* =========================================
+           VOTING GUIDE
+        ========================================= */
+
+        .guide {
+
+            margin-top:
+                65px;
+
+        }
+
+
+        .guide-grid {
+
+            margin-top:
+                25px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                12px;
+
+        }
+
+
+        .guide-card {
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                13px;
+
+            padding:
+                23px;
+
+            background:
+                var(--white);
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .guide-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            top:
+                0;
+
+            width:
+                3px;
+
+            height:
+                100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--blue),
+                    var(--gold)
+                );
+
+        }
+
+
+        .guide-number {
+
+            color:
+                var(--blue-dark);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .guide-card h3 {
+
+            margin-top:
+                17px;
+
+            font-size:
+                16px;
+
+        }
+
+
+        .guide-card p {
+
+            margin-top:
+                8px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+
+        /* =========================================
+           PROBLEMS
+        ========================================= */
+
+        .problems {
+
+            margin-top:
+                65px;
+
+            padding:
+                30px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                15px;
+
+            background:
+                var(--light);
+
+        }
+
+
+        .problems-header {
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+        }
+
+
+        .problems h2 {
+
+            font-size:
+                22px;
+
+            letter-spacing:
+                -.6px;
+
+        }
+
+
+        .problems-description {
+
+            margin-top:
+                7px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+            max-width:
+                570px;
+
+        }
+
+
+        .problem-list {
+
+            margin-top:
+                22px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                10px;
+
+        }
+
+
+        .problem {
+
+            padding:
+                15px;
+
+            background:
+                white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                9px;
+
+            color:
+                var(--gray);
+
+            font-size:
+                10px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+        .problem strong {
+
+            display:
+                block;
+
+            color:
+                var(--black);
+
+            font-size:
+                11px;
+
+            margin-bottom:
+                4px;
+
+        }
+
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact {
+
+            margin-top:
+                65px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .contact-icon {
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            margin:
+                auto;
+
+            border-radius:
+                12px;
+
+            background:
+                #eef7fc;
+
+            color:
+                var(--blue-dark);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                19px;
+
+        }
+
+
+        .contact h2 {
+
+            margin-top:
+                15px;
+
+            font-size:
+                23px;
+
+        }
+
+
+        .contact p {
+
+            max-width:
+                500px;
+
+            margin:
+                8px auto 0;
+
+            color:
+                var(--gray);
+
+            font-size:
+                11px;
+
+            line-height:
+                1.7;
+
+        }
+
+
+        .contact-button {
+
+            margin-top:
+                20px;
+
+            height:
+                42px;
+
+            padding:
+                0 21px;
+
+            border:
+                0;
+
+            border-radius:
+                8px;
+
+            background:
+                var(--black);
+
+            color:
+                white;
+
+            font-size:
+                10px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                .2s;
+
+        }
+
+
+        .contact-button:hover {
+
+            background:
+                #292c31;
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            border-top:
+                1px solid var(--border);
+
+            padding:
+                27px 24px;
+
+        }
+
+
+        .footer-inner {
+
+            max-width:
+                980px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                center;
+
+            gap:
+                20px;
+
+        }
+
+
+        .footer-logo {
+
+            font-size:
+                13px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .footer-text {
+
+            color:
+                var(--gray);
+
+            font-size:
+                9px;
+
+        }
+
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .header-inner {
+
+                padding:
+                    0 16px;
+
+            }
+
+
+            .header-actions {
+
+                gap:
+                    7px;
+
+            }
+
+
+            .back-button {
+
+                padding:
+                    0 10px;
+
+            }
+
+
+            main {
+
+                padding:
+                    40px 16px 60px;
+
+            }
+
+
+            h1 {
+
+                font-size:
+                    32px;
+
+                letter-spacing:
+                    -1.3px;
+
+            }
+
+
+            .intro {
+
+                font-size:
+                    12px;
+
+            }
+
+
+            .topics,
+            .guide-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .problem-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .problems {
+
+                padding:
+                    23px;
+
+            }
+
+
+            .section-title {
+
+                font-size:
+                    25px;
+
+            }
+
+
+            .footer-inner {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="header-inner">
+
+
+        <a
+            href="index.html"
+            class="logo">
+
+            <div class="logo-icon">
+                V
+            </div>
+
+            VOTE
+
+        </a>
+
+
+        <div class="header-actions">
+
+            <button
+                class="back-button"
+                onclick="goBack()">
+
+                ← Вернуться
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+
+    <div class="page-label">
+
+        Центр поддержки
+
+    </div>
+
+
+    <h1>
+
+        Помощь
+
+    </h1>
+
+
+    <p class="intro">
+
+        Здесь вы найдёте ответы на основные вопросы
+        о регистрации, подтверждении личности,
+        электронном голосовании и работе платформы VOTE.
+
+    </p>
+
+
+
+    <!-- =========================================
+         SEARCH
+    ========================================== -->
+
+    <div class="search-box">
+
+        <span class="search-icon">
+
+            ⌕
+
+        </span>
+
+
+        <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Поиск по вопросам..."
+            oninput="searchFAQ()">
+
+    </div>
+
+
+
+    <!-- =========================================
+         TOPICS
+    ========================================== -->
+
+    <div class="topics">
+
+
+        <div
+            class="topic"
+            onclick="scrollToSection('votingGuide')">
+
+            <div class="topic-number">
+                01
+            </div>
+
+            <h3>
+                Как проголосовать
+            </h3>
+
+            <p>
+                Пошаговая инструкция
+                от входа до бюллетеня.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic"
+            onclick="scrollToSection('faqSection')">
+
+            <div class="topic-number">
+                02
+            </div>
+
+            <h3>
+                Частые вопросы
+            </h3>
+
+            <p>
+                Ответы на популярные
+                вопросы пользователей.
+            </p>
+
+        </div>
+
+
+        <div
+            class="topic"
+            onclick="scrollToSection('problemsSection')">
+
+            <div class="topic-number">
+                03
+            </div>
+
+            <h3>
+                Проблемы с доступом
+            </h3>
+
+            <p>
+                Что делать, если не получается
+                войти или пройти проверку.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         FAQ
+    ========================================== -->
+
+    <section
+        class="faq-section"
+        id="faqSection">
+
+
+        <div class="section-label">
+
+            Частые вопросы
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Ответы на вопросы
+
+        </h2>
+
+
+        <div
+            class="faq-list"
+            id="faqList">
+
+
+            <div class="faq-item">
+
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    Как зарегистрироваться на платформе?
+
+                    <span class="faq-plus">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Нажмите кнопку «Войти» или
+                        «Зарегистрироваться» на главной
+                        странице. Укажите электронную почту
+                        и создайте пароль. После регистрации
+                        вы попадёте в личный кабинет.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    Зачем нужно подтверждать личность?
+
+                    <span class="faq-plus">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Проверка личности необходима для
+                        подтверждения права гражданина
+                        участвовать в конкретном голосовании.
+                        После успешной проверки электронный
+                        бюллетень становится доступен.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    Что делать после успешной проверки личности?
+
+                    <span class="faq-plus">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        После успешной проверки вернитесь
+                        в личный кабинет. Для соответствующего
+                        голосования станет доступна кнопка
+                        «Проголосовать». Нажмите её, чтобы
+                        перейти к электронному бюллетеню.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    Можно ли проголосовать повторно?
+
+                    <span class="faq-plus">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Право голоса предоставляется в рамках
+                        конкретного избирательного события.
+                        После завершения голосования повторное
+                        использование права голоса не допускается.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    Можно ли изменить свой голос?
+
+                    <span class="faq-plus">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Перед отправкой бюллетеня внимательно
+                        проверьте свой выбор. После окончательного
+                        подтверждения бюллетеня изменить голос
+                        в рамках данного голосования нельзя.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    Что делать, если не получается пройти проверку?
+
+                    <span class="faq-plus">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Проверьте правильность введённых данных
+                        и убедитесь, что используемый способ
+                        подтверждения личности доступен.
+                        Если проблема сохраняется, обратитесь
+                        в службу поддержки.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    Где посмотреть результаты выборов?
+
+                    <span class="faq-plus">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Результаты завершённых голосований
+                        публикуются в соответствующем разделе
+                        платформы. Перейти к нему можно через
+                        пункт «Результаты выборов».
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+
+                <button
+                    class="faq-question"
+                    onclick="toggleFAQ(this)">
+
+                    Что делать, если я забыл пароль?
+
+                    <span class="faq-plus">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Используйте функцию восстановления
+                        доступа на странице входа. Если функция
+                        восстановления ещё не подключена
+                        в текущей версии прототипа, обратитесь
+                        в службу поддержки.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         VOTING GUIDE
+    ========================================== -->
+
+    <section
+        class="guide"
+        id="votingGuide">
+
+
+        <div class="section-label">
+
+            Инструкция
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Как проголосовать
+
+        </h2>
+
+
+        <div class="guide-grid">
+
+
+            <div class="guide-card">
+
+                <div class="guide-number">
+                    ШАГ 01
+                </div>
+
+                <h3>
+                    Войдите в аккаунт
+                </h3>
+
+                <p>
+                    Используйте данные своей учётной
+                    записи для входа в личный кабинет.
+                </p>
+
+            </div>
+
+
+
+            <div class="guide-card">
+
+                <div class="guide-number">
+                    ШАГ 02
+                </div>
+
+                <h3>
+                    Подтвердите личность
+                </h3>
+
+                <p>
+                    Пройдите предусмотренную системой
+                    проверку личности и права голоса.
+                </p>
+
+            </div>
+
+
+
+            <div class="guide-card">
+
+                <div class="guide-number">
+                    ШАГ 03
+                </div>
+
+                <h3>
+                    Откройте бюллетень
+                </h3>
+
+                <p>
+                    После успешной проверки в личном
+                    кабинете активируется возможность
+                    перейти к голосованию.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PROBLEMS
+    ========================================== -->
+
+    <section
+        class="problems"
+        id="problemsSection">
+
+
+        <div class="problems-header">
+
+
+            <div>
+
+                <h2>
+                    Не получается воспользоваться платформой?
+                </h2>
+
+                <p class="problems-description">
+
+                    Перед обращением в поддержку проверьте
+                    основные возможные причины проблемы.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="problem-list">
+
+
+            <div class="problem">
+
+                <strong>
+                    Не приходит доступ к голосованию
+                </strong>
+
+                Убедитесь, что вы успешно прошли
+                подтверждение личности.
+
+            </div>
+
+
+
+            <div class="problem">
+
+                <strong>
+                    Не открывается бюллетень
+                </strong>
+
+                Вернитесь в личный кабинет и проверьте,
+                активировалась ли кнопка голосования.
+
+            </div>
+
+
+
+            <div class="problem">
+
+                <strong>
+                    Не удаётся войти
+                </strong>
+
+                Проверьте правильность email и пароля.
+                Убедитесь, что аккаунт зарегистрирован.
+
+            </div>
+
+
+
+            <div class="problem">
+
+                <strong>
+                    Ошибка проверки личности
+                </strong>
+
+                Проверьте введённые данные и повторите
+                процедуру проверки.
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         CONTACT
+    ========================================== -->
+
+    <section class="contact">
+
+
+        <div class="contact-icon">
+
+            ?
+
+        </div>
+
+
+        <h2>
+
+            Не нашли ответ?
+
+        </h2>
+
+
+        <p>
+
+            Если вы не нашли необходимую информацию,
+            обратитесь в службу поддержки VOTE.
+            Специалисты помогут разобраться с проблемой.
+
+        </p>
+
+
+        <button
+            class="contact-button"
+            onclick="contactSupport()">
+
+            Обратиться в поддержку
+
+        </button>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+
+        <div class="footer-logo">
+
+            VOTE
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Qauipsiz sailau · Қазақстан
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================================
+   BACK
+========================================= */
+
+function goBack() {
+
+    if (
+        document.referrer &&
+        document.referrer !== window.location.href
+    ) {
+
+        window.history.back();
+
+    } else {
+
+        window.location.href =
+            "index.html";
+
+    }
+
+}
+
+
+
+/* =========================================
+   FAQ
+========================================= */
+
+function toggleFAQ(button) {
+
+    const item =
+        button.closest(".faq-item");
+
+
+    const allItems =
+        document.querySelectorAll(".faq-item");
+
+
+    allItems.forEach(
+        function(otherItem) {
+
+            if (otherItem !== item) {
+
+                otherItem.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+
+    item.classList.toggle(
+        "active"
+    );
+
+}
+
+
+
+/* =========================================
+   SCROLL TO SECTION
+========================================= */
+
+function scrollToSection(id) {
+
+    const element =
+        document.getElementById(id);
+
+
+    if (!element) {
+
+        return;
+
+    }
+
+
+    element.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
+
+}
+
+
+
+/* =========================================
+   SEARCH FAQ
+========================================= */
+
+function searchFAQ() {
+
+    const query =
+        document
+            .getElementById("searchInput")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const items =
+        document.querySelectorAll(
+            ".faq-item"
+        );
+
+
+    items.forEach(
+        function(item) {
+
+            const text =
+                item.textContent.toLowerCase();
+
+
+            if (
+                !query ||
+                text.includes(query)
+            ) {
+
+                item.style.display =
+                    "block";
+
+            } else {
+
+                item.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   SUPPORT
+========================================= */
+
+function contactSupport() {
+
+    window.location.href =
+        "mailto:support@vote.kz?subject=Помощь VOTE";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
